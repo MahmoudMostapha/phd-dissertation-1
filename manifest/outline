@@ -1,0 +1,74 @@
+* Introduction
+** Motivation and background
+*** Recent work
+** Goals and scope
+** Overview
+* Lagrangian perspective
+** Preliminary definitions
+** Balance laws for an open mixture
+*** Balance of mass
+**** Source/sink balance and the law of mass action
+*** Balance of linear momentum
+*** Balance of angular momentum
+*** Balance of energy
+** The kinematics of growth
+**** Saturation and tissue swelling
+** Entropy inequality and restrictions on constitutive relationships
+*** The Clausius-Duhem form
+*** Constitutive framework
+**** An anisotropic network model based on entropic elasticity
+**** A nearly incompressible ideal fluid
+***** Response of the fluid in tension; cavitation
+**** Constitutive relationships for fluid flux
+***** Frame invariance and the contribution from acceleration
+***** Examples for edification
+***** Saturation and Fickean diffusion
+**** Solute transport
+**** Nature of the sources
+** Algorithmic considerations
+*** Incompressible fluid in a porous solid
+*** Stabilisation of the simplified solute transport equation
+**** Determination of the stabilisation parameter
+*** Upper and lower bound assumptions and their implications
+* Representative numerical simulations I 
+** Examples exploring the biphasic nature of porous soft tissue
+*** Using the appropriate configuration
+**** Unbounded pinching problem
+*** Fluxes from different driving forces
+*** The tendon under constriction
+**** Upper bound model
+**** Lower bound model
+*** A swelling problem
+** A multiphasic problem based on enzyme-kinetics
+** Wound healing
+* Eulerian perspective
+** Balance laws for an open mixture
+*** Balance of mass
+**** The role of mass balance in the current configuration
+** Algorithmic considerations
+* Representative numerical simulations II
+** Material modelling
+*** Elastica-based strain energy
+*** Non-linear viscoelasticity
+*** Friction coefficient variation with concentration
+** Simple physical tests
+*** Balloon
+*** Flow under tension
+*** Constriction
+** Examples exploring the biphasic nature of porous soft tissue
+*** Stress relaxation
+**** With viscoelasticity
+**** With poroelasticity
+***** Quasistatic
+***** Dynamic
+*** Hysteresis
+**** With viscoelastity
+**** With poroelasticity
+***** Quasistatic
+***** Dynamic
+*** Tumour growth
+* Conclusions and future work
+* Appendices
+** Divergence theorem for higher order tensors
+** Transport theorem
+** Parameter estimation
