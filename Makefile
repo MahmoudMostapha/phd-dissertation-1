@@ -15,6 +15,7 @@ clean:
 	(cd auxiliary; make clean)
 	(cd chapters; make clean)
 	(cd images; make clean)
+	(cd manifest; make clean)
 
 compose:
 	@echo	"TeXing-up the document:"
