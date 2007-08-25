@@ -1,0 +1,62 @@
+1.	Continuum potato 1 (Mass balance)
+2.	Continuum potato 2 (Momentum balance)
+3.	Pore structure deforming with boundary
+4.	Kinematics of growth
+5.	Saturated vs. unsaturated tissues
+6.	Worm-like 8 chain model
+7.	Saturation and Fickean diffusion
+8.	Tissue image
+9.	Computational Mesh 
+10	Enzyme kinetics source
+11	Constriction problem set-up
+12	Solute conc. initial
+13	Collagen conc. final
+14	Upper bound flux
+15	Lower bound flux
+16	Reference fluid concentration initial
+17	Reference fluid concentration final
+18	Relaxation of the top face
+19	Stabilised flow
+20	Unstabilised flow
+21	Initial concentration of collagen
+22	Final concentration of collagen
+23	Stress-strain curves before and after growth
+24	Evolution of volume during swelling
+25	Wound healing before
+26	Wound healing after - disp
+27	Unbounded flow on pinching
+28	Continuum potato 3 (Energy balance)
+29	Explaining why current conf. is more natural for bc.
+30	Expt. Increasing collagen conc. with age
+31	Expt. Stiffer and stronger collagen upon aging
+32	Expt. Damaged ligament
+33	Expt. Chemical environment affecting growth
+34	Expt. Mechanical environment affecting growth
+35	Wound healing after - stress
+36	Expt. Structure of collagen/tendon
+37	Expt. Visco
+38	Upper bound model
+39	Lower bound model
+40	Balloon - 1
+41	Balloon - 2
+42	Balloon - 3
+43	Constriction - 1
+44	Constriction - 2
+45	Constriction - 3
+46	Flow fields on tensile load - 1
+47	Flow fields on tensile load - 2
+48	Flow fields on tensile load - 3
+49	Hysteresis response poro. - 1
+50	Hysteresis response poro. - 2
+51	Hysteresis response visco. - 1
+52	Hysteresis response visco. - 2
+53	Dynamics and statics comparison
+54	Stress relaxation poro.
+55	Stress relaxation visco.
+56	Cancer problem - 1
+57	Cancer problem - 2
+58	Cancer problem - 3
+59	Cancer problem - 4
+60	Cancer problem - 5
+61	Cancer problem - 6
+62	Variation of stress-strain response with A/L and other WLCM parameters
