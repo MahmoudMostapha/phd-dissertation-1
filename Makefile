@@ -33,7 +33,6 @@ polish:
 preview:
 	make compose
 	xdvi $(FILE).dvi&
-	disown
 
 pristine:
 	make clean

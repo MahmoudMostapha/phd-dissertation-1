@@ -1,24 +1,45 @@
-\section{Background}\label{sect1}
+\chapter{Introduction}
+\label{introduction}
 
-Development of biological tissue, when described in the
-biomechanics literature, is generally broken down into the
-distinct processes of \emph{growth}, \emph{remodelling} and
-\emph{morphogenesis}. Growth, or conversely, resorption, involves
-the addition or loss of mass. Remodelling results from a change in
-microstructure, which could manifest itself as an evolution of
-macroscopic quantities such as state of internal stress, stiffness
-or material symmetry. It also appears sometimes as fibrosis or
-hypertrophy. Morphogenesis involves both growth and remodelling,
-as well as more complex changes in form. A classical example of
-morphogenesis is the development of an embryo from a fertilized
-egg. These terms are based on the definitions developed by
-\cite{Taber:95}, and will be followed in this work. In the present
-communication we will focus exclusively on growth, its continuum
-formulation, and the implications that the process holds for the
-standard machinery of continuum mechanics. Remodelling is treated
-in an accompanying paper \citep{remodelpaper}. The larger and more
-complex problem of morphogenesis will not be treated in this body
-of work.
+This dissertation presents a continuum treatment of growth in
+biological tissue developed within the context of modern mixture
+theory. The crux of this work is a careful examination of the
+assumptions underlying continuum thermodynamics under the condition
+that multiple interacting species occupy a region of Euclidean space
+simultaneously. The formal axiomatic treatment presented derives from
+these assumptions, and provides insight into the sequence of
+interaction between tissue mechanics, mass transport and biochemical
+reactions. A computational formulation built upon the theory is used
+to solve a broad class of numerical examples demonstrating several
+biophysical aspects of tissue growth.
+
+This initial chapter serves primarily to motivate the research and
+provide some context for this work (Section~\ref{background}). It also
+briefly articulates the goals of this present investigation and
+defines its scope (Section~\ref{goals}), before concluding with an
+overview of the topics considered in the remainder of the dissertation
+(Section~\ref{overview}).
+
+\section{Background and motivation}
+\label{background}
+
+Development of biological tissue, when described in the biomechanics
+literature, is generally broken down into the distinct processes of
+\emph{growth}, \emph{remodelling} and \emph{morphogenesis}. Growth, or
+conversely, resorption, involves the addition or loss of
+mass. Remodelling results from a change in microstructure, which could
+manifest itself as an evolution of macroscopic quantities such as
+state of internal stress, stiffness or material symmetry. It also
+appears sometimes as fibrosis or hypertrophy. Morphogenesis involves
+both growth and remodelling, as well as more complex changes in
+form. A classical example of morphogenesis is the development of an
+embryo from a fertilised egg. These terms are based on the definitions
+developed by \cite{Taber:95}, and will be followed in this work. This
+dissertation focuses exclusively on growth, its continuum formulation,
+and the implications that the process holds for the standard machinery
+of continuum mechanics. Remodelling is treated elsewhere
+\citep{remodelpaper}. And the larger, more complex problem of
+morphogenesis is beyond the scope of this body of work.
 
 The ideas here are applicable to soft (e.g., tendon, muscle) and
 hard (e.g., bone) tissue. In this paper, growth of biological
@@ -121,7 +142,7 @@ the interstitial fluid diffuses relative to the solid phase, while
 precursors and byproducts of reactants diffuse with respect to the
 fluid.}. This strategy has been adopted in the present work.
 
-\subsection{Recent work}
+%\subsection{Recent work}
 
 In a simplification that avoided the complexity of mixture theory
 or porous media, \cite{CowinHegedus:76} accounted for the fluid
@@ -160,20 +181,8 @@ mechanical quantities. Strain- or stress-mediated mass transport
 would then be absent in the boundary value problems solved with
 such a formulation.
 
-The present paper is aimed at a complete treatment of mass
-transport, coupled with mechanics, for the growth problem. Initial
-sections (Sections \ref{sect2}--\ref{sect3bis}) treat the balance
-of mass, balance of linear and angular momenta, the forms of the
-First and Second Laws for this problem, and kinematics of growth,
-respectively. The Clausius-Duhem inequality and its implications
-for constitutive relations are the subject of Section \ref{sect5}.
-Examples are provided as appropriate to illustrate the important
-results. A preliminary numerical example appears in Section
-\ref{sect6}. A discussion and conclusion are provided in Section
-\ref{sect7}.
-
-\section{Introduction}
-\label{sec:1}
+\section{Goals and scope}
+\label{goals}
 
 \emph{Growth} involves the addition or depletion of mass in biological
 tissue. Growth occurs in combination with
@@ -298,6 +307,21 @@ considered, but postpone details until relevant sections in the paper.
   for this problem and computations of coupled boundary value problems with
   these bounds.
 \end{itemize}
+
+\section{Overview}
+\label{overview}
+
+The present paper is aimed at a complete treatment of mass
+transport, coupled with mechanics, for the growth problem. Initial
+sections (Sections \ref{sect2}--\ref{sect3bis}) treat the balance
+of mass, balance of linear and angular momenta, the forms of the
+First and Second Laws for this problem, and kinematics of growth,
+respectively. The Clausius-Duhem inequality and its implications
+for constitutive relations are the subject of Section \ref{sect5}.
+Examples are provided as appropriate to illustrate the important
+results. A preliminary numerical example appears in Section
+\ref{sect6}. A discussion and conclusion are provided in Section
+\ref{sect7}.
 
 These issues are treated in detail in relevant sections of the paper,
 which is laid out as follows: Balance equations and kinematics are
