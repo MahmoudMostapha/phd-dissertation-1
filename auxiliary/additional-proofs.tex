@@ -24,14 +24,28 @@
 %% fact that both $f$ and $g$ are differentiable, hence the limit can be
 %% distributed across the sum to give the desired equality.
 
-\section{Gauss' Divergence Theorem}
+\section{Gauss Divergence Theorem}
 \label{gauss-divergence}
 
-\section{Reynolds' Transport Theorem}
+For a tensor valued function $\Bpsi$ which is continuously
+differentiable in $\Omega$ and continuous on the closure of $\Omega$,
+we have the following result:
+
+\begin{eqnarray}
+\label{eqn:euler} \int_{\Omega}  \frac{\partial \Bpsi}{\partial \bx}
+\ dv &=& \int_{\partial \Omega} \Bpsi \otimes \bn\ da.
+\end{eqnarray}
+
+This is the analog of the divergence theorem for higher order
+objects.
+
+\todo{Verify and prove this}
+
+\section{Reynolds Transport Theorem}
 \label{reynolds-transport}
 
 \paragraph{Introduction}
-{\em Reynolds transport theorem} \cite{Reynolds:1903} is a fundamental
+{\em Reynolds transport theorem} \citep{Reynolds:1903} is a fundamental
 theorem used in formulating the basic laws of fluid mechanics. For our
 purpose, let us consider a fluid flow, characterized by its
 streamlines, in the Euclidean vector space
