@@ -1,3 +1,5 @@
+-*- mode: org; mode:flyspell -*-
+
 * Introduction
 ** Motivation and background
 *** Recent work
@@ -72,3 +74,4 @@
 ** Divergence theorem for higher order tensors
 ** Transport theorem
 ** Parameter estimation
+Can contain Kuhl-remodelling style variation of A/L plots
