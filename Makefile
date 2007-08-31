@@ -1,26 +1,30 @@
 # A simple Makefile for managing my doctoral dissertation.
-# (c) Harish Narayanan, 2005--2007
+# (c) Harish Narayanan, 2007
 
-# Fundamental variables
+# Fundamental variables:
 
+# Change these to your heart's content.
 LATEX   = latex
 BIBTEX  = bibtex
 DVIPS   = dvips
 PS2PDF  = ps2pdf    #Use pstopdf instead on Mac OS X
-DISTILL = distiller #Requires Acrobat Distiller 
 
+SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
+	auxiliary/*.tex chapters/*.tex images/*.eps
+OTHER   = manifest/*
+
+# Subtle changes to the command-line flags below can have significant
+# impact on the quality of generated documents.
 LFLAGS  = 					#latex flags
 BFLAGS  = 					#bibtex flags
 DFLAGS  = -t letter -Ppdf -G0 -o thesis.ps	#dvips flags
 PFLAGS  = #-p #-dPDFSETTINGS=/prepress		#ps2pdf flags
-DIFLAGS = 					#distiller flags
 
-SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
-	auxiliary/*.tex chapters/*.tex images/*.eps
+# Human-readable targets:
 
-OTHER   = manifest/*
-
-# Human-readable targets
+# I find it easiest to use the following names while running make. For
+# e.g., running 'make thesis' (or just 'make') cleans the source
+# distribution of cruft and generates a pristine PDF.
 
 all:	  thesis
 
@@ -33,7 +37,9 @@ preview:  thesis.dvi
 
 thesis:   pristine polish clean
 
-# Actual drudgery
+# Actual drudgery:
+
+# Shoo, here be dragons.
 
 clean:
 	@echo	"Cleaning cruft:"
@@ -60,3 +66,7 @@ thesis.ps: thesis.dvi
 thesis.pdf: thesis.ps
 	@echo   "Creating the PDF file:"
 	$(PS2PDF)  $(PFLAGS) thesis.ps
+
+distill: thesis.ps
+	@echo	"Creating the PDF file using Acrobat Distiller:"
+	osascript distiller.applescript thesis.ps
