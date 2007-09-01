@@ -10,7 +10,9 @@ DVIPS   = dvips
 PS2PDF  = ps2pdf    #Use pstopdf instead on Mac OS X
 
 SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
-	auxiliary/*.tex chapters/*.tex images/*.eps
+	  auxiliary/*.tex chapters/*.tex \
+          images/*/*.eps images/*/*/*.eps images/*/*/*/*.eps
+
 OTHER   = manifest/*
 
 # Subtle changes to the command-line flags below can have significant
@@ -35,7 +37,8 @@ polish:   thesis.pdf
 preview:  thesis.dvi
 	  xdvi thesis.dvi&
 
-thesis:   pristine polish clean
+thesis:   pristine polish
+	  make clean
 
 # Actual drudgery:
 

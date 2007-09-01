@@ -1,0 +1,8 @@
+clean:
+	rm -f *~
+	(cd constriction; make clean)
+	(cd healing; make clean)
+	(cd medication; make clean)
+	(cd pinching; make clean)
+	(cd preliminary; make clean)
+	(cd swelling; make clean)
