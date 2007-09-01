@@ -3,7 +3,8 @@
 
 The first set of numerical simulations reside here.
 
-\section{A numerical example} \label{sect6}
+\section{The coupled solution scheme}
+\label{solution-scheme-1}
 
 The theory developed in Sections \ref{sect2}--\ref{sect5} has been
 implemented in a computational formulation, retaining much of the
@@ -33,131 +34,8 @@ a vehicle for testing scenarios and framing hypotheses that can be
 experimentally-validated in our laboratory, thereby driving the
 experimental studies.
 
-\subsection{Material models and parameters}\label{sect6.1}
-
-The engineered tendon construct is $12$ mm in length and
-$1\;\mathrm{mm}^2$ in area. In this paper an internal energy
-density for the solid phase based upon the worm-like chain model
-is used. The reader is directed to \citet{Riefetal:97} and
-\cite{Bustamanteetal:2003} where the one-dimensional version of
-this model has been applied to long chain molecules. It has been
-described and implemented into an anisotropic representative
-volume element by \citet{Bischoffetal:2002}, and is summarized
-here. The internal energy density of a single constituent chain of
-an eight-chain model (Figure \ref{eightchain}) is,
-\begin{eqnarray}
-\bar{\rho}_0^\mathrm{s}\hat{e}^\mathrm{s}(\bF^{\mathrm{e}^\mathrm{s}},\rho_0^\mathrm{s},\eta^\mathrm{s})
-&=& \frac{N k \theta}{4 A}\left(\frac{r^2}{2L} +
-\frac{L}{4(1-r/L)} -
-\frac{r}{4}\right)\nonumber\\
-&-&\frac{N k \theta}{4\sqrt{2L/A}}\left(\sqrt{\frac{2A}{L}} +
-\frac{1}{4(1 - \sqrt{2A/L})} -\frac{1}{4} \right)\log(\lambda_1^{a^2}\lambda_2^{b^2}\lambda_3^{c^2})\nonumber\\
-&+& \frac{\gamma}{\beta}({J^{\mathrm{e}^\mathrm{s}}}^{-2\beta} -1)
-+ 2\gamma{\bf 1}\colon\bE^{\mathrm{e}^\mathrm{s}} \label{wlcmeq}
-\end{eqnarray}
-\noindent Here, $N$ is the density of chains, $k$ is the Boltzmann
-constant, $r$ is the end-to-end length of a chain, $L$ is the
-fully-extended length, and $A$ is the persistence length that
-measures the degree to which the chain departs from a straight
-line. The preferred orientation of tendon collagen is described by
-an anisotropic unit cell with sides $a,b$ and $c$---see Figure
-\ref{eightchain}. All lengths in this model have been rendered
-non-dimensional (Table \ref{mattab}) by dividing by the link
-length in a chain.
-\begin{figure}[ht]
-\psfrag{A}{$a$} \psfrag{B}{$b$} \psfrag{C}{$c$} \centering
-{\includegraphics[width=3.5cm]{images/wlcm-cuboid.eps}} \caption{Worm-like
-chains grouped into an initially anisotropic eight-chain model.}
-\label{eightchain}.
-\end{figure}
-
-The elastic stretches along the unit cell axes are respectively
-denoted $\lambda^\mathrm{e}_1,\lambda^\mathrm{e}_2$ and
-$\lambda^\mathrm{e}_3$, and $\bE^{\mathrm{e}^\mathrm{s}} =
-\frac{1}{2}(\bC^{\mathrm{e}^\mathrm{s}} - {\bf 1})$ is the elastic
-Lagrange strain. The factors $\gamma$ and $\beta$ control bulk
-compressibility. The end-to-end length is given by
-
-\begin{equation}
-r =
-\frac{1}{2}\sqrt{a^2\lambda_1^{\mathrm{e}^2}+b^2\lambda_2^{\mathrm{e}^2}+c^2\lambda_3^{\mathrm{e}^2}},\quad
-\lambda_I^{\mathrm{e}} = \sqrt{\bN_I\cdot\bC^{\mathrm{e}}\bN_I}
-\label{rwlcm}
-\end{equation}
-
-Preliminary mechanical tests of the engineered tendon have been
-carried out in our laboratory but, at this stage, the worm-like
-chain model has not been calibrated to these tests. Instead,
-published data for the worm-like chain, obtained by calibrating
-against rat cardiac tissue  \citep{Bischoffetal:2002}, has been
-employed.
-
-The fluid phase was modelled as an ideal, nearly-incompressible
-fluid:
-\begin{equation}
-\bar{\rho}^\mathrm{f}_0\hat{e}^\mathrm{f}(\bF^{\mathrm{e}^\mathrm{f}},\rho_0^\mathrm{f},\eta^\mathrm{f})
-=
-\frac{1}{2}\kappa(\mathrm{det}(\bF^{\mathrm{e}^\mathrm{f}})-1)^2,
-\end{equation}
-
-\noindent where $\kappa$ is the fluid bulk modulus.
-
-Only a solid and a fluid phase were included for the tissue. Low
-values were chosen for the mobilities of the fluid
-\citep{Swartzetal:99} with respect to the solid phase (see Table
-\ref{mattab}). In order to demonstrate growth, the solid phase
-must have a source term, $\Pi^\mathrm{s}$ (Section \ref{sect2}),
-and the only other phase, the fluid, must have $\Pi^\mathrm{f} =
--\Pi^\mathrm{s}$. Therefore, contrary to the case made in Section
-\ref{sect2}, a non-zero value of the fluid source,
-$\Pi^\mathrm{f}$, was assumed. A form motivated by first-order
-reactions was used:
-\begin{equation}
-\Pi^\mathrm{f} = -k^\mathrm{f}(\rho_0^\mathrm{f} -
-\rho_{0_\mathrm{ini}}^\mathrm{f}),\quad \Pi^\mathrm{s} =
--\Pi^\mathrm{f}, \label{piform}
-\end{equation}
-
-\noindent where $k^\mathrm{f}$ is the reaction rate, and
-$\rho_{0_\mathrm{ini}}^\mathrm{f}$ is the initial fluid
-concentration. This term acts as a source for the solid when
-$\rho_0^\mathrm{f}
-> \rho_{0_\mathrm{ini}}^\mathrm{f}$, and a sink when
-$\rho_0^\mathrm{f} < \rho_{0_\mathrm{ini}}^\mathrm{f}$.
-
-In a very simple approximation, the fluid's mixing entropy was
-written as
-\begin{equation}
-\eta^\mathrm{f}_\mathrm{mix} =
--\frac{k}{\sM^\mathrm{f}}\log\frac{\rho_0^\mathrm{f}}{\rho_0}.
-\label{mixentropy}
-\end{equation}
-
-\noindent Recall that in the notation of Section \ref{sect2},
-$\sM^\mathrm{f}$ is the fluid's molecular weight.
-
-\begin{table}[ht]
-\caption{Material parameters used in the analysis} \label{mattab}
-\begin{tabular}{lcll}
-\hline
-\multicolumn{1}{c}{Parameter} & Symbol & Value & Units\\
-\hline
-Chain density & $N$ & $7\times 10^{21}$ & $\mathrm{m}^{-3}$\\
-Temperature& $\theta$  & $310.0$ & K\\
-Persistence length & $A$ & $1.3775$ & --\\
-Fully-stretched length & $L$ & $25.277$ & --\\
-Unit cell axes & $a,\;b,\;,c$ & $9.2981,\;12.398,\;6.1968$ & --\\
-Bulk compressibility factors & $\gamma,\;\beta$ & $1000,\; 4.5$ & --\\
-Fluid bulk modulus &$\kappa$ & $1$ & GPa\\
-Fluid mobility tensor components& $D_{11},\;D_{22},\;D_{33}$ & $1\times 10^{-8},\;1\times 10^{-8},\;1\times 10^{-8}$ &$\mathrm{m}^{-2}\mathrm{sec}$\\
-Fluid conversion reaction rate & $k^\mathrm{f}$ & $-1.\times 10^{-7}$ & $\mathrm{sec}^{-1}$\\
-Gravitational acceleration & $\bg$ & $9.81$ & $\mathrm{m}.\mathrm{sec}^{-2}$\\
-Molecular weight of fluid &$\sM^\mathrm{f}$& $2.9885\times 10^{-23}$ & $\mathrm{kg}$\\
-\hline
-\end{tabular}
-\end{table}
-
-\subsection{Boundary and initial conditions; coupled solution method}\label{sect6.2}
+%\subsection{Boundary and initial conditions; coupled solution method}
+%\label{}
 
 Boundary conditions for mass transport consisted of the specified
 fluid concentration at all external surfaces of the cylinder. This
@@ -193,7 +71,128 @@ imposed by the fluid. The numerical formulation has been
 implemented within the nonlinear finite element program, FEAP
 \citep{feapmanual}.
 
-\subsection{Evolution of stress and flux}\label{sect6.3}
+\hrule 
+
+\begin{figure}
+\centering
+  \includegraphics[width=10.00cm]{images/one-construct.eps}
+\caption{Engineered tendon constructs. See \citet{Calve:04} for
+  details.} 
+\label{engconst}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \psfrag{D}{\small$1.1284$ mm}
+  \psfrag{H}{\small$12.0$ mm}
+  {\includegraphics[width=5cm]{images/mesh.eps}}
+  \caption{The finite element mesh used in the computations.}
+  \label{egmesh}
+\end{figure}
+
+The theory presented in the preceding sections results in a system of
+non-linear, coupled partial differential equations. A finite element
+formulation employing a staggered scheme based upon operator splits
+\cite{Armero-poroplasticity:99,Garikipatiox2:01} has been implemented
+in {\tt FEAP} \citep{feapmanual} to solve the coupled problem. As an
+example, in the biphasic problem involving solid and fluid
+phases only, the basic solution scheme involves keeping the displacement
+field fixed while solving for the concentration fields using the mass
+transport equations. The resulting concentration fields are then fixed
+to solve the mechanics problem. This procedure is repeated until the
+resulting fields satisfy the differential equations within a specified
+numerical tolerance.
+
+The following examples aim to demonstrate the mathematical formulation
+and aspects of the coupled phenomena as the tissue grows. The model
+geometry, based on our engineered tendon constructs (see
+Figure~\ref{engconst} and \citet{Calve:04}), is a cylinder 12 mm in length and 1 mm$^2$ in
+cross-sectional area. The corresponding finite element mesh using
+hexahedral elements, is shown in Figure~\ref{egmesh}.
+
+The following numerical examples involve solution of a common set of
+partial differential equations. The constutive models, however, vary as we
+demonstrate the behaviour engendered by the many modelling
+assumptions discussed in the paper. The balance of linear momentum
+that we solve is (\ref{linearmombalance}) summed for $\iota =
+\mathrm{c,f}$, with the constraint in (\ref{qrelation}) imposed. The
+absence of significant acceleration in the problems under 
+consideration allows us to solve the balance of linear momentum   
+quasi-statically. The fluid mass balance equation is solved in the current
+configuration, i.e. (\ref{massbalcurr}) for $\iota = \mathrm{f}$, but 
+mass balance for the solid collagenous phase is solved in the
+reference configuration, i.e. (\ref{massbalance1}) for $\iota =
+\mathrm{c}$.  Mass balance for the solute is also solved in the
+current configuration, but using the stabilized scheme in weak
+form (\ref{stabilizedmassbal}). The Backward 
+Euler algorithm is used for all mass transport equations. The
+constitutive relation for the solid collagen follows
+(\ref{wlcmeq}). The constitutive relation for the fluid stress follows
+(\ref{Pf}) with 
+\begin{equation}
+h(\rho^\mathrm{f}) =
+\frac{1}{2}\kappa^\mathrm{f}\left(\frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}}
+- 1\right)^2,
+\end{equation}
+
+\noindent where $\kappa^\mathrm{f}$ is the fluid bulk modulus. The
+tissue is modelled as being fluid saturated in $\Omega_t$ at $t = 0$,
+i.e. (\ref{saturation}$_1$) holds with
+$\rho^\mathrm{f}_{0_\mathrm{sat}} =
+\rho^\mathrm{f}_{0_\mathrm{ini}}$. However, the tissue is allowed to 
+become unsaturated in $\Omega_t$ for $t > 0$ due to void formation. Then,
+the conditions set out in (\ref{cavitation})
+apply. The chemical potential is then given by
+(\ref{fickeanmobility}). The numerical examples that follow discuss further
+specialization of the constitutive relations to other cases discussed
+in the preceding sections. The numerical values of parameters\footnote{The
+  mobility tensor reported in Table~\ref{parameters} is an
+  order-of-magnitude estimate 
+  recalculated from \citet{Hanetal:2000} to correspond to the 
+  mobility used in this paper. These authors reported a mean value of
+  $0.927\times 10^{-14}$ s, with a range of $1.14\times
+  10^{-14}--0.58\times 10^{-14}$ s in terms of the mobility used
+  here. Theirs is the mobility parallel to the fiber direction in
+  Rabbit Achilles tendon. Our usage of it is as an isotropic
+  mobility. Using anisotropic mobilities, or different values from the
+  reported range changes the result
+  quantitatively, but not qualitatively.}  that
+have been used appear in Table \ref{parameters}.
+
+
+Non-linear projection methods \citep{simotaylorpister:85} are used to treat the
+near-incompressibility imposed by the fluid. Mixed methods, as described
+in \cite{Garikipatiox2:01}, are used for stress (and strain) gradient
+driven fluxes.
+
+The initial and boundary
+conditions have been chosen in order to model a few common mechanical and
+chemical interventions on engineered tissue. However, we will not
+attempt detailed descriptions of experiments, choosing to focus
+instead on results that can be directly related to the models. A more
+detailed comparison with experiments is forthcoming in a separate
+communication.
+
+\section{Examples exploring the biphasic nature of porous soft tissue}
+\label{biphasic-examples-1}
+
+In these calculations, only two phases---fluid and collagen---are
+included for the mass transport and mechanics. The parameters used in the analysis
+are presented in Table~\ref{parameters}. 
+
+%The mixing entropy of fluid in the mixture with collagen is
+%written as $\eta_{\mathrm{mix}}^{f} = -\frac{k}{\sM^\mathrm{f}}
+%\mathrm{log} (\frac{\rho^\mathrm{f}} {\rho})$, where
+%$\sM^\mathrm{f}$ is the molecular weight of the fluid.
+
+\subsection{Using the appropriate configuration}
+\label{biphasic-examples-1}
+
+%\subsubsection{Unbounded pinching problem}
+%\label{unbounded-pinching}
+
+\subsection{Fluxes from different driving forces}
+\label{flux-driving-forces}
 
 The following contour plots represent the stress, and various
 contributions to the total flux in the early stages of loading of
@@ -351,257 +350,8 @@ fluid concentrations have fallen below their initial values.}
 \label{Pifig}
 \end{figure}
 
-\section{Numerical examples}
-\label{numericalimplementation}
-
-\begin{figure}
-\centering
-  \includegraphics[width=10.00cm]{images/one-construct.eps}
-\caption{Engineered tendon constructs. See \citet{Calve:04} for
-  details.} 
-\label{engconst}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \psfrag{D}{\small$1.1284$ mm}
-  \psfrag{H}{\small$12.0$ mm}
-  {\includegraphics[width=5cm]{images/mesh.eps}}
-  \caption{The finite element mesh used in the computations.}
-  \label{egmesh}
-\end{figure}
-
-The theory presented in the preceding sections results in a system of
-non-linear, coupled partial differential equations. A finite element
-formulation employing a staggered scheme based upon operator splits
-\cite{Armero-poroplasticity:99,Garikipatiox2:01} has been implemented
-in {\tt FEAP} \citep{feapmanual} to solve the coupled problem. As an
-example, in the biphasic problem involving solid and fluid
-phases only, the basic solution scheme involves keeping the displacement
-field fixed while solving for the concentration fields using the mass
-transport equations. The resulting concentration fields are then fixed
-to solve the mechanics problem. This procedure is repeated until the
-resulting fields satisfy the differential equations within a specified
-numerical tolerance.
-
-The following examples aim to demonstrate the mathematical formulation
-and aspects of the coupled phenomena as the tissue grows. The model
-geometry, based on our engineered tendon constructs (see
-Figure~\ref{engconst} and \citet{Calve:04}), is a cylinder 12 mm in length and 1 mm$^2$ in
-cross-sectional area. The corresponding finite element mesh using
-hexahedral elements, is shown in Figure~\ref{egmesh}.
-
-The following numerical examples involve solution of a common set of
-partial differential equations. The constutive models, however, vary as we
-demonstrate the behaviour engendered by the many modelling
-assumptions discussed in the paper. The balance of linear momentum
-that we solve is (\ref{linearmombalance}) summed for $\iota =
-\mathrm{c,f}$, with the constraint in (\ref{qrelation}) imposed. The
-absence of significant acceleration in the problems under 
-consideration allows us to solve the balance of linear momentum   
-quasi-statically. The fluid mass balance equation is solved in the current
-configuration, i.e. (\ref{massbalcurr}) for $\iota = \mathrm{f}$, but 
-mass balance for the solid collagenous phase is solved in the
-reference configuration, i.e. (\ref{massbalance1}) for $\iota =
-\mathrm{c}$.  Mass balance for the solute is also solved in the
-current configuration, but using the stabilized scheme in weak
-form (\ref{stabilizedmassbal}). The Backward 
-Euler algorithm is used for all mass transport equations. The
-constitutive relation for the solid collagen follows
-(\ref{wlcmeq}). The constitutive relation for the fluid stress follows
-(\ref{Pf}) with 
-\begin{equation}
-h(\rho^\mathrm{f}) =
-\frac{1}{2}\kappa^\mathrm{f}\left(\frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}}
-- 1\right)^2,
-\end{equation}
-
-\noindent where $\kappa^\mathrm{f}$ is the fluid bulk modulus. The
-tissue is modelled as being fluid saturated in $\Omega_t$ at $t = 0$,
-i.e. (\ref{saturation}$_1$) holds with
-$\rho^\mathrm{f}_{0_\mathrm{sat}} =
-\rho^\mathrm{f}_{0_\mathrm{ini}}$. However, the tissue is allowed to 
-become unsaturated in $\Omega_t$ for $t > 0$ due to void formation. Then,
-the conditions set out in (\ref{cavitation})
-apply. The chemical potential is then given by
-(\ref{fickeanmobility}). The numerical examples that follow discuss further
-specialization of the constitutive relations to other cases discussed
-in the preceding sections. The numerical values of parameters\footnote{The
-  mobility tensor reported in Table~\ref{parameters} is an
-  order-of-magnitude estimate 
-  recalculated from \citet{Hanetal:2000} to correspond to the 
-  mobility used in this paper. These authors reported a mean value of
-  $0.927\times 10^{-14}$ s, with a range of $1.14\times
-  10^{-14}--0.58\times 10^{-14}$ s in terms of the mobility used
-  here. Theirs is the mobility parallel to the fiber direction in
-  Rabbit Achilles tendon. Our usage of it is as an isotropic
-  mobility. Using anisotropic mobilities, or different values from the
-  reported range changes the result
-  quantitatively, but not qualitatively.}  that
-have been used appear in Table \ref{parameters}.
-
-
-Non-linear projection methods \citep{simotaylorpister:85} are used to treat the
-near-incompressibility imposed by the fluid. Mixed methods, as described
-in \cite{Garikipatiox2:01}, are used for stress (and strain) gradient
-driven fluxes.
-
-The initial and boundary
-conditions have been chosen in order to model a few common mechanical and
-chemical interventions on engineered tissue. However, we will not
-attempt detailed descriptions of experiments, choosing to focus
-instead on results that can be directly related to the models. A more
-detailed comparison with experiments is forthcoming in a separate
-communication. 
-
-\subsection{A multiphasic problem based on enzyme-kinetics}
-\label{enzyme_kinetics_eg}
-
-\begin{table}
-\centering
-\begin{tabular}{lll}
-\hline
-\multicolumn{1}{c}{Parameter (Symbol)} & Value & Units\\
-\hline
-Chain density ($N$) & $7\times 10^{21}$ & $\mathrm{m}^{-3}$\\
-Temperature ($\theta$)  & $310.6$ & K\\
-Persistence length ($A$) & $2.10$ & --\\
-Fully-stretched length ($L$) & $2.125$ & --\\
-Unit cell axes ($a,\;b,\;c$) & $1.95,\;1.95,\;2.43$ & --\\
-Bulk compressibility factors ($\gamma,\;\beta$) & $1000,\; 4.5$ & --\\
-Fluid bulk modulus ($\kappa^f$) & $1$ & GPa\\
-Fluid mobility tensor ($D^\mathrm{f}_{ij} = D^\mathrm{f}\delta_{ij}$) & $1\times 10^{-14}$
-&s\\
-%Fluid mol. wt. ($\sM^\mathrm{f}$)& $2.991\times 10^{-26}$ & $\mathrm{kg}$\\ 
-Fibroblast concentration ($\rho_{\mathrm{cell}}$) & 0.2 &
-kg.m$^{-3}$\\
-Max. reaction rate ($k_{\mathrm{max}} = 5$) & 5 & s$^{-1}$\\
-Max. solute concentration ($\rho^{\mathrm{s}}_m$) & 0.2 &
-kg.m$^{-3}$\\
-Solute diffusivity ($\bD^\mathrm{s}$) & $1\times 10^{-9}$ &  m$^{-2}$s\\
-\hline
-\end{tabular}
-\caption{Material parameters used in the analysis.}
-\label{parameters}
-\end{table}
-
-This first example can be viewed as a model for localised, bolus
-delivery of regulatory chemicals to the tendon while accounting for
-mechanical (stress) effects. A single solute species\footnote{Here, we
-  envision the solute to be a protein playing 
-  an essential role in growth by catalysing underlying biochemical
-  reactions. An important example of this is a family of proteins,
-  TGF$\beta$, which is a multi-functional peptide that controls numerous
-  functions of many cell types \citep{Alberts:02}.} is considered,
-denoted by s, and 
-a uniform distribution of fibroblasts that are characterised by their
-cell concentration, $\rho_{\mathrm{cell}}$. Both, Fickean diffusion of
-the solute, and stress gradient driven fluid flow are incorporated in this
-illustration. We use 
-Michaelis-Menten enzyme kinetics [Equation~(\ref{enzymekineticseq})]
-to determine the rates of solute consumption and collagen production
-as a function of solute concentration. This non-linear relationship for
-our choice of parameters is visualised in
-Figure~\ref{eg3menten}. Here, the fluid phase does not  take part in
-reactions, and hence $\Pi^\mathrm{f}=0$. 
-
-\begin{figure}
-\centering
-\includegraphics[angle=270,width=10.00cm]{images/enzyme-kinetics.eps}
-\caption{Variation of the collagen source term (kg.m$^{-3}$.s$^{-1}$)
-  with solute concentration (kg.m$^{-3}$).}
-\label{eg3menten}
-\end{figure}
-
-The tendon immersed in the bath is subjected to a constrictive
-radial load, such
-as would be imposed upon  manipulating it with a set of tweezers, as depicted in
-Figure~\ref{constrictload}. The
-maximum strain in the radial 
-direction---experienced half-way through the height of the tendon---is
-10\%. The applied strain in the radial direction decreases linearly
-with distance from the central plane, and vanishes at the top and
-bottom surfaces of the tendon. 
-
-
-\begin{figure}[ht]
-  \centering
-  \psfrag{M}{\small $\bN\cdot\bM^f$}
-  \psfrag{P}{\small ${\tiny\quad }~\bu$}
-         {\includegraphics[width=5.0cm]{images/cylinder-in-bath.eps}}
-	 \caption{Constrictive load applied to tendon immersed in a
-	 bath.} 
-	 \label{constrictload}
-\end{figure}
-
-The 
-initial collagen concentration and the initial fluid concentration are
-both 500~kg.m$^{-3}$ at every point in the tendon, and the fluid
-concentration in the bath is 500~kg.m$^{-3}$. In
-addition, a solute-rich bulb of radius 0.15~mm is introduced with
-its centre on the axis of the tendon and situated 3~mm below the upper
-circular face of the tendon. The initial solute concentration is
-0.05~kg.m$^{-3}$ at all other points in the tendon, and increases
-linearly with decreasing radius in this bulb to 1~kg.m$^{-3}$ at its
-centre (see Figure~\ref{eg3ini}). The
-parameters used are listed in Table~\ref{parameters}, and are relevant
-to tendons.
-
-\begin{figure}
-\centering
-\includegraphics[width=10.00cm]{images/initial-solute-concentration.eps}
-\caption{The solute concentration (kg.m$^{-3}$) initially.}
-\label{eg3ini}
-\end{figure}
-
-The aim of this example is to compare the influences upon solute
-transport from two mechanisms: Fluid stress gradient-driven transport,
-arising from the applied constrictive load, and solute concentration
-gradient-driven transport. These mechanisms have both been implicated
-in nutrient supply to cells in soft tissue. The results of this
-numerical example demonstrate that because the magnitude of the fluid mobility
-for stress gradient driven transport is orders of magnitude
-smaller than the diffusion coefficient for the solute through the
-fluid, there is relatively only a small stress gradient driven flux,
-and the transport of the solute is diffusion dominated. As a result,
-the solute diffuses locally, but displays no
-observable advection along the fluid. As the diffusion-driven solute
-concentration in a region increases, the enzyme-kinetics model
-results in a small source term for collagen production, and we observe nominal
-growth. Figure~\ref{eg3conc} shows the collagen concentration at an
-early time, $t=5\times10^{-2}$~s.
-
-\begin{figure}
-\centering
-\includegraphics[width=10.00cm]{images/final-collagen-concentration.eps}
-\caption{The collagen concentration (kg.m$^{-3}$) at time
-  $t=5\times10^{-2}$~s.}
-\label{eg3conc}
-\end{figure}
-
-This example incorporates all of the theory discussed in the
-paper. However, it is a valuable exercise in
-modelling to simplify the boundary value problem, and supress some of
-the coupled phenomena in order to gain a better understanding of some
-effcts. This is the approach followed in the next two numerical
-examples. The detailed transport and mechanics induced by the
-constrictive radial load are discussed first in Section~\ref{pinching}. 
-
-\subsection{Examples exploring the biphasic nature of porous soft tissue}
-\label{firstorder}
-
-In these calculations, only two phases---fluid and collagen---are
-included for the mass transport and mechanics. The parameters used in the analysis
-are presented in Table~\ref{parameters}. 
-
-%The mixing entropy of fluid in the mixture with collagen is
-%written as $\eta_{\mathrm{mix}}^{f} = -\frac{k}{\sM^\mathrm{f}}
-%\mathrm{log} (\frac{\rho^\mathrm{f}} {\rho})$, where
-%$\sM^\mathrm{f}$ is the molecular weight of the fluid.
-
-\subsubsection{The tendon under constriction}
-\label{pinching}
-
+\subsection{The tendon under constriction}
+\label{constriction-1}
 
 In this example, the tendon immersed in a bath is subjected to the same
 constrictive radial load as in Section~\ref{enzyme_kinetics_eg}. Since
@@ -853,8 +603,14 @@ of larger time steps.
 \label{resnorms}
 \end{table}
 
-\subsubsection{A swelling problem}
-\label{swelling}
+\subsubsection{Upper bound model}
+\label{upper-bound}
+
+\subsubsection{Lower bound model}
+\label{lower-bound}
+
+\subsection{A swelling problem}
+\label{swelling-1}
 
 \begin{figure}[ht]
   \centering
@@ -980,32 +736,138 @@ $585-626\; \mbox{kg.m}^{-3}$, and that (\ref{isotropicgrowth}) gives $\bF^{\math
   Figures~\ref{before_growth} and \ref{after_growth}. It is, however,
   manifest in Figure~\ref{volume_evolution}.
 
-\section{Examples exploring the biphasic nature of porous soft tissue}
-\label{biphasic-examples-1}
-
-\subsection{Using the appropriate configuration}
-\label{biphasic-examples-1}
-
-\subsubsection{Unbounded pinching problem}
-\label{unbounded-pinching}
-
-\subsection{Fluxes from different driving forces}
-\label{flux-driving-forces}
-
-\subsection{The tendon under constriction}
-\label{constriction-1}
-
-\subsubsection{Upper bound model}
-\label{upper-bound}
-
-\subsubsection{Lower bound model}
-\label{lower-bound}
-
-\subsection{A swelling problem}
-\label{swelling-1}
-
 \section{A multiphasic problem based on enzyme-kinetics}
 \label{enzyme-kinetics}
+
+\begin{table}
+\centering
+\begin{tabular}{lll}
+\hline
+\multicolumn{1}{c}{Parameter (Symbol)} & Value & Units\\
+\hline
+Chain density ($N$) & $7\times 10^{21}$ & $\mathrm{m}^{-3}$\\
+Temperature ($\theta$)  & $310.6$ & K\\
+Persistence length ($A$) & $2.10$ & --\\
+Fully-stretched length ($L$) & $2.125$ & --\\
+Unit cell axes ($a,\;b,\;c$) & $1.95,\;1.95,\;2.43$ & --\\
+Bulk compressibility factors ($\gamma,\;\beta$) & $1000,\; 4.5$ & --\\
+Fluid bulk modulus ($\kappa^f$) & $1$ & GPa\\
+Fluid mobility tensor ($D^\mathrm{f}_{ij} = D^\mathrm{f}\delta_{ij}$) & $1\times 10^{-14}$
+&s\\
+%Fluid mol. wt. ($\sM^\mathrm{f}$)& $2.991\times 10^{-26}$ & $\mathrm{kg}$\\ 
+Fibroblast concentration ($\rho_{\mathrm{cell}}$) & 0.2 &
+kg.m$^{-3}$\\
+Max. reaction rate ($k_{\mathrm{max}} = 5$) & 5 & s$^{-1}$\\
+Max. solute concentration ($\rho^{\mathrm{s}}_m$) & 0.2 &
+kg.m$^{-3}$\\
+Solute diffusivity ($\bD^\mathrm{s}$) & $1\times 10^{-9}$ &  m$^{-2}$s\\
+\hline
+\end{tabular}
+\caption{Material parameters used in the analysis.}
+\label{parameters}
+\end{table}
+
+This first example can be viewed as a model for localised, bolus
+delivery of regulatory chemicals to the tendon while accounting for
+mechanical (stress) effects. A single solute species\footnote{Here, we
+  envision the solute to be a protein playing 
+  an essential role in growth by catalysing underlying biochemical
+  reactions. An important example of this is a family of proteins,
+  TGF$\beta$, which is a multi-functional peptide that controls numerous
+  functions of many cell types \citep{Alberts:02}.} is considered,
+denoted by s, and 
+a uniform distribution of fibroblasts that are characterised by their
+cell concentration, $\rho_{\mathrm{cell}}$. Both, Fickean diffusion of
+the solute, and stress gradient driven fluid flow are incorporated in this
+illustration. We use 
+Michaelis-Menten enzyme kinetics [Equation~(\ref{enzymekineticseq})]
+to determine the rates of solute consumption and collagen production
+as a function of solute concentration. This non-linear relationship for
+our choice of parameters is visualised in
+Figure~\ref{eg3menten}. Here, the fluid phase does not  take part in
+reactions, and hence $\Pi^\mathrm{f}=0$. 
+
+\begin{figure}
+\centering
+\includegraphics[angle=270,width=10.00cm]{images/enzyme-kinetics.eps}
+\caption{Variation of the collagen source term (kg.m$^{-3}$.s$^{-1}$)
+  with solute concentration (kg.m$^{-3}$).}
+\label{eg3menten}
+\end{figure}
+
+The tendon immersed in the bath is subjected to a constrictive
+radial load, such
+as would be imposed upon  manipulating it with a set of tweezers, as depicted in
+Figure~\ref{constrictload}. The
+maximum strain in the radial 
+direction---experienced half-way through the height of the tendon---is
+10\%. The applied strain in the radial direction decreases linearly
+with distance from the central plane, and vanishes at the top and
+bottom surfaces of the tendon. 
+
+
+\begin{figure}[ht]
+  \centering
+  \psfrag{M}{\small $\bN\cdot\bM^f$}
+  \psfrag{P}{\small ${\tiny\quad }~\bu$}
+         {\includegraphics[width=5.0cm]{images/cylinder-in-bath.eps}}
+	 \caption{Constrictive load applied to tendon immersed in a
+	 bath.} 
+	 \label{constrictload}
+\end{figure}
+
+The 
+initial collagen concentration and the initial fluid concentration are
+both 500~kg.m$^{-3}$ at every point in the tendon, and the fluid
+concentration in the bath is 500~kg.m$^{-3}$. In
+addition, a solute-rich bulb of radius 0.15~mm is introduced with
+its centre on the axis of the tendon and situated 3~mm below the upper
+circular face of the tendon. The initial solute concentration is
+0.05~kg.m$^{-3}$ at all other points in the tendon, and increases
+linearly with decreasing radius in this bulb to 1~kg.m$^{-3}$ at its
+centre (see Figure~\ref{eg3ini}). The
+parameters used are listed in Table~\ref{parameters}, and are relevant
+to tendons.
+
+\begin{figure}
+\centering
+\includegraphics[width=10.00cm]{images/initial-solute-concentration.eps}
+\caption{The solute concentration (kg.m$^{-3}$) initially.}
+\label{eg3ini}
+\end{figure}
+
+The aim of this example is to compare the influences upon solute
+transport from two mechanisms: Fluid stress gradient-driven transport,
+arising from the applied constrictive load, and solute concentration
+gradient-driven transport. These mechanisms have both been implicated
+in nutrient supply to cells in soft tissue. The results of this
+numerical example demonstrate that because the magnitude of the fluid mobility
+for stress gradient driven transport is orders of magnitude
+smaller than the diffusion coefficient for the solute through the
+fluid, there is relatively only a small stress gradient driven flux,
+and the transport of the solute is diffusion dominated. As a result,
+the solute diffuses locally, but displays no
+observable advection along the fluid. As the diffusion-driven solute
+concentration in a region increases, the enzyme-kinetics model
+results in a small source term for collagen production, and we observe nominal
+growth. Figure~\ref{eg3conc} shows the collagen concentration at an
+early time, $t=5\times10^{-2}$~s.
+
+\begin{figure}
+\centering
+\includegraphics[width=10.00cm]{images/final-collagen-concentration.eps}
+\caption{The collagen concentration (kg.m$^{-3}$) at time
+  $t=5\times10^{-2}$~s.}
+\label{eg3conc}
+\end{figure}
+
+This example incorporates all of the theory discussed in the
+paper. However, it is a valuable exercise in
+modelling to simplify the boundary value problem, and supress some of
+the coupled phenomena in order to gain a better understanding of some
+effcts. This is the approach followed in the next two numerical
+examples. The detailed transport and mechanics induced by the
+constrictive radial load are discussed first in Section~\ref{pinching}. 
 
 \section{Wound healing}
 \label{wound-healing}

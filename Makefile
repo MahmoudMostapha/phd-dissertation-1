@@ -1,4 +1,4 @@
-# A simple Makefile for managing my doctoral dissertation.
+# A simple build-system for managing my doctoral dissertation.
 # (c) Harish Narayanan, 2007
 
 # Fundamental variables:

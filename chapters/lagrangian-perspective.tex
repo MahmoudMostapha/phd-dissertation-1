@@ -1616,6 +1616,36 @@ other terms that were remarked upon above, they represent a
 complete thermodynamic formulation of coupled mass transport and
 mechanics. This is the central result of our paper.
 
+{\bf  Frame invariance and the contribution from acceleration}\\
+
+In our earlier treatment \citep{growthpaper}, the constitutive
+relation for the fluid flux had a driving force contribution arising
+from the acceleration of the solid phase,
+$-\rho_0^\mathrm{f}\bF^{\mathrm{T}}\frac{\partial \bV}{\partial t}$.
+This term, being motivated by the reduced dissipation inequality, does
+not violate the Second Law and supports an intuitive understanding
+that the acceleration of the solid skeleton in one direction must result in
+an inertial driving force on the fluid in the opposite
+direction. However, as defined, this acceleration is obtained by the
+time differentiation of kinematic quantities,\footnote{And not in terms
+of acceleration {\em relative to fixed stars} for e.g., as discussed
+in \cite[][Page 43]{TruesdellNoll:65}.} and does not transform in a
+frame-indifferent manner. Unlike the superficially similar term
+arising from the gravity vector,\footnote{Where every observer has an
+implicit knowledge of the directionality of the field relative to a
+fixed frame, allowing it to transform objectively. Specifically, under
+a time-dependent rigid body motion imposed on the current
+configuration carrying $\bx$ to $\bx^+ = \bc(t) + \bQ(t)\bx$, where
+$\bc(t) \in \mathbb{R}^3$ and $\bQ(t) \in \mbox{SO}(3)$, it is
+understood that the acceleration due to gravity in the transformed
+frame is $\bg^+ = \bQ^\mathrm{T}\bg$ and is therefore
+frame-invariant. However, $\ba^+ = \ddot{\bc} + 2\dot{\bQ}\bv +
+\ddot{\bQ}\bx + \bQ\ba$ , and is therefore not frame-invariant.} the
+acceleration 
+term presents an improper dependence on the frame of the
+observer. Thus, its use in constitutive relations is inappropriate,
+and the term has been dropped in \mbox{Equation (\ref{fluidflux})}.
+
 {\bf Transport of a the fluid species: the example of an ideal fluid}
 
 Consider the stress divergence term
@@ -1717,7 +1747,6 @@ presence of a strain gradient-dependent driving force,
 $-\Bnabla\bF^\mathrm{T}\colon\bP^\iota$ in the developments of
 Sections \ref{sect5.2} and \ref{sect5.3}, independent of the
 pressure gradient term for the fluid species.
-
 
 \noindent{\bf Remark 1}: The final version of the dissipation
 inequality (\ref{dissipation1}), and the mass balance equation can
@@ -1855,38 +1884,6 @@ e^\mathrm{f} - \theta\eta^\mathrm{f},\nonumber\\
 \noindent It is again important to note that under physiological
 conditions, soft tissues are fully saturated by fluid, and it is
 appropriate to set $\mu^\mathrm{f} = e^\mathrm{f}$.
-
-{\bf  Frame invariance and the contribution from acceleration}\\
-
-In our earlier treatment \citep{growthpaper}, the constitutive
-relation for the fluid flux had a driving force contribution arising
-from the acceleration of the solid phase,
-$-\rho_0^\mathrm{f}\bF^{\mathrm{T}}\frac{\partial \bV}{\partial t}$.
-This term, being motivated by the reduced dissipation inequality, does
-not violate the Second Law and supports an intuitive understanding
-that the acceleration of the solid skeleton in one direction must result in
-an inertial driving force on the fluid in the opposite
-direction. However, as defined, this acceleration is obtained by the
-time differentiation of kinematic quantities,\footnote{And not in terms
-of acceleration {\em relative to fixed stars} for e.g., as discussed
-in \cite[][Page 43]{TruesdellNoll:65}.} and does not transform in a
-frame-indifferent manner. Unlike the superficially similar term
-arising from the gravity vector,\footnote{Where every observer has an
-implicit knowledge of the directionality of the field relative to a
-fixed frame, allowing it to transform objectively. Specifically, under
-a time-dependent rigid body motion imposed on the current
-configuration carrying $\bx$ to $\bx^+ = \bc(t) + \bQ(t)\bx$, where
-$\bc(t) \in \mathbb{R}^3$ and $\bQ(t) \in \mbox{SO}(3)$, it is
-understood that the acceleration due to gravity in the transformed
-frame is $\bg^+ = \bQ^\mathrm{T}\bg$ and is therefore
-frame-invariant. However, $\ba^+ = \ddot{\bc} + 2\dot{\bQ}\bv +
-\ddot{\bQ}\bx + \bQ\ba$ , and is therefore not frame-invariant.} the
-acceleration 
-term presents an improper dependence on the frame of the
-observer. Thus, its use in constitutive relations is inappropriate,
-and the term has been dropped in \mbox{Equation (\ref{fluidflux})}.
-
-
 
 \subsubsection{Solute transport}
 \label{solute-transport}
@@ -2274,7 +2271,7 @@ level matrices, as described in
 \subsubsection{Determination of the stabilisation parameter}
 \label{}
 
-\subsection{Upper and lower bound assumptions and their implications}
+\subsection{Upper and lower bound assumptions, and their implications}
 \label{}
 
 %

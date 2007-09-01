@@ -2,6 +2,7 @@
 -- (c) Harish Narayanan, 2007
 
 on run argv
+
 	tell application "Finder" to get folder of (path to me) as Unicode text
 	set workingPath to POSIX path of result
 	set inFile to workingPath & item 1 of argv
