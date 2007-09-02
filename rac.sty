@@ -214,6 +214,7 @@ Doctoral Committee: \\[2ex]
 
 \def\listoffigures{%
  \newpage\small\normalsize\large
+ \phantomsection
  \addcontentsline{toc}{chapter}{LIST OF FIGURES}
  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
  \hbox{ }
@@ -228,6 +229,7 @@ Doctoral Committee: \\[2ex]
 
 \def\listoftables{%
  \newpage\small\normalsize\large
+ \phantomsection
  \addcontentsline{toc}{chapter}{LIST OF TABLES}
  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
  \hbox{ }
@@ -271,6 +273,7 @@ Doctoral Committee: \\[2ex]
 
 \def\listofappendices{%
  \newpage\small\normalsize\large
+ \phantomsection
  \addcontentsline{toc}{chapter}{LIST OF APPENDICES}
  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
  \hbox{ }
@@ -511,6 +514,7 @@ Doctoral Committee: \\[2ex]
  \pagestyle{plain}
  \clearpage
  \thispagestyle{chappage}
+ \phantomsection
  \addcontentsline{toc}{chapter}{APPENDICES}
  \hbox{ }
  \vfill
@@ -555,6 +559,7 @@ Doctoral Committee: \\[2ex]
 \def\thebibliography#1{%
  \clearpage
  \thispagestyle{chappage}
+ \phantomsection
  \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
  \hbox{ }
  \vfill

@@ -7,7 +7,7 @@
 LATEX   = latex
 BIBTEX  = bibtex
 DVIPS   = dvips
-PS2PDF  = ps2pdf    #Use pstopdf instead on Mac OS X
+PS2PDF  = ps2pdf    #Use pstopdf instead on Mac OS X.
 
 SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
 	  auxiliary/*.tex chapters/*.tex \
@@ -19,7 +19,7 @@ OTHER   = manifest/*
 # impact on the quality of generated documents.
 LFLAGS  = 					#latex flags
 BFLAGS  = 					#bibtex flags
-DFLAGS  = -t letter -Ppdf -G0 -o thesis.ps	#dvips flags
+DFLAGS  = -t letter -Ppdf -G0 -z -o thesis.ps	#dvips flags
 PFLAGS  = #-p #-dPDFSETTINGS=/prepress		#ps2pdf flags
 
 # Human-readable targets:
@@ -46,7 +46,7 @@ thesis:   pristine polish
 
 clean:
 	@echo	"Cleaning cruft:"
-	rm -f *~ *.aux *.bbl *.blg *.dvi *.loa *.lof *.log *.lot *.out *.toc
+	rm -f *~ *.aux *.bbl *.blg *.brf *.dvi *.loa *.lof *.log *.lot *.out *.toc *.tmp
 	(cd auxiliary; make clean)
 	(cd chapters; make clean)
 	(cd images; make clean)
@@ -64,7 +64,12 @@ thesis.dvi: $(SOURCES)
 
 thesis.ps: thesis.dvi
 	@echo	"Creating the postscript file:"
-	$(DVIPS)   $(DFLAGS) thesis.dvi 
+	$(DVIPS)   $(DFLAGS) thesis.dvi
+	@echo   "Allow creation of graceful PDF bookmarks by removing all-caps titles:"
+	perl -pi -e 's/Title \(([A-Z])([A-Z].*)\)/Title(\1\L\2)/' thesis.ps
+#       If you have access to GNU sed, I believe the following ought to work instead.
+#       sed '/Title (\([A-Z]\)\([A-Z].*\))/ s//Title (\1\L\2)/' thesis.ps > tmp.ps
+#       mv tmp.ps thesis.ps
 
 thesis.pdf: thesis.ps
 	@echo   "Creating the PDF file:"
