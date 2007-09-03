@@ -369,12 +369,10 @@ Doctoral Committee: \\[2ex]
   \refstepcounter{chapter}
   \typeout{\@chapapp\space\thechapter.}
   \addtocontents{toc}{\hbox{ }}
-  \phantomsection
   \addcontentsline{toc}{chap}{\protect\numberline{\hbox{ }\hfill\bf\thechapter.\hspace{5pt}}{\bf #1}}
   \addtocontents{toc}{\hbox{ }}
  \else
   \addtocontents{toc}{\hbox{ }}
-  \phantomsection
   \addcontentsline{toc}{chap}{#1}
   \addtocontents{toc}{\hbox{ }}
  \fi
@@ -433,7 +431,6 @@ Doctoral Committee: \\[2ex]
   \csname #1mark\endcsname{#7}
   \ifx \@chapapp \@chaptest
   \else
-  \phantomsection
    \addcontentsline{toc}{#1}{\ifnum #2>\c@secnumdepth \else
    \protect\numberline{\csname the#1\endcsname}\fi #7}
   \fi
@@ -441,7 +438,6 @@ Doctoral Committee: \\[2ex]
   \def\@svsechd{#6\hskip #3\@svsec #8\csname #1mark\endcsname {#7}
   \ifx \@chapapp \@chaptest
   \else
-  \phantomsection
    \addcontentsline{toc}{#1}{\ifnum #2>\c@secnumdepth \else
    \protect\numberline{\csname the#1\endcsname}\fi #7}
   \fi
@@ -452,7 +448,6 @@ Doctoral Committee: \\[2ex]
 
 \long\def\@caption#1[#2]#3{%
  \addtocontents{\csname ext@#1\endcsname}{\hbox{ }}
- \phantomsection
  \addcontentsline{\csname ext@#1\endcsname}{#1}{\protect\numberline{\csname
   the#1\endcsname}{\ignorespaces\protect\large\protect\large\rm #2}}
  \par
@@ -493,13 +488,11 @@ Doctoral Committee: \\[2ex]
 			\@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}
 		\endgroup
 		\csname #1mark\endcsname{#7}
-                \phantomsection
 		\addcontentsline{\tocname}{#1}{\ifnum #2>\c@secnumdepth \else
 			\protect\numberline{\csname the#1\endcsname}\fi #7}
 	\else
 		\def\@svsechd{#6\hskip #3\@svsec #8
 		\csname #1mark\endcsname{#7}
-                \phantomsection
 		\addcontentsline{\tocname}{#1}{\ifnum #2>\c@secnumdepth \else
 			\protect\numberline{\csname the#1\endcsname}\fi #7}}
 	\fi
@@ -547,9 +540,7 @@ Doctoral Committee: \\[2ex]
  \clearpage \global\@topnum\z@ \@afterindenttrue
  \refstepcounter{chapter}
  \typeout{\@chapapp\space\thechapter.}
- \phantomsection
  \addtocontents{loa}{\hbox{ }}
- \phantomsection
  \addcontentsline{loa}{appendix}{\protect\numberline{\thechapter.}{\ignorespaces\rm
      #1}}
  \addtocontents{loa}{\hbox{ }}
