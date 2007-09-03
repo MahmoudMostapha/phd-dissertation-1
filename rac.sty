@@ -12,11 +12,10 @@
 %          \startappendices was modified to work 
 %          with the New Font Selection Scheme. 
 %          Further (similar) changes may be needed for other macros.
-% 
-\typeout{  }
-\typeout{Substyle `rac' for Rackham dissertation.}
-\typeout{The sample files are in '/usr/um/lib/tex/doc/local/rac'.}
-\typeout{  }
+% Modified 09/02/2007 by Harish Narayanan
+%          Added a bunch of \phantomsections to get hyperref
+%          pdf bookmarks to work. Similar additions will be required
+%          for sections I missed.
 
 %-- Page styles --
 
@@ -419,6 +418,7 @@ Doctoral Committee: \\[2ex]
   \csname #1mark\endcsname{#7}
   \ifx \@chapapp \@chaptest
   \else
+  \phantomsection
    \addcontentsline{toc}{#1}{\ifnum #2>\c@secnumdepth \else
    \protect\numberline{\csname the#1\endcsname}\fi #7}
   \fi
@@ -426,6 +426,7 @@ Doctoral Committee: \\[2ex]
   \def\@svsechd{#6\hskip #3\@svsec #8\csname #1mark\endcsname {#7}
   \ifx \@chapapp \@chaptest
   \else
+  \phantomsection
    \addcontentsline{toc}{#1}{\ifnum #2>\c@secnumdepth \else
    \protect\numberline{\csname the#1\endcsname}\fi #7}
   \fi
@@ -476,11 +477,13 @@ Doctoral Committee: \\[2ex]
 			\@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}
 		\endgroup
 		\csname #1mark\endcsname{#7}
+                \phantomsection
 		\addcontentsline{\tocname}{#1}{\ifnum #2>\c@secnumdepth \else
 			\protect\numberline{\csname the#1\endcsname}\fi #7}
 	\else
 		\def\@svsechd{#6\hskip #3\@svsec #8
 		\csname #1mark\endcsname{#7}
+                \phantomsection
 		\addcontentsline{\tocname}{#1}{\ifnum #2>\c@secnumdepth \else
 			\protect\numberline{\csname the#1\endcsname}\fi #7}}
 	\fi
@@ -528,8 +531,10 @@ Doctoral Committee: \\[2ex]
  \clearpage \global\@topnum\z@ \@afterindenttrue
  \refstepcounter{chapter}
  \typeout{\@chapapp\space\thechapter.}
+ \phantomsection
  \addtocontents{loa}{\hbox{ }}
- \addcontentsline{loa}{appendix}{\protect\numberline{\thechapter.}{\ignorespaces\rm #1}}
+ \addcontentsline{loa}{appendix}{\protect\numberline{\thechapter.}{\ignorespaces\rm
+     #1}}
  \addtocontents{loa}{\hbox{ }}
 % \addtocontents{lof}{\hbox{ }}
 % \addtocontents{lot}{\hbox{ }}

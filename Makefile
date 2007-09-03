@@ -40,41 +40,46 @@ preview:  thesis.dvi
 thesis:   pristine polish
 	  make clean
 
+distill:  pristine distiller
+	  make clean
+
 # Actual drudgery:
 
 # Shoo, here be dragons.
 
 clean:
-	@echo	"Cleaning cruft:"
-	rm -f *~ *.aux *.bbl *.blg *.brf *.dvi *.loa *.lof *.log *.lot *.out *.toc *.tmp
+	@echo "Cleaning cruft:"
+	rm -f *~ *.aux *.bbl *.blg *.brf *.dvi *.loa *.lof *.log *.lot *.out \
+	*.ps *.toc *.tmp
 	(cd auxiliary; make clean)
 	(cd chapters; make clean)
 	(cd images; make clean)
 	(cd manifest; make clean)
 
 pristine: clean
-	@echo	"Removing older output files:"
-	rm -f *.pdf *.ps
+	@echo "Removing older output files:"
+	rm -f *.pdf
 
 thesis.dvi: $(SOURCES)
-	@echo	"Creating the dvi file:"
+	@echo "Creating the dvi file:"
 	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(BIBTEX)  $(BFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(LATEX)   $(LFLAGS) thesis
 
 thesis.ps: thesis.dvi
-	@echo	"Creating the postscript file:"
+	@echo "Creating the postscript file:"
 	$(DVIPS)   $(DFLAGS) thesis.dvi
-	@echo   "Allow creation of graceful PDF bookmarks by removing all-caps titles:"
+	@echo "Fix capitalisation to allow creation of elegant PDF bookmarks:"
 	perl -pi -e 's/Title \(([A-Z])([A-Z].*)\)/Title(\1\L\2)/' thesis.ps
-#       If you have access to GNU sed, I believe the following ought to work instead.
-#       sed '/Title (\([A-Z]\)\([A-Z].*\))/ s//Title (\1\L\2)/' thesis.ps > tmp.ps
-#       mv tmp.ps thesis.ps
+#       If you have access to GNU sed, I believe the following ought
+#       to work instead. It'll be faster, and it's not fucking perl.
+#       sed '/Title (\([A-Z]\)\([A-Z].*\))/ s//Title (\1\L\2)/' \
+#       thesis.ps > tmp.ps && mv tmp.ps thesis.ps
 
 thesis.pdf: thesis.ps
 	@echo   "Creating the PDF file:"
 	$(PS2PDF)  $(PFLAGS) thesis.ps
 
-distill: thesis.ps
+distiller: thesis.ps
 	@echo	"Creating the PDF file using Acrobat Distiller:"
 	osascript distiller.applescript thesis.ps
