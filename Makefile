@@ -7,7 +7,7 @@
 LATEX   = latex
 BIBTEX  = bibtex
 DVIPS   = dvips
-PS2PDF  = ps2pdf    #Use pstopdf instead on Mac OS X.
+PS2PDF  = ps2pdf14 #On Mac OS X, use pstopdf instead.
 
 SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
 	  auxiliary/*.tex chapters/*.tex \
@@ -16,11 +16,12 @@ SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
 OTHER   = manifest/*
 
 # Subtle changes to the command-line flags below can have significant
-# impact on the quality of generated documents.
-LFLAGS  = 					#latex flags
-BFLAGS  = 					#bibtex flags
-DFLAGS  = -t letter -Ppdf -G0 -z -o thesis.ps	#dvips flags
-PFLAGS  = #-p #-dPDFSETTINGS=/prepress		#ps2pdf flags
+# impact on the quality of generated documents. Comment-out the ps2pdf
+# flags below if on Mac OS X.
+LFLAGS  = 						#latex flags
+BFLAGS  = 						#bibtex flags
+DFLAGS  = -t letter -Ppdf -G0 -z -o thesis.ps		#dvips flags
+PFLAGS  = -dPDFSETTINGS=/prepress			#ps2pdf flags
 
 # Human-readable targets:
 
@@ -70,11 +71,12 @@ thesis.ps: thesis.dvi
 	@echo "Creating the postscript file:"
 	$(DVIPS)   $(DFLAGS) thesis.dvi
 	@echo "Fix capitalisation to allow creation of elegant PDF bookmarks:"
-	perl -pi -e 's/Title \(([A-Z])([A-Z].*)\)/Title(\1\L\2)/' thesis.ps
-#       If you have access to GNU sed, I believe the following ought
-#       to work instead. It'll be faster, and it's not fucking perl.
-#       sed '/Title (\([A-Z]\)\([A-Z].*\))/ s//Title (\1\L\2)/' \
-#       thesis.ps > tmp.ps && mv tmp.ps thesis.ps
+	perl -pi -e 's/Title \(([A-Z])([A-Z].*)\)/Title (\1\L\2)/' thesis.ps
+#       If you have access to GNU sed (i.e., You're not working on Mac
+#       OS X), comment-out the preceding command and uncomment the
+#       following. It'll be faster, and it's not fucking perl.
+#	sed '/Title (\([A-Z]\)\([A-Z].*\))/ s//Title (\1\L\2)/' \
+#	thesis.ps > tmp.ps && mv tmp.ps thesis.ps
 
 thesis.pdf: thesis.ps
 	@echo   "Creating the PDF file:"

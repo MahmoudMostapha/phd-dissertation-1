@@ -112,6 +112,7 @@ Doctoral Committee: \\[2ex]
 
 \def\dedicationpage#1{%
  \newpage
+ \phantomsection
  \addcontentsline{toc}{chapter}{DEDICATION}
  \hbox{ }
  \vfill
@@ -125,6 +126,7 @@ Doctoral Committee: \\[2ex]
 \def\startacknowledgementspage{%
  \normalsizedbl
  \newpage
+ \phantomsection
  \addcontentsline{toc}{chapter}{ACKNOWLEDGEMENTS}
  \hbox{ }
  \vspace{0.65in}
@@ -134,6 +136,7 @@ Doctoral Committee: \\[2ex]
 
 \def\startprefacepage{%
  \newpage
+ \phantomsection
  \addcontentsline{toc}{chapter}{PREFACE}
  \hbox{ }
  \vspace{0.5in}
@@ -243,6 +246,7 @@ Doctoral Committee: \\[2ex]
 
 \def\listofmaps{%
  \newpage\small\normalsize
+ \phantomsection
  \addcontentsline{toc}{chapter}{LIST OF MAPS}
  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
  \hbox{ }
@@ -258,6 +262,7 @@ Doctoral Committee: \\[2ex]
 \def\listofanythings#1{%
  \newpage\small\normalsize\large
  \def\anythingtitle{#1}
+ \phantomsection
  \addcontentsline{toc}{chapter}{#1}
  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
  \hbox{ }
@@ -287,6 +292,7 @@ Doctoral Committee: \\[2ex]
 
 \def\arbitraryfrontsection#1{%
  \newpage
+ \phantomsection
  \addcontentsline{toc}{chapter}{#1}
  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
  \hbox{ }
@@ -356,10 +362,12 @@ Doctoral Committee: \\[2ex]
   \refstepcounter{chapter}
   \typeout{\@chapapp\space\thechapter.}
   \addtocontents{toc}{\hbox{ }}
+  \phantomsection
   \addcontentsline{toc}{chap}{\protect\numberline{\hbox{ }\hfill\bf\thechapter.\hspace{5pt}}{\bf #1}}
   \addtocontents{toc}{\hbox{ }}
  \else
   \addtocontents{toc}{\hbox{ }}
+  \phantomsection
   \addcontentsline{toc}{chap}{#1}
   \addtocontents{toc}{\hbox{ }}
  \fi
@@ -437,6 +445,7 @@ Doctoral Committee: \\[2ex]
 
 \long\def\@caption#1[#2]#3{%
  \addtocontents{\csname ext@#1\endcsname}{\hbox{ }}
+ \phantomsection
  \addcontentsline{\csname ext@#1\endcsname}{#1}{\protect\numberline{\csname
   the#1\endcsname}{\ignorespaces\protect\large\protect\large\rm #2}}
  \par
@@ -533,6 +542,7 @@ Doctoral Committee: \\[2ex]
  \typeout{\@chapapp\space\thechapter.}
  \phantomsection
  \addtocontents{loa}{\hbox{ }}
+ \phantomsection
  \addcontentsline{loa}{appendix}{\protect\numberline{\thechapter.}{\ignorespaces\rm
      #1}}
  \addtocontents{loa}{\hbox{ }}
