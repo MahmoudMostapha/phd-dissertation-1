@@ -64,7 +64,7 @@ thesis.dvi: $(SOURCES)
 	@echo "Creating the dvi file:"
 	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(BIBTEX)  $(BFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
-	$(LATEX)   $(LFLAGS) thesis
+	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis
 
 thesis.ps: thesis.dvi
 	@echo "Creating the postscript file:"
