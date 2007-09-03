@@ -19,6 +19,13 @@
 
 %-- Page styles --
 
+% Fucking dirty hack below.
+\def\@Alph#1{%
+  \ifcase#1\or U\or V\or W\or X\or Y\or Z\or A\or B\or C\or D\or
+   E\or F\or G\or H\or I\or J\or K\or L\or M\or N\or O\or P\or Q\or R\or
+    S\or T\else\@ctrerr\fi}
+
+
 \def\ps@chappage{% jj: the first page for chapters
  \def\@oddhead{}
  \def\@oddfoot{\hfil \rm \thepage \hfil}
@@ -519,8 +526,8 @@ Doctoral Committee: \\[2ex]
 
  \let\theappendix=\thechapter
  \let\chapter=\startanappendix
- \setcounter{chapter}{0}
- \setcounter{section}{0}
+% \setcounter{chapter}{0}
+% \setcounter{section}{0}
  \def\@chapapp{APPENDIX}
  \def\tocname{loa}
  \pagestyle{plain}
