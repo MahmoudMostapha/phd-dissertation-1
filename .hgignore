@@ -3,6 +3,7 @@ syntax: glob
 *.aux
 *.bbl
 *.blg
+*.brf
 *.dvi
 *.loa
 *.lof
@@ -11,6 +12,7 @@ syntax: glob
 *.out
 *.pdf
 *.ps
+*.tmp
 *.toc
 .DS_Store
 

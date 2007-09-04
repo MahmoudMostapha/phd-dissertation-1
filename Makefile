@@ -18,10 +18,13 @@ OTHER   = manifest/*
 # Subtle changes to the command-line flags below can have significant
 # impact on the quality of generated documents. Comment-out the ps2pdf
 # flags below if on Mac OS X.
-LFLAGS  = 						#latex flags
-BFLAGS  = 						#bibtex flags
-DFLAGS  = -t letter -Ppdf -G0 -z -o thesis.ps		#dvips flags
-PFLAGS  = -dPDFSETTINGS=/prepress			#ps2pdf flags
+LFLAGS  = 					#latex flags
+BFLAGS  = 					#bibtex flags
+DFLAGS  = -t letter -Ppdf -G0 -z -o thesis.ps	#dvips flags
+PFLAGS  = -dPDFSETTINGS=/prepress		#ps2pdf flags
+ADPATH  = "/Library/Application Support/Adobe/Adobe PDF/Settings/"
+ADFILE  = "High Quality Print.joboptions"	#distiller settings file
+
 
 # Human-readable targets:
 
@@ -84,4 +87,4 @@ thesis.pdf: thesis.ps
 
 distiller: thesis.ps
 	@echo	"Creating the PDF file using Acrobat Distiller:"
-	osascript distiller.applescript thesis.ps
+	osascript distiller.applescript thesis.ps $(ADPATH)$(ADFILE)
