@@ -1,6 +1,12 @@
 \chapter{A Lagrangian perspective}
 \label{lagrangian-perspective}
 
+\todo{\begin{itemize}
+  \item This chapter requires a lot of clean up and the two papers
+    thrown in need to be meshed cleanly. There are no additions
+    required to the content. Start working here.
+\end{itemize}}
+
 Tracing its origins to mechanics theories for solid continua, the
 following formulation for biological growth is developed naturally in
 terms of {\em material quantities} defined in the {\em reference
@@ -45,7 +51,7 @@ gradient $\bF :=
 \psfrag{SN}{\small$\bP\bN$} \psfrag{SSN}{\small$\Bsigma\bn$}
 \psfrag{PHI}{\small$\Bvarphi$} \psfrag{WO}{\small$\Omega_0$}
 \psfrag{WT}{\small$\Omega_t$}
-       {\includegraphics[width=14cm]{images/elucidation/growth1.eps}}
+       {\includegraphics[width=0.8\textwidth]{images/elucidation/growth1}}
        \caption{The continuum body with diffusing species and under
          stress.}\label{potato} 
 \end{figure}
@@ -126,8 +132,8 @@ tangent map of $\Bvarphi$.
   \psfrag{H}{\small$\Omega_t$}
   \psfrag{D}{\small$\bN\cdot\bM^\iota$}
   \psfrag{I}{\small$\bn\cdot\bm^\iota$}
-	 {\includegraphics[width=10.00cm]
-           {images/elucidation/cp-mass-solute.eps}}
+	 {\includegraphics[width=0.8\textwidth]
+           {images/elucidation/cp-mass-solute}}
 	 \caption{The tissue as a continuous medium with growing and
            diffusing species.}
 	 \label{cp}
@@ -291,63 +297,9 @@ satisfy
 \end{equation}
 
 \noindent a conclusion that is consistent with classical mixture
-theory \citep{TruesdellNoll:65}. The section that follows contains
-an example in which the Law of Mass Action is invoked to describe
-a set of inter-related sources, $\Pi^\iota$.
-
-\subsubsection{Source/sink balance and the law of mass action}
-\label{law-of-mass-action}
-
-The conversion of precursors to tissue and the reverse process of
-its breakdown are governed by a series of chemical reactions. The
-stoichiometry of these reactions varies in a limited range.
-Continuing in the simple vein adopted above, it is assumed that
-the formation of tissue and byproducts from precursors, and the
-breakdown of tissue, are governed by the forward and reverse
-directions of a single reaction:
-\begin{equation}
-\sum\limits_{\iota=\alpha}^{\omega} n_\iota[\iota] \longrightarrow
-[\mathrm{s}]. \label{chemreac}
-\end{equation}
-
-\noindent Here, $n_\iota$ is the (possibly fractional) number of
-moles of species $\iota$ in the reaction. For a tissue precursor,
-$n_\iota > 0$, and for a byproduct, $n_\iota < 0$. By the Law of
-Mass Action for this reaction, the rate of the forward reaction
-(number of moles of $\mathrm{s}$ produced per unit time, per unit
-volume in $\Omega_0$) is
-$k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
-[\rho_0^\iota]^{n_\iota}$, where $\prod$ on the right hand-side
-denotes a product, not to be confused with the source, $\Pi$. The
-rate of the reverse reaction (number of moles of $\mathrm{s}$
-consumed per unit time, per unit volume in $\Omega_0$) is
-$k_\mathrm{r}[\rho_0^\mathrm{s}]$, where $k_f$ and $k_r$ are the
-corresponding reaction rates. Assuming, for the purpose of this
-example, that the solid phase is a single compound, let the
-molecular weight of $\mathrm{s}$ be $\sM_\mathrm{s}$. From the
-above arguments the source term for $\mathrm{s}$ is
-\begin{equation}
-\Pi^\mathrm{s} =
-\left(k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
-[\rho_0^\iota]^{n_\iota} -
-k_\mathrm{r}[\rho_0^\mathrm{s}]\right)\sM_\mathrm{s},
-\label{sourceA}
-\end{equation}
-
-\noindent Since the formation of one mole of $\mathrm{s}$ requires
-consumption of $n_\iota$ moles of $\iota$, we have
-\begin{equation}
-\Pi^\iota =
--\left(k_\mathrm{f}\prod\limits_{\vartheta=\alpha}^\omega
-[\rho_0^\vartheta]^{n_\vartheta} -
-k_\mathrm{r}[\mathrm{s}]\right)n_\iota\sM_\iota, \label{sourceI}
-\end{equation}
-
-\noindent where $\sM_\iota$ is the molecular weight of species
-$\iota$. Since, due to conservation of mass, $\sM_\mathrm{s} =
-\sum\limits_{\iota=\alpha}^\omega n^\iota\sM_\iota$ the sources
-satisfy $\sum\limits_{\iota=\mathrm{s},\alpha}^\omega \Pi^\iota =
-0$.
+theory \citep{TruesdellNoll:65}. The Appendix~\ref{law-of-mass-action}
+contains an example in which the Law of Mass Action is invoked to
+describe a set of inter-related sources, $\Pi^\iota$.
 
 \hrule
 
@@ -963,8 +915,8 @@ $\tilde{\bF}^{\mathrm{e}^\iota}$} \psfrag{J}{\small $\tilde{\bF}$}
 \psfrag{Y}{\small $\bX^\ast$} \psfrag{K}{\small
 $\bar{\bF}^\mathrm{e}$} \psfrag{X}{\small $\bx$} \psfrag{L}{\small
 $\bF$} \centering
-{\includegraphics[width=15cm]
-  {images/elucidation/kinematics.eps}}
+{\includegraphics[width=0.8\textwidth]
+  {images/elucidation/kinematics}}
 \caption{The kinematics of growth.} \label{growthkinematicsfig}
 \end{figure}
 
@@ -986,7 +938,7 @@ $\bF$} \centering
   \psfrag{L}{\small $\Bkappa$}
   \psfrag{M}{\small $\bu^\ast$}
   \psfrag{N}{\small $\Bvarphi$}
-         {\includegraphics[width=10.00cm]{images/elucidation/kinematics.eps}}
+         {\includegraphics[width=0.8\textwidth]{images/elucidation/kinematics}}
      \caption{The kinematics of growth, which holds for $\iota =
      \mathrm{c,f}$.} 
      \label{growthkine}
@@ -1067,7 +1019,7 @@ $\overline{\bF}^{\mathrm{e}^\iota}$ is associated with the external stress.
   \psfrag{D}{\small C}
   \psfrag{E}{\small Unsaturated}
   \psfrag{F}{\small Saturated}
-{\includegraphics[width=10.00cm]{images/elucidation/composite.eps}}
+{\includegraphics[width=0.8\textwidth]{images/elucidation/composite}}
 
 \caption{Unsaturated tissue in the current configuration (A) allows
   influx of fluid 
@@ -1416,7 +1368,7 @@ model is isotropic only if $a=b=c$.
 \psfrag{n}{\small$\bN_1$}
 \psfrag{o}{\small$\bN_2$}
 \psfrag{p}{\small$\bN_3$}
-\centering {\includegraphics[width=10.00cm]{images/elucidation/wlcm-cuboid.eps}}
+\centering {\includegraphics[width=0.8\textwidth]{images/elucidation/wlcm-cuboid}}
 \caption{The eight-chain model incorporating worm-like chains.}\label{eightchain}
 \end{figure}
 
@@ -1853,7 +1805,7 @@ detailed derivation and discussion of \mbox{Equation
 \psfrag{C}{\small C}
 \psfrag{D}{\small Vacant space}
 \psfrag{E}{\small Filled space}
-\includegraphics[width=10.00cm]{images/elucidation/saturation.eps}
+\includegraphics[width=0.8\textwidth]{images/elucidation/saturation}
 \caption{Depicted at a microscopic scale, only unsaturated tissues A
   and B can undergo Fickean diffusion of the fluid. C is saturated.}
 \label{fick_fig}
@@ -2026,7 +1978,7 @@ conditions. This is shown in an idealised manner in Figure~\ref{fbc}.
 
 \begin{figure}
 \centering
-\includegraphics[width=10.00cm]{images/elucidation/concentration.eps}
+\includegraphics[width=0.8\textwidth]{images/elucidation/concentration}
 \caption{If the pore structure at the boundary deforms with the
 tissue and this boundary is in contact with a fluid bath, the
 fluid concentration with respect to the current configuration,
