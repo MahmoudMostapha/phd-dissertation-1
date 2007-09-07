@@ -1,0 +1,64 @@
+\chapter{Supplementary considerations}
+\label{supplementary-considerations}
+
+\section{Source balance and the law of mass action}
+\label{law-of-mass-action}
+
+The conversion of precursors to tissue and the reverse process of
+its breakdown are governed by a series of chemical reactions. The
+stoichiometry of these reactions varies in a limited range.
+Continuing in the simple vein adopted above, it is assumed that
+the formation of tissue and byproducts from precursors, and the
+breakdown of tissue, are governed by the forward and reverse
+directions of a single reaction:
+\begin{equation}
+\sum\limits_{\iota=\alpha}^{\omega} n_\iota[\iota] \longrightarrow
+[\mathrm{s}]. \label{chemreac}
+\end{equation}
+
+\noindent Here, $n_\iota$ is the (possibly fractional) number of
+moles of species $\iota$ in the reaction. For a tissue precursor,
+$n_\iota > 0$, and for a byproduct, $n_\iota < 0$. By the Law of
+Mass Action for this reaction, the rate of the forward reaction
+(number of moles of $\mathrm{s}$ produced per unit time, per unit
+volume in $\Omega_0$) is
+$k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
+[\rho_0^\iota]^{n_\iota}$, where $\prod$ on the right hand-side
+denotes a product, not to be confused with the source, $\Pi$. The
+rate of the reverse reaction (number of moles of $\mathrm{s}$
+consumed per unit time, per unit volume in $\Omega_0$) is
+$k_\mathrm{r}[\rho_0^\mathrm{s}]$, where $k_f$ and $k_r$ are the
+corresponding reaction rates. Assuming, for the purpose of this
+example, that the solid phase is a single compound, let the
+molecular weight of $\mathrm{s}$ be $\sM_\mathrm{s}$. From the
+above arguments the source term for $\mathrm{s}$ is
+\begin{equation}
+\Pi^\mathrm{s} =
+\left(k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
+[\rho_0^\iota]^{n_\iota} -
+k_\mathrm{r}[\rho_0^\mathrm{s}]\right)\sM_\mathrm{s},
+\label{sourceA}
+\end{equation}
+
+\noindent Since the formation of one mole of $\mathrm{s}$ requires
+consumption of $n_\iota$ moles of $\iota$, we have
+\begin{equation}
+\Pi^\iota =
+-\left(k_\mathrm{f}\prod\limits_{\vartheta=\alpha}^\omega
+[\rho_0^\vartheta]^{n_\vartheta} -
+k_\mathrm{r}[\mathrm{s}]\right)n_\iota\sM_\iota, \label{sourceI}
+\end{equation}
+
+\noindent where $\sM_\iota$ is the molecular weight of species
+$\iota$. Since, due to conservation of mass, $\sM_\mathrm{s} =
+\sum\limits_{\iota=\alpha}^\omega n^\iota\sM_\iota$ the sources
+satisfy $\sum\limits_{\iota=\mathrm{s},\alpha}^\omega \Pi^\iota =
+0$.
+
+%
+
+% Local Variables:
+% TeX-master: "thesis"
+% mode: latex
+% mode: flyspell
+% End:

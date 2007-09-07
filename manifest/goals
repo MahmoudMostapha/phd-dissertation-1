@@ -10,4 +10,17 @@ Eulerian formulation and corresponding examples     = 60
 Lagrangian formulation examples = 
 Eulerian formulation examples   = 
 Other text                      =
-**100 References
+**63/100 References
+*** +5 references from cancer
+*** +4 modern growth papers: Multiphase mixture paper, Ateshian (BMMB 2007), Lemon et al. (Math. Bio. 2006),
+Loret and Simoes (JMPS 2005) 
+*** +3 classical (Einstein/Newton?) papers
+*** +2 for damage
+*** +5 books (Holzapfel, yellow/blue nonlinear fem, look at shelf...)
+*** +1 fluid-structure interaction
+*** +1 Mauck et al. for mobility
+*** +3 for estimates, one classical and two modern, e.g. Lopez-Pamies and Castaneda (J. Elasticity 2005)
+
+
+*** +2 Experiment for nonlinear visco and hysteresis
+*** +1 For coupled scheme stability/COMSOL (90)

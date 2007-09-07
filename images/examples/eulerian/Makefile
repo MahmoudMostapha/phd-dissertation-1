@@ -4,3 +4,4 @@ clean:
 	(cd constriction; make clean)
 	(cd pulling; make clean)
 	(cd swelling; make clean)
+	(cd viscoelasticity; make clean)
