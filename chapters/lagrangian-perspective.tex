@@ -1,111 +1,35 @@
 \chapter{A Lagrangian perspective}
 \label{lagrangian-perspective}
 
-\todo{\begin{itemize}
-  \item This chapter requires a lot of clean up and the two papers
-    thrown in need to be meshed cleanly. There are no additions
-    required to the content. Start working here.
-\end{itemize}}
+%% TODO:
+%%  -  This chapter requires a lot of clean up and the two papers
+%%     thrown in need to be meshed cleanly. There are no additions
+%%     required to the content. Start working here.
+%%  -  The section citations need some care, and there are a few
+%%     references remaining to be added.
 
 Tracing its origins to mechanics theories for solid continua, the
 following formulation for biological growth is developed naturally in
 terms of {\em material quantities} defined in the {\em reference
   configuration} of the tissue. During the course of this chapter, the
-fundamental field equations of a continuum idealisation of a tissue
-are derived from general principles governing the behaviour of
-multiphase mixtures. Specifically,
-Section~\ref{preliminary-definitions} helps define the system
-and formally introduces fundamental quantities characterising
-it. Sections~\ref{balance-laws} and \ref{kinematics-of-growth},
-respectively, present the balance laws and kinematics associated with
-finite deformation growth. A fundamental axiom of thermodynamics, the
-entropy inequality, and its restriction on functional forms of
-constitutive relationships is the subject of
+fundamental field equations of a continuum idealisation of tissues are
+derived from general principles governing the behaviour of multiphase
+mixtures. Specifically, Section~\ref{preliminary-definitions} helps
+define the system and formally introduces fundamental quantities
+characterising it. Sections~\ref{balance-laws} and
+\ref{kinematics-of-growth}, respectively, present the balance laws and
+kinematics associated with finite deformation growth. A fundamental
+axiom of thermodynamics, the entropy inequality, and its restriction
+on functional forms of constitutive relationships is the subject of
 Section~\ref{entropy-inequality}. The chapter concludes with novel
-algorithmic considerations (Section~\ref{algorithmic-considerations-1})
-which play an important role in the computational formulation
-underlying the numerical experiments in
+algorithmic considerations
+(Section~\ref{algorithmic-considerations-1}) which play an important
+role in the computational formulation underlying the numerical
+experiments in
 Chapter~\ref{numerical-simulations-1}.
 
 \section{Preliminary definitions}
 \label{preliminary-definitions}
-
-The body of interest, $\sB$, occupies the open
-region $\Omega_0\subset\mathbb{R}^3$ in the reference
-configuration. Points in $\sB$ are parameterized by their
-reference positions, $\bX$. The deformation of $\sB$ is a
-point-to-point map, $\Bvarphi (\bX,t)\in\mathbb{R}^3$, of
-$\Omega_0$, carrying the point at $\bX$ to its current position
-$\bx = \Bvarphi(\bX,t)$, at time $t\in [0,T]$. In its current
-configuration, $\sB$ occupies the open region $\Omega_t =
-\Bvarphi_t(\Omega_0),\; \Omega_t\subset\mathbb{R}^3$ (see Figure
-\ref{potato}). The tangent map of $\Bvarphi$ is the deformation
-gradient $\bF :=
-\partial\Bvarphi/\partial\bX$.
-\begin{figure}[ht]
-\centering\psfrag{BIGX}{\small$\bX$} \psfrag{SMX}{\small$\bx$}
-\psfrag{PI}{\small$\Pi^\mathrm{\iota}$}
-\psfrag{PPI}{\small$\pi^\mathrm{\iota}$}
-\psfrag{MN}{\small$\bN\cdot\bM^{\iota}$}
-\psfrag{MMN}{\small$\bn\cdot\bm^\mathrm{\iota}$}
-\psfrag{SN}{\small$\bP\bN$} \psfrag{SSN}{\small$\Bsigma\bn$}
-\psfrag{PHI}{\small$\Bvarphi$} \psfrag{WO}{\small$\Omega_0$}
-\psfrag{WT}{\small$\Omega_t$}
-       {\includegraphics[width=0.8\textwidth]{images/elucidation/growth1}}
-       \caption{The continuum body with diffusing species and under
-         stress.}\label{potato} 
-\end{figure}
-
-The body consists of several species, of which the solid phase of
-the tissue is denoted $\mathrm{s}$, and the fluid phase is
-$\mathrm{f}$. The remaining species, $\alpha,\dots,\omega$, are
-precursors of the tissue or byproducts of its breakdown in
-chemical reactions. The index $\iota$ will be used to indicate an
-arbitrary species. (Where appropriate, we will use the term
-``system'' to refer to the species collectively. Where the
-presence of several species is an unimportant fact, we will use
-the term ``body''. ) The system is open with respect to mass.
-Species $\alpha,\dots,\omega$ have sources/sinks,
-$\Pi^\alpha,\dots,\Pi^\omega$, and mass fluxes,
-$\bM^\alpha,\dots,\bM^\omega$, respectively. The sources specify
-mass production rates per unit volume of the body in its reference
-configuration, $\Omega_0$. The fluxes specify mass flow rates per
-unit cross-sectional area in $\Omega_0$. Importantly, \emph{these
-flux vectors are defined relative to the solid phase}. As
-discussed in Section \ref{sect1}, the solid tissue phase has only
-a mass source/sink associated with it, and no flux. The fluid
-tissue phase has only a mass flux, and no
-source/sink\footnote{Considering the case of the lymphatic fluid,
-this implies that lymph glands are assumed not to be present.}.
-
-Since the solid phase, $\mathrm{s}$, does not undergo transport,
-its motion is specified entirely by $\Bvarphi(\bX,t)$. We describe
-the remaining species $\mathrm{f},\alpha,\dots,\omega$ as
-convecting with the solid phase and diffusing with respect to it.
-They therefore have a velocity relative to $\mathrm{s}$. Since the
-remaining species convect with $\mathrm{s}$, it implies a local
-homogenization of deformation. The modelling assumption is made
-that at each point, $\bX$, the individual phases undergo the same
-deformation.
-
-We define concentrations of the species
-$\rho_0^\iota=\bar{\rho}_0^\iota f^\iota$ as masses per unit
-volume in $\Omega_0$. The intrinsic species density is
-$\bar{\rho}_0^\iota$, and $f^\iota$ is the volume fraction of
-$\iota$, for $\iota = \mathrm{s,f},\alpha,\dots,\omega$. In an
-experiment it is far easier to measure the concentration,
-$\rho_0^\iota$, rather than the intrinsic species density,
-$\bar{\rho}_0^\iota$\footnote{In our experiments we have measured
-the mass concentration $\rho_0^\iota$ of collagen in engineered
-tendons grown \emph{in vitro}. These results will be presented
-elsewhere \citep{Calve:04}.}. The concentrations also have
-the property $\sum\limits_{\iota}\rho_0^\iota = \rho_0$, the total
-material density of the tissue, with the sum being over all
-species $\mathrm{s,f},\alpha,\dots,\omega$. The concentrations,
-$\rho_0^\iota$, change as a result of mass transport and
-inter-conversion of species, implying that the total density in
-the reference configuration, $\rho_0$, changes with time. They are
-parameterized as $\rho_0^\iota(\bX,t)$.
 
 The tissue of interest is an open subset of $\mathbb{R}^3$ with a
 piecewise smooth boundary. At a reference placement of the tissue,
@@ -117,11 +41,11 @@ sufficiently smooth bijective map $\Bvarphi: \overline{\Omega}_0
 of $\Omega_0$. At a typical time $t \in [0,T]$, $\Bvarphi(\bX,t)$ maps
 a point $\bX$ to its current position, $\bx$. In its current
 configuration, the tissue occupies a region $\Omega_t = \Bvarphi_t
-(\Omega_0)$. These details are depicted in Figure~\ref{cp}. The
-deformation gradient $\bF := \partial \Bvarphi/ \partial\bX$ is the
-tangent map of $\Bvarphi$.
+(\Omega_0)$. These details are depicted in
+Figure~\ref{continuum-potato-mass}. The deformation gradient $\bF :=
+\partial \Bvarphi/ \partial\bX$ is the tangent map of $\Bvarphi$.
 
-\begin{figure}[ht]
+\begin{figure}
   \centering
   \psfrag{A}{\small$\bX$}
   \psfrag{F}{\small$\bx$}
@@ -136,7 +60,7 @@ tangent map of $\Bvarphi$.
            {images/elucidation/cp-mass-solute}}
 	 \caption{The tissue as a continuous medium with growing and
            diffusing species.}
-	 \label{cp}
+	 \label{continuum-potato-mass}
 \end{figure}
 
 The tissue consists of numerous species, of which the following
@@ -171,11 +95,53 @@ cross-sectional area in the reference configuration \emph{defined
 relative to the solid phase}. The species have mass sources (or
 sinks), $\Pi^\iota$.
 
+%% \hrule
+
+%%  The system is open with respect to mass.
+%% The sources specify
+%% mass production rates per unit volume of the body in its reference
+%% configuration, $\Omega_0$.  As
+%% discussed in Section \ref{sect1}, the solid tissue phase has only
+%% a mass source/sink associated with it, and no flux. The fluid
+%% tissue phase has only a mass flux, and no
+%% source/sink\footnote{Considering the case of the lymphatic fluid,
+%% this implies that lymph glands are assumed not to be present.}.
+
+%% Since the solid phase, $\mathrm{s}$, does not undergo transport,
+%% its motion is specified entirely by $\Bvarphi(\bX,t)$. We describe
+%% the remaining species $\mathrm{f},\alpha,\dots,\omega$ as
+%% convecting with the solid phase and diffusing with respect to it.
+%% They therefore have a velocity relative to $\mathrm{s}$. Since the
+%% remaining species convect with $\mathrm{s}$, it implies a local
+%% homogenization of deformation. The modelling assumption is made
+%% that at each point, $\bX$, the individual phases undergo the same
+%% deformation.
+
+%% We define concentrations of the species
+%% $\rho_0^\iota=\bar{\rho}_0^\iota f^\iota$ as masses per unit
+%% volume in $\Omega_0$. The intrinsic species density is
+%% $\bar{\rho}_0^\iota$, and $f^\iota$ is the volume fraction of
+%% $\iota$, for $\iota = \mathrm{s,f},\alpha,\dots,\omega$. In an
+%% experiment it is far easier to measure the concentration,
+%% $\rho_0^\iota$, rather than the intrinsic species density,
+%% $\bar{\rho}_0^\iota$\footnote{In our experiments we have measured
+%% the mass concentration $\rho_0^\iota$ of collagen in engineered
+%% tendons grown \emph{in vitro}. These results will be presented
+%% elsewhere \citep{Calve:04}.}. The concentrations also have
+%% the property $\sum\limits_{\iota}\rho_0^\iota = \rho_0$, the total
+%% material density of the tissue, with the sum being over all
+%% species $\mathrm{s,f},\alpha,\dots,\omega$. The concentrations,
+%% $\rho_0^\iota$, change as a result of mass transport and
+%% inter-conversion of species, implying that the total density in
+%% the reference configuration, $\rho_0$, changes with time. They are
+%% parameterized as $\rho_0^\iota(\bX,t)$.
+
+
 \section{Balance laws for an open mixture}
 \label{balance-laws}
 
-\todo{Some grand statements about fundamental principles the following
-laws follow go here.}
+\todo{Some grand statements about fundamental principles underlying
+  the following laws follow go here.}
 
 \subsection{Balance of mass}
 \label{balance-of-mass}
@@ -303,38 +269,38 @@ describe a set of inter-related sources, $\Pi^\iota$.
 
 \hrule
 
-As a result of mass transport (via the flux terms) and
-inter-conversion of species (via the source/sink terms) introduced
-above, the concentrations, $\rho_0^\iota$, change with time. In
-local form, the balance of mass for an arbitrary species in the
-reference configuration is
+%% As a result of mass transport (via the flux terms) and
+%% inter-conversion of species (via the source/sink terms) introduced
+%% above, the concentrations, $\rho_0^\iota$, change with time. In
+%% local form, the balance of mass for an arbitrary species in the
+%% reference configuration is
 
-\begin{equation}
-\frac{\partial\rho_0^\iota}{\partial t} = \Pi^\iota -
-\mathrm{\small{DIV}}[\bM^\iota],\;\forall\,\iota,
-\label{massbalance1}
-\end{equation}
+%% \begin{equation}
+%% \frac{\partial\rho_0^\iota}{\partial t} = \Pi^\iota -
+%% \mathrm{\small{DIV}}[\bM^\iota],\;\forall\,\iota,
+%% \label{massbalance1}
+%% \end{equation}
 
-\noindent recalling that, in particular, $\bM^{c} = \bzero$. Here,
-$\mathrm{\small{DIV}[\bullet]}$ is the divergence 
-operator in the reference configuration. The functional forms of
-$\Pi^\iota$ are abstractions of the underlying biochemistry,
-physiologically relevant examples of which are discussed in
-Section~\ref{sources}, and the fluxes, $\bM^\iota$, are determined
-from the thermodynamically-motivated constitutive relations described
-in Section~\ref{flux const}.
+%% \noindent recalling that, in particular, $\bM^{c} = \bzero$. Here,
+%% $\mathrm{\small{DIV}[\bullet]}$ is the divergence 
+%% operator in the reference configuration. The functional forms of
+%% $\Pi^\iota$ are abstractions of the underlying biochemistry,
+%% physiologically relevant examples of which are discussed in
+%% Section~\ref{sources}, and the fluxes, $\bM^\iota$, are determined
+%% from the thermodynamically-motivated constitutive relations described
+%% in Section~\ref{flux const}.
 
-The behaviour of the entire system can be determined by summing
-\mbox{Equation~(\ref{massbalance1})} over all species $\iota$.
-Additionally, sources and sinks satisfy the relation
+%% The behaviour of the entire system can be determined by summing
+%% \mbox{Equation~(\ref{massbalance1})} over all species $\iota$.
+%% Additionally, sources and sinks satisfy the relation
 
-\begin{equation}
-\sum\limits_\iota\Pi^\iota = 0, \label{sourcebalance}
-\end{equation}
+%% \begin{equation}
+%% \sum\limits_\iota\Pi^\iota = 0, \label{sourcebalance}
+%% \end{equation}
 
-\noindent which is consistent \citep{growthpaper} with the Law of Mass
-Action for reaction rates and with Mixture Theory
-\citep{TruesdellNoll:65}.
+%% \noindent which is consistent \citep{growthpaper} with the Law of Mass
+%% Action for reaction rates and with Mixture Theory
+%% \citep{TruesdellNoll:65}.
 
 \subsection{Balance of linear momentum}
 \label{balance-of-linear-momentum}
@@ -858,7 +824,7 @@ arising from a geometrically-necessary elastic deformation
 accompanying growth, as well as a separate elastic deformation due
 to an external stress. The deformation gradient is subject to a
 split reminiscent of the classical decomposition of multiplicative
-plasticity \citep{Bilbyetal:1957,Lee:1969}
+plasticity \citep{Bilbyetal:1956,Lee:1969}
 
 At a continuum point the reference concentration of each species
 admits the notion of an ``original'' state in which the

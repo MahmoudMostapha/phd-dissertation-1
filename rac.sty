@@ -368,7 +368,7 @@ Doctoral Committee: \\[2ex]
   \refstepcounter{chapter}
   \typeout{\@chapapp\space\thechapter.}
   \addtocontents{toc}{\hbox{ }}
-  \addcontentsline{toc}{chap}{\protect\numberline{\hbox{ }\hfill\bf\thechapter.\hspace{5pt}}{\bf #1}}
+  \addcontentsline{toc}{chap}{\texorpdfstring{\protect\numberline{\hbox{ }\hfill\bf\thechapter.\hspace{5pt}}{\bf #1}}{#1}}
   \addtocontents{toc}{\hbox{ }}
  \else
   \addtocontents{toc}{\hbox{ }}
