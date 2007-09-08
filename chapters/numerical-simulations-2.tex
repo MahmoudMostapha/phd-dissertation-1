@@ -37,14 +37,14 @@ The second set of numerical simulations reside here.
 
 \begin{figure}[!hpt]
 \centering
-\includegraphics[width=0.7\textwidth,angle=270]{images/examples/eulerian/viscoelasticity/provenzano-data-comparison}
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/eulerian/viscoelasticity/provenzano-data-comparison}
 \caption{The non-linear time constants fit to experiment.} 
 \label{provenzano-data-fit}
 \end{figure}
 
 \begin{figure}[!hpt]
 \centering
-\includegraphics[width=0.7\textwidth,angle=270]{images/examples/eulerian/viscoelasticity/nonlinear-viscoelasticity-stress-relaxation}
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/eulerian/viscoelasticity/nonlinear-viscoelasticity-stress-relaxation}
 \caption{Stress relaxation under nonlinear viscoelasticity.}
 \label{nonlinear-viscoelasticity-stress-relaxation}
 \end{figure}
@@ -147,14 +147,14 @@ The second set of numerical simulations reside here.
 
 \begin{figure}[!hpt]
 \centering
-\includegraphics[width=0.7\textwidth,angle=270]{images/examples/eulerian/constriction/constrict-vel-drop-dynamic}
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/eulerian/constriction/constrict-vel-drop-dynamic}
 \caption{Vertical fluid velocity evolution with dynamics.} 
 \label{velocity-evolution-dynamic}
 \end{figure}
 
 \begin{figure}[!hpt]
 \centering
-\includegraphics[width=0.7\textwidth,angle=270]{images/examples/eulerian/constriction/constrict-vel-drop-quasistatic}
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/eulerian/constriction/constrict-vel-drop-quasistatic}
 \caption{Vertical fluid velocity evolution with quasistatics.} 
 \label{velocity-evolution-quasistatic}
 \end{figure}
@@ -174,7 +174,100 @@ With viscoelasticity and poroelasticity, quasistatic and dynamic.
 With viscoelasticity and poroelasticity, quasistatic and dynamic.
 
 \section{Tumour growth}
-\label{tumor-growth}
+\label{tumour-growth}
+
+\subsection{Isotropic swelling}
+\label{tumour-isotropic-swelling}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/isotropic-swelling-0}
+\caption{A semicircular tumour at time $t=0$ days.}
+\label{tumour-isotropic-swelling-0}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/isotropic-swelling-100}
+\caption{A semicircular tumour at time $t=100$ days.}
+\label{tumour-isotropic-swelling-100}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/eulerian/cancer/isotropic-swelling-area-evolution}
+\caption{The area of the tumour evolving over 100 days.}
+\label{tumour-isotropic-area-evolution}
+\end{figure}
+
+\subsection{Constrained by a wall}
+\label{wall-constraint}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/constrained-swelling-120}
+\caption{The growing tumour constrained by a wall at time $t=100$ days.}
+\label{tumour-constrained-swelling-120}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/eulerian/cancer/constrained-stress-evolution}
+\caption{The horizontal stress in the tumour evolving over 120 days.}
+\label{tumour-constrained-stress-evolution}
+\end{figure}
+
+\subsection{The role of the cells}
+\label{cell-roles}
+
+\subsubsection{Inward tug}
+\label{inward-tug}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/homogeneous-inward-tug}
+\caption{Homogeneous inward tug due to a uniform distribution of cells.}
+\label{tumour-homogeneous-inward-tug}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/heterogeneous-inward-tug}
+\caption{Heterogeneous inward tug due to a non-uniform distribution of cells.}
+\label{tumour-heterogeneous-inward-tug}
+\end{figure}
+
+\subsubsection{Transport of the cells}
+\label{cell-transport}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/diffusing-proliferating-cells-0}
+\caption{The cells diffusing and proliferating at time $t=0$ days.}
+\label{tumour-diffusion-proliferation-0}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/diffusing-proliferating-cells-33}
+\caption{The cells diffusing and proliferating at time $t=33$ days.}
+\label{tumour-diffusion-proliferation-33}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/diffusing-proliferating-cells-67}
+\caption{The cells diffusing and proliferating at time $t=67$ days.}
+\label{tumour-diffusion-proliferation-67}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/diffusing-proliferating-cells-100}
+\caption{The cells diffusing and proliferating at time $t=100$ days.}
+\label{tumour-diffusion-proliferation-100}
+\end{figure}
+
 
 %
 
