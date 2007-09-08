@@ -19,8 +19,8 @@ OTHER   = manifest/*
 # impact on the quality of generated documents. Comment-out the ps2pdf
 # flags below if on Mac OS X.
 LFLAGS  = 					#latex flags
-BFLAGS  = 					#bibtex flags
-DFLAGS  = -t letter -Ppdf -G0 -z -o thesis.ps	#dvips flags
+BFLAGS  = -terse				#bibtex flags
+DFLAGS  = -q -z -Z -t letter -Ppdf -G0 -o thesis.ps  #dvips flags
 PFLAGS  = -dPDFSETTINGS=/prepress		#ps2pdf flags
 ADPATH  = "/Library/Application Support/Adobe/Adobe PDF/Settings/"
 ADFILE  = "High Quality Print.joboptions"	#distiller settings file
