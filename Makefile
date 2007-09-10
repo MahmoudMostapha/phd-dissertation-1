@@ -3,13 +3,16 @@
 
 # Fundamental variables:
 
+# A versioning scheme to keep track of progress
+VERSION = 0.0.7
+
 # Change these to your heart's content.
 LATEX   = latex
 BIBTEX  = bibtex
 DVIPS   = dvips
 PS2PDF  = ps2pdf14 #On Mac OS X, use pstopdf instead.
 
-SOURCES = thesis.tex thesis.bib thesis.bst *.sty \
+SOURCES = Makefile thesis.tex thesis.bib thesis.bst *.sty \
 	  auxiliary/*.tex chapters/*.tex \
           images/*/*.eps images/*/*/*.eps images/*/*/*/*.eps
 
@@ -47,6 +50,9 @@ thesis:   pristine polish
 distill:  pristine distiller
 	  make clean
 
+archive:  pristine
+	  hg archive -ttbz2 ../older/thesis-$(VERSION).tar.bz2
+
 # Actual drudgery:
 
 # Shoo, here be dragons.
@@ -65,6 +71,8 @@ pristine: clean
 	rm -f *.pdf
 
 thesis.dvi: $(SOURCES)
+	@echo "Setting the version number:"
+	perl -pi -e 's/GROWTH \(.*\)/GROWTH \(${VERSION}\)/' auxiliary/front-matter.tex
 	@echo "Creating the dvi file:"
 	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(BIBTEX)  $(BFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \

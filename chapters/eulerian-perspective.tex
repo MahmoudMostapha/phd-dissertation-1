@@ -1,66 +1,106 @@
+% 24 --- 8
+
+%% \todo{\begin{itemize}
+%%   \item Needs an explanatory figure.
+%%    \item incorporating additional kinematic variables into strain energy
+%%     function: derive viscoelastic response.
+%%   \item Derive the growth law dependent on stress, forces between
+%%     phases, source terms (even/odd), ...
+%%   \item Onsager for the cancer calculation.
+%%   \item Figure out how to word saturation constraint, steal and modify
+%%     numerical stability analysis for monolithic scheme from proposal.
+%%   \item Work from the fluid-structure interaction literature to
+%%     highlight boundary conditions, or perhaps move this to the next
+%%     chapter.
+%% \end{itemize}}
+
 \chapter{An Eulerian perspective}
 \label{eulerian-perspective}
 
-% Even though this way of looking at the system results in a set of
-% differential equations entirely compatible (just pushed-forward to
-% the current configuration) set of differential equations to those
-% arrived-at in Chapter 3, it serves a useful purpose in clarifying
-% what quantities are primal and what sorts of boundary conditions
-% they can be subjected to.
+As detailed at the outset of Chapter~\ref{lagrangian-perspective}, the
+continuum treatment presented thus far has stemmed from classical
+theories for solid continua, which are traditionally formulated in a
+Lagrangian setting. Since our continuum idealisation of tissues
+includes fluid components, and material coordinates are, in general,
+not known in fluid mechanics, this chapter revisits the derivation of
+the governing field equations of growing tissues following an Eulerian
+approach.
 
-\todo{\begin{itemize}
-  \item This chapter requires the most new work; start on this after
-    Chapter 3. Needs to be 30 or so more pages long. The equations
-    need to be fleshed out on paper after 
-    incorporating additional kinematic variables into strain energy
-    function: derive viscoelastic response.
-  \item Derive the growth law dependent on stress, forces between
-    phases, source terms (even/odd), ...
-  \item Onsager for the cancer calculation.
-  \item Figure out if elastica is feasible, else refer back to WLCM and
-    instead just describe the Mooney-Rivlin as an adequate substitute.
-  \item Figure out how to word saturation constraint, steal and modify
-    numerical stability analysis for monolithic scheme from proposal.
-  \item Work from the fluid-structure interaction literature to
-    highlight boundary conditions, or perhaps move this to the next
-    chapter.
-\end{itemize}}
+In this {\em spatial description}, attention is turned to a point in
+the {\em current configuration} of the tissue, where the evolution of
+field variables of interest are studied. Remarkably, this dissimilar
+approach results in a set of differential equations which are
+completely equivalent to those deduced in Section~\ref{balance-laws},
+just {\em pushed-forward} to the current configuration. But more
+significantly, the spatial approach presented below naturally leads to
+a different set of primary variables more suitable to physically
+relevant boundary value problems.
+
+The outline of the chapter is as
+follows. Section~\ref{eu-balance-laws} briefly recapitulates the
+fundamental quantities characterising the tissue, pointing out
+noteworthy differences from Section~\ref{preliminary-definitions}, and
+derives the balance laws governing finite deformation
+growth in terms of spatial
+quantities. Section~\ref{eu-entropy-inequality} deduces constitutive
+relationships consistent with the entropy inequality. Finally, certain
+algorithmic considerations pertinent to the simulations presented in
+Chapter~\ref{numerical-simulations-2} are discussed in
+Section~\ref{eu-algorithmic-considerations}.
+
+\section{Balance laws for an open mixture}
+\label{eu-balance-laws}
 
  We initiate this discussion with the introduction of $\Omega_{t}$, a
  temporally-varying closure of an open set in $\mathbb{R}^{3}$ with a
  piecewise smooth boundary, which we define to be our region of
- interest. Assuming that $\Omega_{t}$ evolves in a {\em
-   well-behaved}\footnote{By which we mean, there exists a
-   {\color{Blue} $\mathit{C}^{2}$} (in space and time), bijective
-   and orientation preserving map $\varphi_{t}(\bX):
-   \mathbb{R}^3\times\mathbb{R}^{+}\cup\{0\}
-   \rightarrow\mathbb{R}^{3}$ such that $\Omega_{t} = \varphi_{t}
-   (\Omega_{0})$ for some {\color{Sepia} convenient}, \em{fixed}
-   subset of $\mathbb{R}^{3}$, $\Omega_{0}$.} manner, our primary
- interest lies in the evolution of various field variables inside
- $\Omega_{t}$ as observed from an inertial reference frame.
+ interest. This region of interest is constructed to coincide with the
+ current position of the solid component of the tissue, and our
+ primary interest lies in the evolution of various field variables
+ inside $\Omega_{t}$, as observed from an inertial reference frame.
 
-\section{Preliminary definitions}
-\label{eu-preliminary-definitions}
+It is assumed that the there exists a {$\mathit{C}^{2}$} (in space and
+time), bijective and orientation preserving map $\varphi_{t}(\bX):
+\mathbb{R}^3\times\mathbb{R}^{+}\cup\{0\} \rightarrow\mathbb{R}^{3}$
+such that $\Omega_{t} = \varphi_{t} (\Omega_{0})$ for some convenient,
+{\em fixed} subset of $\mathbb{R}^{3}$, $\Omega_{0}$. This ensures
+that $\Omega_{t}$ evolves in a {\em well-behaved} manner, disallowing
+non-physical deformations being imposed on the tissue, and permits the
+application of Reynolds' transport theorem
+(Appendix~\ref{reynolds-transport}).
 
-\section{Balance laws for an open mixture}
-\label{eu-balance-laws}
-                                   
+Denoting a point in $\Omega_{t}$ by $\bx$, $\bv(\bx,t) =
+\frac{\partial \varphi_{t}}{\partial t}$ defines the {\em spatial
+  velocity} of the system domain. In contrast to
+Section~\ref{balance-laws}, it is recognised at the outset that each
+species of the tissue is capable of undergoing its own motion
+independent of the solid component of the tissue, and so we introduce
+the spatial velocity of an arbitrary species $\iota$,
+$\bv^{\iota}(\bx,t)$.\footnote{Which are primary variables in
+  themselves. Species velocities $\bv^{\iota}$ can be formally
+  understood as $\bv^{\iota}(\bx,t) = \frac{\partial
+    \varphi^{\iota}_{t}}{\partial t}$, where $\varphi^{\iota}$ is the
+  deformation map of each species $\iota$ from an arbitrary reference
+  configuration, but they are not explicitly tracked.} Unlike
+Section~\ref{balance-of-linear-momentum}, these velocities are defined
+to be the total velocities of each species, not relative velocities
+with respect to the solid component.
+
 \subsection{Balance of mass}
 \label{eu-balance-of-mass}
 
-Denoting a point in $\Omega_{t}$ by $\bx$, we turn our attention to
-the evolution of the first of these field variables of interest, the
-{\em concentration}\footnote{Formally defined as the mass of species
-  $\iota$ per unit system volume, $\Omega_{t}$.} of an arbitrary
+We now turn our attention to the evolution of the first of our field
+variables of interest, the species concentration of an arbitrary
 species $\iota$ constituting the system, $\rho^{\iota}(\bx,t):
 \mathbb{R}^3\times\mathbb{R}^{+}\cup\{0\} \rightarrow
-\mathbb{R}$. Assuming that $\rho^{\iota}$ is {\color{Blue}
-  $\mathit{C}^{1}$} in time and {\color{Blue} $\mathit{C}^{2}$} in
-space, we have from the conservation of matter for species $\iota$
-over $\Omega_{t}$,
+\mathbb{R}$. These are defined as the mass of species $\iota$ per unit
+{\em system volume}, $\Omega_{t}$, and thus the total {\em spatial
+  density} of the tissue is given by the summation,
+$\sum\limits_{\iota}\rho^\iota = \rho$. 
 
-%TODO: What are the requirements for \phi^{iota}?
+Assuming that $\rho^{\iota}$ is $\mathit{C}^{1}$ in time and
+$\mathit{C}^{2}$ in space, we have from the conservation of matter for
+species $\iota$ over $\Omega_{t}$,
 
 \begin{equation}
 \underbrace{\frac{d}{dt}\left(\int_{\Omega_{t}} \rho^{\iota} dv
@@ -70,20 +110,17 @@ over $\Omega_{t}$,
 - \underbrace{\int_{\partial \Omega_{t}} \rho^{\iota}
   \left(\bv^{\iota} - \bv\right) \cdot \bn\ 
 da,}_{\text{Mass leaving the domain}}
-\label{globalbalanceofmass}
+\label{eu-globalbalanceofmass}
 \end{equation}
 
- where $\bv(\bx,t) = \frac{\partial \varphi_{t}}{\partial t}$
-is the {\em spatial velocity} of the system domain,
-$\bv^{\iota}(\bx,t)$ is the spatial velocity of species
-$\iota$,\footnote{Which is formally defined as $\bv^{\iota}(\bx,t) =
-  \frac{\partial \varphi^{\iota}_{t}}{\partial t}$.} %TODO: Clarify
- $\pi^{\iota}(\bx,t)$ is the volumetric source of species $\iota$ and
-$\bn$ is the outward normal vector over $\partial \Omega_{t}$, the
-boundary of $\Omega_{t}$.
+\noindent where $\pi^{\iota}(\bx,t)$ is the volumetric source (or
+sink) of species $\iota$ and $\bn$ is the outward normal vector over
+$\partial \Omega_{t}$, the boundary of $\Omega_{t}$. %% The total mass
+%% flux of each species $\iota$ in the current configuration is product
+%% $\rho^{\iota}\bv^{\iota}$.
 
-On applying Reynolds' transport theorem (Appendix~\ref{reynolds-transport}),
-%TODO: Add proof in appendix
+On applying Reynolds' transport theorem
+(Appendix~\ref{reynolds-transport}) to the left-hand side,
 
 \begin{equation*}
 \int_{\Omega_{t}} \frac{\partial \rho^{\iota}}{\partial t} dv
@@ -93,8 +130,8 @@ On applying Reynolds' transport theorem (Appendix~\ref{reynolds-transport}),
 \cancel{\bv}\right) \cdot \bn\ da,
 \end{equation*}
 
-Gauss' divergence theorem (Appendix~\ref{gauss-divergence}),
-%TODO: Add proof in appendix
+\noindent Gauss' divergence theorem (Appendix~\ref{gauss-divergence})
+to the area integral,
 
 \begin{equation*}
 \int_{\Omega_{t}} \frac{\partial \rho^{\iota}}{\partial t} dv =
@@ -102,7 +139,7 @@ Gauss' divergence theorem (Appendix~\ref{gauss-divergence}),
 - \int_{\Omega_{t}} \mathrm{div} \left( \rho^{\iota} \bv^{\iota}\right) dv, 
 \end{equation*}
 
-and localising, we arrive at the final form of the balance of
+\noindent and localising, we arrive at the final form of the balance of
 mass of species $\iota$,
 
 \begin{equation}
@@ -110,26 +147,40 @@ mass of species $\iota$,
 \pi^{\iota}
 -\ \mathrm{div} \left(\rho^{\iota} \bv^{\iota}\right)
 \quad \mathrm{in}\ \Omega_{t},
-\label{localbalanceofmass}
+\label{eu-localbalanceofmass}
 \end{equation}
 
-where $\mathrm{div} (\bullet)$ denotes the spatial divergence
-operator. %TODO: Define properly, and what does this mean for the
-          %field \rho^i?
+\noindent where $\mathrm{div} (\bullet)$ denotes the spatial divergence
+operator. This result is consistent with classical mixture theory
+\citep{TruesdellToupin:60} and is the analogue of
+Equation~\ref{localbalanceofmass} in the current configuration.
 
-%In order to establish the behaviour of the entire system, we define
-%the system density $\rho$ and system velocity $\bv$ in terms of
-%species quantities. 
+As in Section~\ref{balance-of-mass}, when writing the mass balance
+equation for a system as a whole,
 
-%% =\sum_{\iota}\rho_{\iota}$ and velocity
-%% of the system
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d}t}\sum\limits_{\iota} \left(\int_{\Omega_{t}} \rho^{\iota} dv
+  \right) = -\sum\limits_{\iota} \int_{\partial \Omega_{t}} \rho^{\iota}
+  \left(\bv^{\iota} - \bv\right) \cdot \bn\ da,
+\label{eu-systembalanceofmass}
+\end{equation}
 
-%TODO: Insert the equations for the entire system here.
+\noindent we treat the system as a black box, only accounting for
+contributions from boundary terms and neglecting any interaction
+terms. Comparing Equation~\ref{eu-systembalanceofmass} to a summation
+of Equation~\ref{eu-globalbalanceofmass} over all species, it is clear
+that the sources and sinks satisfy,
+
+\begin{equation}
+\sum\limits_{\iota}\pi^{\iota} = 0.
+\label{eu-summationrelationmass}
+\end{equation}
+
 \subsection{The balance of momentum}
 \label{eu-balance-of-momentum}
 
-As observed from our inertial reference frame, the balance of
-momentum of a species $\iota$ over $\Omega_{t}$ requires,
+As observed from an inertial reference frame, the balance of momentum
+of a species $\iota$ over $\Omega_{t}$ requires,
 
 \begin{equation}
 \begin{split}
@@ -145,17 +196,20 @@ momentum of a species $\iota$ over $\Omega_{t}$ requires,
   \bv^{\iota} \right) \left(\bv^{\iota} -
 \bv\right) \cdot \bn\ da,}_{\text{Momentum leaving the domain}} 
 \end{split}
-\label{globalbalanceofmomentum}
+\label{eu-globalbalanceofmomentum}
 \end{equation}
 
-where, in addition to the quantities introduced previously,
+\noindent where, in addition to the quantities introduced previously,
 $\bg^{\iota}(\bx,t)$ is the resultant body force of {\em external} origin
 acting on species $\iota$, $\bq^{\iota}(\bx,t)$ is the resultant body
 force on species $\iota$ from {\em all other species in the mixture},
-and $\Bsigma^{\iota}$ is the partial Cauchy stress on species $\iota$.
+and $\Bsigma^{\iota}(\bx,t)$ is the partial Cauchy stress on species
+$\iota$. All of these quantities are assumed to be sufficiently
+smooth.
 
-Application of Reynolds' transport theorem yields
-(Appendix~\ref{reynolds-transport}), 
+Application of Reynolds' transport theorem
+(Appendix~\ref{reynolds-transport}) to
+Equation~\ref{eu-globalbalanceofmomentum} yields,
 
 \begin{equation*}
 \begin{split}
@@ -164,20 +218,16 @@ Application of Reynolds' transport theorem yields
 & \int_{\Omega_{t}} \rho^{\iota} \left(\bg^{\iota}+\bq^{\iota}\right) dv 
 + \int_{\partial \Omega_{t}} \Bsigma^{\iota}\cdot\bn\ da\\
 + & \int_{\Omega_{t}} \pi^{\iota}\bv^{\iota} dv
-- \int_{\partial \Omega_{t}} \left(\rho^{\iota} \left(\bv^{\iota} -
-\cancel{\bv}\right) \cdot \bn \right) \bv^{\iota}\ da.
+- \int_{\partial \Omega_{t}} \left(\rho^{\iota} \bv^{\iota}
+\right)\left(\bv^{\iota} - \cancel{\bv}\right) \cdot \bn\ da.
 \end{split}
 \end{equation*}
 
-Using the product rule of differentiation, Gauss' divergence
-theorem (Appendix~\ref{gauss-divergence}), and the balance of mass
-(Equation~\ref{localbalanceofmass}), we have,
-
-%TODO: Incorporate generalizations of the Leibniz rule
-%and http://planetmath.org/encyclopedia/RelatedRates.html
-
-%NOTE: Noting of course that this relationship needn't be satisfied
-%pointwise in the code.
+\noindent Using Leibniz rule, Gauss' divergence theorem
+(Appendix~\ref{gauss-divergence}), and the balance of
+mass{\footnote{Recognising that the balance of mass need not be
+    satisfied exactly, pointwise in a numerical implementation.}}
+(Equation~\ref{eu-localbalanceofmass}), we have,
 
 \begin{equation*}
 \begin{split}
@@ -193,64 +243,176 @@ theorem (Appendix~\ref{gauss-divergence}), and the balance of mass
 \end{split}
 \end{equation*}
 
-where $\mathrm{grad} (\bullet)$ denotes the spatial gradient
-operator.
-
-Upon localisation, we obtain the final form of the balance of momentum
-of species $\iota$,
+\noindent where $\mathrm{grad} (\bullet)$ denotes the spatial gradient
+operator. Upon localisation, we obtain the final form of the balance
+of momentum of species $\iota$, 
 
 \begin{equation}
 \rho^{\iota} \frac{\partial \bv^{\iota}} {\partial t} = \rho^{\iota}
 \left(\bg^{\iota}+\bq^{\iota}\right)  
 + \mathrm{div}\left(\Bsigma^{\iota}\right)
 - \mathrm{grad}\left(\bv^{\iota}\right) \rho^{\iota}\bv^{\iota}
-\quad \mathrm{in}\ \Omega_{t}.
-\label{localbalanceofmomentum}
+\quad \mathrm{in}\ \Omega_{t},
+\label{eu-localbalanceofmomentum}
 \end{equation}
 
-%TODO: Insert the equations for the entire system here.
+\noindent also a result consistent with classical mixture theory
+\citep{TruesdellToupin:60}. This equation is the current configuration
+analogue of Equation~\ref{balanceofmomentum}.
+
+Neglecting the interaction terms, the balance of momentum for the
+entire system can be written as follows,
+
+\begin{equation}
+\begin{split}
+\sum\limits_{\iota} \frac{d}{dt}\left(\int_{\Omega_{t}} \rho^{\iota}
+\bv^{\iota} dv 
+\right) = & \sum\limits_{\iota} \left(\int_{\Omega_{t}} \rho^{\iota}
+\bg^{\iota} dv + \int_{\partial \Omega_{t}} 
+\Bsigma^{\iota}\cdot\bn\ da\right)\\
+- &\sum\limits_{\iota}\int_{\partial \Omega_{t}} \left(\rho^{\iota}
+  \bv^{\iota} \right) \left(\bv^{\iota} -
+\bv\right) \cdot \bn\ da.
+\end{split}
+\label{eu-systembalanceofmomentum}
+\end{equation}
+
+\noindent Comparing Equation~\ref{eu-systembalanceofmomentum} to a summation
+of Equation~\ref{eu-globalbalanceofmomentum} over all species, it is clear
+that the sources and interaction forces satisfy the relation,
+
+\begin{equation}
+\sum\limits_{\iota}\left( \rho^{\iota}\bq^{\iota} + \pi^{\iota}
+\bv^{\iota} \right) = 0.
+\label{eu-summationrelationmomentum}
+\end{equation}
 
 \subsection{The balance of angular momentum}
 \label{eu-balance-of-angular-momentum}
 
-As observed from our inertial reference frame, the balance of
-angular momentum of a species $\iota$ over $\Omega_{t}$ about the
-origin requires,
+Consider the position vector $\bp(\bx)$ of a point on the tissue
+relative to a fixed point\footnote{Which may or may not be
+  the origin of the system's Euclidean space.} in space. The balance of angular
+momentum about the fixed point, as observed from an inertial reference
+frame, of a species $\iota$ over $\Omega_{t}$ requires,
 
 \begin{equation}
 \begin{split}
-\underbrace{\frac{d}{dt}\left(\int_{\Omega_{t}} \rho^{\iota}
-  \bv^{\iota} \times \bx\ dv\right)}_{\text{Rate of change of angular  momentum}}  = 
-& \underbrace{\int_{\Omega_{t}} \rho^{\iota} \left(\bg^{\iota} +
-  \bq^{\iota}\right) \times \bx\ dv}_{\text{Moment from body forces}} 
+\underbrace{\frac{d}{dt}\left(\int_{\Omega_{t}}  \bp \times \rho^{\iota}
+  \bv^{\iota}\ dv\right)}_{\text{Rate of change of angular  momentum}}  = 
+& \underbrace{\int_{\Omega_{t}} \bp \times \rho^{\iota} \left(\bg^{\iota} +
+  \bq^{\iota}\right)\ dv}_{\text{Moment from body forces}} 
 + \underbrace{\int_{\partial \Omega_{t}}
-  \left(\Bsigma^{\iota}\cdot\bn\right) \times \bx\ da}_{\text{Moment from traction}}\\ 
-+ & \underbrace{\int_{\Omega_{t}} \pi^{\iota}\bv^{\iota} \times
-  \bx\ dv}_{\text{Angular momentum being created}} 
-- \underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota}
-  \bv^{\iota}  \times \bx\right) \left(\bv^{\iota} -
+  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da}_{\text{Moment from traction}}\\ 
++ & \underbrace{\int_{\Omega_{t}} \bp \times
+  \pi^{\iota}\bv^{\iota}\ dv}_{\text{Angular momentum being created}}
+\\ 
+- & \underbrace{\int_{\partial \Omega_{t}} \left(\bp \times \rho^{\iota}
+  \bv^{\iota}\right) \left(\bv^{\iota} -
 \bv\right) \cdot \bn\ da,}_{\text{Angular momentum leaving the domain}} 
 \end{split}
-\label{globalbalanceofangularmomentum}
+\label{eu-globalbalanceofangularmomentum}
 \end{equation}
+
+\noindent since it is reasonable to assume that the material
+comprising the tissue is not a {\em polar material}.\footnote{Some
+  materials, for e.g., liquid crystals, become polarised under the
+  presence of electric fields and consequently have additional global
+  torque contributions to their balance of momentum equations.}
+
+On applying Reynolds' transport theorem
+(Appendix~\ref{reynolds-transport}),
+Equation~\ref{eu-globalbalanceofangularmomentum} reduces to,
+
+\begin{equation*}
+\begin{split}
+\int_{\Omega_{t}} \frac{\partial}{\partial t}\left( \bp \times \rho^{\iota}
+  \bv^{\iota}\right)\ dv \quad =
+& \int_{\Omega_{t}} \bp \times \rho^{\iota} \left(\bg^{\iota} +
+  \bq^{\iota}\right)\ dv
++ \int_{\partial \Omega_{t}}
+  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da\\
+& + \int_{\Omega_{t}} \bp \times 
+  \pi^{\iota}\bv^{\iota}\ dv - \int_{\partial \Omega_{t}} \left(\bp
+  \times \rho^{\iota} 
+  \bv^{\iota}\right) \bv^{\iota} \cdot \bn\ da.
+\end{split}
+\end{equation*}
+
+Using Gauss' divergence theorem (Appendix~\ref{gauss-divergence}) and
+Leibniz rule, we have the following relations:
+
+\begin{displaymath}
+\int_{\partial \Omega_{t}}
+  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da =
+\int_{\Omega_{t}}
+  \bp \times \mathrm{div}\left(\Bsigma^{\iota}\right)\ dv
++\int_{\Omega_{t}} \Bepsilon\colon\Bsigma^{\iota^{\mathrm{T}}} \ dv,
+\end{displaymath}
+
+\noindent where $\Bepsilon$ is the permutation symbol
+(Section~\ref{balance-of-angular-momentum}),
+
+\begin{displaymath}
+\int_{\Omega_{t}}
+\frac{\partial}{\partial t}\left( \bp \times \rho^{\iota}
+\bv^{\iota}\right)\ dv =
+\int_{\Omega_{t}} \frac{\partial \rho^{\iota}} {\partial t}
+\bp \times \bv^{\iota}\ dv + \int_{\Omega_{t}} \rho^{\iota} \bp \times 
+\frac{\partial \bv^{\iota}} {\partial t}\ dv,\quad\mathrm{and}
+\end{displaymath}
+
+\begin{displaymath}
+\int_{\partial \Omega_{t}} \left(\bp
+  \times \rho^{\iota} 
+  \bv^{\iota}\right) \bv^{\iota} \cdot \bn\ da = 
+\int_{\Omega_{t}}\bp \times \bv^{\iota} \mathrm{div}
+\left(\rho^{\iota}\bv^{\iota}\right)\ dv + \int_{\Omega_{t}}\bp \times
+\left(\mathrm{grad}\left(\bv^{\iota}\right)\rho^{\iota}\bv^{\iota}\right)\ dv,
+\end{displaymath}
+
+\noindent since $\rho^{\iota} \bv^{\iota}\times\bv^{\iota} =
+0$. Substituting these relations above and invoking the balance of
+mass (Equation~\ref{eu-localbalanceofmass}) and balance of linear
+momentum (Equation~\ref{eu-localbalanceofmomentum}), we obtain,
+
+\begin{equation}
+\Bepsilon\colon\Bsigma^{\iota^{\mathrm{T}}} = 0,
+\label{eu-localbalanceofangularmomentum}
+\end{equation}
+
+\noindent i.e., the partial Cauchy stress tensor, $\Bsigma^{\iota}$,
+is symmetric. This classical result is the pushed-forward form of
+the synonymous result derived earlier
+(Section~\ref{balance-of-angular-momentum}) in terms of the partial
+first Piola-Kirchhoff stress tensor.
+
+When the balance of angular momentum of the entire system, deduced by
+neglecting the interaction terms, is compared to the form of the
+equation obtained by summation of the individual balance of angular
+momenta (Equation~\ref{eu-globalbalanceofangularmomentum}) over all
+species present, one obtains a relationship between the interaction
+forces and source terms that is identical to
+Equation~\ref{eu-summationrelationmomentum}.
 
 \subsection{The balance of energy}
 \label{eu-balance-of-energy}
 
-\section{Entropy inequality and restrictions on constitutive relationships}
+\section{Entropy inequality and restrictions on constitutive
+  relationships}
+\label{eu-entropy-inequality}
 Use an energy that's dependent on internal variables here, allowing for visco-elasticity later.
 \subsection{The Clausius-Duhem form}
 \subsection{Constitutive framework}
-\subsubsection{An anisotropic network model based on the elastica
-  model}
-\subsubsection{Forces between phases}
 \subsubsection{Viscoelastic solid}
+\subsubsection{Forces between phases}
 \subsubsection{Stress-dependent growth (Fg) term}
 \subsubsection{Energy-dependent growth (Pi) term}
 \subsubsection{Fluxes dependent on concentration gradients of other
   species}
 Onsager Reciprocity
 \section{Algorithmic considerations}
+\label{eu-algorithmic-considerations}
 \subsection{The saturation constraint}
 \subsection{Overall stability of the monolithic numerical scheme}
 \subsection{Fluid-structure interaction boundary conditions}
