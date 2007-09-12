@@ -60,3 +60,23 @@
 60	Cancer problem - 5
 61	Cancer problem - 6
 62	Variation of stress-strain response with A/L and other WLCM parameters
+
+
+One experiment (30% solid?) for comparison         1
+Displacement loads (cosine + linear-hold)          2
+	     					  (3) 
+
+Hysteresis:
+Poroelasticity static vs dynamic                   2
+Poroelasticity (dynamic) at 3 (2 other) rates      2
+Show that a very different curve can be obtained   1
+by changing the material properties              
+Two viscoelastic curves for comparison (rates)     2
+    		 	    	       		  (7)
+
+Stress relaxation:
+Poroelasticity (dynamic) at 3 rates                3
+Two viscoelastic curves for comparison (rates)     2
+One nonlinear viscoelastic stress relaxation       1
+to show that it can be used to model experiment
+						  (6)

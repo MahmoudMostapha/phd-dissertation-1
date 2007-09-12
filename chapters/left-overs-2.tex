@@ -1,0 +1,156 @@
+%%   As
+%% discussed in Section \ref{sect1}, the solid tissue phase has only
+%% a mass source/sink associated with it, and no flux. The fluid
+%% tissue phase has only a mass flux, and no
+%% source/sink\footnote{Considering the case of the lymphatic fluid,
+%% this implies that lymph glands are assumed not to be present.}.
+
+%% Since the solid phase, $\mathrm{s}$, does not undergo transport,
+%% its motion is specified entirely by $\Bvarphi(\bX,t)$. We describe
+%% the remaining species $\mathrm{f},\alpha,\dots,\omega$ as
+%% convecting with the solid phase and diffusing with respect to it.
+%% They therefore have a velocity relative to $\mathrm{s}$. Since the
+%% remaining species convect with $\mathrm{s}$, it implies a local
+%% homogenization of deformation. The modelling assumption is made
+%% that at each point, $\bX$, the individual phases undergo the same
+%% deformation.
+
+%% The concentrations,
+%% $\rho_0^\iota$, change as a result of mass transport and
+%% inter-conversion of species, implying that the total density in
+%% the reference configuration, $\rho_0$, changes with time. They are
+%% parameterized as $\rho_0^\iota(\bX,t)$.
+
+%% We define concentrations of the species
+%% $\rho_0^\iota=\bar{\rho}_0^\iota f^\iota$ as masses per unit
+%% volume in $\Omega_0$. The intrinsic species density is
+%% $\bar{\rho}_0^\iota$, and $f^\iota$ is the volume fraction of
+%% $\iota$, for $\iota = \mathrm{s,f},\alpha,\dots,\omega$. In an
+%% experiment it is far easier to measure the concentration,
+%% $\rho_0^\iota$, rather than the intrinsic species density,
+%% $\bar{\rho}_0^\iota$\footnote{In our experiments we have measured
+%% the mass concentration $\rho_0^\iota$ of collagen in engineered
+%% tendons grown \emph{in vitro}. These results will be presented
+%% elsewhere \citep{Calve:04}.}. The concentrations also have
+%% the property $\sum\limits_{\iota}\rho_0^\iota = \rho_0$, the total
+%% material density of the tissue, with the sum being over all
+%% species $\mathrm{s,f},\alpha,\dots,\omega$.
+
+%% \noindent Since the solid phase of the tissue does not undergo
+%% mass transport, there is no associated flux. Localizing the result
+%% gives
+
+%% \begin{equation}
+%% \frac{\partial\rho_0^\mathrm{s}}{\partial t} = \Pi^\mathrm{s},
+%% \label{massballocA}
+%% \end{equation}
+%% \noindent where the explicit dependence upon position and time has
+%% been suppressed.
+
+%% The fluid phase of the tissue, $\mathrm{f}$, may be thought of as
+%% the interstitial or lymphatic fluid that perfuses the tissue. As
+%% explained above, we do not consider sources of fluid in the region
+%% of interest. The fluid therefore enters and leaves $\Omega_0$ as a
+%% flux, $\bM^\mathrm{f}$. The balance of mass in integral form is
+%% \begin{equation}
+%% \frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0}
+%% \rho_0^\mathrm{f} (\bX,t)\mathrm{d}V =
+%% -\int_{\partial\Omega_0}\bM^\mathrm{f}(\bX,t)\cdot\bN \mathrm{d}A,
+%% \label{massbalintB}
+%% \end{equation}
+
+%% Applying the Divergence Theorem to the surface
+%% integral and localizing the result gives
+%% \begin{equation}
+%% \frac{\partial\rho_0^\mathrm{f}}{\partial t} = -
+%% \Bnabla\cdot\bM^\mathrm{f}, \label{massballocB}
+%% \end{equation}
+
+%% \noindent where $\Bnabla(\bullet)$ is the gradient operator
+%% defined on $\Omega_0$, and $\Bnabla\cdot(\bullet)$ denotes the
+%% divergence of a vector or tensor argument on $\Omega_0$.
+
+%% For the precursor and byproduct species,
+%% $\iota=\alpha,\dots,\omega$, the balance of mass in integral form
+%% is
+%% \begin{equation}
+%% \frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0} \rho_0^\iota
+%% (\bX,t)\mathrm{d}V = \int\limits_{\Omega_0} \Pi^\iota
+%% (\bX,t)\mathrm{d}V
+%% -\int_{\partial\Omega_0}\bM^\iota(\bX,t)\cdot\bN \mathrm{d}A.
+%% \label{massbalintI}
+%% \end{equation}
+
+%% \noindent In local form it is
+%% \begin{equation}
+%% \frac{\partial\rho_0^\iota}{\partial t} = \Pi^\iota -
+%% \Bnabla\cdot\bM^\iota,\;\forall\,\iota=\alpha,\dots,\omega.
+%% \label{massballocI}
+%% \end{equation}
+
+%% \noindent Of course, this last equation is the general form of
+%% mass balance for any species $\iota$, recalling that in
+%% particular, $\bM^\mathrm{s} = \bzero$ and $\Pi^\mathrm{f} = 0$.
+%% This form will be used in the development that follows.
+
+%% The fluxes,
+%% $\bM^\iota,\;\forall\,\iota=\mathrm{f},\alpha,\dots,\omega$,
+%% represent mass transport of the fluid, of precursors to the
+%% reaction site, and of byproducts from sites of tissue breakdown.
+%% The sources,
+%% $\Pi^\iota,\;\forall\iota=\mathrm{s},\alpha,\dots,\omega$, arise
+%% from inter-conversion of species. The sources/sinks in
+%% (\ref{massballocA}) and (\ref{massballocI}) are therefore related,
+%% as tissue and byproducts are formed by consuming precursors (amino
+%% acids and nutrients, for instance). To maintain a degree of
+%% simplicity in this initial exposition, we will restrict our
+%% description of tissue breakdown to the reverse of this reaction.
+
+%% %% The behaviour of the entire system can be determined by summing
+%% %% \mbox{Equation~(\ref{massbalance1})} over all species $\iota$.
+%% %% Additionally, sources and sinks satisfy the relation
+
+%% %% \begin{equation}
+%% %% \sum\limits_\iota\Pi^\iota = 0, \label{sourcebalance}
+%% %% \end{equation}
+
+%% %% \noindent which is consistent \citep{growthpaper} with the Law of Mass
+%% %% Action for reaction rates and with Mixture Theory
+%% %% \citep{TruesdellNoll:65}.
+
+
+%% The body undergoes deformation, $\Bvarphi(\bX,t)$, and has a
+%% material velocity field $\bV(\bX,t) =
+%% \partial\Bvarphi(\bX,t)/\partial t$. In discussing momentum and energy, it proves convenient to define a
+%% material velocity of species $\iota$ relative to the solid phase
+%% as $\bV^\iota = (1/\rho_0^\iota)\bF\bM^\iota$. Recall (from
+%% Section \ref{sect2}) that the remaining species are described as
+%% deforming with the solid phase and diffusing relative to it.
+%% Therefore $\bF$ is common to all species. The spatial velocity
+%% corresponding to $\bV^\iota$ is $\bv^\iota =
+%% (1/\rho^\iota)\bm^\iota = \bV^\iota$, by the Piola transform.
+%% Since fluxes are defined relative to the solid tissue phase, which
+%% does not diffuse, the total material velocity of the solid phase
+%% is $\bV$, and for each of the remaining species it is $\bV +
+%% \bV^\iota$, $\iota = \mathrm{f},\alpha,\dots,\omega$. Formally, we
+%% can write the material velocity as  $\bV + \bV^\iota$, $\iota =
+%% \mathrm{s},\mathrm{f},\alpha,\dots,\omega$ with the understanding
+%% that $\bV^\mathrm{s} = \bzero$. Likewise, $\Pi^\mathrm{f} = 0$.
+%% This convention has been adopted in the remainder of the paper.
+
+%% We first write the balance of linear momentum in
+%% the reference configuration, $\Omega_0$. 
+
+
+%% %% The total first Piola-Kirchhoff stress tensor, $\bP$, is the sum of
+%% %% the partial stresses $\bP^{\,\iota}$ (borne by a species $\iota$) over all
+%% %% the species present.
+
+%% %% With the introduction 
+%% %%   of these quantities, the 
+%% %% balance of linear momentum in local form over $\Omega_0$ for solid
+%% %% collagen and fluid is,
+
+%% The mass fluxes, $\bM^\iota$, and mass sources, $\Pi^\iota$ make
+%% important contributions to the balance of linear momentum, as shown
+%% below.
