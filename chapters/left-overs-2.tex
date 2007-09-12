@@ -154,3 +154,166 @@
 %% The mass fluxes, $\bM^\iota$, and mass sources, $\Pi^\iota$ make
 %% important contributions to the balance of linear momentum, as shown
 %% below.
+
+%% %% \noindent where $\bg$ is the body force per unit mass, and $\bq^\iota$
+%% %% is an interaction term denoting the force per unit mass exerted upon
+%% %% $\iota$ by all other species present. 
+
+%% Summing over all species, the balance
+%% of linear momentum for the system is obtained:
+
+%% %%Additionally,
+%% %%recognising that the rate of change of momentum of the entire tissue
+%% %%is affected only by external agents and is independent of internal
+%% %%interactions, the following relation arises.
+
+%% %% \begin{equation}
+%% %% \sum\limits_{\iota =
+%% %%   \mathrm{c}}^\mathrm{f}\left(\rho^\iota_0\bq^\iota+\Pi^\iota
+%% %% \bV^\iota 
+%% %% \right)= 0. \label{qrelation}
+%% %% \end{equation}
+
+%% %% \noindent This is also consistent with Classical Mixture Theory
+%% %% \citep{TruesdellNoll:65}. See \citet{growthpaper} for further
+%% %% details on balance of linear momentum, and the formulation of
+%% %% balance of angular momentum. We only note here that the latter
+%% %% principle leads to a symmetric partial Cauchy stress,
+%% %% $\Bsigma^\iota$ for each species in contrast with the unsymmetric
+%% %% Cauchy stress of \cite{EpsteinMaugin:2000}.
+
+%% Having established (\ref{interforcebalance}) we return to the
+%% balance of linear momentum for a single species
+%% (\ref{linmombalI1}) in order to simplify it. 
+
+%% The balance of linear momentum for a single species in the current
+%% configuration, $\Omega_t$, is obtained via similar arguments and
+%% the Reynolds Transport Theorem:
+%% \begin{eqnarray}
+%% \rho^\iota\frac{\partial}{\partial t}\left(\bv+\bv^\iota\right)
+%% &=& \rho^\iota\left(\bg+\bq^\iota\right) +
+%% \Bnabla_x\cdot\Bsigma^\iota\nonumber\\
+%% & & - \left(\Bnabla_x\left(\bv+\bv^\iota\right)\right)\bm^\iota -
+%% \rho^\iota\left(\Bnabla_x\left(\bv+\bv^\iota\right)\right)\bv,
+%% \label{ballinmomcurrI}
+%% \end{eqnarray}
+
+%% \noindent where $\Bsigma^\iota =
+%% (\mathrm{det}\bF)^{-1}\bP^\iota\bF^\mathrm{T}$ is the partial
+%% Cauchy stress of species $\iota$.
+
+%% \begin{eqnarray}
+%% & &\sum\limits_{\iota}\rho^\iota_0\frac{\partial e^\iota}{\partial
+%% t} =\nonumber\\
+%% & &\qquad\sum\limits_{\iota}\left(
+%% \bP^\iota\colon\dot{\bF}+\bP^\iota\colon\Bnabla\bV^\iota -
+%% \Bnabla\cdot\bQ^\iota +\rho_0^\iota r^\iota +
+%% \rho^\iota_0\tilde{e}^\iota - \Bnabla e^\iota\cdot\bM^\iota\right)
+%% \label{energysummation}
+%% \end{eqnarray}
+
+%% \begin{eqnarray}
+%% \sum\limits_{\iota}\rho^\iota_0\frac{\partial e^\iota}{\partial t}
+%% &=& \sum\limits_{\iota}\left(
+%% \bP^\iota\colon\dot{\bF}+\bP^\iota\colon\Bnabla\bV^\iota -
+%% \Bnabla\cdot\bQ^\iota +\rho_0^\iota r^\iota- \Bnabla
+%% e^\iota\cdot\bM^\iota\right)\nonumber\\
+%% &&-
+%% \sum\limits_{\iota}\left(\rho_0^\iota\bq^\iota\cdot(\bV+\bV^\iota)
+%% - \Pi^\iota\left(e^\iota +
+%% \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right)\right).
+%% \label{energybaltot1}
+%% \end{eqnarray}
+
+
+%% \begin{eqnarray}
+%% \sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
+%% \int\limits_{\Omega_0}\rho_0^\iota \left ( e^\iota + \frac{1}{2}
+%% \Vert\bV+\bV^\iota\Vert^2 \right ) \mathrm{d}V =
+%% \sum\limits_{\iota}\int\limits_{\Omega_0} \left(\rho_0^\iota\bg
+%% \cdot\left(\bV+\bV^\iota\right) + \rho_0^\iota r^\iota
+%% \right)\mathrm{d}V &
+%% &\nonumber\\
+%% +\sum\limits_{\iota}\int\limits_{\partial
+%% \Omega_0}\left(\left(\bV+\bV^\iota\right)\cdot\bP^\iota -
+%% \bM^\iota\left(e^\iota +\frac{1}{2}
+%% \Vert\bV+\bV^\iota\Vert^2\right) -
+%% \bQ^\iota\right)\cdot\bN\mathrm{d}A.\quad& & \label{energysys}
+%% \end{eqnarray}
+
+%% \noindent Substituting for $\sum\limits_\iota
+%% \rho^\iota_0\tilde{e}^\iota$ from (\ref{energycond1}), 
+
+%% The formulation up to this point has introduced some elements of
+%% coupling between mass transport, mechanics and thermodynamics.  Mass
+%% transport and mechanics are further coupled due to the kinematics of
+%% growth. Local volumetric changes take place as species concentrations
+%% evolve. As concentration increases, the material of a species swells,
+%% and conversely, shrinks as concentration decreases.
+
+%% Finite strain kinematics treats the total deformation gradient as
+%% arising from a geometrically-necessary elastic deformation
+%% accompanying growth, as well as a separate elastic deformation due
+%% to an external stress. The deformation gradient is subject to a
+%% split reminiscent of the classical decomposition of multiplicative
+%% plasticity
+
+%% This
+%% sequence of maps is pictured in Figure \ref{growthkinematicsfig}.
+
+%%  and rationale
+%% underlying it is elucidated below.
+%% At a continuum point the reference concentration of each species
+%% admits the notion of an ``original'' state in which the
+%% concentration of a species is $\rho_\mathrm{org}^\iota(\bX)$. This
+%% is a state that may never be attained in a physical system.
+%% However, if attained, the corresponding species would be
+%% stress-free in the absence of deformation. Neglecting other
+%% possible kinematics (such as plasticity) and microstructural
+%% details, the set of quantities
+%% $\{\rho_0^\mathrm{s},\dots,\rho_0^\omega\}$, and the temperature,
+%% $\theta$, fully specify the reference state of the material at a
+%% point. As mass transport alters the reference density to its value
+%% $\rho_0^\iota(\bX,t)$, the species swells if $\rho_0^\iota >
+%% \rho_\mathrm{org}^\iota$, and shrinks if $\rho_0^\iota <
+%% \rho_\mathrm{org}^\iota$. Assuming that these volume changes are
+%% isotropic leads to the following growth kinematics: For each
+%% species, one can define a ``growth deformation gradient tensor'',
+%% $\bF^{\mathrm{g}^\iota} :=
+%% \frac{\rho_0^\iota}{\rho_\mathrm{org}^\iota}{\bf 1}$, where ${\bf
+%% 1}$ is the second-order isotropic tensor. The tensor
+%% $\bF^{\mathrm{g}^\iota}$ is analogous to the plastic deformation
+%% gradient of multiplicative plasticity. 
+
+%% With an external stress, there is further elastic
+%% deformation, $\bar{\bF}^\mathrm{e}$, common to all species.
+
+%% The kinematic relations are:
+%% \begin{equation}
+%% \bF =
+%% \bar{\bF}^\mathrm{e}\tilde{\bF}^{\mathrm{e}^\iota}\bF^{\mathrm{g}^\iota},\quad
+%% \bF^{\mathrm{g}^\iota} =
+%% \frac{\rho_0^\iota}{\rho_\mathrm{org}^\iota}{\bf 1}.
+%% \label{growthkinematicseq}
+%% \end{equation}
+
+%% \noindent Clearly, the elastic deformation gradients can be
+%% combined to write $\bF^{\mathrm{e}^\iota} =
+%% \bar{\bF}^\mathrm{e}\tilde{\bF}^{\mathrm{e}^\iota}$, the ``total''
+%% elastic deformation gradient of species $\iota$.
+%% \begin{figure}[ht]
+%% \psfrag{A}{\small $\Omega_0$} \psfrag{B}{\small $\Omega^\ast$}
+%% \psfrag{C}{\small $\Omega_t$} \psfrag{D}{\small $\Bvarphi$}
+%% \psfrag{G}{\small $\bu^\ast$} \psfrag{E}{\small $\Bkappa$}
+%% \psfrag{M}{\small $\bX$} \psfrag{I}{\small
+%% $\bF^{\mathrm{g}^\iota}$} \psfrag{H}{\small
+%% $\tilde{\bF}^{\mathrm{e}^\iota}$} \psfrag{J}{\small $\tilde{\bF}$}
+%% \psfrag{Y}{\small $\bX^\ast$} \psfrag{K}{\small
+%% $\bar{\bF}^\mathrm{e}$} \psfrag{X}{\small $\bx$} \psfrag{L}{\small
+%% $\bF$} \centering
+%% {\includegraphics[width=0.8\textwidth]
+%%   {images/elucidation/kinematics}}
+%% \caption{The kinematics of growth.} \label{growthkinematicsfig}
+%% \end{figure}
+
+%% \hrule
