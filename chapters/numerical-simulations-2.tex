@@ -29,9 +29,6 @@ The second set of numerical simulations reside here.
 \section{Material modelling}
 \label{material-modelling}
 
-\subsection{Elastica-based strain energy}
-\label{elastica-stain-energy}
-
 \subsection{Non-linear viscoelasticity}
 \label{non-linear-viscoelasticity}
 
@@ -240,6 +237,8 @@ With viscoelasticity and poroelasticity, quasistatic and dynamic.
 \subsubsection{Transport of the cells}
 \label{cell-transport}
 
+{\bf Diffusion and proliferation}
+
 \begin{figure}[!hpt]
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/diffusing-proliferating-cells-0}
@@ -266,6 +265,95 @@ With viscoelasticity and poroelasticity, quasistatic and dynamic.
 \includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/diffusing-proliferating-cells-100}
 \caption{The cells diffusing and proliferating at time $t=100$ days.}
 \label{tumour-diffusion-proliferation-100}
+\end{figure}
+
+{\bf Haptotaxis}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/heterogeneous-ecm-concentration}
+\caption{Heterogeneous extra-cellular matrix concentration.}
+\label{tumour-haptotaxis-proliferation-0}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/haptotaxis-proliferating-cells-0}
+\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=0$ days.}
+\label{tumour-haptotaxis-proliferation-0}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/haptotaxis-proliferating-cells-3p3}
+\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=3.3$ days.}
+\label{tumour-haptotaxis-proliferation-3p3}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/haptotaxis-proliferating-cells-6p7}
+\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=6.7$ days.}
+\label{tumour-haptotaxis-proliferation-6p7}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/haptotaxis-proliferating-cells-10}
+\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=10$ days.}
+\label{tumour-haptotaxis-proliferation-10}
+\end{figure}
+
+\subsection{Combining everything}
+\label{cacophonous-medley}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-no-wall-4}
+\caption{An unconstrained growing tumour at $t=4$ months.}
+\label{tumour-growth-no-wall-4}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-0.eps}
+\caption{A constrained growing tumour at $t=0$ months.}
+\label{tumour-growth-constrained-0}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-1.eps}
+\caption{A constrained growing tumour at $t=1$ months.}
+\label{tumour-growth-constrained-1}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-2.eps}
+\caption{A constrained growing tumour at $t=2$ months.}
+\label{tumour-growth-constrained-2}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-3.eps}
+\caption{A constrained growing tumour at $t=3$ months.}
+\label{tumour-growth-constrained-3}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-4.eps}
+\caption{A constrained growing tumour at $t=4$ months.}
+\label{tumour-growth-constrained-4}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]{images/examples/eulerian/cancer/growing-tumour-5.eps}
+\caption{A constrained growing tumour at $t=5$ months.}
+\label{tumour-growth-constrained-5}
 \end{figure}
 
 
