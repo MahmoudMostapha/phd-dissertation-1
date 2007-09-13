@@ -4,7 +4,7 @@
 # Fundamental variables:
 
 # A versioning scheme to keep track of progress
-VERSION = 0.0.8
+VERSION = 0.0.9
 
 # Change these to your heart's content.
 LATEX   = latex

@@ -39,16 +39,17 @@ in Figure~\ref{continuum-potato-mass}. The deformation gradient $\bF
 
 \begin{figure}
   \centering
-  \psfrag{A}{\small$\bX$}
-  \psfrag{F}{\small$\bx$}
-  \psfrag{B}{\renewcommand{\baselinestretch}{1.5}\small$\Pi^\iota$}
-  \psfrag{G}{\small$\pi^\iota$}
-  \psfrag{E}{\small$\Bvarphi$}
-  \psfrag{C}{\small$\Omega_0$}
-  \psfrag{H}{\small$\Omega_t$}
-  \psfrag{D}{\small$\bN\cdot\bM^\iota$}
-  \psfrag{I}{\small$\bn\cdot\bm^\iota$}
-  \includegraphics[width=0.8\textwidth]{images/elucidation/cp-mass}
+  \psfrag{A}{$\bX$}
+  \psfrag{F}{$\bx$}
+  \psfrag{B}{\renewcommand{\baselinestretch}{1.5}$\Pi^\iota$}
+  \psfrag{G}{$\pi^\iota$}
+  \psfrag{E}{$\Bvarphi$}
+  \psfrag{C}{$\Omega_0$}
+  \psfrag{H}{$\Omega_t$}
+  \psfrag{D}{$\bN\cdot\bM^\iota$}
+  \psfrag{I}{$\bn\cdot\bm^\iota$}
+  \includegraphics[width=0.8\textwidth]
+                  {images/elucidation/continuum-potato-mass}
   \caption{The tissue as a continuous medium with growing and
     diffusing species.}
   \label{continuum-potato-mass}
@@ -65,12 +66,12 @@ consisting of solid \emph{collagen fibrils} and
   chapter (Section~\ref{tumour-growth}), where cell mechanics and
   migration are significant \citep{namyetal:04}, the solid phase is
   further distinguished.} denoted by $\mathrm{c}$, an extra-cellular
-\emph{fluid} species, denoted by $\mathrm{f}$, consisting
-primarily of water, and \emph{solute} species, consisting of
-precursors to reactions, byproducts, nutrients, and other regulatory
-chemicals. A generic solute will be denoted by $\mathrm{s}$. In the
-treatment that follows, an arbitrary species will be denoted by
-$\iota$, where $\iota = \mathrm{c,f,s}$.
+\emph{fluid} species, denoted by $\mathrm{f}$, consisting primarily of
+water, and \emph{solute} species, consisting of precursors to
+reactions, byproducts, nutrients, and other regulatory chemicals. A
+generic solute will be denoted by $\mathrm{s}$. In the treatment that
+follows, an arbitrary species will be denoted by $\iota$, where $\iota
+= \mathrm{c,f,s}$.
 
 The fundamental quantities of interest are mass concentrations,
 $\rho_0^\iota(\bX,t)$. These are the masses of each species per unit
@@ -104,7 +105,8 @@ time. Written in integral form, the balance of mass for an arbitrary
 species over $\Omega_0$ states
 
 \begin{equation}
-\underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0} \rho_0^\iota
+\underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0}
+  \rho_0^\iota 
 (\bX,t)\mathrm{d}V}_{\text{Rate of change of mass}} =
 \underbrace{\int\limits_{\Omega_0} \Pi^\iota
   (\bX,t)\mathrm{d}V}_{\text{Mass being created}}
@@ -125,11 +127,11 @@ mass for an arbitrary species in the reference configuration,
 
 \begin{equation}
 \frac{\partial\rho_0^\iota}{\partial t} = \Pi^\iota -
-\mathrm{\small{DIV}}[\bM^\iota],\;\forall\,\iota.
+\mathrm{DIV}[\bM^\iota],\;\forall\,\iota.
 \label{localbalanceofmass}
 \end{equation}
 
-\noindent Here, $\mathrm{\small{DIV}[\bullet]}$ is the divergence
+\noindent Here, $\mathrm{DIV[\bullet]}$ is the divergence
 operator in the reference configuration. The functional forms of
 $\Pi^\iota$ are abstractions of the underlying biochemistry,
 physiologically relevant examples of which are discussed in
@@ -141,14 +143,15 @@ particular, $\bM^{c} = \bzero$.
 
 The sources, $\Pi^\iota$ for various species, satisfy a relation
 $\sum\limits_\iota\Pi^\iota = 0$, which is derived as
-follows. Firstly, summing Equation~(\ref{globalbalanceofmass}) over all
-species leads to the law of mass balance for the system,
+follows. Firstly, summing Equation~(\ref{globalbalanceofmass}) over
+all species leads to the law of mass balance for the system,
 
 \begin{equation}
 \frac{\mathrm{d}}{\mathrm{d}t} \sum\limits_\iota\int\limits_{\Omega_0}
 \rho_0^\iota \mathrm{d}V = \sum\limits_\iota 
 \int\limits_{\Omega_0} \Pi^\iota \mathrm{d}V
-- \sum\limits_\iota \int\limits_{\partial\Omega_0}\bM^\iota\cdot\bN \mathrm{d}A.
+- \sum\limits_\iota \int\limits_{\partial\Omega_0}\bM^\iota\cdot\bN
+\mathrm{d}A. 
 \label{masssummation}
 \end{equation}
 
@@ -159,8 +162,8 @@ system. Following this viewpoint, we neglect the interconversion terms
 (sources/sinks) which exist within the system, and arrive at,
 
 \begin{equation}
-\frac{\mathrm{d}}{\mathrm{d}t}\sum\limits_\iota\int\limits_{\Omega_0}\rho_0^\iota
-\ \mathrm{d}V =
+\frac{\mathrm{d}}{\mathrm{d}t}\sum\limits_\iota
+\int\limits_{\Omega_0}\rho_0^\iota \ \mathrm{d}V =
 -\sum\limits_\iota\int\limits_{\partial\Omega_0}\bM^\iota\cdot\bN
 \ \mathrm{d}A.
 \label{massexternal}
@@ -185,18 +188,19 @@ describe a set of inter-related sources, $\Pi^\iota$.
 
 \begin{figure}[ht]
   \centering
-  \psfrag{A}{\small$\bX$}
-  \psfrag{F}{\small$\bx$}
-  \psfrag{E}{\small$\Bvarphi$}
-  \psfrag{C}{\small$\Omega_0$}
-  \psfrag{H}{\small$\Omega_t$}
-  \psfrag{D}{\small$\bN\cdot\bM^\iota$}
-  \psfrag{I}{\small$\bn\cdot\bm^\iota$}
-  \psfrag{J}{\small$\bg$}
-  \psfrag{K}{\small$\bq^\iota$}
-  \psfrag{L}{\small$\bP^\iota\bN$}
-  \psfrag{O}{\small$\Bsigma^\iota\bn$}
-  \includegraphics[width=0.8\textwidth]{images/elucidation/cp-momentum}
+  \psfrag{A}{$\bX$}
+  \psfrag{F}{$\bx$}
+  \psfrag{E}{$\Bvarphi$}
+  \psfrag{C}{$\Omega_0$}
+  \psfrag{H}{$\Omega_t$}
+  \psfrag{D}{$\bN\cdot\bM^\iota$}
+  \psfrag{I}{$\bn\cdot\bm^\iota$}
+  \psfrag{J}{$\bg$}
+  \psfrag{K}{$\bq^\iota$}
+  \psfrag{L}{$\bP^\iota\bN$}
+  \psfrag{O}{$\Bsigma^\iota\bn$}
+  \includegraphics[width=0.8\textwidth]
+                  {images/elucidation/continuum-potato-momentum}
   \caption{Interaction forces, traction and body loads on the tissue.}
   \label{continuum-potato-momentum}
 \end{figure}
@@ -262,13 +266,13 @@ theorem (Appendix~\ref{gauss-divergence}), one obtains:
 t}\left(\bV+\bV^\iota\right) +
 \rho_0^\iota\frac{\partial}{\partial
 t}\left(\bV+\bV^\iota\right)\right) \mathrm{d}V =
-\int\limits_{\Omega_0}\rho^\iota_0\left(\bg+\bq^\iota\right)\mathrm{d}V\qquad&
-&\nonumber\\
+\int\limits_{\Omega_0}\rho^\iota_0\left(\bg+\bq^\iota\right)
+\mathrm{d}V \qquad& &\nonumber\\
 +\int\limits_{\Omega_0}\left(\Pi^\iota\left(\bV+\bV^\iota\right) +
-\mathrm{\small{DIV}}[\bP^\iota]\right)
+\mathrm{DIV}[\bP^\iota]\right)
 \mathrm{d}V& & \nonumber\\
 -
-\int\limits_{\Omega_0}\mathrm{\small{DIV}}
+\int\limits_{\Omega_0}\mathrm{DIV}
 \left[\left(\bV+\bV^\iota\right]\otimes\bM^\iota\right)\mathrm{d}V .
 & &
 \end{eqnarray}
@@ -281,12 +285,12 @@ t}\left(\bV+\bV^\iota\right) \mathrm{d}V &=&
 \int\limits_{\Omega_0}\rho^\iota_0\left(\bg+\bq^\iota\right)
 \mathrm{d}V \nonumber\\
 & &+
-\int\limits_{\Omega_0}\left(\mathrm{\small{DIV}}\left[\bP^\iota\right] -
-\left(\mathrm{\small{GRAD}}\left[\bV+\bV^\iota\right]\right)\bM^\iota\right)
+\int\limits_{\Omega_0}\left(\mathrm{DIV}\left[\bP^\iota\right] -
+\left(\mathrm{GRAD}\left[\bV+\bV^\iota\right]\right)\bM^\iota\right)
 \mathrm{d}V,
 \end{eqnarray}
 
-\noindent where $\mathrm{\small{GRAD}[\bullet]}$ is the gradient
+\noindent where $\mathrm{{GRAD}[\bullet]}$ is the gradient
 operator in the reference configuration. Localising this result gives
 the balance of linear momentum for a single species in the reference
 configuration:
@@ -295,8 +299,8 @@ configuration:
 \begin{split}
 \rho_0^\iota\frac{\partial}{\partial t}\left(\bV+\bV^\iota\right) &
 =\rho^\iota_0\left(\bg+\bq^\iota\right) +
-\mathrm{\small{DIV}}[\bP^{\,\iota}]\\ 
-& \quad -\left(\mathrm{\small{GRAD}}\left[\bV+
+\mathrm{DIV}[\bP^{\,\iota}]\\ 
+& \quad -\left(\mathrm{GRAD}\left[\bV+
   \bV^\iota\right]\right)\bM^\iota, \quad \iota = \mathrm{c,f}
 \label{localbalanceofmomentum}
 \end{split}
@@ -410,16 +414,17 @@ t}\left(\bV+\bV^\iota\right)\right)\mathrm{d}V =\qquad\quad& &\nonumber\\
 \left(\bg+\bq^\iota+\Pi^\iota\left(\bV+\bV^\iota\right)\right)\mathrm{d}V&
 &\nonumber\\ 
  +
-\int\limits_{\Omega_0}\left(\Bvarphi\times\mathrm{\small{DIV}}[\bP^\iota] -
-\Bvarphi\times\left(\mathrm{\small{GRAD}}
+\int\limits_{\Omega_0}\left(\Bvarphi\times\mathrm{DIV}[\bP^\iota] -
+\Bvarphi\times\left(\mathrm{GRAD}
 \left[\bV+\bV^\iota\right]\bM^\iota\right)\right)\mathrm{d}V &
 &\nonumber\\
 \int\limits_{\Omega_0}\left(-\Bvarphi\times\left(\bV+\bV^\iota\right)
-\mathrm{\small{DIV}}\left[\bM^\iota\right]\right) 
+\mathrm{DIV}\left[\bM^\iota\right]\right) 
 \mathrm{d}V & &\nonumber\\
 -
 \int\limits_{\Omega_0}\Bepsilon\colon\left(\left(\bP^\iota -
-\left(\bV+\bV^\iota\right)\otimes\bM^\iota\right)\bF^\mathrm{T}\right)\mathrm{d}V,
+\left(\bV+\bV^\iota\right) \otimes\bM^\iota\right)
+\bF^\mathrm{T}\right) \mathrm{d}V,
 \end{eqnarray}
 
 \noindent where $\Bepsilon$ is the permutation symbol, and
@@ -441,7 +446,8 @@ $\bV^\iota$ leads to
 \begin{equation}
 \bzero =
 -\int\limits_{\Omega_0}\Bepsilon\colon\left(\left(\bP^\iota-\bV^\iota
-\otimes \rho_0^\iota\bF^{-1}\bV^\iota\right)\bF^\mathrm{T}\right)\mathrm{d}V.
+\otimes \rho_0^\iota\bF^{-1}\bV^\iota\right)
+\bF^\mathrm{T}\right)\mathrm{d}V.
 \end{equation}
 
 \noindent Localizing this result and again applying the properties
@@ -478,14 +484,15 @@ to the result shown above.
 
 \begin{figure}[ht]
   \centering
-  \psfrag{A}{\small$\bX$}
-  \psfrag{B}{\renewcommand{\baselinestretch}{1.5}\small$r^\iota$}
-  \psfrag{E}{\small$\Bvarphi$}
-  \psfrag{C}{\small$\Omega_0$}
-  \psfrag{L}{\small$\bP\bN$}
-  \psfrag{K}{\small$\tilde{e}^\iota$}
-  \psfrag{D}{\small$\bN\cdot\bQ$}
-  \includegraphics[width=0.4\textwidth]{images/elucidation/cp-energy}
+  \psfrag{A}{$\bX$}
+  \psfrag{B}{\renewcommand{\baselinestretch}{1.5}$r^\iota$}
+  \psfrag{E}{$\Bvarphi$}
+  \psfrag{C}{$\Omega_0$}
+  \psfrag{L}{$\bP\bN$}
+  \psfrag{K}{$\tilde{e}^\iota$}
+  \psfrag{D}{$\bN\cdot\bQ$}
+  \includegraphics[width=0.4\textwidth]
+                  {images/elucidation/continuum-potato-energy}
   \caption{Energetic interactions the tissue is subjected to.}
   \label{continuum-potato-energy}
 \end{figure}
@@ -510,14 +517,17 @@ mechanical loads, processes of mass production and transport, heating
 and energy transfer as:
 
 \begin{eqnarray}
-\underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0}\rho_0^\iota
+\underbrace{\frac{\mathrm{d}}{\mathrm{d}t}
+  \int\limits_{\Omega_0}\rho_0^\iota 
 \left ( e^\iota + \frac{1}{2} \Vert\bV+\bV^\iota\Vert^2 \right )
 \mathrm{d}V}_{\text{Rate of change of energy}} =
 \underbrace{\int\limits_{\Omega_0} \left(\rho_0^\iota\bg 
 \cdot\left(\bV+\bV^\iota\right) + \rho_0^\iota r^\iota
-\right)\mathrm{d}V}_{\text{Work done by body forces and heat supplied}}\qquad& &\nonumber\\
+\right)\mathrm{d}V}_{\text{Work done by body forces and heat
+    supplied}}\qquad& &\nonumber\\ 
 +\underbrace{\int\limits_{\Omega_0} \rho_0^\iota\bq^\iota\cdot(\bV +
-  \bV^\iota) \mathrm{d}V}_{\text{Work done by interaction forces}}& &\nonumber\\
+  \bV^\iota) \mathrm{d}V}_{\text{Work done by interaction forces}}&
+&\nonumber\\ 
 + \underbrace{\int\limits_{\Omega_0} \left(\Pi^\iota\left(e^\iota +
 \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right) +
 \rho^\iota_0\tilde{e}^\iota\right)\mathrm{d}V}_{\text{Energy being created}} 
@@ -550,17 +560,17 @@ first,
 \\ +\int\limits_{\Omega_0}\rho_0^\iota\bq^\iota\cdot(\bV+\bV^\iota)
 \mathrm{d}V&
 &\nonumber\\ +\int\limits_{\Omega_0} \left(\left(\bV+\bV^\iota\right)
-\cdot\mathrm{\small{DIV}}\left[\bP^\iota\right]
-+ \bP^\iota\colon\mathrm{\small{GRAD}}
+\cdot\mathrm{DIV}\left[\bP^\iota\right]
++ \bP^\iota\colon\mathrm{GRAD}
 \left[\bV+\bV^\iota\right]\right) \mathrm{d}V& &\nonumber\\ -
-\int\limits_{\Omega_0}\left(\mathrm{\small{DIV}}\left[\bM^\iota\right]
+\int\limits_{\Omega_0}\left(\mathrm{DIV}\left[\bM^\iota\right]
 \left(e^\iota +\frac{1}{2}
 \Vert\bV+\bV^\iota\Vert^2\right)\right)\mathrm{d}V & 
 &\nonumber\\ -\int\limits_{\Omega_0}\left(
-\left(\mathrm{\small{GRAD}}\left[e^\iota\right]+
+\left(\mathrm{GRAD}\left[e^\iota\right]+
 \left(\bV+\bV^\iota\right) \cdot
-\mathrm{\small{GRAD}}\left[\bV+\bV^\iota\right]\right) \cdot\left(\bM^\iota\right)
-- \mathrm{\small{DIV}}\left[\bQ^\iota\right]\right)\mathrm{d}V.\nonumber
+\mathrm{GRAD}\left[\bV+\bV^\iota\right]\right) \cdot\left(\bM^\iota\right)
+- \mathrm{DIV}\left[\bQ^\iota\right]\right)\mathrm{d}V.\nonumber
 \end{eqnarray}
 
 \noindent Applying the balance of mass (\ref{localbalanceofmass}) and
@@ -569,10 +579,10 @@ above and localising the result, we have,
 
 \begin{eqnarray}
 \rho^\iota_0\frac{\partial e^\iota}{\partial t} &=&
-\bP^\iota\colon\mathrm{\small{GRAD}}\left[\bV+\bV^\iota\right]-
-\mathrm{\small{DIV}}\left[\bQ^\iota\right] + \rho_0^\iota r^\iota
+\bP^\iota\colon\mathrm{GRAD}\left[\bV+\bV^\iota\right]-
+\mathrm{DIV}\left[\bQ^\iota\right] + \rho_0^\iota r^\iota
 +\rho^\iota_0\tilde{e}^\iota\nonumber\\
-& & - \mathrm{\small{GRAD}}\left[e^\iota\right]\cdot\bM^\iota,
+& & - \mathrm{GRAD}\left[e^\iota\right]\cdot\bM^\iota,
 \label{localbalanceofenergy}
 \end{eqnarray}
 
@@ -654,20 +664,20 @@ formulation with mixture theory.
 
 \begin{figure}[ht]
   \centering
-  \psfrag{A}{\small $\Omega_0$}
-  \psfrag{B}{\small $\Omega^\ast$}
-  \psfrag{C}{\small $\Omega_t$}
-  \psfrag{D}{\small $\bX$}
-  \psfrag{E}{\small $\bX^\ast$}
-  \psfrag{F}{\small $\bx$}
-  \psfrag{G}{\small $\bF^{\mathrm{g}^{\mathrm{\iota}}}$}
-  \psfrag{H}{\small $\widetilde{\bF}^{\mathrm{e}^{\mathrm{\iota}}}$}
-  \psfrag{I}{\small $\widetilde{\bF}$}
-  \psfrag{J}{\small $\overline{\bF}^\mathrm{e}$}
-  \psfrag{K}{\small $\bF$}
-  \psfrag{L}{\small $\Bkappa$}
-  \psfrag{M}{\small $\bu^\ast$}
-  \psfrag{N}{\small $\Bvarphi$}
+  \psfrag{A}{$\Omega_0$}
+  \psfrag{B}{$\Omega^\ast$}
+  \psfrag{C}{$\Omega_t$}
+  \psfrag{D}{$\bX$}
+  \psfrag{E}{$\bX^\ast$}
+  \psfrag{F}{$\bx$}
+  \psfrag{G}{$\bF^{\mathrm{g}^{\mathrm{\iota}}}$}
+  \psfrag{H}{$\widetilde{\bF}^{\mathrm{e}^{\mathrm{\iota}}}$}
+  \psfrag{I}{$\widetilde{\bF}$}
+  \psfrag{J}{$\overline{\bF}^\mathrm{e}$}
+  \psfrag{K}{$\bF$}
+  \psfrag{L}{$\Bkappa$}
+  \psfrag{M}{$\bu^\ast$}
+  \psfrag{N}{$\Bvarphi$}
   \includegraphics[width=0.8\textwidth]{images/elucidation/kinematics}
   \caption{The kinematics of growth, which holds for $\iota =
     \mathrm{c,f}$.} 
@@ -745,7 +755,7 @@ $\overline{\bF}^{\mathrm{e}^\iota}$ is associated with a a separate
 elastic deformation due to an external stress.
 
 \subsection{Saturation and tissue swelling}
-\label{saturation-and-swelling}
+\label{saturation-and-tissue-swelling}
 
 \begin{figure}[ht]
   \begin{center}
@@ -755,13 +765,14 @@ elastic deformation due to an external stress.
     \psfrag{D}{\small C}
     \psfrag{E}{\small Unsaturated}
     \psfrag{F}{\small Saturated}
-    \includegraphics[width=0.8\textwidth]{images/elucidation/saturation-stages}
+    \includegraphics[width=0.8\textwidth]
+                    {images/elucidation/saturation-stages}
     \caption{Stages of tissue saturation.}
   \end{center}
-      {Unsaturated tissue in the current configuration (A) allows influx
-        of fluid without swelling until it is completely saturated
-        (B). Initially saturated tissue (B), in general, swells with
-        influx of fluid (C).}
+      {Unsaturated tissue in the current configuration (A) allows
+        influx of fluid without swelling until it is completely
+        saturated (B). Initially saturated tissue (B), in general,
+        swells with influx of fluid (C).}
       \label{saturation-and-swelling}
 \end{figure}
 
@@ -772,23 +783,21 @@ particular, the isotropic swelling law defined by Equation
 (\ref{isotropicgrowth}) has to be generalised to treat the case in
 which the solid phase is not saturated by fluid.
 
-Figure~\ref{saturation-and-swelling} schematically depicts two possible
-scenarios. If the tissue is unsaturated in its current configuration,
-as in A, then, on a microscopic scale, it 
-contains unfilled voids. It is thus capable of allowing an influx of
-fluid, which tends to increase its degree of saturation until fully
-saturated, as in  B. This increase 
-does not cause swelling of the tissue in the local stress-free state, as
-there is free volume for 
-incoming fluid to occupy. However, once the tissue is
-saturated in the current configuration, an increase in the
-fluid content causes swelling in the stress-free state, as depicted in
-C, since there is no free volume for the 
-entering fluid to occupy. It is this second case that is modelled by
-(\ref{isotropicgrowth}). It is worth emphasizing that this argument
-holds for $\bF^{\mathrm{g}^\mathrm{f}}$, which is the local
-stress-free state of deformation of the fluid-containing pores at a point. The
-actual deformation gradient, $\bF =
+Figure~\ref{saturation-and-swelling} schematically depicts two
+possible scenarios. If the tissue is unsaturated in its current
+configuration, as in A, then, on a microscopic scale, it contains
+unfilled voids. It is thus capable of allowing an influx of fluid,
+which tends to increase its degree of saturation until fully
+saturated, as in B. This increase does not cause swelling of the
+tissue in the local stress-free state, as there is free volume for
+incoming fluid to occupy. However, once the tissue is saturated in the
+current configuration, an increase in the fluid content causes
+swelling in the stress-free state, as depicted in C, since there is no
+free volume for the entering fluid to occupy. It is this second case
+that is modelled by (\ref{isotropicgrowth}). It is worth emphasising
+that this argument holds for $\bF^{\mathrm{g}^\mathrm{f}}$, which is
+the local stress-free state of deformation of the fluid-containing
+pores at a point. The actual deformation gradient, $\bF =
 \bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}}$, also depends
 on the the elastic part, $\bF^{\mathrm{e}^\mathrm{f}}$, which is
 determined by the constitutive response of the fluid. Under stress, an
@@ -802,58 +811,54 @@ $\mathrm{det}\bF^{\mathrm{g}^\mathrm{f}} >1$. Even in this case,
 however, in the stress-free state there will be swelling.
 
 Therefore, for the fluid phase, the isotropic swelling law can be
-extended to the unsaturated case by 
-introducing a degree of saturation, $\tilde{v}^\iota$, defined in the
-current configuration, $\Omega_t$. We have $\tilde{v}^\iota =
-\rho^\iota/\tilde{\rho}^\iota$, where 
-$\tilde{\rho}^\iota$ is the intrinsic density in $\Omega_t$ and is
-given by $\tilde{\rho}^\iota =
+extended to the unsaturated case by introducing a degree of
+saturation, $\tilde{v}^\iota$, defined in the current configuration,
+$\Omega_t$. We have $\tilde{v}^\iota = \rho^\iota/\tilde{\rho}^\iota$,
+where $\tilde{\rho}^\iota$ is the intrinsic density in $\Omega_t$ and
+is given by $\tilde{\rho}^\iota =
 \tilde{\rho}^\iota_0/\mathrm{det}\bF$. Note that the intrinsic
-reference density, $\tilde{\rho}^\iota_0$, is a material property. Upon
-solution of the 
-mass balance equation (\ref{massbalcurr}) for $\rho^\iota$, the
-species volume fractions, $\tilde{v}^\iota$, can therefore be computed
-in a straightforward fashion. The sum of these
-volume fractions is our required measure of saturation defined in
-$\Omega_t$. Also, recognizing
-that for the dilute solutions obtained with
-physiologically-relevant solute concentrations, the saturation
-condition is very well approximated by $\tilde{v}^\mathrm{f} +
-\tilde{v}^\mathrm{s} = 1$, we proceed to
-redefine the fluid growth-induced component of the pore deformation gradient
-tensor as follows:
+reference density, $\tilde{\rho}^\iota_0$, is a material
+property. Upon solution of the mass balance equation
+(\ref{massbalcurr}) for $\rho^\iota$, the species volume fractions,
+$\tilde{v}^\iota$, can therefore be computed in a straightforward
+fashion. The sum of these volume fractions is our required measure of
+saturation defined in $\Omega_t$. Also, recognizing that for the
+dilute solutions obtained with physiologically-relevant solute
+concentrations, the saturation condition is very well approximated by
+$\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{s} = 1$, we proceed to
+redefine the fluid growth-induced component of the pore deformation
+gradient tensor as follows:
 
 \begin{equation}
-\bF^{\mathrm{g}^\mathrm{f}} = \left\{ \begin{array}{ll}  \left(
-\frac{\rho_0^\mathrm{f}}{\rho_{0_{\mathrm{sat}}}^\mathrm{f}} \right)^
-{\frac{1}{3}}{\bf 1},&
-\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{s} = 1 \\ {\bf 1},& \mathrm{otherwise.}
+\bF^{\mathrm{g}^\mathrm{f}} = \left\{ \begin{array}{ll} \left(
+  \frac{\rho_0^\mathrm{f}}{\rho_{0_{\mathrm{sat}}}^\mathrm{f}}
+  \right)^ {\frac{1}{3}}{\bf 1},& \tilde{v}^\mathrm{f} +
+  \tilde{v}^\mathrm{s} = 1 \\ {\bf 1},& \mathrm{otherwise.}
 \end{array}\right.
 \label{saturation}
 \end{equation}
 
 \noindent In (\ref{saturation}) $\rho_{0_{\mathrm{sat}}}^\mathrm{f}$
-is the reference concentration value at which the tissue attains saturation
-in the current configuration.
+is the reference concentration value at which the tissue attains
+saturation in the current configuration.
 
 With this redefinition of $\bF^{\mathrm{g}^\mathrm{f}}$ it is implicit
 that $\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{s} > 1$ is
-non-physical. Saturation holds in the sense that $\tilde{v}^\mathrm{f} +
-\tilde{v}^\mathrm{s} = 1$, and it actually allows $\sum_\iota
+non-physical. Saturation holds in the sense that $\tilde{v}^\mathrm{f}
++ \tilde{v}^\mathrm{s} = 1$, and it actually allows $\sum_\iota
 \tilde{v}^\iota > 1$ if the sum is over all species. It has been
-common in the soft tissue literature to assume that, 
-under normal physiological 
-conditions, soft tissues are fully saturated by the fluid and
-\mbox{Equation~(\ref{isotropicgrowth})} is appropriate for $\iota =
-\mathrm{f}$. However, this treatment of saturation and swelling
-induced by the fluid phase is necessary background for Section
-\ref{caviation-under-tension} where we 
-discuss the response of the fluid phase under tension. This treatment
-also holds relevance for partial drying,
-which \emph{ex vivo} or \emph{in vitro} tissue may be subject to under
-certain laboratory conditions, and is central to the mechanics of
-drained porous media other than biological tissue, most prominently,
-soils.
+common in the soft tissue literature to assume that, under normal
+physiological conditions, soft tissues are fully saturated by the
+fluid and \mbox{Equation~(\ref{isotropicgrowth})} is appropriate for
+$\iota = \mathrm{f}$. However, this treatment of saturation and
+swelling induced by the fluid phase is necessary background for
+Section \ref{caviation-under-tension} where we discuss the response of
+the fluid phase under tension. This treatment also holds relevance for
+partial drying, which \emph{ex vivo} or \emph{in vitro} tissue may be
+subject to under certain laboratory conditions, and while
+significantly expanding the relevance of formulation to the mechanics
+of drained porous media other than biological tissue, most
+prominently, soils.
 
 \section{Entropy inequality and restrictions on constitutive
   relationships}
@@ -867,7 +872,8 @@ inequality holds for the system as a whole. Accordingly, we write
 \sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
 \int\limits_{\Omega_0} \rho_0^\iota \eta^\iota \mathrm{d}V &\geq&
 \sum\limits_{\iota}\int\limits_{\Omega_0}\left(
-\Pi^\iota \eta^\iota + \frac{\rho_0^\iota r^\iota}{\theta}\right) \mathrm{d}V\nonumber\\
+\Pi^\iota \eta^\iota + \frac{\rho_0^\iota r^\iota}{\theta}\right)
+\mathrm{d}V\nonumber\\ 
 & & - \sum\limits_{\iota}\int\limits_{\partial \Omega_0}
 \left(\bM^\iota \cdot \bN\eta^\iota + \frac{\bQ^\iota}{\theta}
 \cdot \bN \right)\mathrm{d}A.
@@ -899,8 +905,8 @@ t}\right) +\sum\limits_{\iota}\Pi^\iota\left(e^\iota +
 & &+\sum\limits_{\iota} \left(\rho^\iota_0\frac{\partial}{\partial
 t}\left(\bV+\bV^\iota\right) - \rho_0^\iota\bg -
 \Bnabla\cdot\bP^\iota +
-\Bnabla\left(\bV+\bV^\iota\right)\bM^\iota\right)\cdot\left(\bV+\bV^\iota\right)
-\nonumber\\
+\Bnabla\left(\bV+\bV^\iota\right)\bM^\iota\right)
+\cdot\left(\bV+\bV^\iota\right) \nonumber\\
 & &-\sum\limits_{\iota}\left(\bP^\iota\colon\dot{\bF} -
 \bP^\iota\colon\Bnabla\bV^\iota + \left(\Bnabla e^\iota -
 \theta\Bnabla\eta^\iota\right) \cdot\bM^\iota\right)\leq 0
@@ -923,7 +929,9 @@ species: $ e^\iota = \hat{e}^\iota(\bF^{\mathrm{e}^\iota},
 regrouping some terms, (\ref{redentropyineqfin}) becomes
 \begin{eqnarray}
 & &\sum\limits_{\iota}\left(\frac{\partial
-e^\iota}{\partial\bF^{\mathrm{e}^\iota}}-\bP^\iota\bF^{\mathrm{g}^{\iota\mathrm{T}}}\right)\colon\dot{\bF}^{\mathrm{e}^\iota}
+e^\iota}{\partial\bF^{\mathrm{e}^\iota}} -
+  \bP^\iota\bF^{\mathrm{g}^{\iota\mathrm{T}}}\right)
+  \colon\dot{\bF}^{\mathrm{e}^\iota} 
 + \sum\limits_{\iota}\left(\frac{\partial e^\iota}{\partial
 \eta^\iota}-\theta\right)\frac{\partial\eta^\iota}{\partial t}\nonumber\\
 &+&\sum\limits_{\iota} \left(\rho^\iota_0\frac{\partial}{\partial
@@ -1086,7 +1094,7 @@ k \theta}{4\sqrt{2L/A}}\left(\sqrt{\frac{2A}{L}} + \frac{1}{4(1 -
 \log\left(\lambda_1^{{\mathrm{e}}^{a^\mathrm{2}}}
 \lambda_2^{{\mathrm{e}}^{b^\mathrm{2}}}
 \lambda_3^{{\mathrm{e}}^{c^\mathrm{2}}}\right).
-\label{wlcmeq}
+\label{wlcm-energy}
 \end{split}
 \end{equation}
 
@@ -1096,16 +1104,18 @@ sides aligned with the principal stretch directions. The material
 model is isotropic only if $a=b=c$.
 
 \begin{figure}
-\psfrag{r}{\small $r$}
-\psfrag{A}{\small $A$}
-\psfrag{a}{\small $a$}
-\psfrag{b}{\small $b$}
-\psfrag{c}{\small $c$}
-\psfrag{n}{\small$\bN_1$}
-\psfrag{o}{\small$\bN_2$}
-\psfrag{p}{\small$\bN_3$}
-\centering {\includegraphics[width=0.8\textwidth]{images/elucidation/wlcm-cuboid}}
-\caption{The eight-chain model incorporating worm-like chains.}\label{eightchain}
+  \centering
+  \psfrag{r}{$r$}
+  \psfrag{A}{$A$}
+  \psfrag{a}{$a$}
+  \psfrag{b}{$b$}
+  \psfrag{c}{$c$}
+  \psfrag{n}{$\bN_1$}
+  \psfrag{o}{$\bN_2$}
+  \psfrag{p}{$\bN_3$}
+  \includegraphics[width=0.8\textwidth]{images/elucidation/wlcm-cuboid}
+  \caption{The eight-chain model incorporating worm-like chains.}
+  \label{eight-chain-model}
 \end{figure}
 
 The elastic stretches along the unit cell axes are, respectively,
@@ -1487,8 +1497,8 @@ configuration takes the following form,
 
 \begin{equation}
 \bM^\mathrm{f} = \bD^\mathrm{f}\left(\rho_0^\mathrm{f}\bF^T\bg +
-      \bF^T\mathrm{\small{DIV}}\left[\bP^{\,\mathrm{f}}\right] -
-      \rho_0^\mathrm{f}\mathrm{\small{GRAD}}\mu^\mathrm{f}\right),
+      \bF^T\mathrm{DIV}\left[\bP^{\,\mathrm{f}}\right] -
+      \rho_0^\mathrm{f}\mathrm{GRAD}\mu^\mathrm{f}\right),
 \label{fluidflux}
 \end{equation}
 
@@ -1520,9 +1530,9 @@ detailed derivation and discussion of \mbox{Equation
 %rewrite (\ref{fluidflux}) as
 
 %\begin{equation}
-%\bM^\mathrm{f} = \bD^\mathrm{f}_{P} \bF^T\mathrm{\small{DIV}}
+%\bM^\mathrm{f} = \bD^\mathrm{f}_{P} \bF^T\mathrm{DIV}
 %\left[\bP^{\,\mathrm{f}}\right] - \bD^\mathrm{f}_{\mu}
-%\mathrm{\small{GRAD}}\left[e^\mathrm{f} -
+%\mathrm{GRAD}\left[e^\mathrm{f} -
 %  \theta\eta^\mathrm{f}\right],
 %\label{splitflux}
 %\end{equation}
@@ -1590,11 +1600,9 @@ relative to the fluid. The constitutive relation for the corresponding
 flux, denoted by $\widetilde{\bM^s}$, has the following form, similar
 to Equation (\ref {fluidflux}) defined for the fluid flux.
 
-%TODO: Remove occurrences of \tilde{v}
-
 \begin{equation}
 \widetilde{\bM^\mathrm{s}} = \bD^\mathrm{s}\left(
-- \rho^\mathrm{s}_0\mathrm{\small{GRAD}}\left[e^\mathrm{s} -
+- \rho^\mathrm{s}_0\mathrm{GRAD}\left[e^\mathrm{s} -
  \theta\eta^\mathrm{s}\right]\right),
 \label{soluteflux}
 \end{equation}
@@ -1626,6 +1634,14 @@ used simple first order chemical kinetics to define
 $\Pi^{\mathrm{c}}$. Other forms, which have been studied in the
 literature, can be used: 
 
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]
+                {images/experiments/implantation-strengthening} 
+\caption{Growth and strengthening of a tendon under chemical influences.}
+\label{load-strengthening}
+\end{figure}
+
 (\romannumeral 1) {\em Michaelis-Menten}
 enzyme kinetics (see, for 
 e.g., \cite{Sengersetal:2004}), which involves a two-step reaction
@@ -1645,6 +1661,14 @@ production reaction rate constant, and $\rho^{\mathrm{s}}_m$ is half
 the solute concentration corresponding to $k_{\mathrm{max}}$. For
 details on the chemistry modelled by the Michaelis-Menten model, see,
 for e.g., \citet{sbromadill}.
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[width=0.8\textwidth]
+                {images/experiments/load-strengthening} 
+\caption{Growth and strengthening of a tendon under mechanical influences.}
+\label{load-strengthening}
+\end{figure}
 
 (\romannumeral 2) {\em Strain energy-dependent} sources that
 induce growth at a point when the 
@@ -1680,6 +1704,17 @@ annihilation otherwise.
 \subsection{The role of mass balance in the current
   configuration}
 \label{role-of-current-mass-balance} 
+
+\begin{figure}[ht]
+  \centering
+  \psfrag{BC}{\small Concentration boundary condition}
+  \psfrag{RC}{\small Reduced concentration}
+  \includegraphics[width=0.4\textwidth]
+                  {images/elucidation/reference-boundary-conditions}
+  \caption{Constant concentration boundary conditions in the reference
+    configuration.} 
+  \label{erroneous-bc}
+\end{figure}
 
 In order to proceed, we must first introduce the central kinematic
 assumption underlying the 
@@ -1729,8 +1764,8 @@ configuration,
 
 \begin{equation}
 \frac{\mathrm{d}\rho^\iota}{\mathrm{d}t} = \pi^\iota-
-\mathrm{\small{div}}[\bm^\iota] - \rho^\iota
-\mathrm{\small{div}}[\bv],\;\forall\,\iota, \label{massbalcurr}
+\mathrm{div}[\bm^\iota] - \rho^\iota
+\mathrm{div}[\bv],\;\forall\,\iota, \label{massbalcurr}
 \end{equation}
 
 \noindent where $\rho^\iota(\bx,t),\pi^\iota(\bx,t)$, and
@@ -1741,7 +1776,7 @@ quantities as $\rho^\iota = \left(\mathrm{det} \left(\bF\right)
 \right)^{-1} \rho_0^\iota$, $\pi^\iota = \left(\mathrm{det}
 \left(\bF\right) \right)^{-1} \Pi^\iota$ and $\bm^\iota =
 \left(\mathrm{det} \left(\bF\right) \right)^{-1} \bF \bM^\iota$. The
-spatial divergence operator is $\mbox{\small{div} [\textbullet]}$, and
+spatial divergence operator is $\mathrm{div}[\textbullet]$, and
 the left hand-side in Equation~(\ref{massbalcurr}) is the material
 time derivative relative to the solid, which may be written explicitly as
 $\frac{\partial}{\partial t}\vert_X$, implying that the reference
@@ -1922,6 +1957,25 @@ when the element {\em Peclet number} is large.
 \subsection{Stabilisation of the simplified solute transport equation}
 \label{stabilisation-solute-transport}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]
+                {images/elucidation/unstable-advection.eps}
+\caption{Advection-diffusion equation at large Peclet numbers without
+  stabilisation.}
+\label{ustable-solution}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]
+                {images/elucidation/stable-advection.eps}
+\caption{Advection-diffusion equation at large Peclet numbers with
+  stabilisation.}
+\label{ustable-solution}
+\end{figure}
+
+
 In weak form, the SUPG-stabilised method for
 Equation~(\ref{morestdform}) is
 
@@ -1960,11 +2014,34 @@ which we have calculated from the $\mathrm{L}_{2}$ norms of element
 level matrices, as described in
 \cite{tezduyarsupg}.
 
-\subsubsection{Determination of the stabilisation parameter}
-\label{}
+\subsection{Upper- and lower-bound assumptions, and their implications}
+\label{upper-and-lower-bounds}
 
-\subsection{Upper and lower bound assumptions, and their implications}
-\label{}
+\begin{figure}[ht]
+  \centering
+  \psfrag{A}{$\Omega_0$}
+  \psfrag{B}{$\Omega_t$}
+  \psfrag{C}{$\bF$}
+  \psfrag{S}{\small Solid, `c'}
+  \psfrag{F}{\small Fluid, `f'}
+  \includegraphics[width=0.8\textwidth]
+                  {images/elucidation/homogeneous-deformation}
+  \caption{Upper-bound model from strain homogenisation.}
+  \label{upper-bound-model}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \psfrag{A}{$\Omega_0$}
+  \psfrag{B}{$\Omega_t$}
+  \psfrag{C}{$\bF$}
+  \psfrag{S}{\small Solid, `c'}
+  \psfrag{F}{\small Fluid, `f'}
+  \includegraphics[width=0.8\textwidth]
+                  {images/elucidation/homogeneous-stress}
+  \caption{Lower-bound model from stress homogenisation.}
+  \label{lower-bound-model}
+\end{figure}
 
 %
 
