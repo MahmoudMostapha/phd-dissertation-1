@@ -9,7 +9,7 @@ fundamental field equations of a continuum idealisation of tissues are
 derived from general principles governing the behaviour of multiphase
 mixtures. Specifically, Section~\ref{balance-laws} helps define the
 system and formally introduces fundamental quantities characterising
-it before deriving the balance laws from fundamental
+it, before deriving the balance laws from fundamental
 axioms. Section~\ref{kinematics-of-growth}, presents the kinematics
 associated with finite deformation growth. A fundamental axiom of
 thermodynamics, the entropy inequality, and its restriction on
@@ -48,10 +48,9 @@ in Figure~\ref{continuum-potato-mass}. The deformation gradient $\bF
   \psfrag{H}{$\Omega_t$}
   \psfrag{D}{$\bN\cdot\bM^\iota$}
   \psfrag{I}{$\bn\cdot\bm^\iota$}
-  \includegraphics[width=0.8\textwidth]
-                  {images/elucidation/continuum-potato-mass}
+  \includegraphics[width=0.8\textwidth]{images/elucidation/continuum-potato-mass}
   \caption{The tissue as a continuous medium with growing and
-    diffusing species.}
+    diffusing species.} 
   \label{continuum-potato-mass}
 \end{figure}
 
@@ -81,7 +80,7 @@ thought of in terms of the maps $\rho_0^\iota: \overline{\Omega}_0
 imposes some smoothness requirements. By definition, the total {\em
   material density} of the tissue at a point is a summation of these
 concentrations over all species $\sum\limits_{\iota}\rho_0^\iota =
-\rho_0$. 
+\rho_0$.
 
 The system is open with respect to mass. Other than the solid species,
 $\mathrm{c}$, all phases have mass fluxes, $\bM^\iota$.\footnote{As
@@ -100,30 +99,29 @@ its reference configuration, $\Omega_0$.
 
 As a result of mass transport (via the flux terms) and
 inter-conversion of species (via the source/sink terms) introduced
-above, the concentrations, $\rho_0^\iota$, change with
-time. Written in integral form, the balance of mass for an arbitrary
-species over $\Omega_0$ states
+above, the concentrations, $\rho_0^\iota$, change with time. Written
+in integral form, the balance of mass for an arbitrary species over
+$\Omega_0$ states
 
 \begin{equation}
 \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0}
-  \rho_0^\iota 
-(\bX,t)\mathrm{d}V}_{\text{Rate of change of mass}} =
+  \rho_0^\iota (\bX,t)\mathrm{d}V}_{\text{Rate of change of mass}} =
 \underbrace{\int\limits_{\Omega_0} \Pi^\iota
   (\bX,t)\mathrm{d}V}_{\text{Mass being created}}
 -\underbrace{\int\limits_{\partial\Omega_0}\bM^\iota(\bX,t)\cdot\bN
-  \mathrm{d}A}_{\text{Mass leaving the domain}}, 
+  \mathrm{d}A}_{\text{Mass leaving the domain}},
 \label{globalbalanceofmass}
 \end{equation}
 
 \noindent where $\bN$ is the unit outward normal to the boundary,
 $\partial\Omega_0$.
 
- Applying Gauss' divergence theorem
-(Appendix~\ref{gauss-divergence}) to the surface integral term, and
-localising the result (recalling that since $\Omega_0$ is a fixed
-volume, the time derivative on the first term can be simply moved into
-the integral), we arrive at the following local form of the balance of
-mass for an arbitrary species in the reference configuration,
+Applying Gauss' divergence theorem (Appendix~\ref{gauss-divergence})
+to the surface integral term, and localising the result (recalling
+that since $\Omega_0$ is a fixed volume, the time derivative on the
+first term can be simply moved into the integral), we arrive at the
+following local form of the balance of mass for an arbitrary species
+in the reference configuration,
 
 \begin{equation}
 \frac{\partial\rho_0^\iota}{\partial t} = \Pi^\iota -
@@ -131,10 +129,10 @@ mass for an arbitrary species in the reference configuration,
 \label{localbalanceofmass}
 \end{equation}
 
-\noindent Here, $\mathrm{DIV[\bullet]}$ is the divergence
-operator in the reference configuration. The functional forms of
-$\Pi^\iota$ are abstractions of the underlying biochemistry,
-physiologically relevant examples of which are discussed in
+\noindent Here, $\mathrm{DIV[\bullet]}$ is the divergence operator in
+the reference configuration. The functional forms of $\Pi^\iota$ are
+abstractions of the underlying biochemistry, physiologically relevant
+examples of which are discussed in
 Section~\ref{nature-of-sources}. The fluxes, $\bM^\iota$, are
 determined from the thermodynamically-motivated constitutive relations
 described in
@@ -169,9 +167,9 @@ system. Following this viewpoint, we neglect the interconversion terms
 \label{massexternal}
 \end{equation}
 
-\noindent Comparing the equivalent forms (\ref{masssummation})
-and (\ref{massexternal}), it emerges (upon localisation) that the
-sources and sinks satisfy
+\noindent Comparing the equivalent forms (\ref{masssummation}) and
+(\ref{massexternal}), it emerges (upon localisation) that the sources
+and sinks satisfy
 
 \begin{equation}
 \sum\limits_\iota\Pi^\iota = 0,
@@ -179,9 +177,12 @@ sources and sinks satisfy
 \end{equation}
 
 \noindent a conclusion that is consistent with classical mixture
-theory \citep{TruesdellNoll:65}. Appendix~\ref{law-of-mass-action}
-contains an example in which the Law of Mass Action is invoked to
-describe a set of inter-related sources, $\Pi^\iota$.
+theory \citep{TruesdellNoll:65} in the absence of no net production
+term for the system.
+
+Appendix~\ref{law-of-mass-action} contains an example in which the Law
+of Mass Action is invoked to describe a set of inter-related sources,
+$\Pi^\iota$.
 
 \subsection{Balance of linear momentum}
 \label{balance-of-linear-momentum}
@@ -199,56 +200,56 @@ describe a set of inter-related sources, $\Pi^\iota$.
   \psfrag{K}{$\bq^\iota$}
   \psfrag{L}{$\bP^\iota\bN$}
   \psfrag{O}{$\Bsigma^\iota\bn$}
-  \includegraphics[width=0.8\textwidth]
-                  {images/elucidation/continuum-potato-momentum}
+  \includegraphics[width=0.8\textwidth]{images/elucidation/continuum-potato-momentum}
   \caption{Interaction forces, traction and body loads on the tissue.}
   \label{continuum-potato-momentum}
 \end{figure}
 
 In soft tissues, the species production rate and flux that appear on
 the right hand-side in Equation~(\ref{localbalanceofmass}) are
-strongly dependent on the local state of stress. To correctly model this
-coupling, the balance of linear momentum should be solved to determine
-the local state of strain and stress.
+strongly dependent on the local state of stress. To correctly model
+this coupling, the balance of linear momentum should be solved to
+determine the local state of strain and stress.
 
-The deformation of the tissue is characterised by the map
+Recall that the deformation of the tissue is characterised by the map
 $\Bvarphi(\bX,t)$. Recognising that, in tendons, the solid collagen
 fibrils and fibroblasts do not undergo mass transport, the material
 velocity of this species, $\bV = \partial\Bvarphi/\partial t$, is used
 as the primitive variable for mechanics. Each remaining species can
 undergo mass transport relative to the solid collagen. For this
 purpose, it is useful to define the material velocity of a species
-$\iota$ \emph{relative to the solid skeleton} as: $\bV^\iota =
+$\iota$ \emph{relative to the solid phase} as: $\bV^\iota =
 (1/\rho_0^\iota)\bF\bM^\iota$. Thus, the total material velocity of a
 species $\iota$ is $\bV+\bV^\iota$.
 
-The tissue is subject to surface traction, $\bT$, and body force per
-unit mass, $\bg$. The natural boundary condition then implies that
-$\bT = \sum_{\iota}\bP^\iota\bN$ on $\partial\Omega_0$, where
-$\bP^\iota$ is the partial first Piola-Kirchhoff stress tensor
-corresponding to species $\iota$. Thus, $\bP^\iota\bN$ is the
-corresponding partial traction, as depicted in
-Figure~\ref{continuum-potato-momentum}. Recognising that the
-concentrations of solutes are low, and consequently that they do not
-bear appreciable stress, the partial stresses and momentum balance
-equation are defined only for the solid collagen and fluid phases.
+The tissue is subjected to a surface traction, $\bT$, and a body force
+per unit mass, $\bg$. We define the partial first Piola-Kirchhoff
+stress tensor corresponding to species $\iota$ as the portion of the
+total stress borne by the species. Denoting this quantity by
+$\bP^\iota$, the natural boundary condition then implies that $\bT =
+\sum_{\iota}\bP^\iota\bN$ on $\partial\Omega_0$. Thus, $\bP^\iota\bN$
+is the corresponding partial traction, as depicted in
+Figure~\ref{continuum-potato-momentum}.
 
-Written in integral form, the balance of momentum of species $\iota$
-over $\Omega_0$ is, 
+Recognising that the concentrations of solutes are low, and
+consequently that they do not bear appreciable stress, the partial
+stresses and momentum balance equation are defined only for the solid
+collagen and fluid phases. Written in integral form, the balance of
+momentum of species $\iota$ over $\Omega_0$ is,
 
 \begin{eqnarray}
 \underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0}
-\rho_0^\iota(\bV+\bV^\iota) \mathrm{d}V}_{\text{Rate of change of
-    momentum}} &=& \underbrace{\int\limits_{\Omega_0} 
-\rho^\iota_0\bg \mathrm{d}V + \int\limits_{\Omega_0}
-\rho^\iota_0\bq^\iota \mathrm{d}V}_{\text{Resultant body force}} +
-\underbrace{\int\limits_{\Omega_0} 
-\Pi^\iota(\bV+\bV^\iota) \mathrm{d}V}_{\text{Momentum
-    being created}} \nonumber\\
-& &+ \underbrace{\int\limits_{\partial \Omega_0}\bP^\iota\bN
-  \mathrm{d}A}_{\text{Boundary traction}} - 
-\underbrace{\int\limits_{\partial \Omega_0}(\bV+\bV^\iota)\bM^\iota\cdot\bN
-\mathrm{d}A}_{\text{Momentum leaving the domain}},
+  \rho_0^\iota(\bV+\bV^\iota) \mathrm{d}V}_{\text{Rate of change of
+    momentum}} &=& \underbrace{\int\limits_{\Omega_0} \rho^\iota_0\bg
+  \mathrm{d}V + \int\limits_{\Omega_0} \rho^\iota_0\bq^\iota
+  \mathrm{d}V}_{\text{Resultant body force}} +
+\underbrace{\int\limits_{\Omega_0} \Pi^\iota(\bV+\bV^\iota)
+  \mathrm{d}V}_{\text{Momentum being created}} \nonumber\\ & &+
+\underbrace{\int\limits_{\partial \Omega_0}\bP^\iota\bN
+  \mathrm{d}A}_{\text{Boundary traction}} -
+\underbrace{\int\limits_{\partial
+    \Omega_0}(\bV+\bV^\iota)\bM^\iota\cdot\bN
+  \mathrm{d}A}_{\text{Momentum leaving the domain}},
 \label{globalbalanceofmomentum}
 \end{eqnarray}
 
@@ -259,19 +260,16 @@ boundary to the rate of change of momentum in
 Equation~(\ref{globalbalanceofmomentum}).
 
 Writing $(\bV+\bV^\iota) \bM^\iota\cdot\bN$ as
-$((\bV+\bV^\iota)\otimes\bM^\iota)\bN$, and using Gauss' divergence 
+$((\bV+\bV^\iota)\otimes\bM^\iota)\bN$, and using Gauss' divergence
 theorem (Appendix~\ref{gauss-divergence}), one obtains:
 \begin{eqnarray}
 \int\limits_{\Omega_0} \left(\frac{\partial\rho_0^\iota}{\partial
-t}\left(\bV+\bV^\iota\right) +
-\rho_0^\iota\frac{\partial}{\partial
-t}\left(\bV+\bV^\iota\right)\right) \mathrm{d}V =
+  t}\left(\bV+\bV^\iota\right) + \rho_0^\iota\frac{\partial}{\partial
+  t}\left(\bV+\bV^\iota\right)\right) \mathrm{d}V =
 \int\limits_{\Omega_0}\rho^\iota_0\left(\bg+\bq^\iota\right)
-\mathrm{d}V \qquad& &\nonumber\\
-+\int\limits_{\Omega_0}\left(\Pi^\iota\left(\bV+\bV^\iota\right) +
-\mathrm{DIV}[\bP^\iota]\right)
-\mathrm{d}V& & \nonumber\\
--
+\mathrm{d}V \qquad&
+&\nonumber\\ +\int\limits_{\Omega_0}\left(\Pi^\iota\left(\bV+\bV^\iota\right)
++ \mathrm{DIV}[\bP^\iota]\right) \mathrm{d}V& & \nonumber\\ -
 \int\limits_{\Omega_0}\mathrm{DIV}
 \left[\left(\bV+\bV^\iota\right]\otimes\bM^\iota\right)\mathrm{d}V .
 & &
@@ -279,37 +277,35 @@ t}\left(\bV+\bV^\iota\right)\right) \mathrm{d}V =
 
 \noindent Using the mass balance equation (\ref{localbalanceofmass}),
 and applying Leibniz rule to the last term gives
+
 \begin{eqnarray}
 \int\limits_{\Omega_0} \rho_0^\iota\frac{\partial}{\partial
-t}\left(\bV+\bV^\iota\right) \mathrm{d}V &=&
+  t}\left(\bV+\bV^\iota\right) \mathrm{d}V &=&
 \int\limits_{\Omega_0}\rho^\iota_0\left(\bg+\bq^\iota\right)
-\mathrm{d}V \nonumber\\
-& &+
+\mathrm{d}V \nonumber\\ & &+
 \int\limits_{\Omega_0}\left(\mathrm{DIV}\left[\bP^\iota\right] -
 \left(\mathrm{GRAD}\left[\bV+\bV^\iota\right]\right)\bM^\iota\right)
-\mathrm{d}V,
+\mathrm{d}V, \nonumber
 \end{eqnarray}
 
-\noindent where $\mathrm{{GRAD}[\bullet]}$ is the gradient
-operator in the reference configuration. Localising this result gives
-the balance of linear momentum for a single species in the reference
-configuration:
+\noindent where $\mathrm{{GRAD}[\bullet]}$ is the gradient operator in
+the reference configuration. Localising this result gives the balance
+of linear momentum for a single species in $\Omega_{0}$:
 
 \begin{equation}
 \begin{split}
 \rho_0^\iota\frac{\partial}{\partial t}\left(\bV+\bV^\iota\right) &
 =\rho^\iota_0\left(\bg+\bq^\iota\right) +
-\mathrm{DIV}[\bP^{\,\iota}]\\ 
-& \quad -\left(\mathrm{GRAD}\left[\bV+
+\mathrm{DIV}[\bP^{\,\iota}]\\ & \quad -\left(\mathrm{GRAD}\left[\bV+
   \bV^\iota\right]\right)\bM^\iota, \quad \iota = \mathrm{c,f}
 \label{localbalanceofmomentum}
 \end{split}
 \end{equation} 
 
-The final term with the (reference) gradient denotes the contribution
-of the flux to the balance of momentum. In practise, when the relative
-magnitude of the fluid mobility (and hence flux) is small, the
-final term on the right hand side of
+The final term with the gradient of total species velocity identifies
+the contribution of the flux to the balance of momentum. In practise,
+when the relative magnitude of the fluid mobility (and hence flux) is
+small, the final term on the right hand side of
 Equation~(\ref{localbalanceofmomentum}) is negligible, resulting in a
 more classical form of the balance of momentum. Furthermore, in the
 absence of significant acceleration of the tissue during growth, the
@@ -317,11 +313,11 @@ left hand-side can also be neglected, reducing
 (\ref{localbalanceofmomentum}) to the quasi-static balance of linear
 momentum.
 
-The interaction forces, $\rho_0^\iota\bq^\iota$, satisfy a
-relation with the mass sources, $\Pi^\iota$, that is elucidated by
-the following argument. One way of arriving at the  balance of
-momentum of the entire tissue is by summing
-Equation~(\ref{globalbalanceofmomentum}) over $\iota = \mathrm{c,f}$
+The interaction forces, $\bq^\iota$, satisfy a relation with the mass
+sources, $\Pi^\iota$, that is elucidated by the following
+argument. One way of arriving at the balance of momentum of the entire
+tissue is by summing Equation~(\ref{globalbalanceofmomentum}) over
+$\iota = \mathrm{c,f}$
 
 \begin{eqnarray}
 \sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
@@ -365,7 +361,7 @@ of the system, it follows upon inspection that:
 \Pi^\iota(\bV+\bV^\iota) \mathrm{d}V = 0.
 \end{eqnarray}
 
-Recalling the relation between the sources
+\noindent Recalling the relation between the sources
 (\ref{masssummationresult}), and localising leads to
 
 \begin{eqnarray}
@@ -391,37 +387,38 @@ inertial reference frame, of a species $\iota$ over $\Omega_{0}$
 requires,
 
 \begin{eqnarray}
-\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0} \Bvarphi
-\times \rho^\iota_0(\bV+\bV^\iota)\mathrm{d}V &=&
-\int\limits_{\Omega_0}\Bvarphi\times\left
-           [\rho^\iota_0\left(\bg+\bq^\iota\right) +
-             \Pi^\iota\left(\bV+\bV^\iota\right)\right]\mathrm{d}V
-           \nonumber\\  & &+
-\int\limits_{\partial\Omega_0}\Bvarphi\times\left(\bP^\iota -
-\left(\bV+\bV^\iota\right)\otimes\bM^\iota\right)\bN
-\mathrm{d}A
+\underbrace{\frac{\mathrm{d}}{\mathrm{d}t} \int\limits_{\Omega_0}
+  \Bvarphi \times \rho^\iota_0(\bV+\bV^\iota)\mathrm{d}V}_{\text{Rate
+    of change of angular momentum}} &=&
+\underbrace{\int\limits_{\Omega_0}\Bvarphi\times\left
+  [\rho^\iota_0\left(\bg+\bq^\iota\right) +
+    \Pi^\iota\left(\bV+\bV^\iota\right)\right]\mathrm{d}V}_{\text{Moment
+    from body forces and angular momentum being created}}
+\nonumber\\ & &+ \underbrace{
+  \int\limits_{\partial\Omega_0}\Bvarphi\times\left(\bP^\iota -
+  \left(\bV+\bV^\iota\right)\otimes\bM^\iota\right)\bN
+  \mathrm{d}A}_{\text{Moment from traction and angular momentum
+    leaving the domain}}
 \label{globalbalanceofangularmomentum}
 \end{eqnarray}
 
-\noindent Applying properties of the cross product, Gauss' divergence 
+\noindent Applying properties of the cross product, Gauss' divergence
 theorem (Appendix~\ref{gauss-divergence}) and Leibniz rule gives
+
 \begin{eqnarray}
-\int\limits_{\Omega_0}\bV\times\rho^\iota_0\bV^\iota +
-\Bvarphi\times \left(\frac{\partial\rho^\iota_0}{\partial
-t}\left(\bV+\bV^\iota\right)+ \rho^\iota_0\frac{\partial}{\partial
-t}\left(\bV+\bV^\iota\right)\right)\mathrm{d}V =\qquad\quad& &\nonumber\\
-\int\limits_{\Omega_0}\Bvarphi\times\rho^\iota_0
-\left(\bg+\bq^\iota+\Pi^\iota\left(\bV+\bV^\iota\right)\right)\mathrm{d}V&
-&\nonumber\\ 
- +
+\int\limits_{\Omega_0}\bV\times\rho^\iota_0\bV^\iota + \Bvarphi\times
+\left(\frac{\partial\rho^\iota_0}{\partial
+  t}\left(\bV+\bV^\iota\right)+ \rho^\iota_0\frac{\partial} {\partial
+  t}\left(\bV+\bV^\iota\right)\right)\mathrm{d}V =\qquad\quad&
+&\nonumber\\ \int\limits_{\Omega_0}\Bvarphi\times\rho^\iota_0
+\left(\bg+\bq^\iota+\Pi^\iota\left(\bV+\bV^\iota\right)\right)
+\mathrm{d}V& &\nonumber\\ +
 \int\limits_{\Omega_0}\left(\Bvarphi\times\mathrm{DIV}[\bP^\iota] -
 \Bvarphi\times\left(\mathrm{GRAD}
 \left[\bV+\bV^\iota\right]\bM^\iota\right)\right)\mathrm{d}V &
-&\nonumber\\
-\int\limits_{\Omega_0}\left(-\Bvarphi\times\left(\bV+\bV^\iota\right)
-\mathrm{DIV}\left[\bM^\iota\right]\right) 
-\mathrm{d}V & &\nonumber\\
--
+&\nonumber\\ \int\limits_{\Omega_0}
+\left(-\Bvarphi\times\left(\bV+\bV^\iota\right)
+\mathrm{DIV}\left[\bM^\iota\right]\right) \mathrm{d}V & &\nonumber\\ -
 \int\limits_{\Omega_0}\Bepsilon\colon\left(\left(\bP^\iota -
 \left(\bV+\bV^\iota\right) \otimes\bM^\iota\right)
 \bF^\mathrm{T}\right) \mathrm{d}V,
@@ -443,6 +440,7 @@ momentum (\ref{localbalanceofmomentum}), we have
 \noindent Recalling the relation of the permutation symbol to the
 cross product, and the indicated relation between $\bM^\iota$ and
 $\bV^\iota$ leads to
+
 \begin{equation}
 \bzero =
 -\int\limits_{\Omega_0}\Bepsilon\colon\left(\left(\bP^\iota-\bV^\iota
@@ -450,8 +448,9 @@ $\bV^\iota$ leads to
 \bF^\mathrm{T}\right)\mathrm{d}V.
 \end{equation}
 
-\noindent Localizing this result and again applying the properties
-of the permutation symbol we are led to the symmetry condition,
+\noindent Localising this result and again applying the properties of
+the permutation symbol leads to the symmetry condition,
+
 \begin{equation}
 \left(\bP^\iota-\bV^\iota\otimes\rho^\iota_0\bF^{-1}\bV^\iota\right)
 \bF^\mathrm{T} = \bF\left(\bP^\iota-\bV^\iota \otimes
@@ -460,18 +459,18 @@ of the permutation symbol we are led to the symmetry condition,
 \end{equation}
 
 \noindent But, $(\bV^\iota\otimes\bF^{-1}\bV^\iota)\bF^\mathrm{T} =
-\bV^\iota\otimes\bV^\iota$. Thus, the symmetry
+\bV^\iota\otimes\bV^\iota$, and thus, the symmetry
 $\bP^\iota\bF^\mathrm{T} = \bF(\bP^\iota)^\mathrm{T}$ that results
-from conservation of angular momentum for the purely mechanical
-theory, is retained in this case. The partial Cauchy stresses are
+from conservation of angular momentum for a purely mechanical theory
+is retained in this case of a mixture. The partial Cauchy stresses are
 therefore symmetric: $\Bsigma^\iota = \Bsigma^{\iota^\mathrm{T}}$, and
-this is seen directly in terms of spatial quantities in
+this is also seen directly in terms of spatial quantities in
 Section~\ref{eu-balance-of-angular-momentum}.
 
 Divergent results on this topic (in terms of which stress-like
 quantities are deduced symmetric) stem primarily from the exact
 definitions of the fundamental quantities involved in the
-calculation. This is especially true of how the total stress in the
+analysis. This is especially true of how the total stress in the
 system is distributed as partial stresses borne by the species
 comprising the system. For e.g., \citet{EpsteinMaugin:2000}
 incorporate an ``irreversible'' contribution from their species flux
@@ -491,25 +490,22 @@ to the result shown above.
   \psfrag{L}{$\bP\bN$}
   \psfrag{K}{$\tilde{e}^\iota$}
   \psfrag{D}{$\bN\cdot\bQ$}
-  \includegraphics[width=0.4\textwidth]
-                  {images/elucidation/continuum-potato-energy}
+  \includegraphics[width=0.4\textwidth]{images/elucidation/continuum-potato-energy}
   \caption{Energetic interactions the tissue is subjected to.}
   \label{continuum-potato-energy}
 \end{figure}
 
 Since the masses of the various species constituting the system are
-allowed to change as a result of mass transport and
-interconversion, it is appropriate to work with energy and energy-like
-quantities per unit mass.
-
-In addition to the terms introduced previously, the internal energy
-per unit mass of species $\iota$ is denoted $e^\iota$; the heat supply
-to species $\iota$ per unit mass of that species is $r^\iota$; and the
-partial heat flux vector of $\iota$ is $\bQ^\iota$, defined on
-$\Omega_0$. An interaction energy appears between species: The energy
-transferred to $\iota$ by all other species is $\tilde{e}^\iota$, per
-unit mass of $\iota$. These quantities are shown in
-Figure~\ref{continuum-potato-energy}.
+allowed to change as a result of mass transport and interconversion,
+it is appropriate to work with energy and energy-like quantities per
+unit mass. In addition to the terms introduced previously, the
+internal energy per unit mass of species $\iota$ is denoted $e^\iota$;
+the heat supply to species $\iota$ per unit mass of that species is
+$r^\iota$; and the partial heat flux vector of $\iota$ is $\bQ^\iota$,
+defined on $\Omega_0$. An interaction energy appears between species:
+The energy transferred to $\iota$ by all other species is
+$\tilde{e}^\iota$, per unit mass of $\iota$. These quantities are
+shown in Figure~\ref{continuum-potato-energy}.
 
 Working in $\Omega_0$, the rate of change of internal and kinetic
 energies of species $\iota$ is related to the work done on it by
@@ -537,7 +533,7 @@ and energy transfer as:
 \bM^\iota\left(e^\iota +\frac{1}{2}
 \Vert\bV+\bV^\iota\Vert^2\right) -
 \bQ^\iota\right)\cdot\bN\mathrm{d}A}_{\text{Work done by applied
-    traction and energy leaving the domain as mass and heat}}.
+    traction and energy leaving the domain as mass and heat flux}}.
 \label{globalbalanceofenergy}
 \end{eqnarray}
 
@@ -587,15 +583,16 @@ above and localising the result, we have,
 \end{eqnarray}
 
 \noindent a final form of the balance of energy of a species $\iota$
-is most convenient for combining with the entropy inequality leading
-to the Clausius-Duhem form of the dissipation inequality
+which is most convenient for combining with the entropy inequality,
+leading to the Clausius-Duhem form of the dissipation inequality
 (Section~\ref{clausius-duhem-form}).
 
 Analogous to the results obtained in Sections~\ref{balance-of-mass}
 and \ref{balance-of-linear-momentum} the inter-species energy
-transfers are related to interaction forces and mass sources. To
-demonstrate this, we first obtain the balance of mass of the entire
-system by summing Equation~\ref{globalbalanceofenergy} over all species:
+transfers, $\tilde{e}^{\iota}$, are related to interaction forces,
+$\bq^{\iota}$, and mass sources, $\Pi^{\iota}$. To demonstrate this,
+we first obtain the balance of mass of the entire system by summing
+Equation~\ref{globalbalanceofenergy} over all species:
 
 \begin{eqnarray}
 \sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
@@ -605,25 +602,20 @@ system by summing Equation~\ref{globalbalanceofenergy} over all species:
 \cdot\left(\bV+\bV^\iota\right) + \rho_0^\iota r^\iota
 \right)\mathrm{d}V& &\nonumber\\ +
 \sum\limits_{\iota}\int\limits_{\Omega_0}
-\rho_0^\iota\bq^\iota\cdot(\bV+\bV^\iota)\mathrm{d}V&  
-&\nonumber\\
-+ \sum\limits_{\iota}\int\limits_{\Omega_0}
-\left(\Pi^\iota\left(e^\iota
+\rho_0^\iota\bq^\iota\cdot(\bV+\bV^\iota)\mathrm{d}V& &\nonumber\\ +
+\sum\limits_{\iota}\int\limits_{\Omega_0} \left(\Pi^\iota\left(e^\iota
 + \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right) +
-\rho^\iota_0\tilde{e}^\iota\right)\mathrm{d}V & &  \\ 
-+\sum\limits_{\iota}\int\limits_{\partial
+\rho^\iota_0\tilde{e}^\iota\right)\mathrm{d}V \label{energysummation}&
+& \\ +\sum\limits_{\iota}\int\limits_{\partial
   \Omega_0}\left(\left(\bV+\bV^\iota\right)\cdot\bP^\iota -
-\bM^\iota\left(e^\iota +\frac{1}{2}
-\Vert\bV+\bV^\iota\Vert^2\right) -
+\bM^\iota\left(e^\iota +\frac{1}{2} \Vert\bV+\bV^\iota\Vert^2\right) -
 \bQ^\iota\right)\cdot\bN\mathrm{d}A.\quad& & \nonumber
-\label{energysummation}
 \end{eqnarray}
 
-Recall that the rate of change of energy of the system can also be
-expressed by considering the system interacting with its environment,
-in which case the internal interactions between species (interaction
-forces, mass interconversion and inter-species energy transfers) play
-no role. This viewpoint gives,
+Expressing the rate of change of energy of the system interacting with
+its environment from the point of view of an external observer unaware
+of internal interactions between species (interaction forces, mass
+interconversion and inter-species energy transfers), we have,
 
 \begin{eqnarray}
 \sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
@@ -632,18 +624,15 @@ no role. This viewpoint gives,
 \sum\limits_{\iota}\int\limits_{\Omega_0} \left(\rho_0^\iota\bg
 \cdot\left(\bV+\bV^\iota\right) + \rho_0^\iota r^\iota
 \right)\mathrm{d}V &
-&\nonumber\\
-+\sum\limits_{\iota}\int\limits_{\partial
-\Omega_0}\left(\left(\bV+\bV^\iota\right)\cdot\bP^\iota -
-\bM^\iota\left(e^\iota +\frac{1}{2}
-\Vert\bV+\bV^\iota\Vert^2\right) -
-\bQ^\iota\right)\cdot\bN\mathrm{d}A.\quad& &
-\label{energyexternal}
+&\nonumber\\ +\sum\limits_{\iota}\int\limits_{\partial
+  \Omega_0}\left(\left(\bV+\bV^\iota\right)\cdot\bP^\iota -
+\bM^\iota\left(e^\iota +\frac{1}{2} \Vert\bV+\bV^\iota\Vert^2\right) -
+\bQ^\iota\right)\cdot\bN\mathrm{d}A.\quad\nonumber& &
 \end{eqnarray}
 
-Since Equation~(\ref{energysummation}) and
-Equation~(\ref{energyexternal}) are equivalent, it follows that (upon
-localisation),
+Since the equation above and (\ref{energysummation}) are equivalent
+statements of the balance of energy, it follows upon localisation
+that,
 
 \begin{eqnarray}
 \sum\limits_{\iota}\left(\rho_0^\iota\bq^\iota\cdot(\bV+\bV^\iota)
@@ -653,7 +642,7 @@ localisation),
 0. \label{energysummationresult}
 \end{eqnarray}
 
-\noindent This result relating the interaction energies to interaction
+This result relating the interaction energies to interaction
 forces between species, their sources and relative velocities, is
 identical to that obtained from classical mixture theory
 \citep{TruesdellNoll:65}, ensuring consistency of the present
@@ -694,7 +683,7 @@ volume), and shrinks as its concentration decreases. This leads to the
 notion of a \emph{growth deformation gradient}.  This observation has
 led to an active field of study within the literature on biological
 growth \citep{Skalak:81, SkalakHoger:96, Klischetal:2001,
-  TaberHumphrey:2001, LubardaHoger:02, AmbrosiMollica:2002}. The
+  TaberHumphrey:2001, LubardaHoger:02, AmbrosiMollica:2002}, and the
 treatment below follows in the same vein.
 
 In the setting of finite strain kinematics, the total deformation
@@ -710,20 +699,20 @@ decomposition is visualised in
 Figure~\ref{continuum-potato-growth-kinematics} and is elaborated upon
 below.
 
-This split is analogous to the classical decomposition of
-multiplicative plasticity \citep{Bilbyetal:1956,Lee:1969}. As
-explained in Section \ref{role-of-current-mass-balance}, we assume
-that the fluid-filled pores also deform with $\bF$, and that a
-component, $\bF^{\mathrm{e}^\mathrm{f}}$, of this total deformation
-gradient tensor, determines the fluid stress. We also assume a fluid
-growth component, $\bF^{\mathrm{g}^\mathrm{f}}$, which we elaborate
-below, and that
-$\bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}} = \bF$. As
-with the solid collagen we admit $\bF^{\mathrm{e}^\mathrm{f}} =
-\overline{\bF}^{\mathrm{e}^\mathrm{f}}
+This split of the total deformation gradient is analogous to the
+classical decomposition of multiplicative plasticity
+\citep{Bilbyetal:1956,Lee:1969}. As explained in Section
+\ref{role-of-current-mass-balance}, we assume that the fluid-filled
+pores also deform with $\bF$, and that a component,
+$\bF^{\mathrm{e}^\mathrm{f}}$, of this total deformation gradient
+tensor, determines the fluid stress. We also assume a fluid growth
+component, $\bF^{\mathrm{g}^\mathrm{f}}$, which is detailed below, and
+that $\bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}} =
+\bF$. As with the solid collagen we admit $\bF^{\mathrm{e}^\mathrm{f}}
+= \overline{\bF}^{\mathrm{e}^\mathrm{f}}
 \widetilde{\bF}^{\mathrm{e}^\mathrm{f}}$, the sub-components carrying
-the same interpretation as for the solid collagen. However, we do not
-explicitly use this last decomposition.
+the same interpretation as for the solid collagen. However, this last
+decomposition is not explicitly used.
 
 Assuming that the volume changes associated with growth described
 above are isotropic, a simple form for the growth part of the
@@ -765,8 +754,7 @@ elastic deformation due to an external stress.
     \psfrag{D}{\small C}
     \psfrag{E}{\small Unsaturated}
     \psfrag{F}{\small Saturated}
-    \includegraphics[width=0.8\textwidth]
-                    {images/elucidation/saturation-stages}
+    \includegraphics[width=0.8\textwidth]{images/elucidation/saturation-stages}
     \caption{Stages of tissue saturation.}
   \end{center}
       {Unsaturated tissue in the current configuration (A) allows
@@ -778,10 +766,10 @@ elastic deformation due to an external stress.
 
 \noindent The degree of saturation of the solid phase plays a
 fundamental role in determining whether the tissue responds to an
-infusion (expulsion) of fluid by swelling (shrinking). In 
-particular, the isotropic swelling law defined by Equation
-(\ref{isotropicgrowth}) has to be generalised to treat the case in
-which the solid phase is not saturated by fluid.
+infusion (expulsion) of fluid by swelling (shrinking). In particular,
+the isotropic swelling law defined by Equation (\ref{isotropicgrowth})
+has to be generalised to treat the case in which the solid phase is
+not saturated by fluid.
 
 Figure~\ref{saturation-and-swelling} schematically depicts two
 possible scenarios. If the tissue is unsaturated in its current
@@ -794,18 +782,22 @@ incoming fluid to occupy. However, once the tissue is saturated in the
 current configuration, an increase in the fluid content causes
 swelling in the stress-free state, as depicted in C, since there is no
 free volume for the entering fluid to occupy. It is this second case
-that is modelled by (\ref{isotropicgrowth}). It is worth emphasising
-that this argument holds for $\bF^{\mathrm{g}^\mathrm{f}}$, which is
-the local stress-free state of deformation of the fluid-containing
-pores at a point. The actual deformation gradient, $\bF =
+that is modelled by (\ref{isotropicgrowth}).
+
+It is worth emphasising that this argument holds for
+$\bF^{\mathrm{g}^\mathrm{f}}$, which is the local stress-free state of
+deformation of the fluid-containing pores at a point. The actual
+deformation gradient, $\bF =
 \bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}}$, also depends
 on the the elastic part, $\bF^{\mathrm{e}^\mathrm{f}}$, which is
 determined by the constitutive response of the fluid. Under stress, an
 incompressible fluid will have
-$\mathrm{det}\bF^{\mathrm{e}^\mathrm{f}} = 1$ and therefore a
-fluid-saturated tissue will swell with fluid influx, $\mathrm{det}\bF
-= \mathrm{det}\bF^{\mathrm{g}^\mathrm{f}} > 1$. A compressible fluid
-may have $\mathrm{det}\bF^{\mathrm{e}^\mathrm{f}} < 1$ allowing
+$\mathrm{det}\bF^{\mathrm{e}^\mathrm{f}} = 1$, where
+$\mathrm{det}\cdot$ denotes the determinant of a second-order
+tensor. Therefore a fluid-saturated tissue will swell with fluid
+influx, $\mathrm{det}\bF = \mathrm{det}\bF^{\mathrm{g}^\mathrm{f}} >
+1$. A compressible fluid may have
+$\mathrm{det}\bF^{\mathrm{e}^\mathrm{f}} < 1$ allowing
 $\mathrm{det}\bF < 1$ even with
 $\mathrm{det}\bF^{\mathrm{g}^\mathrm{f}} >1$. Even in this case,
 however, in the stress-free state there will be swelling.
@@ -822,10 +814,10 @@ property. Upon solution of the mass balance equation
 (\ref{massbalcurr}) for $\rho^\iota$, the species volume fractions,
 $\tilde{v}^\iota$, can therefore be computed in a straightforward
 fashion. The sum of these volume fractions is our required measure of
-saturation defined in $\Omega_t$. Also, recognizing that for the
+saturation defined in $\Omega_t$. Also, recognising that for the
 dilute solutions obtained with physiologically-relevant solute
 concentrations, the saturation condition is very well approximated by
-$\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{s} = 1$, we proceed to
+$\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{c} = 1$, we proceed to
 redefine the fluid growth-induced component of the pore deformation
 gradient tensor as follows:
 
@@ -833,51 +825,51 @@ gradient tensor as follows:
 \bF^{\mathrm{g}^\mathrm{f}} = \left\{ \begin{array}{ll} \left(
   \frac{\rho_0^\mathrm{f}}{\rho_{0_{\mathrm{sat}}}^\mathrm{f}}
   \right)^ {\frac{1}{3}}{\bf 1},& \tilde{v}^\mathrm{f} +
-  \tilde{v}^\mathrm{s} = 1 \\ {\bf 1},& \mathrm{otherwise.}
+  \tilde{v}^\mathrm{c} = 1 \\ {\bf 1},& \mathrm{otherwise.}
 \end{array}\right.
 \label{saturation}
 \end{equation}
 
-\noindent In (\ref{saturation}) $\rho_{0_{\mathrm{sat}}}^\mathrm{f}$
+\noindent In Equation~(\ref{saturation}), $\rho_{0_{\mathrm{sat}}}^\mathrm{f}$
 is the reference concentration value at which the tissue attains
 saturation in the current configuration.
 
-With this redefinition of $\bF^{\mathrm{g}^\mathrm{f}}$ it is implicit
-that $\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{s} > 1$ is
+With this redefinition of $\bF^{\mathrm{g}^\mathrm{f}}$, it is
+implicit that $\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{c} > 1$ is
 non-physical. Saturation holds in the sense that $\tilde{v}^\mathrm{f}
-+ \tilde{v}^\mathrm{s} = 1$, and it actually allows $\sum_\iota
++ \tilde{v}^\mathrm{c} = 1$, and it actually allows $\sum_\iota
 \tilde{v}^\iota > 1$ if the sum is over all species. It has been
 common in the soft tissue literature to assume that, under normal
 physiological conditions, soft tissues are fully saturated by the
 fluid and \mbox{Equation~(\ref{isotropicgrowth})} is appropriate for
 $\iota = \mathrm{f}$. However, this treatment of saturation and
 swelling induced by the fluid phase is necessary background for
-Section \ref{caviation-under-tension} where we discuss the response of
-the fluid phase under tension. This treatment also holds relevance for
-partial drying, which \emph{ex vivo} or \emph{in vitro} tissue may be
-subject to under certain laboratory conditions, and while
-significantly expanding the relevance of formulation to the mechanics
-of drained porous media other than biological tissue, most
-prominently, soils.
+Section \ref{caviation-under-tension}, where we examine the response
+of the fluid phase under tension. This treatment also holds relevance
+for partial drying, which \emph{ex vivo} or \emph{in vitro} tissue may
+be subject to under certain laboratory conditions. It also
+significantly expands the relevance of formulation to the mechanics of
+drained porous media other than biological tissue, most prominently,
+soils.
 
 \section{Entropy inequality and restrictions on constitutive
   relationships}
 \label{entropy-inequality}
 
-Let $\eta^\iota$ be the entropy per unit mass of species $\iota$,
-and $\theta$ the absolute temperature. The entropy production
-inequality holds for the system as a whole. Accordingly, we write
+Let $\eta^\iota$ be the entropy per unit mass of species $\iota$, and
+$\theta$ the absolute temperature. The entropy production inequality
+holds for the system as a whole. Accordingly, we write
 
 \begin{eqnarray}
 \sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
 \int\limits_{\Omega_0} \rho_0^\iota \eta^\iota \mathrm{d}V &\geq&
-\sum\limits_{\iota}\int\limits_{\Omega_0}\left(
-\Pi^\iota \eta^\iota + \frac{\rho_0^\iota r^\iota}{\theta}\right)
-\mathrm{d}V\nonumber\\ 
-& & - \sum\limits_{\iota}\int\limits_{\partial \Omega_0}
-\left(\bM^\iota \cdot \bN\eta^\iota + \frac{\bQ^\iota}{\theta}
-\cdot \bN \right)\mathrm{d}A.
+\sum\limits_{\iota}\int\limits_{\Omega_0}\left( \Pi^\iota \eta^\iota +
+\frac{\rho_0^\iota r^\iota}{\theta}\right) \mathrm{d}V\nonumber\\ & &
+- \sum\limits_{\iota}\int\limits_{\partial \Omega_0} \left(\bM^\iota
+\cdot \bN\eta^\iota + \frac{\bQ^\iota}{\theta} \cdot \bN
+\right)\mathrm{d}A.
 \end{eqnarray}
+
 \noindent Applying the Divergence Theorem, using the mass balance
 equation (\ref{massballocI}), and localizing the result, we have
 the entropy inequality,

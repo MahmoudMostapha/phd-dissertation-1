@@ -4,7 +4,7 @@
 # Fundamental variables:
 
 # A versioning scheme to keep track of progress
-VERSION = 0.0.9
+VERSION = 0.0.10
 
 # Change these to your heart's content.
 LATEX   = latex
@@ -77,6 +77,7 @@ thesis.dvi: $(SOURCES)
 	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(BIBTEX)  $(BFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis
+	grep --color -i 'warning' thesis.log
 
 thesis.ps: thesis.dvi
 	@echo "Creating the postscript file:"
