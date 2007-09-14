@@ -1,15 +1,8 @@
 Remaining images:
 
-19	Stabilised flow
-20	Unstabilised flow
 27	Unbounded flow on pinching
-29	Explaining why current conf. is more natural for bc.
 
-30	Expt. Increasing collagen conc. with age
 31	Expt. Stiffer and stronger collagen upon aging
-32	Expt. Damaged ligament
-33	Expt. Chemical environment affecting growth
-34	Expt. Mechanical environment affecting growth
 36	Expt. Structure of collagen/tendon
 37	Expt. Visco
 
@@ -17,27 +10,14 @@ Remaining images:
 47	Flow fields on tensile load - 2
 48	Flow fields on tensile load - 3
 
-56	Cancer problem - 1
-57	Cancer problem - 2
-58	Cancer problem - 3
-59	Cancer problem - 4
-60	Cancer problem - 5
-61	Cancer problem - 6
 62	Variation of stress-strain response with A/L and other WLCM parameters
 
-Biphasic Eulerian Calculations:
-
-One experiment (30% solid?) for comparison         1
-Displacement loads (cosine + linear-hold)          2
-	     					  (3) 
+Two experiments (30%, 80% solid) for comparison    2
 
 Hysteresis:
-Poroelasticity static vs dynamic                   2
-Poroelasticity (dynamic) at 3 (2 other) rates      2
-Show that a very different curve can be obtained   1
-by changing the material properties              
-Two viscoelastic curves for comparison (rates)     2
-    		 	    	       		  (7)
+Show that a convexity can be changed by            1
+by changing the material properties (adult)              
+
 
 Stress relaxation:
 Poroelasticity (dynamic) at 3 rates                3
