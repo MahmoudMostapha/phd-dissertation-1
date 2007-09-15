@@ -840,23 +840,22 @@ saturation in the current configuration.
 With this redefinition of $\bF^{\mathrm{g}^\mathrm{f}}$, it is
 implicit that $\tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{c} > 1$ is
 non-physical. Saturation holds in the sense that $\tilde{v}^\mathrm{f}
-+ \tilde{v}^\mathrm{c} = 1$, and it actually allows $\sum_\iota
-\tilde{v}^\iota > 1$ if the sum is over all species. It has been
-common in the soft tissue literature to assume that, under normal
-physiological conditions, soft tissues are fully saturated by the
-fluid and \mbox{Equation~(\ref{isotropicgrowth})} is appropriate for
-$\iota = \mathrm{f}$. However, this treatment of saturation and
-swelling induced by the fluid phase is necessary background for
-Section \ref{caviation-under-tension}, where we examine the response
-of the fluid phase under tension. This treatment also holds relevance
-for partial drying, which \emph{ex vivo} or \emph{in vitro} tissue may
-be subject to under certain laboratory conditions. It also
-significantly expands the relevance of formulation to the mechanics of
-drained porous media other than biological tissue, most prominently,
-soils.
++ \tilde{v}^\mathrm{c} = 1$. It has been common in soft tissue
+literature to assume that, under normal physiological conditions, soft
+tissues are fully saturated by the fluid and
+\mbox{Equation~(\ref{isotropicgrowth})} is appropriate for $\iota =
+\mathrm{f}$. However, this treatment of saturation and swelling
+induced by the fluid phase is necessary background for Section
+\ref{caviation-under-tension}, where we examine the response of the
+fluid phase under tension. This approach also holds relevance for
+partial drying, which \emph{ex vivo} or \emph{in vitro} tissue may be
+subject to under certain laboratory conditions. It also significantly
+expands the relevance of formulation by making it applicable to the
+mechanics of drained porous media other than biological tissue, most
+prominently, soils.
 
 \section{The entropy inequality and its restrictions on constitutive
-  relationships}
+  relations}
 \label{entropy-inequality}
 
 The treatment presented in this section builds upon certain
@@ -865,13 +864,12 @@ consideration. Firstly, the Second Law of thermodynamics (or the
 entropy production inequality) is assumed to hold at a continuum point
 for all species as a whole, but, in general, not for each individual
 species. Differing views on the spatial scale at which a continuum
-point is defined lead to varying interpretations of the entropy
-inequality. The spatial scale of our continuum point is chosen such
-that the following arguments are valid. Another assumption that is
-tied to this spatial scale, and consequently to the degree of observed
-homogeneity between mixed species, is that all species occupying a
-continuum point in the tissue have the same absolute temperature,
-$\theta$.
+point is defined lead to varying interpretations of the Second
+Law. The spatial scale of our continuum point is chosen such that the
+following arguments are valid. Another assumption that is tied to this
+spatial scale, and consequently to the degree of observed homogeneity
+between mixed species, is that all species occupying a continuum point
+in the tissue have the same absolute temperature, $\theta$.
 
 With these assumptions, and denoting by $\eta^\iota$ the entropy per
 unit mass of species~$\iota$, the entropy inequality, when written out
@@ -894,7 +892,7 @@ for the entire system in the reference configuration, reads
 \noindent Applying Gauss' divergence theorem
 (Appendix~\ref{gauss-divergence}), using the mass balance equation
 (\ref{localbalanceofmass}), and localising the result, we have the
-entropy inequality,
+following form of the entropy inequality,
 
 \begin{equation}
 \sum\limits_{\iota}\rho_0^\iota\frac{\partial\eta^\iota}{\partial
@@ -926,12 +924,13 @@ t}\left(\bV+\bV^\iota\right) - \rho_0^\iota\bg -
 \quad &  &\quad -\sum\limits_{\iota}\left(\bP^\iota\colon\dot{\bF} -
 \bP^\iota\colon\mathrm{GRAD}\left[\bV^\iota\right] +
 \left(\mathrm{GRAD}\left[e^\iota\right] - 
-\theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right) \cdot\bM^\iota\right)\leq 0,
+\theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)
+\cdot\bM^\iota\right)\leq 0,
 \label{clausiusduhemform}
 \end{eqnarray}
 
-\noindent the Clausius-Duhem inequality (or the reduced dissipation
-inequality) for the growth process.
+\noindent the Clausius-Duhem (or reduced dissipation) inequality for
+the growth process.
 
 \subsection{Thermodynamically-consistent constitutive framework}
 \label{constitutive-framework}
@@ -971,9 +970,11 @@ chain rule and regrouping some terms, (\ref{clausiusduhemform}) becomes,
     t}\left(\bV+\bV^\iota\right) - \rho_0^\iota\bg -
   \mathrm{DIV}\left[\bP^\iota\right] +
   \mathrm{GRAD}\left[\bV+\bV^\iota\right]\bM^\iota\right)
-  \cdot(\bV^\iota+\bV)\nonumber\\ &+&\sum\limits_{\iota}\left(\rho^\iota_0\bF^{-\mathrm{T}}
+  \cdot(\bV^\iota+\bV)\nonumber\\ &+&
+  \sum\limits_{\iota}\left(\rho^\iota_0\bF^{-\mathrm{T}}  
   \left(\mathrm{GRAD}\left[e^\iota\right] -
-    \theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)\right)\cdot\bV^\iota\nonumber\\ 
+    \theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)
+    \right)\cdot\bV^\iota\nonumber\\  
     &+&\sum\limits_{\iota}\Pi^\iota\left(e^\iota
     + \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right) +
     \sum\limits_{\iota} \frac{\mathrm{GRAD}\left[\theta\right]
@@ -981,7 +982,8 @@ chain rule and regrouping some terms, (\ref{clausiusduhemform}) becomes,
     \sum\limits_{\iota}\rho^\iota_0\frac{\partial
       e^\iota}{\partial\rho^\iota_0}\frac{\partial
       \rho^\iota_0}{\partial t} -
-    \sum\limits_{\iota}\bP^\iota\colon(\mathrm{GRAD}\left[\bV^\iota\right] +
+    \sum\limits_{\iota}\bP^\iota
+    \colon(\mathrm{GRAD}\left[\bV^\iota\right] + 
     \bF^{\mathrm{e}^\iota}\dot{\bF}^{\mathrm{g}^\iota}) \leq 0,
 \label{reducedentropyinequality-1}
 \end{eqnarray}
@@ -1013,8 +1015,9 @@ been discussed in the following section),
 \label{constitutive-relation-temperature}
 \end{equation}
 
-\noindent which implies that the temperature, following the definition
-normally employed in thermal physics, is uniform across all species,
+\noindent which implies that the absolute temperature, following the
+definition normally employed in thermal physics, is uniform across all
+species,
 
 \begin{equation}
 \begin{split}
@@ -1039,10 +1042,10 @@ forces (which is discussed in greater detail at a later section
 \label{constitutive-relation-heat-conduction}
 \end{equation}
 
-\noindent which is the Fourier Law of heat conduction; that the heat
-flux in species~$\iota$ is given by the product of a positive
-semi-definite conductivity tensor, ${\bK}^\iota$, and the temperature
-gradient.
+\noindent which states that the heat flux in species~$\iota$ is given
+by the product of a positive semi-definite conductivity tensor,
+${\bK}^\iota$, and the temperature gradient. This relationship is
+identical to the Fourier Law of heat conduction.
 
 With these constitutive relations
 (\ref{constitutive-relation-hyperelasticity}--\ref{constitutive-relation-heat-conduction}) 
@@ -1064,8 +1067,8 @@ vanish, \ref{reducedentropyinequality-1} is further reduced to
   \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right)\right)\\+
   &\sum\limits_{\iota} \left(\rho^\iota_0\frac{\partial}{\partial
     t}\left(\bV+\bV^\iota\right) - \rho_0^\iota\bg -
-  \Bnabla\cdot\bP^\iota +
-  \Bnabla\left(\bV+\bV^\iota\right)\bM^\iota\right)\cdot\bV \le 0.
+  \mathrm{DIV}\left[\bP^\iota\right] +
+  \mathrm{GRAD}\left[\bV+\bV^\iota\right]\bM^\iota\right)\cdot\bV \le 0.
 \label{reduced-dissipation-inequality}
 \end{split}
 \end{equation}
@@ -1078,22 +1081,23 @@ $\Pi^{\iota}$, are thermodynamically valid).
 
 When the dissipation inequality is revisited while deriving the growth
 formulation from an Eulerian perspective in a later chapter
-(\ref{eu-entropy-inequality}), additional constitutive relations will
-be introduced which ensure more terms in the dissipation, $\sD$, are
-satisfied a~priori. But now, we will take a detailed look at the
-specific forms of (\ref{constitutive-relation-hyperelasticity}),
-(\ref{constitutive-relation-flux}) and source terms which underly the
-computations in Chapter~\ref{numerical-simulations-1}. In particular,
+(Section~\ref{eu-entropy-inequality}), additional constitutive
+relations will be introduced which ensure more terms in the
+dissipation, $\sD$, are satisfied a~priori. But now, we will take a
+detailed look at the specific forms of the constitutive relations
+underlying the computations presented in
+Chapter~\ref{numerical-simulations-1}. In particular,
 Section~\ref{anisotropic-network-elasticity} discusses the strain
-energy density for collagen derived from an anisotropic network model
-based on entropic elasticity, Section~\ref{ideal-incompressible-fluid}
-describes the pressure response of an ideal, nearly-incompressible
-fluid, Section~\ref{fluid-flux-constitutive-relationships} details the
+energy density function for collagen derived from an anisotropic
+network model based on entropic elasticity,
+Section~\ref{ideal-incompressible-fluid} describes the pressure
+response of an ideal, nearly-incompressible fluid,
+Section~\ref{fluid-flux-constitutive-relationships} details the
 constitutive relationship for the fluid flux,
 Section~\ref{solute-transport}, in a similar manner, discusses solute
-transport, and finally, Section~\ref{nature-of-sources} provides
-some examples and physiological motivation for different kinds of
-collagen sources.
+transport, and finally, Section~\ref{nature-of-sources} provides some
+examples and physiological motivation for different kinds of collagen
+sources.
 
 \subsection{An anisotropic network model}
 \label{anisotropic-network-elasticity}
@@ -1143,15 +1147,16 @@ as a single constituent chain of an eight-chain model
 \citep{Bischoffetal:2002, Bischoffetal1:2002}, depicted in
 \mbox{Figure~\ref{eight-chain-model}}.  Homogenisation via averaging
 then leads to the following functional form for the internal energy
-density, $\hat{e}^\mathrm{c}$:\footnote{Under the isothermal conditions
-  assumed here, $\hat{e}^\mathrm{c}$ is independent of $\theta$ in
-  the strain energy. Accordingly, we have the parametrisation
+density, $\hat{e}^\mathrm{c}$:\footnote{Under the isothermal
+  conditions assumed here, $\hat{e}^\mathrm{c}$ is independent of
+  $\theta$. Accordingly, we have the parametrisation
   ${e}^\mathrm{c}=\hat{e}^\mathrm{c}
   (\bF^{\mathrm{e}^\mathrm{c}},\rho^\mathrm{c}_{0})$ .}
 
 \begin{equation}
 \begin{split}
-\rho^\mathrm{c}_{0}\hat{e}^\mathrm{c} (\bF^{\mathrm{e}^\mathrm{c}},\rho^\mathrm{c}_{0})
+\rho^\mathrm{c}_{0}\hat{e}^\mathrm{c}
+(\bF^{\mathrm{e}^\mathrm{c}},\rho^\mathrm{c}_{0}) 
 &= \frac{N k \theta}{4 A}\left(\frac{r^2}{2L} + \frac{L}{4(1-r/L)} -
 \frac{r}{4}\right)\\ & +
 \frac{\gamma}{\beta}({J^{\mathrm{e}^{\mathrm{c}^{-2\beta}}}} -1) +
@@ -1223,20 +1228,18 @@ near-in\-comp\-ress\-i\-bil\-i\-ty.
 \subsubsection{Response of the fluid in tension; cavitation}
 \label{caviation-under-tension}
 
-The response of the ideal fluid, as defined by \mbox{Equation
+The response of an ideal fluid, as defined by \mbox{Equation
   (\ref{Pf})}, does not distinguish between tension and compression,
-  i.e., whether 
-$\mathrm{det}(\bF^{\mathrm{e}^\mathrm{f}}) \gtreqless 1$. Being
-(nearly) incompressible, the fluid can develop compressive hydrostatic
-  stress
-without bound---a case that is modelled accurately. However, the fluid
-can develop at most a small tensile hydrostatic stress
-\citep{cavitationchris},\footnote{Where, we are referring to the fluid
-  being subject to net tension, not a reduction in fluid compressive
-  stress from reference ambient pressure.} and the tensile
-stiffness is mainly from the collagen phase. This is not accurately
-represented by (\ref{Pf}), which models a symmetric response in
-tension and compression.
+i.e., whether $\mathrm{det}(\bF^{\mathrm{e}^\mathrm{f}}) \gtreqless
+1$. Being (nearly) incompressible, the fluid can develop compressive
+hydrostatic stress without bound---a case that is modelled
+accurately. However, the fluid can develop at most a small tensile
+hydrostatic stress \citep{cavitationchris},\footnote{Where, we are
+  referring to the fluid being subject to net tension, not just a
+  reduction in fluid compressive stress from reference ambient
+  pressure.} and the tensile stiffness is mainly from the collagen
+phase. This is not accurately represented by (\ref{Pf}), which models
+a symmetric response in tension and compression.
 
 Here, we preclude all tensile load carrying by the fluid by limiting
 $\mathrm{det}(\bF^{\mathrm{e}^\mathrm{f}}) \leq 1$. We first introduce
@@ -1266,7 +1269,8 @@ $\bF^{\mathrm{e}^\mathrm{f}} = \bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}$
 and $\bF^{\mathrm{v}} = {\bf 1}$ for no cavitation. Otherwise, since
 $\mathrm{det}[\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}] > 1$, we specify
 $\bF^{\mathrm{e}^\mathrm{f}} =
-\mathrm{det}[\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}]^{-1/3}\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}$
+\mathrm{det}[\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}]^{-1/3}\bF
+(\bF^{\mathrm{g}^\mathrm{f}})^{-1}$ 
 thus restricting $\bF^{\mathrm{e}^\mathrm{f}}$ to be unimodular and
 allow cavitation by writing $\bF^{\mathrm{v}} =
 \bF(\bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}})^{-1}$.
@@ -1276,376 +1280,155 @@ These conditional relations are summarised as
 \bF^{\mathrm{e}^\mathrm{f}} = \left\{ \begin{array}{ll}
   \bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1},\; \bF^{\mathrm{v}} = {\bf 1},&
  \mathrm{det}[\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}] \le 1\\
-  \mathrm{det}[\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}]^{-1/3}\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1},
+  \mathrm{det}[\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}]^{-1/3}
+  \bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}, 
   & \\
-  \qquad\qquad \bF^{\mathrm{v}} = \bF(\bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}})^{-1}
+  \qquad\qquad \bF^{\mathrm{v}} =
+  \bF(\bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}})^{-1} 
   & \mathrm{otherwise.}
 \end{array}\right.
 \label{cavitation}
 \end{equation}
 
-\subsection{Constitutive relationships for fluid flux}
+\subsection{Driving forces for fluid flux}
 \label{fluid-flux-constitutive-relationships}
 
-%% Turning to (\ref{VIconstrel1}), we first point out that since
-%% $\bM^\iota = \rho_0^\iota\bF^{-1}\bV^\iota$, this is an implicit
-%% relation for $\bV^\iota$. Rewriting it as an explicit one for
-%% $\rho^\iota_0\bV^\iota$ we have,
-%% \begin{eqnarray}
-%% \rho^\iota_0\bV^\iota =& &\left(\bone +
-%% \frac{\tilde{\bD}^\iota\Bnabla\bV\bF^{-1}}{\rho^\iota_0}\right)^{-1}\frac{\tilde{\bD}^\iota}{\rho^\iota_0}\nonumber\\
-%% & &\cdot\left\{-\left(\rho^\iota_0\frac{\partial\bV}{\partial t} -
-%% \rho_0^\iota\bg - \Bnabla\cdot\bP^\iota +
-%% \rho^\iota_0\bF^{-\mathrm{T}}\left(\Bnabla e^\iota -
-%% \theta\Bnabla\eta^\iota\right)\right)\right\}. \label{VIconstrel2}
-%% \end{eqnarray}
+Returning to the constitutive relation for species flux
+(\ref{constitutive-relation-flux}), we first recognise that $\bM^\iota
+= \rho_0^\iota\bF^{-1}\bV^\iota$ is an implicit relation for
+$\bV^\iota$. Rewriting this instead as an explicit one for
+$\rho^\iota_0\bV^\iota$ we have,
 
-%% \noindent The constitutive relation for flux, $\bM^\iota =
-%% \rho^\iota_0\bF^{-1}\bV^\iota$ is then obtained:
-%% \begin{eqnarray}
-%% \bM^\iota & &=\underbrace{\bF^{-1}\left(\bone +
-%% \frac{\tilde{\bD}^\iota\Bnabla\bV\bF^{-1}}{\rho^\iota_0}\right)^{-1}\frac{\tilde{\bD}^\iota}{\rho^\iota_0}\bF^{-\mathrm{T}}}_{\bD^\iota}\nonumber\\
-%% &\cdot&\left\{\underbrace{-\left(\rho^\iota_0\bF^\mathrm{T}\frac{\partial\bV}{\partial
-%% t} - \rho_0^\iota\bF^\mathrm{T}\bg -
-%% \bF^\mathrm{T}\Bnabla\cdot\bP^\iota + \rho^\iota_0\left(\Bnabla
-%% e^\iota -
-%% \theta\Bnabla\eta^\iota\right)\right)}_{\boldmath{\sF}^\iota}\right\}.
-%% \label{MIconstrel}
-%% \end{eqnarray}
+\begin{eqnarray}
+\rho^\iota_0\bV^\iota =& &\left(\bone +
+\frac{\tilde{\bD}^\iota\mathrm{GRAD}\left[\bV\right]\bF^{-1}}
+     {\rho^\iota_0}\right)^{-1} 
+\frac{\tilde{\bD}^\iota}{\rho^\iota_0}\nonumber\\ 
+& &\cdot\left(
+\ \rho_0^\iota\bg + \mathrm{DIV}\left[\bP^\iota\right] -
+\rho^\iota_0\bF^{-\mathrm{T}}\left(\mathrm{GRAD}\left[e^\iota\right] -
+\theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)\ \right).
+\nonumber
+\end{eqnarray}
 
-%% As is common in descriptions of mass transport, the tensor
-%% delineated as $\bD^\iota$ will be referred to as the mobility
-%% tensor of species~$\iota$. Recall that in (\ref{VIconstrel1}) we
-%% have taken $\tilde{\bD}^\iota$ to be positive
-%% semi-definite\footnote{If
-%% $\Vert\tilde{\bD}^\iota\Bnabla\bV\bF^{-1}/\rho^\iota_0\Vert << 1$,
-%% we have $\bD^\iota \approx \tilde{\bD}^\iota$.}. The flux is thus
-%% written as the product of a mobility tensor and a thermodynamic
-%% driving force, $\boldmath{\sF}^\iota$. This is the Nernst-Einstein
-%% relation. We proceed now to examine the four separate terms in the
-%% thermodynamic driving force:
-%% \begin{equation}
-%% \boldmath{\sF}^\iota =
-%% -\rho^\iota_0\bF^\mathrm{T}\frac{\partial\bV}{\partial t} +
-%% \rho_0^\iota\bF^\mathrm{T}\bg +
-%% \bF^\mathrm{T}\Bnabla\cdot\bP^\iota - \rho^\iota_0\left(\Bnabla
-%% e^\iota - \theta\Bnabla\eta^\iota\right) \label{drivingforceI}
-%% \end{equation}
+\noindent From this, the constitutive relationship for mass flux is
+written as a product of product of a mobility tensor and a
+thermodynamic driving force,
 
-%% \noindent The first two terms respectively represent the
-%% influences of inertia and body force. Thus, the inertial effect is
-%% to drive species~$\iota$ in the opposite direction to the body's
-%% acceleration. The body force's influence is directed along itself.
-%% The third term represents the stress divergence effect. In the
-%% case of a non-uniform partial stress, $\bP^\iota$, there exists a
-%% thermodynamic driving force for transport along $\bP^\iota$. We
-%% demonstrate this effect for the case of the fluid species in
-%% Section \ref{sect5.2} below, for which it translates to the more
-%% intuitive notion of transport along a fluid pressure gradient.
+\begin{eqnarray}
+\bM^\iota & &=\underbrace{\bF^{-1}\left(\bone +
+\frac{\tilde{\bD}^\iota\mathrm{GRAD}\left[\bV\right]
+\bF^{-1}}{\rho^\iota_0}\right)^{-1}
+\frac{\tilde{\bD}^\iota}{\rho^\iota_0}\bF^{-\mathrm{T}}}_{\bD^\iota}
+\nonumber\\ 
+&\cdot&\underbrace{\left(\rho_0^\iota\bF^\mathrm{T}\bg +
+\bF^\mathrm{T}\mathrm{DIV}\left[\bP^\iota\right] -
+\rho^\iota_0\left(\mathrm{GRAD}\left[e^\iota\right] -
+\theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)\right)} 
+_{\boldmath{\sF}^\iota}
+\label{constitutive-relation-flux-3}
+\end{eqnarray}
 
-%% The fourth term in $\boldmath{\sF}^\iota$ admits the following
-%% interpretation: The Legendre transformation $\psi^\iota = e^\iota
-%% - \theta\eta^\iota$ allows one to rewrite $\Bnabla e^\iota -
-%% \theta\Bnabla\eta^\iota$ as $\Bnabla\psi^\iota\vert_\theta$ (at
-%% uniform temperature), where $\psi^\iota$ is the mass-specific
-%% Helmholtz free energy. An assumption inherent in the development
-%% that began in Section \ref{sect2} is that any mass entering or
-%% leaving $\Omega_0$ at a point $\bX$ on the boundary,
-%% $\partial\Omega_0$, has the field values
-%% $\rho_0^\iota,e^\iota,\eta^\iota,\theta$, and $\psi^\iota$
-%% corresponding to $\bX$. Likewise, the incremental mass of species
-%% $\iota$ created or absorbed via the source/sink $\Pi^\iota$ at
-%% $\bX$ has the field values of that point. Consider a sufficiently
-%% small neighborhood of a point, say
-%% $\mathsf{N}(\bX)\subset\Omega_0$. Changing the mass of species
-%% $\iota$ in $\mathsf{N}(\bX)$ by $\delta\mathsf{m}^\iota$ units
-%% causes a change in the Helmholtz free energy of $\iota$ in
-%% $\mathsf{N}(\bX)$ by $\delta\Psi^\iota =
-%% \psi^\iota\delta\mathsf{m}^\iota$. By definition therefore,
-%% $\psi^\iota =
-%% \partial\Psi^\iota/\partial\mathsf{m}^\iota$. This derivative gives the \emph{chemical
-%% potential}, $\mu^\iota$, of the transported species, $\iota$.
-%% Thus, we have $\mu^\iota = e^\iota - \theta\eta^\iota$, and
-%% $\Bnabla e^\iota -\theta\Bnabla\eta^\iota =
-%% \Bnabla\mu^\iota\vert_\theta$. This last term in
-%% ${\boldmath{\sF}}^\iota$ thus represents the thermodynamic driving
-%% force due to a chemical potential gradient.
-
-%% It has recently come to our attention that the constitutive
-%% relation for flux (\ref{MIconstrel}) is precisely the result
-%% arrived at by \citet{DeGrootMazur:1984}, including the
-%% identification of the chemical potential gradient term. However,
-%% their approach involves a slightly different application of the
-%% Second Law, and a less detailed treatment of the mechanics.
-
-%% The gradient of internal energy in (\ref{drivingforceI}) leads to
-%% a strain gradient-dependent term. A concentration gradient-driven
-%% term arises from the gradient of mixing entropy. Together with the
-%% other terms that were remarked upon above, they represent a
-%% complete thermodynamic formulation of coupled mass transport and
-%% mechanics. This is the central result of our paper.
-
-%% {\bf  Frame invariance and the contribution from acceleration}\\
-
-%% In our earlier treatment \citep{growthpaper}, the constitutive
-%% relation for the fluid flux had a driving force contribution arising
-%% from the acceleration of the solid phase,
-%% $-\rho_0^\mathrm{f}\bF^{\mathrm{T}}\frac{\partial \bV}{\partial t}$.
-%% This term, being motivated by the reduced dissipation inequality, does
-%% not violate the Second Law and supports an intuitive understanding
-%% that the acceleration of the solid skeleton in one direction must result in
-%% an inertial driving force on the fluid in the opposite
-%% direction. However, as defined, this acceleration is obtained by the
-%% time differentiation of kinematic quantities,\footnote{And not in terms
-%% of acceleration {\em relative to fixed stars} for e.g., as discussed
-%% in \cite[][Page 43]{TruesdellNoll:65}.} and does not transform in a
-%% frame-indifferent manner. Unlike the superficially similar term
-%% arising from the gravity vector,\footnote{Where every observer has an
-%% implicit knowledge of the directionality of the field relative to a
-%% fixed frame, allowing it to transform objectively. Specifically, under
-%% a time-dependent rigid body motion imposed on the current
-%% configuration carrying $\bx$ to $\bx^+ = \bc(t) + \bQ(t)\bx$, where
-%% $\bc(t) \in \mathbb{R}^3$ and $\bQ(t) \in \mbox{SO}(3)$, it is
-%% understood that the acceleration due to gravity in the transformed
-%% frame is $\bg^+ = \bQ^\mathrm{T}\bg$ and is therefore
-%% frame-invariant. However, $\ba^+ = \ddot{\bc} + 2\dot{\bQ}\bv +
-%% \ddot{\bQ}\bx + \bQ\ba$ , and is therefore not frame-invariant.} the
-%% acceleration 
-%% term presents an improper dependence on the frame of the
-%% observer. Thus, its use in constitutive relations is inappropriate,
-%% and the term has been dropped in \mbox{Equation (\ref{fluidflux})}.
-
-%% {\bf Transport of a the fluid species: the example of an ideal fluid}
-
-%% Consider the stress divergence term
-%% $\bF^\mathrm{T}\Bnabla\cdot\bP^\iota$. An elementary calculation
-%% gives
-%% \begin{equation}
-%% \bF^\mathrm{T}\Bnabla\cdot\bP^\iota =
-%% \Bnabla\cdot\left(\bF^\mathrm{T}\bP^\iota\right) -
-%% \Bnabla\bF^\mathrm{T}\colon\bP^\iota. \label{stressdivI}
-%% \end{equation}
-
-%% \noindent In indicial form, where lower/upper case indices are for
-%% components of quantities in the current/reference configuration
-%% respectively, this relation is
-%% \begin{displaymath}
-%% F_{iK}P^\iota_{iJ,J} = \left(F_{iK}P^\iota_{iJ}\right)_{,J} -
-%% F_{iK,J}P^\iota_{iJ}.
-%% \end{displaymath}
-
-%% \noindent For an ideal fluid, supporting only an isotropic Cauchy
-%% stress, $p\bone$, we have $\bP^\mathrm{f} =
-%% \mathrm{det}(\bF)p\bF^{-\mathrm{T}}$, where $p$ is positive in
-%% tension. The arguments that follow assume this case. (The more
-%% general case of a non-ideal, viscous fluid will merely have
-%% additional terms from the viscous Cauchy stress.) The stress
-%% divergence term is
-%% \begin{equation}
-%% \bF^\mathrm{T}\Bnabla\cdot\bP^\mathrm{f} =
-%% \Bnabla\left(\mathrm{det}(\bF)p\right) -
-%% \Bnabla\bF^\mathrm{T}\colon\bF^{-\mathrm{T}}\mathrm{det}(\bF)p,
-%% \end{equation}
-
-%% \noindent demonstrating the appearance of a hydrostatic
-%% stress-driven contribution to ${\boldmath{\sF}}^\mathrm{f}$. This
-%% is Darcy's Law for transport of a fluid down a pressure gradient.
-
-%% For the special case of a compressible, ideal fluid we have
-%% $e^\mathrm{f} =
-%% \bar{e}^\mathrm{f}(\eta^\mathrm{f},\bar{\rho}^\mathrm{f})$; i.e.,
-%% the fluid stores strain energy as a function of its \emph{current,
-%% intrinsic} density. Fluid saturation conditions hold in biological
-%% tissue, for which case the fluid volume fraction, $f^\mathrm{f}$,
-%% is simply the pore volume fraction. Recall from Section
-%% \ref{sect2} that the individual species deform with the common
-%% deformation gradient $\bF$. Therefore the pores deform
-%% \emph{homogeneously} with the surrounding solid phase. Physically
-%% this corresponds to the pore size being smaller than the scale at
-%% which the homogenization assumption of a continuum theory holds.
-%% Momentarily ignoring changes in reference concentration of the
-%% fluid, we have $\bF^{\mathrm{e}^\mathrm{f}} = \bF$.  Then, since
-%% $\rho^\mathrm{f}_0 = \bar{\rho}^\mathrm{f}_0 f^\mathrm{f}$, we can
-%% write $\hat{e}^\mathrm{f}(\bF,\eta^\mathrm{f},\rho^\mathrm{f}_0) =
-%% \hat{e}^\mathrm{f}(\bF,\eta^\mathrm{f},\bar{\rho}^\mathrm{f}_0
-%% f^\mathrm{f}) =
-%% \bar{e}^\mathrm{f}(\eta^\mathrm{f},\bar{\rho}^\mathrm{f}_0/\mathrm{det}\bF)=
-%% \bar{e}^\mathrm{f}(\eta^\mathrm{f},\bar{\rho}^\mathrm{f})$. In
-%% this case a simple calculation shows that the hydrostatic pressure
-%% is
-%% \begin{displaymath}
-%% p =
-%% -\frac{\bar{\rho}^\mathrm{f}}{\mathrm{det}(\bF)}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}},
-%% \end{displaymath}
-
-%% \noindent and the stress divergence term is
-%% \begin{displaymath}
-%% \bF^\mathrm{T}\Bnabla\cdot\bP^\mathrm{f} =
-%% -\Bnabla\left(\bar{\rho}^\mathrm{f}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}}\right)
-%% +
-%% \Bnabla\bF^\mathrm{T}\colon\bF^{-\mathrm{T}}\bar{\rho}^\mathrm{f}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}}.
-%% \end{displaymath}
-
-%% {\bf The Eshelby stress as a thermodynamic driving force}
-%% \label{eshelby-force}
-
-%% Combining the stress divergence and chemical potential gradient
-%% contributions to the driving force for any species, and using the
-%% mass-specific Helmholtz free energy, $\psi^\iota$, we write,
-
-%% \begin{equation}
-%% \bF^\mathrm{T}\Bnabla\cdot\bP^\iota - \rho^\iota_0\left(\Bnabla
-%% e^\iota - \theta\Bnabla\eta^\iota\right) =
-%% \Bnabla\cdot\left(\bF^\mathrm{T}\bP^\iota\right) -
-%% \Bnabla\bF^\mathrm{T}\colon\bP^\iota
-%%  - \rho^\iota_0\Bnabla\psi^\iota\vert_\theta.
-%% \end{equation}
-
-%% \noindent Regrouping terms this expression is
-%% \begin{equation}
-%% -\Bnabla\cdot\underbrace{\left(\rho^\iota_0\psi^\iota\vert_\theta\bone
-%% - \bF^\mathrm{T}\bP^\iota\right)}_{\mbox{Eshelby
-%% stress},\;\BXi^\iota} +
-%% \left(\Bnabla\rho^\iota_0\right)\psi^\iota_0\vert_\theta -
-%% \Bnabla\bF^\mathrm{T}\colon\bP^\iota.
-%% \end{equation}
-
-%% Thus, the divergence of the well-known Eshelby stress tensor is
-%% also among the driving forces for mass transport. Also observe the
-%% presence of a strain gradient-dependent driving force,
-%% $-\Bnabla\bF^\mathrm{T}\colon\bP^\iota$ in the developments of
-%% Sections \ref{sect5.2} and \ref{sect5.3}, independent of the
-%% pressure gradient term for the fluid species.
-
-%% \noindent{\bf Remark 1}: The final version of the dissipation
-%% inequality (\ref{dissipation1}), and the mass balance equation can
-%% be manipulated to restrict the mathematical form of the mass
-%% source. It is common to make the mass source depend upon the
-%% strain energy density \citep{HarriganHamilton:1993} while
-%% respecting the restriction imposed by the dissipation inequality.
-%% This form is often used while modelling hard tissue. Such an
-%% approach leads to strain-mediated mass transport. However, with a
-%% strain-independent source, strain-mediated (or stress-mediated)
-%% mass transport would not be obtained with such a formulation.
-
-%% \noindent{\bf Remark 2}: We expect that evaluation of the
-%% dissipation, $\sD$, using (\ref{dissipation1}) from field
-%% quantities in a boundary value problem will provide a test of
-%% soundness, and if necessary indications for improvement, of our
-%% constitutive models.
-
-%% \noindent{\bf Remark 3}: Since soft biological tissues usually
-%% demonstrate rate-dependent response, it has been common to employ
-%% a solid viscoelastic constitutive model for them. This approach
-%% fits within our framework, with a modification of the internal
-%% energy to include its dependence upon internal variables that
-%% represent the viscoelastic stress-like parameters. However, a more
-%% physiologically-valid model may be one with a purely hyperelastic
-%% solid phase, and a viscous fluid. In such a composite model the
-%% rate-dependent behavior would arise from the fluid.
-
-%% \noindent{\bf Remark 4}: The constitutive relations
-%% (\ref{stress-constrelI}) and (\ref{MIconstrel}) respectively
-%% specify the partial stress, $\bP^\iota$, and flux, $\bM^\iota$, of
-%% a species. The flux also implies the relative velocity,
-%% $\bV^\iota$. The velocity of the solid phase, $\bV$ is obtained
-%% from the local form of the balance of linear momentum for the
-%% system (\ref{linmombalsys}). With all these quantities known, the
-%% individual interaction forces between species,
-%% $\rho^\iota_0\bq^\iota$, can be obtained from
-%% (\ref{ballinmomrefI}). They are, however, not needed while solving
-%% for the balance of linear momentum of the system.
-
-\hrule
-
-From \citet{growthpaper}, the constitutive relation for the flux of 
+In particular, the constitutive relation for the flux of
 extra-cellular fluid relative to collagen in the reference
 configuration takes the following form,
 
 \begin{equation}
 \bM^\mathrm{f} = \bD^\mathrm{f}\left(\rho_0^\mathrm{f}\bF^T\bg +
       \bF^T\mathrm{DIV}\left[\bP^{\,\mathrm{f}}\right] -
-      \rho_0^\mathrm{f}\mathrm{GRAD}\mu^\mathrm{f}\right),
+      \rho_0^\mathrm{f}\mathrm{GRAD}\left[\mu^\mathrm{f}\right]\right),
 \label{fluidflux}
 \end{equation}
 
 \noindent where $\bD^\mathrm{f}$ is the positive semi-definite
-mobility of the fluid, and isothermal conditions are assumed in order to
-approximate the physiological ones. Experimentally determined
-transport coefficients (e.g. for mouse tail skin \citep{Swartzetal:99}
-and rabbit Achilles tendons \citep{Hanetal:2000}) are used for the
-fluid mobility values. The terms in the parenthesis on the right
-hand-side of \mbox{Equation (\ref{fluidflux})} sum to give the
-total driving force for transport. The first term is the contribution
-due to gravitational acceleration. In order to maintain physiological
-relevance, this term has been neglected in the following
-treatment. The second term arises from stress divergence; for an ideal
-fluid, it reduces to a pressure gradient, thereby specifying that the
-fluid moves down a compressive pressure gradient, which is Darcy's
-Law. The third term is the gradient of the chemical
-potential, $\mu^\mathrm{f} = e^\mathrm{f} - \theta \eta^\mathrm{f}$,
-where $e^\mathrm{f}$ is the mass-specific internal energy, $\theta$ is
-temperature and $\eta^\mathrm{f}$ is the mass-specific entropy. The
-entropy gradient included in this term results in 
-classical Fickean diffusion if only mixing entropy exists, as
-discussed in the following section. For a
-detailed derivation and discussion of \mbox{Equation
-(\ref{fluidflux})}, the reader is directed to \citet{growthpaper}.
+mobility of the fluid, and isothermal
+conditions\footnote{Additionally, this assumption allows application
+  of the Legendre transformation \mbox{$\mu^\iota = e^\iota -
+    \theta\eta^\iota$} to rewrite
+  \mbox{$\mathrm{GRAD}\left[e^\iota\right] -
+    \theta\ \mathrm{GRAD}\left[\eta^\iota\right]$} as
+  $\mathrm{GRAD}\left[\mu^\iota\right]\vert_\theta$ (at uniform
+  temperature), where $\mu^\iota$ is the chemical potential.} are
+assumed in order to approximate the physiological ones.
 
-%Since the driving forces in (\ref{fluidflux}) originate from different
-%physics, it proves useful (as seen in the following section) to
-%rewrite (\ref{fluidflux}) as
+Experimentally determined transport coefficients (e.g. for mouse tail
+skin \citep{Swartzetal:99} and rabbit Achilles tendons
+\citep{Hanetal:2000}) are used for the fluid mobility values. Recall
+that the terms in the parenthesis on the right hand-side of
+\mbox{Equation (\ref{fluidflux})} sum to give the total driving force
+for transport. The first term is the contribution due to gravitational
+acceleration. In order to maintain physiological relevance, this term
+has been neglected in the following treatment. The second term arises
+from stress divergence. In the case of a non-uniform partial stress,
+$\bP^\iota$, there exists a thermodynamic driving force for transport
+along $\bP^\iota$. For an ideal fluid, it reduces to a pressure
+gradient (as detailed in Appendix~\ref{ideal-fluid-transport}),
+thereby specifying that the fluid moves down a compressive pressure
+gradient, which is Darcy's Law. The third term is the gradient of the
+chemical potential, $\mu^\mathrm{f} = e^\mathrm{f} - \theta
+\eta^\mathrm{f}$, where $e^\mathrm{f}$ is the mass-specific internal
+energy, $\theta$ is temperature and $\eta^\mathrm{f}$ is the
+mass-specific entropy. The entropy gradient included in this term
+results in classical Fickean diffusion if only mixing entropy exists,
+as discussed in the following section.
 
-%\begin{equation}
-%\bM^\mathrm{f} = \bD^\mathrm{f}_{P} \bF^T\mathrm{DIV}
-%\left[\bP^{\,\mathrm{f}}\right] - \bD^\mathrm{f}_{\mu}
-%\mathrm{GRAD}\left[e^\mathrm{f} -
-%  \theta\eta^\mathrm{f}\right],
-%\label{splitflux}
-%\end{equation}
+In practice, since the driving forces in (\ref{fluidflux}) originate
+from different physics, it proves useful (also seen in the following
+section) to rewrite (\ref{fluidflux}) as
 
-%\noindent where $\bD^\mathrm{f}_{P}$ is now the permeability of the
-%tissue, corresponding to stress gradient-driven transport, and
-%$\bD^\mathrm{f}_{\mu}$ is the mobility, corresponding to chemical
-%potential gradient-driven transport, of the fluid phase through the
-%porous solid.
+\begin{equation}
+\bM^\mathrm{f} = \bD^\mathrm{f}_{P} \bF^T\mathrm{DIV}
+\left[\bP^{\,\mathrm{f}}\right] - \bD^\mathrm{f}_{\mu}
+\mathrm{GRAD}\left[e^\mathrm{f} - \theta\eta^\mathrm{f}\right],
+\label{splitflux}
+\end{equation}
 
-{\bf Saturation and Fickean diffusion}
+\noindent where $\bD^\mathrm{f}_{P}$ is now the permeability of the
+tissue, corresponding to stress gradient-driven transport, and
+$\bD^\mathrm{f}_{\mu}$ is the mobility, corresponding to transport
+driven by the gradient of the chemical potential, of the fluid phase
+through the porous solid.
+
+\subsection{Saturation and Fickean diffusion}
+\label{saturation-and-fickean-diffusion}
 
 \begin{figure}
-\centering
-\psfrag{A}{\small A}
-\psfrag{B}{\small B}
-\psfrag{C}{\small C}
-\psfrag{D}{\small Vacant space}
-\psfrag{E}{\small Filled space}
-\includegraphics[width=0.8\textwidth]{images/elucidation/saturation}
-\caption{Depicted at a microscopic scale, only unsaturated tissues A
-  and B can undergo Fickean diffusion of the fluid. C is saturated.}
-\label{fick_fig}
+  \begin{center}
+    \psfrag{A}{\small A}
+    \psfrag{B}{\small B}
+    \psfrag{C}{\small C}
+    \psfrag{D}{\small Vacant space}
+    \psfrag{E}{\small Filled space}
+    \includegraphics[width=0.8\textwidth]{images/elucidation/saturation}
+    \caption{Saturation depicted at a microscopic scale}
+  \end{center}
+      {Depicted at a microscopic scale, only unsaturated tissues A and
+        B can undergo Fickean diffusion of the fluid. C is saturated.}
+      \label{fickean-diffusion}
 \end{figure}
 
-As depicted in Figure~\ref{fick_fig}, only when pores are unsaturated
-are there multiple configurations 
-available to the fluid molecules at a fixed fluid concentration.  This
-leads to a non-zero mixing entropy. In contrast, if saturated, there
-is a single available configuration (degeneracy), resulting in
-zero mixing entropy. Consequently, Fickean diffusion, which arises
-from the gradient of mixing entropy can exist only in the unsaturated
+As depicted in Figure~\ref{fickean-diffusion}, only when pores are
+unsaturated are there multiple configurations available to the fluid
+molecules at a fixed fluid concentration.  This leads to a non-zero
+mixing entropy. In contrast, if saturated, there is a single available
+configuration (degeneracy), resulting in zero mixing
+entropy. Consequently, Fickean diffusion, which arises from the
+gradient of mixing entropy can exist only in the unsaturated
 case. However, even a saturated pore structure can demonstrate
-concentration gradient-dependent mass transport phenomenologically: The
-fluid stress depends on fluid concentration (see Equation (\ref{Pf})),
-and fluid stress gradient-driven flux appears as a concentration
-gradient-driven flux.
+concentration gradient-dependent mass transport phenomenologically:
+The fluid stress depends on fluid concentration (see Equation
+(\ref{Pf})), and fluid stress gradient-driven flux appears as a
+concentration gradient-driven flux.
 
 The saturation dependence of Fickean diffusion is modelled by using
-the measure of saturation introduced in Section~\ref{satswel}. We
-rewrite the chemical potential as
+the measure of saturation introduced in
+Section~\ref{saturation-and-tissue-swelling}. We rewrite the chemical
+potential as
 
 \begin{eqnarray}
 \mu^\mathrm{f} &=&  
 e^\mathrm{f} - \theta\eta^\mathrm{f},\nonumber\\
-\eta^\mathrm{f} &\to& 0, \quad \mbox{as}\, \tilde{v}^\mathrm{f} +
+\eta^\mathrm{f} &\to& 0, \quad \mbox{as}\ \, \tilde{v}^\mathrm{f} +
 \tilde{v}^\mathrm{c} \to 1.
 \label{fickeanmobility}
 \end{eqnarray}
@@ -1677,19 +1460,19 @@ to Equation (\ref {fluidflux}) defined for the fluid flux.
 \noindent where $\bD^\mathrm{s}$ is the positive semi-definite
 mobility of the solute relative to the fluid, and again, isothermal
 conditions are assumed to approximate the physiological
-ones. Following Section \ref{bomom} there are no stress-dependent
-contributions to $\widetilde{\bM^\mathrm{s}}$.
+ones. Following Section \ref{balance-of-linear-momentum} there are no
+stress-dependent contributions to $\widetilde{\bM^\mathrm{s}}$.
 
 \subsection{Nature of the sources}
 \label{nature-of-sources}
 
-There exists a large body of literature,
-\citep{CowinHegedus:76,EpsteinMaugin:2000,AmbrosiMollica:2002}, that
-addresses growth in biological tissue mainly based upon a single
-species undergoing transport and production/annihilation. However,
-when chemistry is accounted for, it is apparent that growth depends on
-cascades of complex biochemical reactions involving several species,
-and additionally involves intimate coupling between mass transfer,
+There exists a large body of literature, \citep{CowinHegedus:76,
+  EpsteinMaugin:2000, AmbrosiMollica:2002}, that addresses growth in
+biological tissue mainly based upon a single species undergoing
+transport and production/annihilation. However, when chemistry is
+accounted for, it is apparent that growth depends on cascades of
+complex biochemical reactions involving several species, and
+additionally involves intimate coupling between mass transfer,
 biochemistry and mechanics. An example of this chemo-mechanical
 coupling is described in \cite{Provenzanoetal:2003}.
 
@@ -2080,35 +1863,6 @@ this equation introduces a numerical stabilisation parameter $\tau$,
 which we have calculated from the $\mathrm{L}_{2}$ norms of element
 level matrices, as described in
 \cite{tezduyarsupg}.
-
-\subsection{Upper- and lower-bound assumptions, and their implications}
-\label{upper-and-lower-bounds}
-
-\begin{figure}[ht]
-  \centering
-  \psfrag{A}{$\Omega_0$}
-  \psfrag{B}{$\Omega_t$}
-  \psfrag{C}{$\bF$}
-  \psfrag{S}{\small Solid, `c'}
-  \psfrag{F}{\small Fluid, `f'}
-  \includegraphics[width=0.8\textwidth]
-                  {images/elucidation/homogeneous-deformation}
-  \caption{Upper-bound model from strain homogenisation.}
-  \label{upper-bound-model}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \psfrag{A}{$\Omega_0$}
-  \psfrag{B}{$\Omega_t$}
-  \psfrag{C}{$\bF$}
-  \psfrag{S}{\small Solid, `c'}
-  \psfrag{F}{\small Fluid, `f'}
-  \includegraphics[width=0.8\textwidth]
-                  {images/elucidation/homogeneous-stress}
-  \caption{Lower-bound model from stress homogenisation.}
-  \label{lower-bound-model}
-\end{figure}
 
 %
 

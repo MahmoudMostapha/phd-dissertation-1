@@ -18,8 +18,21 @@
     to the previous chapter's this-thesis-specific enhancements.
 \end{itemize}}
 
+
 \section{The coupled solution scheme}
 \label{solution-scheme-1}
+
+%% \noindent{\bf Remark 4}: The constitutive relations
+%% (\ref{stress-constrelI}) and (\ref{MIconstrel}) respectively
+%% specify the partial stress, $\bP^\iota$, and flux, $\bM^\iota$, of
+%% a species. The flux also implies the relative velocity,
+%% $\bV^\iota$. The velocity of the solid phase, $\bV$ is obtained
+%% from the local form of the balance of linear momentum for the
+%% system (\ref{linmombalsys}). With all these quantities known, the
+%% individual interaction forces between species,
+%% $\rho^\iota_0\bq^\iota$, can be obtained from
+%% (\ref{ballinmomrefI}). They are, however, not needed while solving
+%% for the balance of linear momentum of the system.
 
 The theory developed in Sections \ref{sect2}--\ref{sect5} has been
 implemented in a computational formulation, retaining much of the
@@ -382,6 +395,32 @@ both the initial collagen
 concentration and the initial fluid concentration are 500~kg.m$^{-3}$
 at every point in the tendon. This tendon is exposed to a bath where
 the fluid concentration is 500~kg.m$^{-3}$.
+
+\begin{figure}[ht]
+  \centering
+  \psfrag{A}{$\Omega_0$}
+  \psfrag{B}{$\Omega_t$}
+  \psfrag{C}{$\bF$}
+  \psfrag{S}{\small Solid, `c'}
+  \psfrag{F}{\small Fluid, `f'}
+  \includegraphics[width=0.8\textwidth]
+                  {images/elucidation/homogeneous-deformation}
+  \caption{Upper-bound model from strain homogenisation.}
+  \label{upper-bound-model}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \psfrag{A}{$\Omega_0$}
+  \psfrag{B}{$\Omega_t$}
+  \psfrag{C}{$\bF$}
+  \psfrag{S}{\small Solid, `c'}
+  \psfrag{F}{\small Fluid, `f'}
+  \includegraphics[width=0.8\textwidth]
+                  {images/elucidation/homogeneous-stress}
+  \caption{Lower-bound model from stress homogenisation.}
+  \label{lower-bound-model}
+\end{figure}
 
 While solving the balance of momentum for the biphasic problem
 of the solid collagen and a fluid phase, we currently treat the

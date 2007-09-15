@@ -331,3 +331,120 @@
 %% fundamental restriction upon the physical processes during
 %% biological growth. Any constitutive relations that are prescribed
 %% must satisfy this restriction,
+
+%% {\bf The Eshelby stress as a thermodynamic driving force}
+%% \label{eshelby-force}
+
+%% Combining the stress divergence and chemical potential gradient
+%% contributions to the driving force for any species, and using the
+%% mass-specific Helmholtz free energy, $\psi^\iota$, we write,
+
+%% \begin{equation}
+%% \bF^\mathrm{T}\Bnabla\cdot\bP^\iota - \rho^\iota_0\left(\Bnabla
+%% e^\iota - \theta\Bnabla\eta^\iota\right) =
+%% \Bnabla\cdot\left(\bF^\mathrm{T}\bP^\iota\right) -
+%% \Bnabla\bF^\mathrm{T}\colon\bP^\iota
+%%  - \rho^\iota_0\Bnabla\psi^\iota\vert_\theta.
+%% \end{equation}
+
+%% \noindent Regrouping terms this expression is
+%% \begin{equation}
+%% -\Bnabla\cdot\underbrace{\left(\rho^\iota_0\psi^\iota\vert_\theta\bone
+%% - \bF^\mathrm{T}\bP^\iota\right)}_{\mbox{Eshelby
+%% stress},\;\BXi^\iota} +
+%% \left(\Bnabla\rho^\iota_0\right)\psi^\iota_0\vert_\theta -
+%% \Bnabla\bF^\mathrm{T}\colon\bP^\iota.
+%% \end{equation}
+
+%% Thus, the divergence of the well-known Eshelby stress tensor is
+%% also among the driving forces for mass transport. Also observe the
+%% presence of a strain gradient-dependent driving force,
+%% $-\Bnabla\bF^\mathrm{T}\colon\bP^\iota$ in the developments of
+%% Sections \ref{sect5.2} and \ref{sect5.3}, independent of the
+%% pressure gradient term for the fluid species.
+
+%%  Recall that in (\ref{VIconstrel1}) we 
+%% have taken $\tilde{\bD}^\iota$ to be positive
+%% semi-definite\footnote{If
+%% $\Vert\tilde{\bD}^\iota\Bnabla\bV\bF^{-1}/\rho^\iota_0\Vert << 1$,
+%% we have $\bD^\iota \approx \tilde{\bD}^\iota$.}. 
+
+%%  We proceed now to examine the four separate terms in the
+%% thermodynamic driving force:
+%% \begin{equation}
+%% \boldmath{\sF}^\iota =
+%% -\rho^\iota_0\bF^\mathrm{T}\frac{\partial\bV}{\partial t} +
+%% \rho_0^\iota\bF^\mathrm{T}\bg +
+%% \bF^\mathrm{T}\Bnabla\cdot\bP^\iota - \rho^\iota_0\left(\Bnabla
+%% e^\iota - \theta\Bnabla\eta^\iota\right) \label{drivingforceI}
+%% \end{equation}
+
+%% \noindent The first two terms respectively represent the
+%% influences of inertia and body force. Thus, the inertial effect is
+%% to drive species~$\iota$ in the opposite direction to the body's
+%% acceleration. 
+
+%% The body force's influence is directed along itself.
+
+%% The third term represents the stress divergence effect. . We
+%% demonstrate this effect for the case of the fluid species in
+%% Section \ref{sect5.2} below, for which it translates to the more
+%% intuitive notion of transport along a fluid pressure gradient.
+
+
+%% The fourth term in $\boldmath{\sF}^\iota$ admits the following
+%% interpretation: The . An assumption inherent in the development
+%% that began in Section \ref{sect2} is that any mass entering or
+%% leaving $\Omega_0$ at a point $\bX$ on the boundary,
+%% $\partial\Omega_0$, has the field values
+%% $\rho_0^\iota,e^\iota,\eta^\iota,\theta$, and $\psi^\iota$
+%% corresponding to $\bX$. Likewise, the incremental mass of species
+%% $\iota$ created or absorbed via the source/sink $\Pi^\iota$ at
+%% $\bX$ has the field values of that point. Consider a sufficiently
+%% small neighborhood of a point, say
+%% $\mathsf{N}(\bX)\subset\Omega_0$. Changing the mass of species
+%% $\iota$ in $\mathsf{N}(\bX)$ by $\delta\mathsf{m}^\iota$ units
+%% causes a change in the Helmholtz free energy of $\iota$ in
+%% $\mathsf{N}(\bX)$ by $\delta\Psi^\iota =
+%% \psi^\iota\delta\mathsf{m}^\iota$. By definition therefore,
+%% $\psi^\iota =
+%% \partial\Psi^\iota/\partial\mathsf{m}^\iota$. This derivative gives the \emph{chemical
+%% potential}, $\mu^\iota$, of the transported species, $\iota$.
+%% Thus, we have $\mu^\iota = e^\iota - \theta\eta^\iota$, and
+%% $\Bnabla e^\iota -\theta\Bnabla\eta^\iota =
+%% \Bnabla\mu^\iota\vert_\theta$. This last term in
+%% ${\boldmath{\sF}}^\iota$ thus represents the thermodynamic driving
+%% force due to a chemical potential gradient.
+
+
+%% The gradient of internal energy in (\ref{drivingforceI}) leads to
+%% a strain gradient-dependent term. A concentration gradient-driven
+%% term arises from the gradient of mixing entropy. Together with the
+%% other terms that were remarked upon above, they represent a
+%% complete thermodynamic formulation of coupled mass transport and
+%% mechanics. This is the central result of our paper.
+
+
+%% It has recently come to our attention that the constitutive
+%% relation for flux (\ref{MIconstrel}) is precisely the result
+%% arrived at by \citet{DeGrootMazur:1984}, including the
+%% identification of the chemical potential gradient term. However,
+%% their approach involves a slightly different application of the
+%% Second Law, and a less detailed treatment of the mechanics.
+
+%% \noindent{\bf Remark 1}: The final version of the dissipation
+%% inequality (\ref{dissipation1}), and the mass balance equation can
+%% be manipulated to restrict the mathematical form of the mass
+%% source. It is common to make the mass source depend upon the
+%% strain energy density \citep{HarriganHamilton:1993} while
+%% respecting the restriction imposed by the dissipation inequality.
+%% This form is often used while modelling hard tissue. Such an
+%% approach leads to strain-mediated mass transport. However, with a
+%% strain-independent source, strain-mediated (or stress-mediated)
+%% mass transport would not be obtained with such a formulation.
+
+%% \noindent{\bf Remark 2}: We expect that evaluation of the
+%% dissipation, $\sD$, using (\ref{dissipation1}) from field
+%% quantities in a boundary value problem will provide a test of
+%% soundness, and if necessary indications for improvement, of our
+%% constitutive models.
