@@ -1,59 +1,59 @@
 \chapter{Supplementary considerations}
 \label{supplementary-considerations}
 
-\section{Source balance and the law of mass action}
-\label{law-of-mass-action}
+%% \section{Source balance and the law of mass action}
+%% \label{law-of-mass-action}
 
-The conversion of precursors to tissue and the reverse process of
-its breakdown are governed by a series of chemical reactions. The
-stoichiometry of these reactions varies in a limited range.
-Continuing in the simple vein adopted above, it is assumed that
-the formation of tissue and byproducts from precursors, and the
-breakdown of tissue, are governed by the forward and reverse
-directions of a single reaction:
-\begin{equation}
-\sum\limits_{\iota=\alpha}^{\omega} n_\iota[\iota] \longrightarrow
-[\mathrm{s}]. \label{chemreac}
-\end{equation}
+%% The conversion of precursors to tissue and the reverse process of
+%% its breakdown are governed by a series of chemical reactions. The
+%% stoichiometry of these reactions varies in a limited range.
+%% Continuing in the simple vein adopted above, it is assumed that
+%% the formation of tissue and byproducts from precursors, and the
+%% breakdown of tissue, are governed by the forward and reverse
+%% directions of a single reaction:
+%% \begin{equation}
+%% \sum\limits_{\iota=\alpha}^{\omega} n_\iota[\iota] \longrightarrow
+%% [\mathrm{s}]. \label{chemreac}
+%% \end{equation}
 
-\noindent Here, $n_\iota$ is the (possibly fractional) number of
-moles of species $\iota$ in the reaction. For a tissue precursor,
-$n_\iota > 0$, and for a byproduct, $n_\iota < 0$. By the Law of
-Mass Action for this reaction, the rate of the forward reaction
-(number of moles of $\mathrm{s}$ produced per unit time, per unit
-volume in $\Omega_0$) is
-$k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
-[\rho_0^\iota]^{n_\iota}$, where $\prod$ on the right hand-side
-denotes a product, not to be confused with the source, $\Pi$. The
-rate of the reverse reaction (number of moles of $\mathrm{s}$
-consumed per unit time, per unit volume in $\Omega_0$) is
-$k_\mathrm{r}[\rho_0^\mathrm{s}]$, where $k_f$ and $k_r$ are the
-corresponding reaction rates. Assuming, for the purpose of this
-example, that the solid phase is a single compound, let the
-molecular weight of $\mathrm{s}$ be $\sM_\mathrm{s}$. From the
-above arguments the source term for $\mathrm{s}$ is
-\begin{equation}
-\Pi^\mathrm{s} =
-\left(k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
-[\rho_0^\iota]^{n_\iota} -
-k_\mathrm{r}[\rho_0^\mathrm{s}]\right)\sM_\mathrm{s},
-\label{sourceA}
-\end{equation}
+%% \noindent Here, $n_\iota$ is the (possibly fractional) number of
+%% moles of species $\iota$ in the reaction. For a tissue precursor,
+%% $n_\iota > 0$, and for a byproduct, $n_\iota < 0$. By the Law of
+%% Mass Action for this reaction, the rate of the forward reaction
+%% (number of moles of $\mathrm{s}$ produced per unit time, per unit
+%% volume in $\Omega_0$) is
+%% $k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
+%% [\rho_0^\iota]^{n_\iota}$, where $\prod$ on the right hand-side
+%% denotes a product, not to be confused with the source, $\Pi$. The
+%% rate of the reverse reaction (number of moles of $\mathrm{s}$
+%% consumed per unit time, per unit volume in $\Omega_0$) is
+%% $k_\mathrm{r}[\rho_0^\mathrm{s}]$, where $k_f$ and $k_r$ are the
+%% corresponding reaction rates. Assuming, for the purpose of this
+%% example, that the solid phase is a single compound, let the
+%% molecular weight of $\mathrm{s}$ be $\sM_\mathrm{s}$. From the
+%% above arguments the source term for $\mathrm{s}$ is
+%% \begin{equation}
+%% \Pi^\mathrm{s} =
+%% \left(k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
+%% [\rho_0^\iota]^{n_\iota} -
+%% k_\mathrm{r}[\rho_0^\mathrm{s}]\right)\sM_\mathrm{s},
+%% \label{sourceA}
+%% \end{equation}
 
-\noindent Since the formation of one mole of $\mathrm{s}$ requires
-consumption of $n_\iota$ moles of $\iota$, we have
-\begin{equation}
-\Pi^\iota =
--\left(k_\mathrm{f}\prod\limits_{\vartheta=\alpha}^\omega
-[\rho_0^\vartheta]^{n_\vartheta} -
-k_\mathrm{r}[\mathrm{s}]\right)n_\iota\sM_\iota, \label{sourceI}
-\end{equation}
+%% \noindent Since the formation of one mole of $\mathrm{s}$ requires
+%% consumption of $n_\iota$ moles of $\iota$, we have
+%% \begin{equation}
+%% \Pi^\iota =
+%% -\left(k_\mathrm{f}\prod\limits_{\vartheta=\alpha}^\omega
+%% [\rho_0^\vartheta]^{n_\vartheta} -
+%% k_\mathrm{r}[\mathrm{s}]\right)n_\iota\sM_\iota, \label{sourceI}
+%% \end{equation}
 
-\noindent where $\sM_\iota$ is the molecular weight of species
-$\iota$. Since, due to conservation of mass, $\sM_\mathrm{s} =
-\sum\limits_{\iota=\alpha}^\omega n^\iota\sM_\iota$ the sources
-satisfy $\sum\limits_{\iota=\mathrm{s},\alpha}^\omega \Pi^\iota =
-0$.
+%% \noindent where $\sM_\iota$ is the molecular weight of species
+%% $\iota$. Since, due to conservation of mass, $\sM_\mathrm{s} =
+%% \sum\limits_{\iota=\alpha}^\omega n^\iota\sM_\iota$ the sources
+%% satisfy $\sum\limits_{\iota=\mathrm{s},\alpha}^\omega \Pi^\iota =
+%% 0$.
 
 \section{Frame invariance and the contribution from acceleration}
 \label{acceleration-objectivity}
@@ -160,6 +160,47 @@ p =
 +
 \Bnabla\bF^\mathrm{T}\colon\bF^{-\mathrm{T}}\bar{\rho}^\mathrm{f}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}}.
 \end{displaymath}
+
+\section{Stabilisation of the simplified solute transport equation}
+\label{stabilisation-solute-transport}
+
+In weak form, the SUPG-stabilised method for
+Equation~(\ref{morestdform}) is
+
+\begin{equation}
+\begin{split}
+&\int_{\Omega} w^{\mathrm{h}} \left(
+  \frac{\mathrm{d}\rho^{\mathrm{s}^{h}}}{\mathrm{d}t} +
+  \bm^f\cdot\mathrm{grad}\left[\frac{
+      \rho^{\mathrm{s}^{h}}}{\rho^f}\right] \right)
+  d\Omega\\ &+\int_{\Omega} \left( \mathrm{grad}
+  \left[w^{\mathrm{h}}\right] \cdot \bar{\bD^\mathrm{s}} \mathrm{grad}
+  \left[ \rho^{\mathrm{s}^{h}}\right] \right)\ d\Omega\\ +&
+  \sum_{\mathrm{e}=1}^{\mathrm{n_{el}}} \int_{\Omega_{\mathrm{e}}}
+  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad} \left[w^{\mathrm{h}}\right] \left(
+  \frac{\mathrm{d}\rho^{\mathrm{s}^{h}}}{\mathrm{d}t} +
+  \bm^f\cdot\mathrm{grad}\left[\frac{
+      \rho^{\mathrm{s}^{h}}}{\rho^f}\right] \right) \ d\Omega\\ -&
+  \sum_{\mathrm{e}=1}^{\mathrm{n_{el}}} \int_{\Omega_{\mathrm{e}}}
+  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad} \left[w^{\mathrm{h}}\right]
+  \left(\mathrm{div}\left[\bar{\bD^\mathrm{s}}\ \mathrm{grad} \left[
+      \rho^{\mathrm{s}^{h}}\right]\right]\right) \ d\Omega\\ = &
+  \int_{\Omega} w^{\mathrm{h}} \pi^\mathrm{s} \ d\Omega +
+  \int_{\Gamma_{\mathrm{h}}} w^{\mathrm{h}} h \ d\Gamma\\ +&
+  \sum_{\mathrm{e}=1}^{\mathrm{n_{el}}} \int_{\Omega_{\mathrm{e}}}
+  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad} \left[w^{\mathrm{h}}\right]
+  \pi^\mathrm{s} \ d\Omega,
+\label{stabilizedmassbal}
+\end{split}
+\end{equation}
+
+\noindent where quantities with the superscript $\mathrm{h}$ represent
+finite-di\-men\-sion\-al approximations of infinite-dimensional field
+variables, $\Gamma_{\mathrm{h}}$ is the Neumann boundary, and this
+equation introduces a numerical stabilisation parameter $\tau$, which
+we have calculated from the $\mathrm{L}_{2}$ norms of element level
+matrices, as described in
+\cite{tezduyarsupg}.
 
 
 %
