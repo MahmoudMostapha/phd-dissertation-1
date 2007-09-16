@@ -1,6 +1,13 @@
 \chapter{Representative numerical simulations I}
 \label{numerical-simulations-1}
 
+%%  In the numerical our numerical simulations that appear below in
+%% Section~\ref{}, the numerical values used for
+%% the parameters introduced in (\ref{wlcmeq}) are based on those in
+%% \citet{kuhlremod05}.
+
+%% Point to appendix, if it will exist.
+
 \todo{\begin{itemize}
   \item Work on this after chapter 2.
   \item This chapter requires needs to be cleaned up especially for
@@ -217,8 +224,18 @@ are presented in Table~\ref{parameters}.
 \subsection{Using the appropriate configuration}
 \label{appropriate-configuration}
 
-%\subsubsection{Unbounded pinching problem}
-%\label{unbounded-pinching}
+\begin{figure}[ht]
+  \centering
+  \psfrag{BC}{\small Concentration boundary condition}
+  \psfrag{RC}{\small Reduced concentration}
+  \includegraphics[width=0.4\textwidth]
+                  {images/elucidation/reference-boundary-conditions}
+  \caption{Constant concentration boundary conditions in the reference
+    configuration.} 
+  \label{erroneous-bc}
+\end{figure}
+
+{\bf Unbounded pinching problem}
 
 \subsection{Fluxes from different driving forces}
 \label{flux-driving-forces}
@@ -748,7 +765,7 @@ introduced following first order kinetics,
 reaction rate, taken to be 0.07 $\mathrm{s}^{-1}$, and
 $\rho_{0_\mathrm{ini}}^\mathrm{f}$ is the initial 
 concentration of fluid. The collagen
-source is mathemaically equivalent to the fluid sink: $\Pi^\mathrm{c} =
+source is mathematically equivalent to the fluid sink: $\Pi^\mathrm{c} =
 -\Pi^\mathrm{f}$. When $\rho_{0}^\mathrm{f} >
 \rho_{0_\mathrm{ini}}^\mathrm{f}$, collagen is produced.
 
@@ -926,6 +943,9 @@ constrictive radial load are discussed first in Section~\ref{pinching}.
 
 \section{Wound healing}
 \label{wound-healing}
+
+%% chemo-mechanical
+%% coupling is described in \cite{Provenzanoetal:2003}.
 
 \begin{figure}[!hpt]
 \centering

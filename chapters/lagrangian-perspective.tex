@@ -421,7 +421,7 @@ theorem (Appendix~\ref{gauss-divergence}) and Leibniz rule gives
 \mathrm{DIV}\left[\bM^\iota\right]\right) \mathrm{d}V & &\nonumber\\ -
 \int\limits_{\Omega_0}\Bepsilon\colon\left(\left(\bP^\iota -
 \left(\bV+\bV^\iota\right) \otimes\bM^\iota\right)
-\bF^\mathrm{T}\right) \mathrm{d}V,
+\bF^\mathrm{T}\right) \mathrm{d}V,\nonumber
 \end{eqnarray}
 
 \noindent where $\Bepsilon$ is the permutation symbol, and
@@ -445,7 +445,7 @@ $\bV^\iota$ leads to
 \bzero =
 -\int\limits_{\Omega_0}\Bepsilon\colon\left(\left(\bP^\iota-\bV^\iota
 \otimes \rho_0^\iota\bF^{-1}\bV^\iota\right)
-\bF^\mathrm{T}\right)\mathrm{d}V.
+\bF^\mathrm{T}\right)\mathrm{d}V.\nonumber
 \end{equation}
 
 \noindent Localising this result and again applying the properties of
@@ -814,7 +814,7 @@ is given by $\tilde{\rho}^\iota =
 \tilde{\rho}^\iota_0/\mathrm{det}\bF$. Note that the intrinsic
 reference density, $\tilde{\rho}^\iota_0$, is a material
 property. Upon solution of the mass balance equation
-(\ref{massbalcurr}) for $\rho^\iota$, the species volume fractions,
+(\ref{current-mass-balance}) for $\rho^\iota$, the species volume fractions,
 $\tilde{v}^\iota$, can therefore be computed in a straightforward
 fashion. The sum of these volume fractions is our required measure of
 saturation defined in $\Omega_t$. Also, recognising that for the
@@ -997,7 +997,6 @@ vanish (ensuring they satisfy the relationship {\em a priori}), we
 prescribe the following constitutive relations which close the
 system of differential equations governing our tissue:
 
-
 \begin{equation}
 \bP^\iota\bF^{\mathrm{g}^\iota\mathrm{T}} = \rho_0^\iota
 \frac{\partial e^\iota}{\partial\bF^{\mathrm{e}^\iota}},
@@ -1032,10 +1031,17 @@ species,
 \end{equation}
 
 \noindent which provides a constitutive relationship for the species
-fluxes in terms of a product of a positive semi-definite mobility
-tensor, ${\tilde{\bD}}^\iota$, and a summation of different driving
-forces (which is discussed in greater detail at a later section
-(\ref{fluid-flux-constitutive-relationships})), and finally,
+fluxes\footnote{A careful comparison of this relation
+  (\ref{constitutive-relation-flux}) with the motivating term in the
+  Clausius-Duhem inequality (\ref{reducedentropyinequality-1}) will
+  reveal that a driving force from the acceleration of the solid phase
+  does not appear in the constitutive relationship for the species
+  flux. Appendix~\ref{acceleration-objectivity} discusses this absence
+  in greater detail.} in terms of a product of a positive
+semi-definite mobility tensor, ${\tilde{\bD}}^\iota$, and a summation
+of different driving forces (which is discussed in greater detail at a
+later section (\ref{fluid-flux-constitutive-relationships})), and
+finally,
 
 \begin{equation}
 \bQ^\iota = -{\bK}^\iota\ \mathrm{GRAD}\left[\theta\right],
@@ -1204,11 +1210,6 @@ $\lambda^\mathrm{e}_I =
 1,2,3$ are the unit vectors along the three unit cell axes,
 respectively.
 
-%%  In the numerical our numerical simulations that appear below in
-%% Section~\ref{}, the numerical values used for
-%% the parameters introduced in (\ref{wlcmeq}) are based on those in
-%% \citet{kuhlremod05}.
-
 \subsection{A nearly incompressible ideal fluid}
 \label{ideal-incompressible-fluid}
 
@@ -1255,7 +1256,6 @@ $\bF^{\mathrm{v}}$, defined by
  \bF^{\mathrm{v}} = \bF.
 \label{fvoid}
 \end{equation}
-
 
 We restrict the formulation to include only saturated current
 configurations at $t = 0$. Following Section
@@ -1427,7 +1427,7 @@ potential as
 
 \begin{eqnarray}
 \mu^\mathrm{f} &=&  
-e^\mathrm{f} - \theta\eta^\mathrm{f},\nonumber\\
+e^\mathrm{f} - \theta\eta^\mathrm{f},\ \mathrm{and}\nonumber\\
 \eta^\mathrm{f} &\to& 0, \quad \mbox{as}\ \, \tilde{v}^\mathrm{f} +
 \tilde{v}^\mathrm{c} \to 1.
 \label{fickeanmobility}
@@ -1441,25 +1441,25 @@ appropriate to set $\mu^\mathrm{f} = e^\mathrm{f}$.
 \label{solute-transport}
 
 The dissolved solute species, denoted by s, undergo long range
-transport primarily by being 
-advected by the fluid. In addition to this, they undergo diffusive
-transport relative to the fluid. This motivates an additional velocity
-split of the form $\bV^s=\widetilde{\bV^\mathrm{s}}+\bV^\mathrm{f}$,
-where $\widetilde{\bV^\mathrm{s}}$ denotes the velocity of the solute
+transport primarily by being advected by the fluid. In addition to
+this, they undergo diffusive transport relative to the fluid. This
+motivates an additional velocity split of the form
+\mbox{$\bV^s=\widetilde{\bV^\mathrm{s}}+\bV^\mathrm{f}$}, where
+$\widetilde{\bV^\mathrm{s}}$ denotes the velocity of the solute
 relative to the fluid. The constitutive relation for the corresponding
 flux, denoted by $\widetilde{\bM^s}$, has the following form, similar
 to Equation (\ref {fluidflux}) defined for the fluid flux.
 
 \begin{equation}
-\widetilde{\bM^\mathrm{s}} = \bD^\mathrm{s}\left(
-- \rho^\mathrm{s}_0\mathrm{GRAD}\left[e^\mathrm{s} -
- \theta\eta^\mathrm{s}\right]\right),
+\widetilde{\bM^\mathrm{s}} = \bD^\mathrm{s}\left( -
+\rho^\mathrm{s}_0\ \mathrm{GRAD}\left[e^\mathrm{s} -
+  \theta\eta^\mathrm{s}\right]\right),
 \label{soluteflux}
 \end{equation}
 
 \noindent where $\bD^\mathrm{s}$ is the positive semi-definite
-mobility of the solute relative to the fluid, and again, isothermal
-conditions are assumed to approximate the physiological
+mobility of the solute {\em relative to the fluid}, and again,
+isothermal conditions are assumed to approximate the physiological
 ones. Following Section \ref{balance-of-linear-momentum} there are no
 stress-dependent contributions to $\widetilde{\bM^\mathrm{s}}$.
 
@@ -1469,40 +1469,65 @@ stress-dependent contributions to $\widetilde{\bM^\mathrm{s}}$.
 There exists a large body of literature, \citep{CowinHegedus:76,
   EpsteinMaugin:2000, AmbrosiMollica:2002}, that addresses growth in
 biological tissue mainly based upon a single species undergoing
-transport and production/annihilation. However, when chemistry is
-accounted for, it is apparent that growth depends on cascades of
-complex biochemical reactions involving several species, and
-additionally involves intimate coupling between mass transfer,
-biochemistry and mechanics. An example of this chemo-mechanical
-coupling is described in \cite{Provenzanoetal:2003}.
+transport and production/annihilation. However, from a biochemical
+point of view, growth in soft biological tissue is the production and
+resorption of the tissue's collagen phase as a result of a complex
+cascade of biochemical reactions taking place within the cells
+\citep{Alberts:02}. These processes involve several species, and
+additionally involve intimate coupling between mass transfer,
+biochemistry and mechanics.
 
-The modelling approach followed in this work is to select appropriate
-functional forms of the source terms for collagen, $\Pi^{\mathrm{c}}$,
-and the solutes, $\Pi^{\mathrm{s}}$, that abstract the complexity of
-the biochemistry. In our earlier exposition \citep{growthpaper}, we
-used simple first order chemical kinetics to define
-$\Pi^{\mathrm{c}}$. Other forms, which have been studied in the
-literature, can be used: 
+An example of this chemo-mechanical coupling is seen in
+Figure~(\ref{implantation-strengthening}) (from the experimental work
+of \citet{calveetal:07}), where the implantation of tendon-like
+engineered collagenous constructs into live rats, and their
+conditioning in vivo (denoted by the blue curve) leads to significant
+increases in the collagen strength and stiffness (when compared to the
+in vitro control in green); highlighting the importance of the
+biochemical environment on the processes underlying growth.
 
-\begin{figure}[!hpt]
+\begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]
-                {images/experiments/implantation-strengthening} 
-\caption{Growth and strengthening of a tendon under chemical influences.}
+\includegraphics[width=0.8\textwidth]{images/experiments/implantation-strengthening}
+\caption{Growth and strengthening of a tendon under biochemical
+  influences.}
 \label{implantation-strengthening}
 \end{figure}
 
-(\romannumeral 1) {\em Michaelis-Menten}
-enzyme kinetics (see, for 
-e.g., \cite{Sengersetal:2004}), which involves a two-step reaction
-with the collagen and solute production terms given by
+The modelling approach followed in this work is to select appropriate
+functional forms of the source/sink terms, $\Pi^{\mathrm{\iota}}$,
+that abstract the complexity of the biochemistry. Some specific
+examples follow.
+
+(\romannumeral 1) {\em First-order chemical kinetics} is one of the
+simplest possible choices for the collagen source, and assumes that
+the production of collagen is governed by a first-order rate
+law. Newly-produced collagen has proteoglycan molecules bound to it,
+and they in turn bind water. This effect is modelled by associating a
+loss of nutrient-bearing free fluid with collagen production. A fluid
+sink $\Pi^\mathrm{f}$ is introduced following first order kinetics,
+
+\begin{equation}
+\Pi^\mathrm{f} = -k^\mathrm{f}(\rho_0^\mathrm{f} -
+\rho_{0_\mathrm{ini}}^\mathrm{f}),
+\label{first-order-chemical-kinetics-source}
+\end{equation}
+
+\noindent and the collagen source is mathematically equivalent to the
+fluid sink: $\Pi^\mathrm{c} = -\Pi^\mathrm{f}$. When
+$\rho_{0}^\mathrm{f} > \rho_{0_\mathrm{ini}}^\mathrm{f}$, a certain
+reference value of the fluid concentration, collagen is produced.
+
+(\romannumeral 2) {\em Michaelis-Menten} enzyme kinetics (see, for
+e.g., \cite{Sengersetal:2004}), which involves a two-step reaction, 
+introduces collagen and solute source terms given by
 
 \begin{equation}
 \Pi^\mathrm{s} =
     \frac{-(k_{\mathrm{max}}\rho^{\mathrm{s}})}
     {(\rho^{\mathrm{s}}_m+\rho^{\mathrm{s}})}
     \rho_{\mathrm{cell}}, \quad\Pi^\mathrm{c} = -\Pi^\mathrm{s},
-\label{enzymekineticseq}
+\label{enzyme-kinetics-source}
 \end{equation}
 
 \noindent where $\rho_{\mathrm{cell}}$ is the concentration of
@@ -1512,99 +1537,98 @@ the solute concentration corresponding to $k_{\mathrm{max}}$. For
 details on the chemistry modelled by the Michaelis-Menten model, see,
 for e.g., \citet{sbromadill}.
 
-\begin{figure}[!hpt]
+\begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]
-                {images/experiments/load-strengthening} 
-\caption{Growth and strengthening of a tendon under mechanical influences.}
+\includegraphics[width=0.8\textwidth]{images/experiments/load-strengthening}
+\caption{Growth and strengthening of a tendon under mechanical
+  influences.}
 \label{load-strengthening}
 \end{figure}
 
-(\romannumeral 2) {\em Strain energy-dependent} sources that
-induce growth at a point when the 
-energy density deviates from a reference value. An example of source terms
-of this form was
-originally proposed in the context of bone growth 
-\citep{HarriganHamilton:93}. We are not aware of studies that have
-developed similar functional forms for soft tissue, and therefore have
-adapted this example from the bone growth literature, recognizing that
-this topic is in need of further study. Suitably weighted by a
-relative concentration ratio, and written for collagen, this source
-term has the form 
+(\romannumeral 3) {\em Strain energy-dependent} sources induce growth
+at a point when the energy density deviates from a reference
+value. Figure~\ref{load-strengthening} (also from the experimental
+work of Calve et al.) provides an example of the effect of mechanical
+influences on the strengths and stiffnesses of tendons by comparing
+the stress-strain responses of unloaded control specimens with those
+subjected to two different load cases (denoted {\em delay} and {\em no
+  delay}) on the figure.
+
+An example of source terms of this form was originally proposed in the
+context of bone growth \citep{HarriganHamilton:93}. I am not aware of
+studies that have developed similar functional forms for soft tissue,
+and therefore have adapted this example from the bone growth
+literature, recognising that this topic is in need of further
+study. Suitably weighted by a relative concentration ratio, and
+written for collagen, this source term has the form
 
 \begin{equation}
-\Pi^\mathrm{c} =
-\left(\frac{\rho^\mathrm{c}_0}{\rho^\mathrm{c}_{0_\mathrm{ini}}}\right)^{-m}
-\psi_{\mathrm{F}}-\psi_{\mathrm{F}}^*,
-\label{strainsrc}
+\Pi^\mathrm{c} = \left( \frac{\rho^\mathrm{c}_0}
+   {\rho^\mathrm{c}_{0_\mathrm{ini}}} \right)^{-m}
+   e^{\mathrm{c}}-e^{\mathrm{c}}_*,
+\label{strain-energy-based-source}
 \end{equation}
 
-\noindent where $\psi_{\mathrm{F}}$ is the mass-specific strain energy
-function, and $\psi_{\mathrm{F}}^*$ is a reference value of this
-strain energy density. Equation (\ref{strainsrc}) models collagen
-production when the strain energy density (weighted by a concentration
-ratio) at a point exceeds this reference value, and models 
-annihilation otherwise.
+\noindent where $e^{\mathrm{c}}$ is the mass-specific strain energy
+function of collagen, and $e^{\mathrm{c}}_*$ is a reference value of
+this strain energy density. Equation
+(\ref{strain-energy-based-source}) models collagen production when the
+strain energy density (weighted by a concentration ratio) at a point
+exceeds this reference value, and models annihilation otherwise.
 
 \section{Algorithmic considerations}
 \label{algorithmic-considerations}
 
-\todo{Some descriptive text goes here.}
+Concluding the analytic formulation for biological growth presented in
+this chapter, the following sections discuss some algorithmic details
+that are specific to our system of interest, and underly the numerical
+examples of Chapter~\ref{numerical-simulations-1}.
 
 \subsection{The role of mass balance in the current
   configuration}
-\label{role-of-current-mass-balance} 
+\label{role-of-current-mass-balance}
 
-\begin{figure}[ht]
-  \centering
-  \psfrag{BC}{\small Concentration boundary condition}
-  \psfrag{RC}{\small Reduced concentration}
-  \includegraphics[width=0.4\textwidth]
-                  {images/elucidation/reference-boundary-conditions}
-  \caption{Constant concentration boundary conditions in the reference
-    configuration.} 
-  \label{erroneous-bc}
-\end{figure}
-
-In order to proceed, we must first introduce the central kinematic
-assumption underlying the 
-formulation: We assume that the pore structure deforms with the
-collagenous phase. Therefore, the deformation gradient, $\bF$, is
-common to c and the fluid-filled pore spaces. Furthermore, in what
-follows, we will treat the fluid as ideal and nearly-incompressible,
-i.e. as elastic (Section \ref{compfluid}). This combination of
-kinematic and constitutive assumptions to be elaborated upon, implies
-that the stress in the fluid phase is determined by the elastic part of
-$\bF$ (see Sections \ref{growthkinem} and
-\ref{compfluid}). For clarity we denote it as
-$\bF^{\mathrm{e}^\mathrm{f}}$. Importantly, the pore-filling fluid under stress
-can also undergo transport relative to the pore network; i.e.,
-relative to the collagenous phase. This is the fluid flux, denoted by
-$\bM^\mathrm{f}$ in the reference configuration. Note that the
-specification of constitutive relations for the flux is still open at
-this point in the discussion. At the outset, we preclude stress in any
-of the solute species, s. Only the solid collagen and fluid bear
-stress. 
+Before proceeding, we first introduce the central kinematic assumption
+underlying the formulation: We assume that the pore structure deforms
+with the collagenous phase. Therefore, the deformation gradient,
+$\bF$, is common to c and the fluid-filled pore spaces. Furthermore,
+in what follows, we will treat the fluid as ideal and
+nearly-incompressible, i.e. as elastic (Section
+\ref{ideal-incompressible-fluid}). This combination of kinematic and
+constitutive assumptions to be elaborated upon, implies that the
+stress in the fluid phase is determined by the elastic part of $\bF$
+(see Sections \ref{kinematics-of-growth} and
+\ref{ideal-incompressible-fluid}). For clarity we denote it as
+$\bF^{\mathrm{e}^\mathrm{f}}$. Importantly, the pore-filling fluid
+under stress can also undergo transport relative to the pore network;
+i.e., relative to the collagenous phase. This is the fluid flux,
+denoted by $\bM^\mathrm{f}$ in the reference configuration. At the
+outset, we preclude stress in any of the solute species, s. Only the
+solid collagen and fluid bear stress.
 
 Although the initial/boundary value problem of mass transport can be
 consistently posed in the reference configuration, the evolving
 current configuration, $\Omega_t$, is of greater interest from a
 physical standpoint for growth problems. It follows from the
-discussion in the preceding paragraph that the shape and size of
-pores in $\Omega_t$ is determined by $\bF$. Therefore, at
-the boundary, the fluid concentration with 
-respect to $\Omega_t$ remains constant if the boundary is in contact
-with a fluid bath.  Accordingly, this is the appropriate Dirichlet
-boundary condition to impose under normal physiological
-conditions. This is shown in an idealised manner in Figure~\ref{fbc}.
+discussion in the preceding paragraph that the shape and size of pores
+in $\Omega_t$ is determined by $\bF$. Therefore, at the boundary, the
+fluid concentration with respect to $\Omega_t$ remains constant if the
+boundary is in contact with a fluid bath.  Accordingly, this is the
+appropriate Dirichlet boundary condition to impose under normal
+physiological conditions. This is shown in an idealised manner in
+Figure~\ref{current-conc-fluid-bc}.
 
 \begin{figure}
-\centering
+\begin{center}
 \includegraphics[width=0.8\textwidth]{images/elucidation/concentration}
-\caption{If the pore structure at the boundary deforms with the
-tissue and this boundary is in contact with a fluid bath, the
-fluid concentration with respect to the current configuration,
-i.e., $\rho^\mathrm{f}$, remains constant.}\label{fbc}
+\caption{Pore structure at the boundary deforming with the tissue} 
+\end{center}
+{If
+  the pore structure at the boundary deforms with the tissue and this
+  boundary is in contact with a fluid bath, the fluid concentration
+  with respect to the current configuration, i.e., $\rho^\mathrm{f}$,
+  remains constant.}
+\label{current-conc-fluid-bc}
 \end{figure}
 
 In the interest of applying boundary conditions (either specification
@@ -1615,7 +1639,7 @@ configuration,
 \begin{equation}
 \frac{\mathrm{d}\rho^\iota}{\mathrm{d}t} = \pi^\iota-
 \mathrm{div}[\bm^\iota] - \rho^\iota
-\mathrm{div}[\bv],\;\forall\,\iota, \label{massbalcurr}
+\mathrm{div}[\bv],\;\forall\,\iota, \label{current-mass-balance}
 \end{equation}
 
 \noindent where $\rho^\iota(\bx,t),\pi^\iota(\bx,t)$, and
@@ -1627,7 +1651,7 @@ quantities as $\rho^\iota = \left(\mathrm{det} \left(\bF\right)
 \left(\bF\right) \right)^{-1} \Pi^\iota$ and $\bm^\iota =
 \left(\mathrm{det} \left(\bF\right) \right)^{-1} \bF \bM^\iota$. The
 spatial divergence operator is $\mathrm{div}[\bullet]$, and
-the left hand-side in Equation~(\ref{massbalcurr}) is the material
+the left hand-side in Equation~(\ref{current-mass-balance}) is the material
 time derivative relative to the solid, which may be written explicitly as
 $\frac{\partial}{\partial t}\vert_X$, implying that the reference
 position of the solid collagenous skeleton is held fixed.
@@ -1637,8 +1661,8 @@ position of the solid collagenous skeleton is held fixed.
 
 Upon incorporation of the additional velocity split,
 $\bV^\mathrm{s}=\widetilde{\bV^\mathrm{s}}+\bV^f$, described in
-Section~\ref{solutespecies}, the resulting mass transport equation
-(\ref{massbalcurr}) for the solute species is
+Section~\ref{solute-transport}, the resulting mass transport equation
+(\ref{current-mass-balance}) for the solute species is
 
 \begin{equation}
 \frac{\mathrm{d}\rho^\mathrm{s}}{\mathrm{d}t} = \pi^\mathrm{s}-
@@ -1662,8 +1686,8 @@ for the solute mass transport equation, including a crucial
 simplification allowing for its straightforward numerical
 stabilisation.
 
-From \mbox{Equation (\ref{massbalcurr})}, the local form of the
-balance of mass for the fluid species (recalling that
+From \mbox{Equation (\ref{current-mass-balance})}, the local form of
+the balance of mass for the fluid species (recalling that
 $\Pi^\mathrm{f}=0$) in the current configuration is
 
 \begin{equation}
@@ -1785,10 +1809,11 @@ now in standard advection-diffusion form,
 \begin{equation}
 \begin{split}
 & \frac{\mathrm{d}\rho^\mathrm{s}}{\mathrm{d}t} - \underbrace{
- \mathrm{div}\left[\bar{\bD^\mathrm{s}} \mathrm{grad}
+ \mathrm{div}\left[\bar{\bD^\mathrm{s}}\ \mathrm{grad}
  \left[ \rho^\mathrm{s}\right]\right]}_\text{Diffusion term}
  - \underbrace{\pi^\mathrm{s}}_\text{Source term} =
-\\ \ & - \underbrace{\frac{\bm^f\cdot\mathrm{grad}\left[\rho^\mathrm{s}\right]}{\rho^f}}
+\\ \ & - \underbrace{\frac{\bm^f\cdot\mathrm{grad}
+    \left[\rho^\mathrm{s}\right]}{\rho^f}}
 _\text{Advection term} +
 \underbrace{ \frac{\rho^\mathrm{s} \bm^f \cdot \mathrm{grad}\left[\rho^f\right]}
      {\rho^{f^2}},}_\text{Additional, $\rho^\mathrm{s}$-dependent source term}
@@ -1797,34 +1822,35 @@ _\text{Advection term} +
 \end{equation}
 
 \noindent where $\bar{\bD^\mathrm{s}}$ is a positive semi-definite
-diffusivity, $\bm^{f}/\rho^{f}$ is the advective velocity, and $
-\pi^\mathrm{s}$ is the volumetric source term. This form is well
+diffusivity, $\bm^{f}/\rho^{f}$ is the advective velocity, and
+$\pi^\mathrm{s}$ is the volumetric source term. This form is well
 suited for stabilisation schemes such as the streamline upwind
-Petrov-Galerkin (SUPG) method (see, for e.g., \cite{Paper6}), described
-briefly below, which limit spatial oscillations otherwise observed
-when the element {\em Peclet number} is large.
+Petrov-Galerkin (SUPG) method (see, for e.g., \cite{Paper6}),
+described briefly below, which limit spatial oscillations otherwise
+observed when the element {\em P\'eclet number}, a measure of the
+relative magnitude of advection to diffusion, is
+large. Figure~\ref{unstable-solution} visually demonstrates this
+oscillation for a simple advection-diffusion problem at a large
+P\'eclet number.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{images/elucidation/unstable-advection.eps}
+\caption{Advection and diffusion with a P\'eclet number of $100$
+  without stabilisation.}
+\label{unstable-solution}
+\end{figure}
 
 \subsection{Stabilisation of the simplified solute transport equation}
 \label{stabilisation-solute-transport}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]
-                {images/elucidation/unstable-advection.eps}
-\caption{Advection-diffusion equation at large Peclet numbers without
-  stabilisation.}
-\label{unstable-solution}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]
-                {images/elucidation/stable-advection.eps}
-\caption{Advection-diffusion equation at large Peclet numbers with
-  stabilisation.}
+\includegraphics[width=0.8\textwidth]{images/elucidation/stable-advection.eps}
+\caption{Advection and diffusion with a P\'eclet number of $100$
+  with stabilisation.}
 \label{stable-solution}
 \end{figure}
-
 
 In weak form, the SUPG-stabilised method for
 Equation~(\ref{morestdform}) is
@@ -1858,11 +1884,13 @@ Equation~(\ref{morestdform}) is
 
 \noindent where quantities with the superscript $\mathrm{h}$ represent
 finite-di\-men\-sion\-al approximations of infinite-dimensional field
-variables, $\Gamma_{\mathrm{h}}$ is the Neumann boundary, and 
-this equation introduces a numerical stabilisation parameter $\tau$,
-which we have calculated from the $\mathrm{L}_{2}$ norms of element
-level matrices, as described in
-\cite{tezduyarsupg}.
+variables, $\Gamma_{\mathrm{h}}$ is the Neumann boundary, and this
+equation introduces a numerical stabilisation parameter $\tau$, which
+we have calculated from the $\mathrm{L}_{2}$ norms of element level
+matrices, as described in
+\cite{tezduyarsupg}. Figure~\ref{stable-solution} shows the stabilised
+solution for the simple advection-diffusion problem considered
+previously at the same large P\'eclet number.
 
 %
 
