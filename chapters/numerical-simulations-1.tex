@@ -1,46 +1,94 @@
-\chapter{Representative numerical simulations I}
+\chapter{Representative numerical simulations -- I}
 \label{numerical-simulations-1}
 
-Building upon the theory presented in
-Chapter~\ref{lagrangian-perspective}, we now seek 
+Stemming in no small part from the physical richness of the system
+under consideration, the theoretical formulation presented in the
+preceding chapter resulted in a set of coupled, nonlinear partial
+differential equations governing the interrelated mechanical and
+biochemical processes underlying biological tissue growth.
 
-In this chapter, a computational implementation based on the
-theoretical development in Chapter~\ref{lagrangian-perspective} is
-used 
+In this chapter, a finite element implementation employing a staggered
+scheme is used to solve this system of equations for a varied class of
+numerical examples which aim to demonstrate the applicability of the
+theory, and study aspects of the coupled phenomena as the tissue
+grows. In Section~\ref{computational-model}, the numerical methods
+used for coupling reaction, transport and mechanics are outlined, and
+the computational model used in the simulations is introduced. As an
+initial application of the numerical implementation,
+Section~\ref{biphasic-examples-1} considers a simplified system
+comprising only of a solid phase and a fluid phase, and takes a close
+look at the physics of porous soft tissues. The example presented in
+Section~\ref{enzyme-kinetics-example} incorporates an additional
+solute species, and acts as a model for localised, bolus delivery of
+regulatory chemicals to tendons while accounting for mechanical
+effects. The final example presented in this chapter provides a
+straightforward extension of the theory to model the effects of the
+mechanical environment on wound healing
+(Section~\ref{wound-healing-example}), evidencing the generality of
+the proposed formulation.
 
-%% \todo{\begin{itemize}
-%%   \item Can be tied with the material parameter estimation (A/L
-%%     variation plots) in the appendix.
-%%   \item Stronger after growth and mechanics can go here; the tendon
-%%     picture can go to the introduction.
-%%   \item Needs some literature on the wound healing example; refer
-%%     talk10.pdf.
-%%   \item Weave around computational details yet again. Point to
-%%     established, well known methods of solving the equations and point
-%%     to the previous chapter's this-thesis-specific enhancements.
-%% \end{itemize}}
+\section{Introducing the computational model}
+\label{computational-model}
 
-\section{The coupled solution scheme}
-\label{solution-scheme-1}
+The mathematical formulation developed in Sections~\ref{balance-laws}%
+--\ref{algorithmic-considerations} has been implemented in a finite
+element setting using {\tt FEAP} \citep{FEAPmanual}, a general purpose
+nonlinear finite element program. The implementation is in
+three-dimensions and uses eight-noded hexahedral elements.
 
-The theoretical formulation for biological growth presented in
-Chapter~\ref{lagrangian-perspective} results in a system of
-non-linear, coupled partial differential equations. A finite element
-formulation employing a staggered scheme based upon operator splits
-\cite{Armero-poroplasticity:99,Garikipatiox2:01} has been implemented
-in {\tt FEAP} \citep{feapmanual} to solve the coupled problem. As an
+The mass balance equations (\ref{current-mass-balance}) are solved to
+determine the current concentration fields\footnote{Recall from
+  Section~\ref{role-of-current-mass-balance} that the physics of
+  fluid-tissue interactions and the imposition of relevant boundary
+  conditions are best understood and represented in the current
+  configuration.} of the solid and fluid phases, denoted by
+$\rho^{\mathrm{c}}$ and $\rho^{\mathrm{f}}$, respectively. The current
+concentration of the solute, $\rho^{\mathrm{s}}$, is determined from
+the stabilised form of the mass balance equation provided in weak form
+in Equation (\ref{stabilizedmassbal}). Backward Euler is used as the
+time-stepping scheme for these equations.
+
+In the implementation presented in this chapter, the tissue is viewed
+as a single entity when imposing the balance of momentum, and a
+summation of Equation~(\ref{localbalanceofmomentum}) over
+$\iota=\mathrm{c,f}$ is solved using the relation
+(\ref{momentumsummationresult}) for the common displacement
+\mbox{field, $\bu$,} of the tissue and the fluid-filled
+pores.\footnote{The ramifications of this simplifying assumption are
+  explored in Section~\ref{constriction-1}.} Non-linear projection
+methods \citep{simotaylorpister:85} based on hexahedral elements are
+used to treat the near-incompressibility imposed by the fluid, and
+mixed methods, as described in \cite{Garikipatiox2:01}, are used for
+stress (and strain) gradient driven fluxes. Since the time scale for
+mass transport is much larger than that for mechanics, and since we
+are not focusing on inertial effects for the growth problems presented
+in this chapter, the momentum equation is solved as a quasi-static
+problem.\footnote{The numerical experiments presented in
+  Section~\ref{biphasic-examples-2} contrast the results obtained from
+  quasi-static and dynamic calculations.}
+
+The coupling between mass transport and mechanics is achieved by an
+iterative operator-splitting
+algorithm \citep{Armero-poroplasticity:99,
+  Garikipatietal:01}.  As an
 example, in the biphasic problem involving solid and fluid phases
 only, the basic solution scheme involves keeping the displacement
 field fixed while solving for the concentration fields using the mass
 transport equations. The resulting concentration fields are then fixed
 to solve the mechanics problem. This procedure is repeated until the
-resulting fields satisfy the differential equations within a specified
-numerical tolerance.
+resulting fields satisfy the differential equations within a
+tolerance defined by machine precision.
+
+The model geometry, based on our engineered tendon constructs (see
+Figure~\ref{engconst} and \citet{Calve:04}), is a cylinder 12 mm in
+length and 1 mm$^2$ in cross-sectional area. The corresponding finite
+element mesh using hexahedral elements, is shown in
+Figure~\ref{egmesh}.
 
 \begin{figure}[!hpt]
 \centering
   \includegraphics[width=0.6\textwidth]{images/experiments/one-construct}
-\caption{Engineered tendon constructs. See \citet{Calve:04} for
+\caption{Engineered tendon construct. See \citet{Calve:04} for
   details.} 
 \label{engconst}
 \end{figure}
@@ -54,39 +102,20 @@ numerical tolerance.
   \label{egmesh}
 \end{figure}
 
-The following examples aim to demonstrate the mathematical formulation
-and aspects of the coupled phenomena as the tissue grows. The model
-geometry, based on our engineered tendon constructs (see
-Figure~\ref{engconst} and \citet{Calve:04}), is a cylinder 12 mm in length and 1 mm$^2$ in
-cross-sectional area. The corresponding finite element mesh using
-hexahedral elements, is shown in Figure~\ref{egmesh}.
+The constitutive relation for the solid collagen follows
+(\ref{wlcm-energy}). The constitutive relation for the fluid stress
+follows (\ref{Pf}) with,
 
-The following numerical examples involve solution of a common set of
-partial differential equations. The constutive models, however, vary as we
-demonstrate the behaviour engendered by the many modelling
-assumptions discussed in the paper. The balance of linear momentum
-that we solve is (\ref{linearmombalance}) summed for $\iota =
-\mathrm{c,f}$, with the constraint in (\ref{qrelation}) imposed. The
-absence of significant acceleration in the problems under 
-consideration allows us to solve the balance of linear momentum   
-quasi-statically. The fluid mass balance equation is solved in the current
-configuration, i.e. (\ref{massbalcurr}) for $\iota = \mathrm{f}$, but 
-mass balance for the solid collagenous phase is solved in the
-reference configuration, i.e. (\ref{massbalance1}) for $\iota =
-\mathrm{c}$.  Mass balance for the solute is also solved in the
-current configuration, but using the stabilized scheme in weak
-form (\ref{stabilizedmassbal}). The Backward 
-Euler algorithm is used for all mass transport equations. The
-constitutive relation for the solid collagen follows
-(\ref{wlcmeq}). The constitutive relation for the fluid stress follows
-(\ref{Pf}) with 
 \begin{equation}
 h(\rho^\mathrm{f}) =
-\frac{1}{2}\kappa^\mathrm{f}\left(\frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}}
+\frac{1}{2}\kappa^\mathrm{f}\left(
+\frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}}
 - 1\right)^2,
 \end{equation}
 
-\noindent where $\kappa^\mathrm{f}$ is the fluid bulk modulus. The
+\noindent where $\kappa^\mathrm{f}$ is the fluid bulk modulus.
+
+The
 tissue is modelled as being fluid saturated in $\Omega_t$ at $t = 0$,
 i.e. (\ref{saturation}$_1$) holds with
 $\rho^\mathrm{f}_{0_\mathrm{sat}} =
@@ -108,13 +137,10 @@ in the preceding sections. The numerical values of parameters\footnote{The
   mobility. Using anisotropic mobilities, or different values from the
   reported range changes the result
   quantitatively, but not qualitatively.}  that
-have been used appear in Table \ref{parameters}.
+have been used appear in Table~\ref{parameters}.
 
 
-Non-linear projection methods \citep{simotaylorpister:85} are used to treat the
-near-incompressibility imposed by the fluid. Mixed methods, as described
-in \cite{Garikipatiox2:01}, are used for stress (and strain) gradient
-driven fluxes.
+
 
 The initial and boundary
 conditions have been chosen in order to model a few common mechanical and
@@ -123,6 +149,8 @@ attempt detailed descriptions of experiments, choosing to focus
 instead on results that can be directly related to the models. A more
 detailed comparison with experiments is forthcoming in a separate
 communication.
+
+
 
 \section{Examples exploring the biphasic nature of porous soft tissue}
 \label{biphasic-examples-1}
@@ -136,8 +164,8 @@ are presented in Table~\ref{parameters}.
 %\mathrm{log} (\frac{\rho^\mathrm{f}} {\rho})$, where
 %$\sM^\mathrm{f}$ is the molecular weight of the fluid.
 
-\subsection{Using the appropriate configuration}
-\label{appropriate-configuration}
+%\subsection{Using the appropriate configuration}
+%\label{appropriate-configuration}
 
 
 
@@ -581,11 +609,11 @@ of larger time steps.
 \label{resnorms}
 \end{table}
 
-\subsubsection{Upper bound model}
-\label{upper-bound}
+%% \subsubsection{Upper bound model}
+%% \label{upper-bound}
 
-\subsubsection{Lower bound model}
-\label{lower-bound}
+%% \subsubsection{Lower bound model}
+%% \label{lower-bound}
 
 \subsection{A swelling problem}
 \label{swelling-1}
@@ -730,7 +758,7 @@ $585-626\; \mbox{kg.m}^{-3}$, and that (\ref{isotropicgrowth}) gives $\bF^{\math
 \end{figure}
 
 \section{A multiphasic problem based on enzyme-kinetics}
-\label{enzyme-kinetics}
+\label{enzyme-kinetics-example}
 
 \begin{table}
 \centering
@@ -862,8 +890,10 @@ effcts. This is the approach followed in the next two numerical
 examples. The detailed transport and mechanics induced by the
 constrictive radial load are discussed first in Section~\ref{pinching}. 
 
-\section{Wound healing}
-\label{wound-healing}
+\section{Extension to modelling wound healing}
+\label{wound-healing-example}
+
+%of scars are the result of the body overproducing collagen, which causes the scar to be raised above the surrounding skin. Hypertrophic scars take the form of a red raised lump on the skin, but do not grow beyond the boundaries of the original wound, and they often improve in appearance after a few years
 
 %% chemo-mechanical
 %% coupling is described in \cite{Provenzanoetal:2003}.
@@ -907,6 +937,16 @@ constrictive radial load are discussed first in Section~\ref{pinching}.
 \caption{Vertical stress upon loading after healing under no external load.}
 \label{healing-vertical-stress}
 \end{figure}
+
+%% \todo{\begin{itemize}
+%%   \item Stronger after growth and mechanics can go here; the tendon
+%%     picture can go to the introduction.
+%%   \item Needs some literature on the wound healing example; refer
+%%     talk10.pdf.
+%%   \item Weave around computational details yet again. Point to
+%%     established, well known methods of solving the equations and point
+%%     to the previous chapter's this-thesis-specific enhancements.
+%% \end{itemize}}
 
 %
 

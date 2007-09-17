@@ -1,3 +1,15 @@
+%% %% The fluid mass balance equation is solved in the current
+%% %% configuration, i.e. (\ref{massbalcurr}) for $\iota = \mathrm{f}$, but 
+%% %% mass balance for the solid collagenous phase is solved in the
+%% %% reference configuration, i.e. (\ref{massbalance1}) for $\iota =
+%% %% \mathrm{c}$. 
+
+%% %% The balance of linear momentum
+%% %% that we solve is (\ref{linearmombalance}) summed for $\iota =
+%% %% \mathrm{c,f}$, with the constraint in (\ref{qrelation}) imposed.
+
+
+
 %% \begin{figure}[ht]
 %%   \centering
 %%   \psfrag{BC}{\small Concentration boundary condition}
@@ -82,7 +94,7 @@
 
 %% The coupled problem was solved by a staggered scheme based upon
 %% operator splits
-%% \citep{Armero-poroplasticity:99,Garikipatietal:01}. The details 
+%% . The details 
 %% will be presented in a future communication that will focus upon
 %% computational aspects and numerical examples. Here we only mention
 %% that the staggered scheme consists of identifying the displacement
@@ -103,3 +115,33 @@
 %% --------------
 
 
+
+%% Its specialization to the case discussed in this section is straighforward. The particular
+%% choice of primitive unknowns used in this section can be shown to ensure unconditional stability
+%% of this operator split for parabolic 
+%% uid transport equations that are equivalent to our formulation,
+%% 2Fickean diusion manifests itself as a concentration gradient-driven 
+%% ux. Even in the absence of Fickean diusion, a
+%% concentration gradient 
+%% ux remains, since the 
+%% uid stress is concentration-dependent.
+%% 6
+%% and coupled with nite strain elasticity (Armero, 1999). This was borne out in our computations, with
+%% somewhat slow convergence with respect to number of passes, due to the strong coupling of this problem.
+%% (One pass is completed when all equations have been solved once.) In Section 5 we demonstrate how
+%% this analysis can be extended to the reformulation of the growth problem, by solution of the detailed
+%% solid and 
+%% uid momentum balance equations, that is being advocated in this proposal.
+
+%% Identifying the displacement fields, $\bu$, and
+%% the concentration fields, $\rho^{\iota}$, as primitive variables
+%% associated with the mechanical and mass transport problems, each
+%% equation is solved for their respective variable holding all other
+%% variables fixed, in turn. 
+
+%%  the
+%% balance of momentum is solved holding the concentrations fixed, and
+%% the resulting displacement field is then held constant to solve the
+%% balance of mass equations. Convergence of the system of equations is
+%% attained when the solution of each set of equations has converged to
+%% within a 
