@@ -1,3 +1,3 @@
 clean:
-	rm -f *~ *.aux
+	rm -f *~
 	(cd plotting; make clean)

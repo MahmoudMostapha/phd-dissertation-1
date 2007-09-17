@@ -1,122 +1,45 @@
 \chapter{Representative numerical simulations I}
 \label{numerical-simulations-1}
 
-%% Relations (\ref{\ref{masssummationresult}}),
-%% (\ref{momentumsummationresult}) and (\ref{energysummationresult})
-%% relating the interaction terms are used to reduce the system of
-%% equations when solving combined tissue-level problems
+Building upon the theory presented in
+Chapter~\ref{lagrangian-perspective}, we now seek 
 
-%%  In the numerical our numerical simulations that appear below in
-%% Section~\ref{}, the numerical values used for
-%% the parameters introduced in (\ref{wlcmeq}) are based on those in
-%% \citet{kuhlremod05}.
+In this chapter, a computational implementation based on the
+theoretical development in Chapter~\ref{lagrangian-perspective} is
+used 
 
-%% Point to appendix, if it will exist.
-
-\todo{\begin{itemize}
-  \item Work on this after chapter 2.
-  \item This chapter requires needs to be cleaned up especially for
-    the flow from various driving forces plots.
-  \item The plots might need to be redone to better match
-    aesthetically.
-  \item Can be tied with the material parameter estimation (A/L
-    variation plots) in the appendix.
-  \item Stronger after growth and mechanics can go here; the tendon
-    picture can go to the introduction.
-  \item Needs some literature on the wound healing example; refer
-    talk10.pdf.
-  \item Weave around computational details yet again. Point to
-    established, well known methods of solving the equations and point
-    to the previous chapter's this-thesis-specific enhancements.
-\end{itemize}}
-
+%% \todo{\begin{itemize}
+%%   \item Can be tied with the material parameter estimation (A/L
+%%     variation plots) in the appendix.
+%%   \item Stronger after growth and mechanics can go here; the tendon
+%%     picture can go to the introduction.
+%%   \item Needs some literature on the wound healing example; refer
+%%     talk10.pdf.
+%%   \item Weave around computational details yet again. Point to
+%%     established, well known methods of solving the equations and point
+%%     to the previous chapter's this-thesis-specific enhancements.
+%% \end{itemize}}
 
 \section{The coupled solution scheme}
 \label{solution-scheme-1}
 
-%% \noindent{\bf Remark 4}: The constitutive relations
-%% (\ref{stress-constrelI}) and (\ref{MIconstrel}) respectively
-%% specify the partial stress, $\bP^\iota$, and flux, $\bM^\iota$, of
-%% a species. The flux also implies the relative velocity,
-%% $\bV^\iota$. The velocity of the solid phase, $\bV$ is obtained
-%% from the local form of the balance of linear momentum for the
-%% system (\ref{linmombalsys}). With all these quantities known, the
-%% individual interaction forces between species,
-%% $\rho^\iota_0\bq^\iota$, can be obtained from
-%% (\ref{ballinmomrefI}). They are, however, not needed while solving
-%% for the balance of linear momentum of the system.
-
-The theory developed in Sections \ref{sect2}--\ref{sect5} has been
-implemented in a computational formulation, retaining much of the
-complexity of the coupled balance laws and constitutive relations.
-For realistic soft tissue material parameters, the contribution of
-the fluxes and interaction forces between species to the balance
-of linear momentum of the composite tissue is negligible. This
-simplification has been used. As a preliminary demonstration of
-the theory\footnote{This numerical section has been included
-mainly for completeness of this theoretical paper. A separate
-paper, currently in preparation, will present the computational
-formulation and contain a detailed examination of a number of
-initial and boundary value problems for growth.}, we present a
-computation of the coupled physics in the early stages of uniaxial
-extension of a cylindrical soft tissue specimen. The motivation
-for this model problem comes from our experimental model of
-engineered, functional tendon constructs grown \emph{in vitro},
-having the same cylindrical geometry. The experimental aspects of
-our broad-based project on soft tissue growth are described
-elsewhere \citep{Calve:04}. In addition to engineering
-scaffold-less tendon constructs from neonatal rat fibroblast
-cells, we have the ability to impose a range of mechanical,
-chemical, nutritional and electrical stimuli on them and study the
-tissue's response. Besides modelling these experiments, the
-mathematical formulation described here presents researchers with
-a vehicle for testing scenarios and framing hypotheses that can be
-experimentally-validated in our laboratory, thereby driving the
-experimental studies.
-
-%\subsection{Boundary and initial conditions; coupled solution method}
-%\label{}
-
-Boundary conditions for mass transport consisted of the specified
-fluid concentration at all external surfaces of the cylinder. This
-value was fixed at $500\,\mathrm{kg.m}^{-3}$. With these boundary
-conditions the fluid flux normal to surfaces of the specimen is
-determined by solving the initial and boundary value problem. The
-bottom planar surface was fixed in the $\be_3$ direction and a
-displacement was applied at the top surface, also in the $\be_3$
-direction, to give a nominal strain rate of
-$0.05\,\mathrm{sec}^{-1}$ in the $\be_3$ direction. This is the
-only mechanical load on the problem. Initial conditions were
-$\rho_0^\mathrm{f}(\bX,0) =
-500\,\mathrm{kg.m}^{-3},\;\rho_0^\mathrm{s}(\bX,0) =
-500\,\mathrm{kg.m}^{-3}$, and for the mechanical problem,
-$\bu(\bX,0) = \bzero,\,\bV(\bX,0) = \bzero$.
-
-The coupled problem was solved by a staggered scheme based upon
-operator splits
-\citep{Armero-poroplasticity:99,Garikipatietal:01}. The details 
-will be presented in a future communication that will focus upon
-computational aspects and numerical examples. Here we only mention
-that the staggered scheme consists of identifying the displacement
-and species concentrations as primitive variables associated with
-the mechanical and mass transport problems. The mechanical problem
-is solved holding the concentrations fixed. The resulting
-displacement field is then held constant to solve the mass
-transport problem. The transient solution is obtained for
-mechanics using energy-momentum conserving schemes
-\citep{SimoTarnow:1992b,SimoTarnow:1992a,Gonzalezphd:1996}, and
-for mass transport using the Backward Euler Method. Hexahedral
-elements are employed, combined with nonlinear projection methods
-\citep{simotaylorpister:85} to treat the near-incompressibility
-imposed by the fluid. The numerical formulation has been
-implemented within the nonlinear finite element program, FEAP
-\citep{feapmanual}.
-
-\hrule 
+The theoretical formulation for biological growth presented in
+Chapter~\ref{lagrangian-perspective} results in a system of
+non-linear, coupled partial differential equations. A finite element
+formulation employing a staggered scheme based upon operator splits
+\cite{Armero-poroplasticity:99,Garikipatiox2:01} has been implemented
+in {\tt FEAP} \citep{feapmanual} to solve the coupled problem. As an
+example, in the biphasic problem involving solid and fluid phases
+only, the basic solution scheme involves keeping the displacement
+field fixed while solving for the concentration fields using the mass
+transport equations. The resulting concentration fields are then fixed
+to solve the mechanics problem. This procedure is repeated until the
+resulting fields satisfy the differential equations within a specified
+numerical tolerance.
 
 \begin{figure}[!hpt]
 \centering
-  \includegraphics[width=0.8\textwidth]{images/experiments/one-construct}
+  \includegraphics[width=0.6\textwidth]{images/experiments/one-construct}
 \caption{Engineered tendon constructs. See \citet{Calve:04} for
   details.} 
 \label{engconst}
@@ -126,23 +49,10 @@ implemented within the nonlinear finite element program, FEAP
   \centering
   \psfrag{D}{\small$1.1284$ mm}
   \psfrag{H}{\small$12.0$ mm}
-  {\includegraphics[width=5cm]{images/examples/lagrangian/mesh}}
+  {\includegraphics[width=0.4\textwidth]{images/examples/lagrangian/mesh}}
   \caption{The finite element mesh used in the computations.}
   \label{egmesh}
 \end{figure}
-
-The theory presented in the preceding sections results in a system of
-non-linear, coupled partial differential equations. A finite element
-formulation employing a staggered scheme based upon operator splits
-\cite{Armero-poroplasticity:99,Garikipatiox2:01} has been implemented
-in {\tt FEAP} \citep{feapmanual} to solve the coupled problem. As an
-example, in the biphasic problem involving solid and fluid
-phases only, the basic solution scheme involves keeping the displacement
-field fixed while solving for the concentration fields using the mass
-transport equations. The resulting concentration fields are then fixed
-to solve the mechanics problem. This procedure is repeated until the
-resulting fields satisfy the differential equations within a specified
-numerical tolerance.
 
 The following examples aim to demonstrate the mathematical formulation
 and aspects of the coupled phenomena as the tissue grows. The model
@@ -229,177 +139,168 @@ are presented in Table~\ref{parameters}.
 \subsection{Using the appropriate configuration}
 \label{appropriate-configuration}
 
-\begin{figure}[ht]
-  \centering
-  \psfrag{BC}{\small Concentration boundary condition}
-  \psfrag{RC}{\small Reduced concentration}
-  \includegraphics[width=0.4\textwidth]
-                  {images/elucidation/reference-boundary-conditions}
-  \caption{Constant concentration boundary conditions in the reference
-    configuration.} 
-  \label{erroneous-bc}
-\end{figure}
 
-{\bf Unbounded pinching problem}
 
-\subsection{Fluxes from different driving forces}
-\label{flux-driving-forces}
+%% {\bf Unbounded pinching problem}
 
-The following contour plots represent the stress, and various
-contributions to the total flux in the early stages of loading of
-the model problem. Symmetry has been employed to model a single
-quadrant of the cylinder.
+%% \subsection{Fluxes from different driving forces}
+%% \label{flux-driving-forces}
 
-The longitudinal stress, $\sigma_{33}$ in Figure \ref{stressfig}
-arises from the stretch and the evolution in concentration.
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/S33-1}} \hskip 3cm (a) 
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/S33-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Longitudinal Cauchy stress, $\sigma_{33}$ (Pa) at $1
-\,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
-beginning of loading.} \label{stressfig}
-\end{figure}
+%% The following contour plots represent the stress, and various
+%% contributions to the total flux in the early stages of loading of
+%% the model problem. Symmetry has been employed to model a single
+%% quadrant of the cylinder.
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M1-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M1-100}} \hskip 3cm (b)
-\end{minipage}
-\caption[Stress gradient-driven flux]{Stress gradient-driven flux
-($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
-\,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
-beginning of loading. The positive values indicate an upward flux
-corresponding to a tensile $\sigma_{33}$ wave travelling
-downwards.} \label{M1fig}
-\end{figure}
+%% The longitudinal stress, $\sigma_{33}$ in Figure \ref{stressfig}
+%% arises from the stretch and the evolution in concentration.
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/S33-1}} \hskip 3cm (a) 
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/S33-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Longitudinal Cauchy stress, $\sigma_{33}$ (Pa) at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading.} \label{stressfig}
+%% \end{figure}
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M2-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M2-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Internal energy gradient-driven flux,
-($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
-\,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
-beginning of loading. The positive values indicate an upward flux.
-This corresponds to a lower energy near the top of the cylinder as
-the tensile stress ($\sigma_{33}$) wave travels downward and
-relaxes some of the strain energy of contraction.} \label{M2fig}
-\end{figure}
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M1-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M1-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption[Stress gradient-driven flux]{Stress gradient-driven flux
+%% ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. The positive values indicate an upward flux
+%% corresponding to a tensile $\sigma_{33}$ wave travelling
+%% downwards.} \label{M1fig}
+%% \end{figure}
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M3-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M3-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Gravity-driven flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in
-the $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
-$100\,\mathrm{nanosec.}$ after the beginning of loading. The
-negative values indicate a downward flux, due to the action of
-gravity.} \label{M3fig}
-\end{figure}
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M2-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M2-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Internal energy gradient-driven flux,
+%% ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. The positive values indicate an upward flux.
+%% This corresponds to a lower energy near the top of the cylinder as
+%% the tensile stress ($\sigma_{33}$) wave travels downward and
+%% relaxes some of the strain energy of contraction.} \label{M2fig}
+%% \end{figure}
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M4-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M4-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Inertia-driven flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in
-the $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
-$100\,\mathrm{nanosec.}$ after the beginning of loading. The
-negative values indicate a downward flux as the tissue accelerates
-upward.} \label{M4fig}
-\end{figure}
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M3-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M3-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Gravity-driven flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in
+%% the $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
+%% $100\,\mathrm{nanosec.}$ after the beginning of loading. The
+%% negative values indicate a downward flux, due to the action of
+%% gravity.} \label{M3fig}
+%% \end{figure}
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M5-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M5-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Concentration gradient-driven flux
-($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
-\,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
-beginning of loading. Note that the maximum and minimum values are
-many orders of magnitude lower than for the other flux
-contributions reported above. This is a demonstration of mechanics
-influences dominating diffusion over the classical concentration
-gradient contribution.} \label{M5fig}
-\end{figure}
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M4-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M4-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Inertia-driven flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in
+%% the $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
+%% $100\,\mathrm{nanosec.}$ after the beginning of loading. The
+%% negative values indicate a downward flux as the tissue accelerates
+%% upward.} \label{M4fig}
+%% \end{figure}
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Total flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the
-$\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
-$100\,\mathrm{nanosec.}$ after the beginning of loading. The
-positive values indicate an upward flux, dominated by the stress
-gradient driven contribution.} \label{Mfig}
-\end{figure}
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M5-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M5-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Concentration gradient-driven flux
+%% ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. Note that the maximum and minimum values are
+%% many orders of magnitude lower than for the other flux
+%% contributions reported above. This is a demonstration of mechanics
+%% influences dominating diffusion over the classical concentration
+%% gradient contribution.} \label{M5fig}
+%% \end{figure}
 
-The flux contributions in Figures \ref{M1fig}--\ref{Mfig} can be
-summarized as follows: The fluid flux is dominated by the
-contribution from the stress gradient in the $\be_3$ direction.
-The latter arises as the stress ($\sigma_{33}$) wave of tension
-travels down the cylinder in the first few microseconds after
-application of the load (the time taken to travel the length of
-the cylinder is $12 \,\mu\mathrm{sec}$). Additionally, as the
-fluid concentration changes due to the flux, it causes a further
-change in the stress (Section \ref{sect5}). Other flux terms are
-qualitatively sensible; i.e., their directions are consistent with
-the physics of the problem, as argued in each of the figure
-captions\footnote{In order to compare the flux contributions, they
-have all been plotted on the same scale: $-1\times
-10^{-4}--1\times 10^{-4} \,\mathrm{kg.m}^{-2}\mathrm{sec}$.
-However the plots also show the maximum and minimum field values
-at the top and bottom of the legend bars. These values represent a
-better comparison of the relative flux magnitudes.}. There is some
-loss of axial symmetry in a few of the plots due to the coarseness
-of the finite element mesh for this example. It appears that
-spatial oscillations in the solution lead to a further loss of
-symmetry in Figures \ref{M2fig}b--\ref{M3fig}b and \ref{Mfig}a.
-These oscillations arise due to large and dominant advective
-terms, and need to be remedied by stabilized finite element
-methods. Here, we only aim to demonstrate that various driving
-forces for mass transport are in agreement with their theoretical
-underpinnings in the paper. The resorption of the solid phase is
-shown indirectly in Figure \ref{Pifig}. A positive fluid source,
-$\Pi^\mathrm{f}$, means that $\Pi^\mathrm{s} < 0$. Since
-$\Pi^\mathrm{s}$ is the only term balancing
-$\partial\rho_0^\mathrm{s}/\partial t$ [see (\ref{massballocA})],
-it follows that $\partial\rho_0^\mathrm{s}/\partial t < 0$.
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Total flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the
+%% $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
+%% $100\,\mathrm{nanosec.}$ after the beginning of loading. The
+%% positive values indicate an upward flux, dominated by the stress
+%% gradient driven contribution.} \label{Mfig}
+%% \end{figure}
 
-\begin{figure}[!hpt]
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/Pi-1}} \hskip 3cm (a)
-\end{minipage}
-\begin{minipage}[t]{7.5cm}
-{\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/Pi-100}} \hskip 3cm (b)
-\end{minipage}
-\caption{Rate of fluid production, $\Pi^\mathrm{f}$
-($\mathrm{kg.m}^{-3}.\mathrm{sec}^{-1}$), at $1
-\,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
-beginning of loading. The positive values indicate that the local
-fluid concentrations have fallen below their initial values.}
-\label{Pifig}
-\end{figure}
+%% The flux contributions in Figures \ref{M1fig}--\ref{Mfig} can be
+%% summarized as follows: The fluid flux is dominated by the
+%% contribution from the stress gradient in the $\be_3$ direction.
+%% The latter arises as the stress ($\sigma_{33}$) wave of tension
+%% travels down the cylinder in the first few microseconds after
+%% application of the load (the time taken to travel the length of
+%% the cylinder is $12 \,\mu\mathrm{sec}$). Additionally, as the
+%% fluid concentration changes due to the flux, it causes a further
+%% change in the stress (Section \ref{sect5}). Other flux terms are
+%% qualitatively sensible; i.e., their directions are consistent with
+%% the physics of the problem, as argued in each of the figure
+%% captions\footnote{In order to compare the flux contributions, they
+%% have all been plotted on the same scale: $-1\times
+%% 10^{-4}--1\times 10^{-4} \,\mathrm{kg.m}^{-2}\mathrm{sec}$.
+%% However the plots also show the maximum and minimum field values
+%% at the top and bottom of the legend bars. These values represent a
+%% better comparison of the relative flux magnitudes.}. There is some
+%% loss of axial symmetry in a few of the plots due to the coarseness
+%% of the finite element mesh for this example. It appears that
+%% spatial oscillations in the solution lead to a further loss of
+%% symmetry in Figures \ref{M2fig}b--\ref{M3fig}b and \ref{Mfig}a.
+%% These oscillations arise due to large and dominant advective
+%% terms, and need to be remedied by stabilized finite element
+%% methods. Here, we only aim to demonstrate that various driving
+%% forces for mass transport are in agreement with their theoretical
+%% underpinnings in the paper. The resorption of the solid phase is
+%% shown indirectly in Figure \ref{Pifig}. A positive fluid source,
+%% $\Pi^\mathrm{f}$, means that $\Pi^\mathrm{s} < 0$. Since
+%% $\Pi^\mathrm{s}$ is the only term balancing
+%% $\partial\rho_0^\mathrm{s}/\partial t$ [see (\ref{massballocA})],
+%% it follows that $\partial\rho_0^\mathrm{s}/\partial t < 0$.
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/Pi-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/Pi-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Rate of fluid production, $\Pi^\mathrm{f}$
+%% ($\mathrm{kg.m}^{-3}.\mathrm{sec}^{-1}$), at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. The positive values indicate that the local
+%% fluid concentrations have fallen below their initial values.}
+%% \label{Pifig}
+%% \end{figure}
 
 \subsection{The tendon under constriction}
 \label{constriction-1}
@@ -812,6 +713,21 @@ $585-626\; \mbox{kg.m}^{-3}$, and that (\ref{isotropicgrowth}) gives $\bF^{\math
   tendon by only $\approx 2.7$\%, and is not discernible upon comparing
   Figures~\ref{before_growth} and \ref{after_growth}. It is, however,
   manifest in Figure~\ref{volume_evolution}.
+
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[angle=270,width=0.6\textwidth]{images/examples/lagrangian/cyclic/parametric-study}
+\caption{Varying A}
+\label{parametric-study}
+\end{figure}
+
+\begin{figure}[!hpt]
+\centering
+\includegraphics[angle=270,width=0.6\textwidth]{images/examples/lagrangian/cyclic/parametric-study}
+\caption{Load-unload cycle}
+\label{cyclic-load}
+\end{figure}
 
 \section{A multiphasic problem based on enzyme-kinetics}
 \label{enzyme-kinetics}

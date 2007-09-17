@@ -1,0 +1,105 @@
+%% \begin{figure}[ht]
+%%   \centering
+%%   \psfrag{BC}{\small Concentration boundary condition}
+%%   \psfrag{RC}{\small Reduced concentration}
+%%   \includegraphics[width=0.4\textwidth]
+%%                   {images/elucidation/reference-boundary-conditions}
+%%   \caption{Constant concentration boundary conditions in the reference
+%%     configuration.} 
+%%   \label{erroneous-bc}
+%% \end{figure}
+
+%% Relations (\ref{\ref{masssummationresult}}),
+%% (\ref{momentumsummationresult}) and (\ref{energysummationresult})
+%% relating the interaction terms are used to reduce the system of
+%% equations when solving combined tissue-level problems
+
+%%  In the numerical our numerical simulations that appear below in
+%% Section~\ref{}, the numerical values used for
+%% the parameters introduced in (\ref{wlcmeq}) are based on those in
+%% \citet{kuhlremod05}.
+
+%% Point to appendix, if it will exist.
+
+
+%% \noindent{\bf Remark 4}: The constitutive relations
+%% (\ref{stress-constrelI}) and (\ref{MIconstrel}) respectively
+%% specify the partial stress, $\bP^\iota$, and flux, $\bM^\iota$, of
+%% a species. The flux also implies the relative velocity,
+%% $\bV^\iota$. The velocity of the solid phase, $\bV$ is obtained
+%% from the local form of the balance of linear momentum for the
+%% system (\ref{linmombalsys}). With all these quantities known, the
+%% individual interaction forces between species,
+%% $\rho^\iota_0\bq^\iota$, can be obtained from
+%% (\ref{ballinmomrefI}). They are, however, not needed while solving
+%% for the balance of linear momentum of the system.
+
+%% The theory developed in Sections \ref{sect2}--\ref{sect5} has been
+%% implemented in a computational formulation, retaining much of the
+%% complexity of the coupled balance laws and constitutive relations.
+%% For realistic soft tissue material parameters, the contribution of
+%% the fluxes and interaction forces between species to the balance
+%% of linear momentum of the composite tissue is negligible. This
+%% simplification has been used. As a preliminary demonstration of
+%% the theory\footnote{This numerical section has been included
+%% mainly for completeness of this theoretical paper. A separate
+%% paper, currently in preparation, will present the computational
+%% formulation and contain a detailed examination of a number of
+%% initial and boundary value problems for growth.}, we present a
+%% computation of the coupled physics in the early stages of uniaxial
+%% extension of a cylindrical soft tissue specimen. The motivation
+%% for this model problem comes from our experimental model of
+%% engineered, functional tendon constructs grown \emph{in vitro},
+%% having the same cylindrical geometry. The experimental aspects of
+%% our broad-based project on soft tissue growth are described
+%% elsewhere \citep{Calve:04}. In addition to engineering
+%% scaffold-less tendon constructs from neonatal rat fibroblast
+%% cells, we have the ability to impose a range of mechanical,
+%% chemical, nutritional and electrical stimuli on them and study the
+%% tissue's response. Besides modelling these experiments, the
+%% mathematical formulation described here presents researchers with
+%% a vehicle for testing scenarios and framing hypotheses that can be
+%% experimentally-validated in our laboratory, thereby driving the
+%% experimental studies.
+
+%% %\subsection{Boundary and initial conditions; coupled solution method}
+%% %\label{}
+
+%% Boundary conditions for mass transport consisted of the specified
+%% fluid concentration at all external surfaces of the cylinder. This
+%% value was fixed at $500\,\mathrm{kg.m}^{-3}$. With these boundary
+%% conditions the fluid flux normal to surfaces of the specimen is
+%% determined by solving the initial and boundary value problem. The
+%% bottom planar surface was fixed in the $\be_3$ direction and a
+%% displacement was applied at the top surface, also in the $\be_3$
+%% direction, to give a nominal strain rate of
+%% $0.05\,\mathrm{sec}^{-1}$ in the $\be_3$ direction. This is the
+%% only mechanical load on the problem. Initial conditions were
+%% $\rho_0^\mathrm{f}(\bX,0) =
+%% 500\,\mathrm{kg.m}^{-3},\;\rho_0^\mathrm{s}(\bX,0) =
+%% 500\,\mathrm{kg.m}^{-3}$, and for the mechanical problem,
+%% $\bu(\bX,0) = \bzero,\,\bV(\bX,0) = \bzero$.
+
+%% The coupled problem was solved by a staggered scheme based upon
+%% operator splits
+%% \citep{Armero-poroplasticity:99,Garikipatietal:01}. The details 
+%% will be presented in a future communication that will focus upon
+%% computational aspects and numerical examples. Here we only mention
+%% that the staggered scheme consists of identifying the displacement
+%% and species concentrations as primitive variables associated with
+%% the mechanical and mass transport problems. The mechanical problem
+%% is solved holding the concentrations fixed. The resulting
+%% displacement field is then held constant to solve the mass
+%% transport problem. The transient solution is obtained for
+%% mechanics using energy-momentum conserving schemes
+%% \citep{SimoTarnow:1992b,SimoTarnow:1992a,Gonzalezphd:1996}, and
+%% for mass transport using the Backward Euler Method. Hexahedral
+%% elements are employed, combined with nonlinear projection methods
+%% \citep{simotaylorpister:85} to treat the near-incompressibility
+%% imposed by the fluid. The numerical formulation has been
+%% implemented within the nonlinear finite element program, FEAP
+%% \citep{feapmanual}.
+
+%% --------------
+
+
