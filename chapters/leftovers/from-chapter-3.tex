@@ -145,3 +145,202 @@
 %% balance of mass equations. Convergence of the system of equations is
 %% attained when the solution of each set of equations has converged to
 %% within a 
+
+
+%% %% However, we will not attempt detailed descriptions of
+%% %% experiments, choosing to focus 
+%% %% instead on results that can be directly related to the models. A more
+%% %% detailed comparison with experiments is forthcoming in a separate
+%% %% communication.
+
+
+%% {\bf Unbounded pinching problem}
+
+%% \subsection{Fluxes from different driving forces}
+%% \label{flux-driving-forces}
+
+%% The following contour plots represent the stress, and various
+%% contributions to the total flux in the early stages of loading of
+%% the model problem. Symmetry has been employed to model a single
+%% quadrant of the cylinder.
+
+%% The longitudinal stress, $\sigma_{33}$ in Figure \ref{stressfig}
+%% arises from the stretch and the evolution in concentration.
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/S33-1}} \hskip 3cm (a) 
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/S33-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Longitudinal Cauchy stress, $\sigma_{33}$ (Pa) at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading.} \label{stressfig}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M1-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M1-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption[Stress gradient-driven flux]{Stress gradient-driven flux
+%% ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. The positive values indicate an upward flux
+%% corresponding to a tensile $\sigma_{33}$ wave travelling
+%% downwards.} \label{M1fig}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M2-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M2-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Internal energy gradient-driven flux,
+%% ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. The positive values indicate an upward flux.
+%% This corresponds to a lower energy near the top of the cylinder as
+%% the tensile stress ($\sigma_{33}$) wave travels downward and
+%% relaxes some of the strain energy of contraction.} \label{M2fig}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M3-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M3-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Gravity-driven flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in
+%% the $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
+%% $100\,\mathrm{nanosec.}$ after the beginning of loading. The
+%% negative values indicate a downward flux, due to the action of
+%% gravity.} \label{M3fig}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M4-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M4-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Inertia-driven flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in
+%% the $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
+%% $100\,\mathrm{nanosec.}$ after the beginning of loading. The
+%% negative values indicate a downward flux as the tissue accelerates
+%% upward.} \label{M4fig}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M5-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M5-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Concentration gradient-driven flux
+%% ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the $\be_3$ direction at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. Note that the maximum and minimum values are
+%% many orders of magnitude lower than for the other flux
+%% contributions reported above. This is a demonstration of mechanics
+%% influences dominating diffusion over the classical concentration
+%% gradient contribution.} \label{M5fig}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/M-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Total flux ($\mathrm{kg.m}^{-2}\mathrm{sec}$) in the
+%% $\be_3$ direction at $1 \,\mathrm{nanosec.}$ and
+%% $100\,\mathrm{nanosec.}$ after the beginning of loading. The
+%% positive values indicate an upward flux, dominated by the stress
+%% gradient driven contribution.} \label{Mfig}
+%% \end{figure}
+
+%% The flux contributions in Figures \ref{M1fig}--\ref{Mfig} can be
+%% summarized as follows: The fluid flux is dominated by the
+%% contribution from the stress gradient in the $\be_3$ direction.
+%% The latter arises as the stress ($\sigma_{33}$) wave of tension
+%% travels down the cylinder in the first few microseconds after
+%% application of the load (the time taken to travel the length of
+%% the cylinder is $12 \,\mu\mathrm{sec}$). Additionally, as the
+%% fluid concentration changes due to the flux, it causes a further
+%% change in the stress (Section \ref{sect5}). Other flux terms are
+%% qualitatively sensible; i.e., their directions are consistent with
+%% the physics of the problem, as argued in each of the figure
+%% captions\footnote{In order to compare the flux contributions, they
+%% have all been plotted on the same scale: $-1\times
+%% 10^{-4}--1\times 10^{-4} \,\mathrm{kg.m}^{-2}\mathrm{sec}$.
+%% However the plots also show the maximum and minimum field values
+%% at the top and bottom of the legend bars. These values represent a
+%% better comparison of the relative flux magnitudes.}. There is some
+%% loss of axial symmetry in a few of the plots due to the coarseness
+%% of the finite element mesh for this example. It appears that
+%% spatial oscillations in the solution lead to a further loss of
+%% symmetry in Figures \ref{M2fig}b--\ref{M3fig}b and \ref{Mfig}a.
+%% These oscillations arise due to large and dominant advective
+%% terms, and need to be remedied by stabilized finite element
+%% methods. Here, we only aim to demonstrate that various driving
+%% forces for mass transport are in agreement with their theoretical
+%% underpinnings in the paper. The resorption of the solid phase is
+%% shown indirectly in Figure \ref{Pifig}. A positive fluid source,
+%% $\Pi^\mathrm{f}$, means that $\Pi^\mathrm{s} < 0$. Since
+%% $\Pi^\mathrm{s}$ is the only term balancing
+%% $\partial\rho_0^\mathrm{s}/\partial t$ [see (\ref{massballocA})],
+%% it follows that $\partial\rho_0^\mathrm{s}/\partial t < 0$.
+
+%% \begin{figure}[!hpt]
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/Pi-1}} \hskip 3cm (a)
+%% \end{minipage}
+%% \begin{minipage}[t]{7.5cm}
+%% {\includegraphics[width=7.5cm]{images/examples/lagrangian/preliminary/Pi-100}} \hskip 3cm (b)
+%% \end{minipage}
+%% \caption{Rate of fluid production, $\Pi^\mathrm{f}$
+%% ($\mathrm{kg.m}^{-3}.\mathrm{sec}^{-1}$), at $1
+%% \,\mathrm{nanosec.}$ and $100\,\mathrm{nanosec.}$ after the
+%% beginning of loading. The positive values indicate that the local
+%% fluid concentrations have fallen below their initial values.}
+%% \label{Pifig}
+%% \end{figure}
+
+%The mixing entropy of fluid in the mixture with collagen is
+%written as $\eta_{\mathrm{mix}}^{f} = -\frac{k}{\sM^\mathrm{f}}
+%\mathrm{log} (\frac{\rho^\mathrm{f}} {\rho})$, where
+%$\sM^\mathrm{f}$ is the molecular weight of the fluid.
+
+%\subsection{Using the appropriate configuration}
+%\label{appropriate-configuration}
+
+
+%% \subsubsection{Upper bound model}
+%% \label{upper-bound}
+
+%% \subsubsection{Lower bound model}
+%% \label{lower-bound}
+
+
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[angle=270,width=0.6\textwidth]{images/examples/lagrangian/cyclic/parametric-study}
+%% \caption{Varying A}
+%% \label{parametric-study}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[angle=270,width=0.6\textwidth]{images/examples/lagrangian/cyclic/parametric-study}
+%% \caption{Load-unload cycle}
+%% \label{cyclic-load}
+%% \end{figure}
