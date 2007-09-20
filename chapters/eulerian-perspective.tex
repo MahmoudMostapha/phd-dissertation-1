@@ -17,8 +17,9 @@ studied. Remarkably, this dissimilar approach results in a set of
 balance equations which are completely equivalent to those deduced in
 Section~\ref{balance-laws}, just {\em pushed-forward} to the current
 configuration. But more significantly, the spatial approach presented
-below naturally leads to a different set of primitive variables more
-suitable to physically relevant boundary value problems.
+below naturally leads to the identification of a different set of
+primitive variables more suitable to physically relevant boundary
+value problems.
 
 The outline of the chapter is as
 follows. Section~\ref{eu-balance-laws} briefly recapitulates the
@@ -34,24 +35,14 @@ discussed in Section~\ref{eu-algorithmic-considerations}.
 \section{Balance laws for an open mixture}
 \label{eu-balance-laws}
 
-% The move to the following perspective was motivated by the fact that
-% the earlier formulation, and corresponding numerical examples (cite
-% sections on role of mass balance in current conf., the deformation
-% gradient split for the fluid, and the numerical example involving
-% assumptions on deformation gradient of the fluid) involved
-% quantities that, while reasonable from a 
-% mathematical pint of view, did not correspond to physical quantities
-% of interest in terms of physiological bvps. Point out that it's been
-% 2--3 years of refining our understanding and trials with the
-% previous code that's led to this point?
-
 We initiate this discussion with the introduction of $\Omega_{t}$, a
 temporally-varying closure of an open set in $\mathbb{R}^{3}$ with a
 piecewise smooth boundary, which we define to be our region of
 interest. This region of interest is constructed to coincide with the
 current position of the solid component of the tissue, and our primary
 interest lies in the evolution of various field variables inside
-$\Omega_{t}$, as observed from an inertial reference frame.
+$\Omega_{t}$, as observed from an inertial reference frame
+(\citet{newton1726}, Corollary~V, p.~423).
 
 \begin{figure}
   \centering
@@ -74,18 +65,19 @@ time), bijective and orientation preserving map $\Bvarphi_{t}(\bX):
 \mathbb{R}^3\times\mathbb{R}^{+}\cup\{0\} \rightarrow\mathbb{R}^{3}$
 such that $\Omega_{t} = \Bvarphi_{t} (\Omega_{0})$ for some
 convenient, {\em fixed} subset of $\mathbb{R}^{3}$, $\Omega_{0}$. This
-ensures that $\Omega_{t}$ evolves in a {\em well-behaved} manner,
+ensures that $\Omega_{t}$ evolves in a well-behaved manner,
 disallowing non-physical deformations from being imposed on the
-tissue, and affords the application of Reynolds' transport theorem
-(Appendix~\ref{reynolds-transport}). The map $\Bvarphi_{t}$ is
-visualised in Figure~\ref{continuum-potato-current-configuration}.
+tissue, and furthermore, affords the application of Reynolds'
+transport theorem (Appendix~\ref{reynolds-transport}). The map
+$\Bvarphi_{t}$ is visualised in
+Figure~\ref{continuum-potato-current-configuration}.
 
 Denoting a point in $\Omega_{t}$ by $\bx$, $\bv(\bx,t) =
 \frac{\partial \Bvarphi_{t}}{\partial t}$ defines the {\em spatial
   velocity} of the system domain. In contrast to
 Section~\ref{balance-laws}, it is recognised at the outset that each
 species of the tissue is capable of undergoing its own motion
-independent of the solid component of the tissue, and so we introduce
+independent of the solid component of the tissue; and so we introduce
 the spatial velocity of an arbitrary species~$\iota$,
 $\bv^{\iota}(\bx,t)$, which are assumed to be $\mathit{C}^{1}$ in
 space and time.\footnote{It is important to note that these quantities
@@ -105,10 +97,12 @@ relative to the solid component of the tissue.\footnote{And, with the
   of the solid phase ceases to be special. This is manifest in the
   forms of the balance laws deduced.}
 
-% And it is for this reason that the entire treatment is for an
-% arbitrary species~$\iota$ and specialisations to c, f, s are only
-% introduced when talking about constitutive relationships specific to
-% the different constituents of the tissue.
+The following discussion of balance laws is carried out entirely in
+terms of an arbitrary species~$\iota$, and specialisation to the solid
+collagenous, fluid and solute phases (i.e. \mbox{$\iota=\mathrm{c},
+  \mathrm{f}, \mathrm{s}$}) is reintroduced only when talking about
+constitutive relationships specific to these different constituents of
+the tissue.
 
 \subsection{Balance of mass}
 \label{eu-balance-of-mass}
@@ -140,11 +134,11 @@ for species $\iota$ over $\Omega_{t}$,
 sink) of species~$\iota$, which specifies the species' mass production
 rate per unit system volume, and $\bn$ is the outward normal vector
 over $\partial \Omega_{t}$, the boundary of $\Omega_{t}$. At this
-point, the only restrictions on the source terms,
-$\pi^{\iota}(\bx,t)$, is that they be integrable.
+point, the only restriction on the source terms, $\pi^{\iota}(\bx,t)$,
+is that they be integrable.
 
 On applying Reynolds' transport theorem
-(Appendix~\ref{reynolds-transport}) to the left-hand side,
+(Appendix~\ref{reynolds-transport}) to the left hand-side,
 
 \begin{equation*}
 \int_{\Omega_{t}} \frac{\partial \rho^{\iota}}{\partial t}
@@ -179,8 +173,8 @@ theory \citep{TruesdellToupin:60} and is the current configuration
 analogue of Equation~(\ref{localbalanceofmass}).
 
 As in Section~\ref{balance-of-mass}, recall that for an external
-observer, the rate of change of mass of the entire system is affected
-only by external agents, and is independent of interconversion between
+observer, the rate of change of mass of the entire system, affected
+only by external agents, is independent of interconversion between
 species. From the viewpoint of such an observer, the balance of mass
 for the tissue as a whole reads,
 
@@ -194,7 +188,7 @@ for the tissue as a whole reads,
 
 \noindent Comparing Equation~(\ref{eu-systembalanceofmass}) to a
 summation of Equation~(\ref{eu-globalbalanceofmass}) over all species,
-which are both valid paths to arrive at the balance of mass of the
+both of which being valid statements of the balance of mass of the
 tissue as a whole, it is clear that the sources and sinks satisfy,
 
 \begin{equation}
@@ -202,26 +196,32 @@ tissue as a whole, it is clear that the sources and sinks satisfy,
 \label{eu-summationrelationmass}
 \end{equation}
 
-% Which, in words, states that the only kinds of chemical interactions
-% allowed in the formulation are those in which the mass of species
-% get converted between each other; similar to the law of mass action?
-
-%i.e., the formulation
-% doesn't allow overall system momentum production at a point.
+\noindent In words, the above relation states that the only kinds of
+chemical interactions considered in the formulation are those in which
+the masses of species get interconverted between each other, i.e.,
+the system contains no additional sources of matter.
 
 An identical relation is obtained by \citet{TruesdellToupin:60} and
 others who follow their ideas (see, for e.g., \cite{passmanetal} and
 \cite{ateshian07}), but their deduction of this result, and other
-similar results involving quantities internal to the system, stems
-from an additional assumption that {\em the mean response of a
-  heterogeneous mixture obeys the ordinary equations of a continuum.}
-This is not something that is explicitly employed in this work.
+similar results involving quantities internal to the system
+(Equations~(\ref{eu-summationrelationmomentum}) and
+(\ref{eu-summationrelationeneergy})), stems from a formally stated
+assumption that ``the mean response of a heterogeneous mixture obeys
+the ordinary equations of a continuum.'' While we do not explicitly
+employ the assumption above, it is implicit in our assertion that
+external observers can quantify the mass of a species within a system
+without being aware of phenomena internal to the system.
 
 \subsection{The balance of linear momentum}
 \label{eu-balance-of-linear-momentum}
 
+We now look at how the momentum of a species evolves under the action
+of external agents, accounting for mass sources and allowing for the
+possibility that matter can leave the domain.
+
 As observed from an inertial reference frame, the balance of momentum
-of a species $\iota$ over $\Omega_{t}$ requires,
+of a species~$\iota$ over $\Omega_{t}$ requires,
 
 \begin{equation}
 \begin{split}
@@ -242,16 +242,18 @@ of a species $\iota$ over $\Omega_{t}$ requires,
 \end{equation}
 
 \noindent where, in addition to the quantities introduced previously,
-$\bg^{\iota}(\bx,t)$ is the resultant body force of {\em external} origin
-acting on species $\iota$, $\bq^{\iota}(\bx,t)$ is the resultant body
-force on species $\iota$ from {\em all other species in the mixture},
-and $\Bsigma^{\iota}(\bx,t)$ is the partial Cauchy stress on species
-$\iota$. All of these quantities are assumed to be sufficiently
-smooth.
+$\bg^{\iota}(\bx,t)$ is the resultant body force of {\em external}
+origin acting on species $\iota$, $\bq^{\iota}(\bx,t)$ is the
+resultant body force on species $\iota$ from all other species {\em in
+  the mixture}, and $\Bsigma^{\iota}(\bx,t)$ is the partial Cauchy
+stress on species $\iota$. The partial Cauchy stress tensor
+corresponding to species~$\iota$ as the portion of the total stress
+borne by the species. All of these quantities are assumed to be
+sufficiently smooth.
 
-Application of Reynolds' transport theorem
-(Appendix~\ref{reynolds-transport}) to
-Equation~(\ref{eu-globalbalanceofmomentum}) yields,
+Application of Reynolds' transport theorem (Appendix~\ref{reynolds%
+  -transport}) to the left hand-side of Equation~(\ref{eu-%
+  globalbalanceofmomentum}) yields,
 
 \begin{equation*}
 \begin{split}
@@ -303,23 +305,24 @@ of momentum of species $\iota$,
 \label{eu-localbalanceofmomentum}
 \end{equation}
 
-\noindent also a result consistent with classical mixture theory
-\citep{TruesdellToupin:60}. This equation is the current configuration
-analogue of Equation~(\ref{localbalanceofmomentum}).
+\noindent which is a result consistent with classical mixture
+theory \citep{TruesdellToupin:60} and is current configuration
+analogue of Equation~(\ref{localbalanceofmomentum}). 
 
 Neglecting the interaction terms as an external observer, the balance
 of momentum for the entire system can be written as follows,
 
 \begin{equation}
 \begin{split}
-\sum\limits_{\iota} \frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}} \rho^{\iota}
-\bv^{\iota} \ \mathrm{d}v 
-\right) = & \sum\limits_{\iota} \left(\int_{\Omega_{t}} \rho^{\iota}
-\bg^{\iota} \ \mathrm{d}v + \int_{\partial \Omega_{t}} 
-\Bsigma^{\iota}\cdot\bn\ \mathrm{d}a\right)\\
-- &\sum\limits_{\iota}\int_{\partial \Omega_{t}} \left(\rho^{\iota}
-  \bv^{\iota} \right) \left(\bv^{\iota} -
-\bv\right) \cdot \bn\ \mathrm{d}a.
+\sum\limits_{\iota}
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}} \rho^{\iota}
+\bv^{\iota} \ \mathrm{d}v \right) = & \sum\limits_{\iota}
+\left(\int_{\Omega_{t}} \rho^{\iota} \bg^{\iota} \ \mathrm{d}v +
+\int_{\partial \Omega_{t}}
+\Bsigma^{\iota}\cdot\bn\ \mathrm{d}a\right)\\ -
+&\sum\limits_{\iota}\int_{\partial \Omega_{t}} \left(\rho^{\iota}
+\bv^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
+\bn\ \mathrm{d}a.
 \end{split}
 \label{eu-systembalanceofmomentum}
 \end{equation}
@@ -331,23 +334,23 @@ the relation,
 
 \begin{equation}
 \sum\limits_{\iota}\left( \rho^{\iota}\bq^{\iota} + \pi^{\iota}
-\bv^{\iota} \right) = 0.
+\bv^{\iota} \right) = 0,
 \label{eu-summationrelationmomentum}
 \end{equation}
 
-% Which states, in words that the momentum being created at a point
-% due to creation of matter has to be countered by the momentum
-% interaction arising from other species. i.e., the formulation
-% doesn't allow overall system momentum production at a point.
+\noindent which states that the momentum being introduced at a point
+due to the creation of matter has to be negated by momentum
+interactions with other species; ensuring that there is no overall
+system momentum production at any point.
 
 \subsection{The balance of angular momentum}
 \label{eu-balance-of-angular-momentum}
 
 Consider the position vector $\bp(\bx)$ of a point on the tissue
-relative to a fixed point\footnote{Which may or may not be
-  the origin of the system's Euclidean space.} in space. The balance of angular
-momentum about the fixed point, as observed from an inertial reference
-frame, of a species $\iota$ over $\Omega_{t}$ requires,
+relative to a fixed point\footnote{Which may or may not be the origin
+  of the system's Euclidean space.} in space. The balance of angular
+momentum about $\bp$, as observed from an inertial reference frame, of
+a species~$\iota$ over $\Omega_{t}$ requires,
 
 \begin{equation}
 \begin{split}
@@ -356,7 +359,8 @@ frame, of a species $\iota$ over $\Omega_{t}$ requires,
 & \underbrace{\int_{\Omega_{t}} \bp \times \rho^{\iota} \left(\bg^{\iota} +
   \bq^{\iota}\right)\ dv}_{\text{Moment from body forces}} 
 + \underbrace{\int_{\partial \Omega_{t}}
-  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da}_{\text{Moment from traction}}\\ 
+  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da}_{\text{Moment
+    from traction}}\\  
 + & \underbrace{\int_{\Omega_{t}} \bp \times
   \pi^{\iota}\bv^{\iota}\ dv}_{\text{Angular momentum being created}}
 \\ 
@@ -508,6 +512,17 @@ Onsager Reciprocity
 %%     highlight boundary conditions, or perhaps move this to the next
 %%     chapter.
 %% \end{itemize}}
+
+% The move to the following perspective was motivated by the fact that
+% the earlier formulation, and corresponding numerical examples (cite
+% sections on role of mass balance in current conf., the deformation
+% gradient split for the fluid, and the numerical example involving
+% assumptions on deformation gradient of the fluid) involved
+% quantities that, while reasonable from a 
+% mathematical pint of view, did not correspond to physical quantities
+% of interest in terms of physiological bvps. Point out that it's been
+% 2--3 years of refining our understanding and trials with the
+% previous code that's led to this point?
 
 %
 
