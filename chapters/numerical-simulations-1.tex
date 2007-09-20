@@ -42,16 +42,16 @@ concentration field of the fluid phase,\footnote{Recall from
   Section~\ref{role-of-current-mass-balance} that the physics of
   fluid-tissue interactions and the imposition of relevant boundary
   conditions are best understood and represented in the current
-  configuration.} $\rho^{\mathrm{f}}$. The current
-concentration of the solute, $\rho^{\mathrm{s}}$, is determined from
-the stabilised form of the mass balance equation provided in weak form
-in (\ref{stabilizedmassbal}). The mass balance for the solid phase is
+  configuration.} $\rho^{\mathrm{f}}$. The current concentration of
+the solute, $\rho^{\mathrm{s}}$, is determined from the stabilised
+form of the mass balance equation provided in weak form in
+(\ref{stabilizedmassbal}). The mass balance for the solid phase is
 solved in the reference configuration
-(Equation~(\ref{localbalanceofmass}) for \mbox{$\iota = \mathrm{c}$}) to
-obtain the concentration field, $\rho_{0}^{\mathrm{s}}$, since there
-are no boundary conditions associated with this differential
-equation. Backward Euler is used as the time-stepping scheme for these
-equations.
+(Equation~(\ref{localbalanceofmass}) for \mbox{$\iota = \mathrm{c}$})
+to obtain the concentration field, $\rho_{0}^{\mathrm{s}}$, since
+there are no boundary conditions associated with this differential
+equation. Backward Euler is used as the time-stepping scheme for all
+mass balance equations.
 
 In the implementation presented in this chapter, the tissue is viewed
 as a single entity when imposing the balance of momentum; and a
@@ -59,15 +59,15 @@ summation of Equation~(\ref{localbalanceofmomentum}) over
 $\iota=\mathrm{c,f}$ is solved using the relation
 (\ref{momentumsummationresult}) for the common displacement
 \mbox{field, $\bu$,} of the tissue and the fluid-filled
-pores.\footnote{The ramifications of this simplification are
-  explored in Section~\ref{constriction-1}.} Non-linear projection
-methods \citep{simotaylorpister:85} based on hexahedral elements are
-used to treat the near-incompressibility imposed by the fluid, and
-mixed methods, as described in \cite{Garikipatiox2:01}, are used for
-stress (and strain) gradient driven fluxes. Since the time scale for
-mass transport is much larger than that for mechanics, and since we
-are not focusing on inertial effects for the growth problems presented
-in this chapter, the momentum equation is solved as a quasi-static
+pores.\footnote{The consequences of this simplification are explored
+  in Section~\ref{constriction-1}.} Non-linear projection methods
+\citep{simotaylorpister:85} based on hexahedral elements are used to
+treat the near-incompressibility imposed by the fluid, and mixed
+methods, as described in \cite{Garikipatiox2:01}, are used for stress
+(and strain) gradient driven fluxes. Since the time scale for mass
+transport is much larger than that for mechanics, and since we are not
+focusing on inertial effects for the growth problems presented in this
+chapter, the momentum equation is solved as a quasi-static
 problem.\footnote{The numerical experiments presented in
   Section~\ref{biphasic-examples-2} contrast the results obtained from
   quasi-static and dynamic calculations.}
@@ -90,38 +90,41 @@ reads:
 \item[]{\tt until both problems converge.}
 \end{itemize}
 
-\noindent Its generalisation to other cases involving additional differential
-equations is straightforward.
+\noindent Its generalisation to other cases involving additional
+differential equations is straightforward.
 
 The model geometry, based on the experimental work of \citet{Calve:04}
 on the engineering and characterisation of tendon-like constructs (see
 Figure~\ref{engconst}), is a cylinder 12 mm in length and 1 mm$^2$ in
 cross-sectional area. The corresponding finite element mesh using 3840
 hexahedral elements is shown in Figure~\ref{egmesh}. The constitutive
-relation for the solid collagen uses a strain energy arising from the
-eight-chain model incorporating worm-like chains discussed in
-Section~\ref{anisotropic-network-elasticity} . The constitutive
-relation for the (ideal) fluid stress follows (\ref{Pf}) with,
+relation for the solid collagen phase uses a strain energy arising
+from the eight-chain model incorporating worm-like chains, as
+discussed in Section~\ref{anisotropic-network-elasticity} . The
+constitutive relation for the (ideal) fluid stress follows (\ref{Pf})
+with,
 
 \begin{figure}[ht]
-\centering
-  \includegraphics[width=0.6\textwidth]{images/experiments/one-construct}
-\caption{Engineered tendon construct. See \citet{Calve:04} for
-  details.} 
-\label{engconst}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/experiments/%
+    one-construct}
+  \caption{Engineered tendon construct. See \citet{Calve:04} for
+    details.} 
+  \label{engconst}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \psfrag{D}{\small$1.1284$ mm}
   \psfrag{H}{\small$12.0$ mm}
-  {\includegraphics[width=0.4\textwidth]{images/examples/lagrangian/mesh}}
+  \includegraphics[width=0.4\textwidth]{images/examples/%
+    lagrangian/mesh}
   \caption{The finite element mesh used in the computations.}
   \label{egmesh}
 \end{figure}
 
 \begin{equation}
-h(\rho^\mathrm{f}) =
+ h(\rho^\mathrm{f}) =
 \frac{1}{2}\kappa^\mathrm{f}\left(
 \frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}}
 - 1\right)^2,
@@ -160,17 +163,16 @@ appear in Table~\ref{parameters}.
 
 \begin{table}
 \centering
-\begin{tabular}{lll}
-\hline \multicolumn{1}{c}{Parameter (Symbol)} & Value & Units\\ \hline
-Chain density ($N$) & $7\times 10^{21}$ &
-$\mathrm{m}^{-3}$\\ Temperature ($\theta$) & $310.6$ & K\\ Persistence
-length ($A$) & $2.10$ & --\\ Fully-stretched length ($L$) & $2.125$ &
---\\ Unit cell axes ($a,\;b,\;c$) & $1.95,\;1.95,\;2.43$ & --\\ Bulk
-compressibility factors ($\gamma,\;\beta$) & $1000,\; 4.5$ &
---\\ Fluid bulk modulus ($\kappa^f$) & $1$ & GPa\\ Fluid mobility
-tensor ($D^\mathrm{f}_{ij} = D^\mathrm{f}\delta_{ij}$) & $1\times
-10^{-14}$ &s\\
-Fibroblast concentration ($\rho_{\mathrm{cell}}$) & 0.2 &
+\begin{tabular}{|l|l|l|}
+\hline Parameter (Symbol) & Value & Units\\ \hline \hline Chain
+density ($N$) & $7\times 10^{21}$ & $\mathrm{m}^{-3}$\\ Temperature
+($\theta$) & $310.6$ & K\\ Persistence length ($A$) & $2.10$ &
+--\\ Fully-stretched length ($L$) & $2.125$ & --\\ Unit cell axes
+($a,\;b,\;c$) & $1.95,\;1.95,\;2.43$ & --\\ Bulk compressibility
+factors ($\gamma,\;\beta$) & $1000,\; 4.5$ & --\\ Fluid bulk modulus
+($\kappa^f$) & $1$ & GPa\\ Fluid mobility tensor ($D^\mathrm{f}_{ij} =
+D^\mathrm{f}\delta_{ij}$) & $1\times 10^{-14}$ &s\\ Fibroblast
+concentration ($\rho_{\mathrm{cell}}$) & 0.2 &
 kg.m$^{-3}$\\ Max. reaction rate ($k_{\mathrm{max}} = 5$) & 5 &
 s$^{-1}$\\ Max. solute concentration ($\rho^{\mathrm{s}}_m$) & 0.2 &
 kg.m$^{-3}$\\ Solute diffusivity ($\bD^\mathrm{s}$) & $1\times
@@ -187,20 +189,21 @@ mechanical (stress) effects. A single solute species\footnote{Here, we
   growth by catalysing underlying biochemical reactions. An important
   example of this is a family of proteins, TGF$\beta$, which is a
   multi-functional peptide that controls numerous functions of many
-  cell types \citep{Alberts:02}.} is considered, denoted by s, and a
-uniform distribution of fibroblasts that are characterised by their
-cell concentration, $\rho_{\mathrm{cell}}$. Both, Fickean diffusion of
-the solute, and stress gradient driven fluid flow are incorporated in
-this illustration. Michaelis-Menten enzyme kinetics
+  cell types \citep{Alberts:02}.}, denoted by s, and a uniform
+distribution of fibroblasts that are characterised by their cell
+concentration, $\rho_{\mathrm{cell}}$, are considered. Both, Fickean
+diffusion of the solute, and stress gradient driven fluid flow are
+incorporated in this illustration. Michaelis-Menten enzyme kinetics
 (\ref{enzyme-kinetics-source}) is used to determine the rates of
 solute consumption and collagen production as a function of solute
-concentration. This non-linear relationship for our choice of
+concentration. This nonlinear relationship for our choice of
 parameters is visualised in Figure~\ref{eg3menten}. Here, the fluid
 phase does not take part in reactions, and hence $\Pi^\mathrm{f}=0$.
 
 \begin{figure}[!hpt]
   \centering
-  \includegraphics[angle=270,width=0.8\textwidth]{images/elucidation/enzyme-kinetics}
+  \includegraphics[angle=270,width=0.8\textwidth]{images/elucidation/%
+    enzyme-kinetics}
   \caption{Variation of the collagen source with solute
     concentration.}
   \label{eg3menten}
@@ -214,12 +217,12 @@ height of the tendon---is 10\%. The applied strain in the radial
 direction decreases linearly with distance from the central plane, and
 vanishes at the top and bottom surfaces of the tendon.
 
-
 \begin{figure}[!hpt]
   \centering
   \psfrag{M}{\small $\bN\cdot\bM^f$}
-  \psfrag{P}{\small ${\tiny\quad }~\bu$}
-  \includegraphics[width=5.0cm]{images/examples/lagrangian/constriction/cylinder-in-bath}
+  \psfrag{P}{\small $\bu$}
+  \includegraphics[width=5.0cm]{images/examples/%
+    lagrangian/constriction/cylinder-in-bath}
   \caption{Constrictive load applied to tendon immersed in a bath.}
   \label{constrictload}
 \end{figure}
@@ -235,44 +238,47 @@ radius in this bulb to 1~kg.m$^{-3}$ at its centre (see
 Figure~\ref{eg3ini}).
 
 \begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]{images/examples/lagrangian/medication/initial-solute-concentration}
-\caption{The solute concentration (kg.m$^{-3}$) initially.}
-\label{eg3ini}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/medication/initial-solute-concentration}
+  \caption{The solute concentration (kg.m$^{-3}$) initially.}
+  \label{eg3ini}
 \end{figure}
 
 The aim of this example is to compare the influences upon solute
 transport from two mechanisms: Fluid stress gradient-driven transport,
 arising from the applied constrictive load, and solute concentration
 gradient-driven transport. These mechanisms have both been implicated
-in nutrient supply to cells in soft tissue. The results of this
-numerical example demonstrate that because the magnitude of the fluid mobility
-for stress gradient driven transport is orders of magnitude
-smaller than the diffusion coefficient for the solute through the
-fluid, there is relatively only a small stress gradient driven flux,
-and the transport of the solute is diffusion dominated. As a result,
-the solute diffuses locally, but displays no
-observable advection along the fluid. As the diffusion-driven solute
-concentration in a region increases, the enzyme-kinetics model
-results in a small source term for collagen production, and we observe nominal
-growth. Figure~\ref{eg3conc} shows the collagen concentration at an
-early time, $t=5\times10^{-2}$~s.
+in nutrient supply to cells in soft tissue.
+
+The results of this numerical example demonstrate that because the
+magnitude of the fluid mobility for stress gradient-driven transport
+is orders of magnitude smaller than the diffusion coefficient for the
+solute through the fluid, there is relatively only a small stress
+gradient-driven flux, and the transport of the solute is diffusion
+dominated. As a result, the solute diffuses locally, but displays no
+observable advection along the fluid at the time-scales considered. As
+the diffusion-driven solute concentration in a region increases, the
+enzyme-kinetics model results in a small source term for collagen
+production, and we observe nominal growth. Figure~\ref{eg3conc} shows
+the collagen concentration at an early time, $t=5\times10^{-2}$~s.
 
 \begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]{images/examples/lagrangian/medication/final-collagen-concentration}
-\caption{The collagen concentration (kg.m$^{-3}$) at time
-  $t=5\times10^{-2}$~s.}
-\label{eg3conc}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/medication/final-collagen-concentration}
+  \caption{The collagen concentration (kg.m$^{-3}$) at time
+    $t=5\times10^{-2}$~s.}
+  \label{eg3conc}
 \end{figure}
 
 This example incorporates all of the theory discussed in
-Chapter~\ref{lagrangian-perspective}. However, it is a valuable
-exercise in modelling to simplify the boundary value problem, and
-suppress some of the coupled phenomena in order to gain a better
-understanding of some effects. This is the approach followed in the
-next two numerical examples. The detailed transport and mechanics
-induced by the constrictive radial load are discussed first in
+Chapter~\ref{lagrangian-perspective}. However, in order to gain a
+better understanding of the flow-physics underlying this problem, it
+proves useful to simplify the setting and suppress some of the coupled
+phenomena. This is the approach followed in the next two numerical
+examples. The detailed transport and mechanics induced by the
+constrictive radial load are discussed first in
 Section~\ref{constriction-1}.
 
 \section{Examples exploring the biphasic nature of porous soft tissue}
@@ -280,7 +286,7 @@ Section~\ref{constriction-1}.
 
 In these calculations, only two phases---fluid and collagen---are
 included for the mass transport and mechanics. As before, the
-parameters used in the analysis are presented in
+parameters used in the analysis are the same as those presented in
 Table~\ref{parameters}.
 
 \subsection{The tendon under constriction}
@@ -290,24 +296,23 @@ In this example, the tendon immersed in a bath is subjected to the
 same constrictive radial load as in
 Section~\ref{enzyme-kinetics-example}. Since that example demonstrated
 an insignificant amount of local collagen production over this time
-scale, we work with a simplified problem by setting the source term
-$\Pi^\mathrm{c} = 0$. The total duration of the simulation is 10~s,
-and the radial strain is applied as a displacement boundary condition,
-increasing linearly from no strain initially to the maximum strain at
-time $t = 1~\mathrm{s}$. Again, both the initial collagen
+scale, we work with a simplified problem by setting the collagen
+source term $\Pi^\mathrm{c} = 0$. The total duration of the simulation
+is 10~s, and the radial strain is applied as a displacement boundary
+condition, increasing linearly from no strain initially to the maximum
+strain at time $t = 1~\mathrm{s}$. Again, both the initial collagen
 concentration and the initial fluid concentration are 500~kg.m$^{-3}$
 at every point in the tendon. This tendon is exposed to a bath where
 the fluid concentration is 500~kg.m$^{-3}$.
 
-As mentioned in Section~\ref{computational-model}, when solving the balance of momentum
-for the biphasic problem of the solid collagen and a fluid phase, the
-tissue is currently treated as a single entity, employing a summation
-of Equation~(\ref{localbalanceofmomentum}) over both species. Additionally,
-condition~(\ref{momentumsummationresult}) allows us to avoid constitutive
-prescription of the momentum transfer terms between solid collagen and
-fluid phases,
-$\bq^\mathrm{c}$ and $\bq^\mathrm{f}$. This facilitates considerable
-simplification of the 
+As mentioned in Section~\ref{computational-model}, when solving the
+balance of momentum for the biphasic problem of the solid collagen and
+a fluid phase, the tissue is currently treated as a single entity,
+employing a summation of Equation~(\ref{localbalanceofmomentum}) over
+both species. Additionally, condition~(\ref{momentumsummationresult})
+allows us to avoid constitutive prescription of the momentum transfer
+terms between solid collagen and fluid phases, $\bq^\mathrm{c}$ and
+$\bq^\mathrm{f}$. This facilitates considerable simplification of the
 problem, but such a treatment requires additional assumptions on the
 detailed deformation of the constitutive phases of the tissue.
 
@@ -318,20 +323,19 @@ detailed deformation of the constitutive phases of the tissue.
   \psfrag{C}{$\bF$}
   \psfrag{S}{\small Solid, `c'}
   \psfrag{F}{\small Fluid, `f'}
-  \includegraphics[width=0.8\textwidth]{images/elucidation/homogeneous-deformation}
-  \caption{Upper-bound model from strain homogenisation.}
+  \includegraphics[width=0.8\textwidth]{images/elucidation/%
+    homogeneous-deformation}
+  \caption{Upper bound model from strain homogenisation.}
   \label{upper-bound-model}
 \end{figure}
 
 An implicit assumption we have drawn on thus far is the equality of
 the deformation gradient of the solid collagen and pore spaces,
 allowing us to use the deformation gradient $\bF$, suitably decomposed
-to account for change in fluid concentration, to model the fluid
+to account for change in species concentration, to model the fluid
 stress. This assumption, depicted in Figure~\ref{upper-bound-model},
-had important consequences for the developments in Sections
-\ref{balance-of-mass}, \ref{kinematics-of-growth},
-\ref{saturation-and-tissue-swelling}, \ref{ideal-incompressible-fluid},
-\ref{caviation-under-tension} and \ref{incompressible-fluid-porous-solid}.
+had important consequences for the developments in
+Chapter~\ref{lagrangian-perspective}.
 
 Since the imposition of a common deformation gradient results in an
 upper bound for the effective stiffness of the tissue and magnitudes
@@ -341,8 +345,9 @@ fluid flux driven by the fluid stress gradient.
 
 \begin{figure}[!hpt]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/examples/lagrangian/constriction/upper-bound-flux}
-  \caption{{\em Upper bound} fluid flux (kg.m$^{-2}$.s$^{-1}$) in
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/constriction/upper-bound-flux}
+  \caption{Upper bound fluid flux (kg.m$^{-2}$.s$^{-1}$) in
     the vertical direction at time $t=1$~s.}
   \label{eg2flux}
 \end{figure}
@@ -358,7 +363,8 @@ Figure~\ref{eg2conc}.
 
 \begin{figure}[!hpt]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/examples/lagrangian/constriction/fluid-concentration}
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/constriction/fluid-concentration}
   \caption{Reference fluid concentration (kg.m$^{-3}$) at time
     $t=1$~s.}
   \label{eg2conc}
@@ -369,17 +375,17 @@ collagen, or preferential growth, in the presence of non-zero source
 terms. As discussed in Section~\ref{role-of-current-mass-balance}, the
 mass transport equations are solved in the current configuration,
 where physical boundary conditions can be set directly. The values
-reported in Figure~\ref{eg2conc} are pulled back from the current
+reported in Figure~\ref{eg2conc} are pulled-back from the current
 configuration. The current concentrations do not change for this
 boundary value problem.
 
-Solving a problem of this nature in the
-reference configuration using $\rho_0^\mathrm{f} = $ const. as the
-boundary condition to represent immersion of the tendon in a fluid bath
-yields non-physical results, such as an unbounded flow. This occurs
-since the imposed strain gradient causes a stress gradient in the
-fluid that does not decay. The imposed boundary condition on $\rho_0^\mathrm{f}$
-prevents a redistribution of concentration that would have provided an
+Solving a problem of this nature in the reference configuration using
+$\rho_0^\mathrm{f} = $ const. as the boundary condition to represent
+immersion of the tendon in a fluid bath yields non-physical results,
+such as an unbounded flow. This occurs since the imposed strain
+gradient causes a stress gradient in the fluid that does not
+decay. The imposed boundary condition on $\rho_0^\mathrm{f}$ prevents
+a redistribution of concentration that would have provided an
 opposing, internal gradient of stress, which in turn would drive the
 flux to vanish.
 
@@ -392,15 +398,16 @@ fluid travelling toward the top and bottom faces. As the fluid leaves
 these surfaces, we observe that the tendon relaxes. This is seen in
 Figure~\ref{topdisp}, which plots the vertical displacement of the top
 face with time, showing a decrease in height of the tendon after the
-constriction phase. We keep the centre of the bottom face of the
-tendon fixed.
+constriction phase. The centre of the bottom face of the tendon is
+kept fixed.
 
 \begin{figure}[!hpt]
   \centering
-      {\includegraphics[width=0.8\textwidth]{images/examples/lagrangian/constriction/top-vertical-displacement}}
-      \caption{Relaxation of the top face of the tendon after the
-      constriction phase.}
-      \label{topdisp}
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/constriction/top-vertical-displacement}
+  \caption{Relaxation of the top face of the tendon after the
+    constriction phase.}
+  \label{topdisp}
 \end{figure}
 
 In order to define a range of the magnitude of fluid flux, we now
@@ -412,17 +419,17 @@ hydrostatic stress of the solid phase and the fluid pressure in the
 current configuration:
 
 \begin{equation}
-p^{\mathrm{f}}=\frac{1}{3} \mathrm{\small{tr}}[\Bsigma^{c}],
+p^{\mathrm{f}} = \frac{1}{3} \mathrm{\small{tr}}[\Bsigma^{c}],
 \label{equalpr}
 \end{equation}
 
 \noindent where $p^{\mathrm{f}}$ is the fluid pressure in the current
-configuration, $\mbox{\small{tr}[\textbullet]}$ is the trace operator, and
-$\Bsigma^{c}=\frac{1}{\mathrm{J^{c}}} \bP^{\mathrm{c}}
-\bF^{\mathrm{c}^{\mathrm{T}}}$ is the Cauchy stress of the solid. This
-assumption is depicted in Figure~\ref{lower-bound-model}. The
+configuration, $\mbox{\small{tr}[\textbullet]}$ is the trace operator,
+and $\Bsigma^{c}=\frac{1}{\mathrm{J^{c}}} \bP^{\mathrm{c}}
+\bF^{\mathrm{c}^{\mathrm{T}}}$ is the Cauchy stress of the solid. The
 Cauchy stress of an ideal fluid can be defined from its current
-pressure as \mbox{$\Bsigma^{f}= p^{\mathrm{f}} \bone$.} 
+pressure as \mbox{$\Bsigma^{f}= p^{\mathrm{f}}\ \bone$.} This
+assumption is depicted in Figure~\ref{lower-bound-model}.
 
 \begin{figure}[ht]
   \centering
@@ -431,41 +438,47 @@ pressure as \mbox{$\Bsigma^{f}= p^{\mathrm{f}} \bone$.}
   \psfrag{C}{$\bF$}
   \psfrag{S}{\small Solid, `c'}
   \psfrag{F}{\small Fluid, `f'}
-  \includegraphics[width=0.8\textwidth]{images/elucidation/homogeneous-stress}
-  \caption{Lower-bound model from stress homogenisation.}
+  \includegraphics[width=0.8\textwidth]{images/elucidation/%
+    homogeneous-stress}
+  \caption{Lower bound model from stress homogenisation.}
   \label{lower-bound-model}
 \end{figure}
 
 Figure~{\ref{lowerbound}} reports the value of the vertical flux under
-the lower bound modelling assumption, using boundary conditions identical to the
-previous calculation at time $t=1$~s, the final stage of the
-constriction phase of the simulation.
+the lower bound modelling assumption, using boundary conditions
+identical to the previous calculation at time $t=1$~s, the final stage
+of the constriction phase of the simulation.
 
 \begin{figure}[!hpt]
   \centering
-      {\includegraphics[width=0.8\textwidth]{images/examples/lagrangian/constriction/lower-bound-flux}}
-      \caption{{\em Lower bound} fluid flux (kg.m$^{-2}$.s$^{-1}$) in
-        the vertical direction at time $t=1$~s.}
-      \label{lowerbound}
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/constriction/lower-bound-flux}
+  \caption{Lower bound fluid flux (kg.m$^{-2}$.s$^{-1}$) in the
+    vertical direction at time $t=1$~s.}
+  \label{lowerbound}
 \end{figure}
 
 The fluid flux values reported in Figures~\ref{eg2flux} and
 \ref{lowerbound} (corresponding to the upper and lower bound modelling
 assumptions, respectively) are qualitatively similar, but differ by
-about three orders of magnitude.\footnote{The computational
-  implementation used in Chapter~\ref{numerical-simulations-2} solves
-  the detailed balance of momentum equations, i.e. a pushed-forward
-  form of Equation~\ref{localbalanceofmomentum} for each species
-  individually, obviating the need for either of these homogenisation
-  assumptions.} This wide range points to the importance of imposing
-the appropriate mechanical coupling model between interacting
-phases. Note, however, that we now have the range of possible fluid
-flux values under the specified mechanical loading. Recall,
-furthermore, that the example in Section \ref{enzyme-kinetics-example}
-used the upper bound model, and yet resulted in no discernible
-advective solute transport. This suggests strongly that, given the
-parameters in Table \ref{parameters}, convective transport of
-nutrients in tendons is dominated by diffusive transport.
+about three orders of magnitude. This wide range points to the
+importance of imposing the appropriate mechanical coupling model
+between interacting phases.\footnote{The computational implementation
+  used in Chapter~\ref{numerical-simulations-2} models the mechanical
+  coupling between the phases by specifying the momentum transfer
+  terms, $\bq^{\iota}$, between the solid and fluid phases. It works
+  with these quantities by solving the {\em detailed} balance of
+  momentum equations (i.e. a pushed-forward form of
+  Equation~(\ref{localbalanceofmomentum}) for each species
+  individually), and obviates the need for either of these
+  homogenisation assumptions.}  Note, however, that we now have the
+range of possible fluid flux values under the specified mechanical
+loading. Recall, furthermore, that the example in Section
+\ref{enzyme-kinetics-example} used the upper bound model, and yet
+resulted in no discernible advective solute transport. This suggests
+strongly that, given the parameters in Table \ref{parameters},
+convective transport of nutrients in tendons is dominated by diffusive
+transport.
 
 \begin{table}
 \begin{center}
@@ -534,8 +547,8 @@ where the fluid response is defined by Equation~(\ref{equalpr}), it is
 instructive to note that this ratio is unity. As a result, it is seen
 that the lower bound case exhibits significantly weaker coupling than
 the upper bound case. In the latter, variation in the common
-deformation gradient, $\delta \bF$, causes instantaneous variation in
-\mbox{$\delta p^{\mathrm{f}} \approx O(\kappa^{\mathrm{f}} \delta
+deformation gradient, $\delta \bF$, causes an instantaneous variation
+in \mbox{$\delta p^{\mathrm{f}} \approx O(\kappa^{\mathrm{f}} \delta
   \bF:\bF^{-\mathrm{T}})$} and in \mbox{$\frac{1}{3}
   \delta\mathrm{\small{tr}}[\Bsigma^{c}] \approx O(\kappa^{\mathrm{c}}
   \delta \bF:\bF^{-\mathrm{T}})$}, where $\kappa^{\mathrm{c}}$ is the
@@ -548,10 +561,10 @@ The strength of coupling between the equations plays a principal role
 in the rate of convergence of the solution, as observed in
 Table~\ref{resnorms}, where the residual norms of the equilibrium
 equation (and corresponding CPU times in seconds for an
-\mbox{Intel\textregistered\ Xeon} 3.4 GHz machine) are reported for the first
-8 iterations of each of the two cases. Recall that the staggered
-scheme involves solution of the mechanics equation keeping the
-concentrations fixed, and the mass transport equation keeping the
+\mbox{Intel\textregistered\ Xeon} 3.4 GHz machine) are reported for
+the first 8 iterations of each of the two cases. Recall that the
+staggered scheme involves solution of the mechanics equation keeping
+the concentrations fixed, and the mass transport equation keeping the
 displacements fixed, in turn, until the solution converges. The table
 does not report the value of the residual norms arising from the
 solution of the mass transport equation for the fluid, which occurs
@@ -560,14 +573,12 @@ the initial mechanics residual norms in successive passes are
 decreasing linearly in both cases, the rapid decrease in this quantity
 in the weakly-coupled case ensures convergence in far fewer iterations
 than the strongly coupled case. Thus, the corresponding CPU times
-reported are also lower for the weakly coupled case. This is
-advantageous. In addition to being more physical, as argued at the
-beginning of Section \ref{swelling-1} immediately below, the lower
-bound, weakly-coupled case makes it feasible to drive problems to
-longer, physiologically-relevant time-scales through the use of larger
-time steps.
-
-
+reported are also significantly lower for the weakly coupled case,
+which is is advantageous. In addition to being more physical, as
+argued at the beginning of Section \ref{swelling-1} immediately below,
+the lower bound, weakly-coupled case makes it feasible to drive
+problems to longer, physiologically-relevant time-scales through the
+use of larger time steps.
 
 \subsection{A swelling problem}
 \label{swelling-1}
@@ -584,54 +595,54 @@ is a statement of momentum balance between them. There is reason to
 suppose, therefore, that equating the solid collagen and fluid stress,
 or some component of these tensors as done in the lower bound model,
 is a reasonable approximation to explicitly solving the balance of
-linear momentum for each phase, including the momentum transfers. In
-contrast, equating the deformation gradient of the solid collagen with
-deformation of the pore spaces subjects the fluid to a stress state
-also determined by this deformation gradient in the upper bound
-model. This approximation does not correspond to an underlying
+linear momentum for each phase, including the momentum transfers, as
+carried out in Chapter~\ref{numerical-simulations-2}. In contrast,
+equating the deformation gradient of the solid collagen with
+deformation of the pore spaces in the upper bound model subjects the
+fluid to a stress state also determined by this deformation
+gradient. This approximation does not correspond to an underlying
 physical principle comparable to the satisfaction of individual
 balances of linear momentum for solid collagen and fluid, with
-momentum transfers. It is therefore somewhat less motivated and more
-questionable. Clearly, a rigorous analysis or numerical comparisons of
-all three models: upper bound, lower bound and direct solution of
-individual solid-fluid momentum balances, must be carried out to
-conclusively demonstrate this.
+momentum transfers.
 
-In this example we study the mechanical effects of growth due to
-collagen production. In the interest of focusing on this issue, we
-assume that fibroblasts are available, and that the fluid phase bears
-the necessary nutrients for collagen production dissolved at a
+In the following example, we study the mechanical effects of growth
+due to collagen production. In the interest of focusing on this issue,
+we assume that fibroblasts are available, and that the fluid phase
+bears the necessary nutrients for collagen production dissolved at a
 suitable, constant concentration. Collagen production is assumed to be
 governed by a first-order rate law, as discussed in
-Section~\ref{nature-of-sources} (\romannumeral 1). In this calculation, the
-reaction rate, $k^\mathrm{f}$, taken to be 0.07 $\mathrm{s}^{-1}$.
-
-The boundary conditions in this example correspond to immersion of the
-tendon in a nutrient-rich bath. The initial collagen concentration is
-500~kg.m$^{-3}$ and the fluid concentration is 400~kg.m$^{-3}$ at
-every point in the tendon. When this tendon is exposed to a bath
-where the fluid concentration is 410~kg.m$^{-3}$,
-i.e. $\rho^\mathrm{f}(\bx,t)=410~\mathrm{kg.m}^{-3} \forall \bx \in
-\partial\Omega_t$, nutrient-rich fluid is transported into the tissue,
-due to the pressure difference, induced by the concentration
-difference, between the fluid in the tendon and in 
-the bath (fluid stress gradient-driven flux). Thereby, the nutrient
-concentration is elevated, leading to collagen production, fluid
-consumption and, eventually, growth due to additional collagen. 
+Section~\ref{nature-of-sources} (\romannumeral 1). In this
+calculation, the reaction rate, $k^\mathrm{f}$, taken to be 0.07
+$\mathrm{s}^{-1}$.
 
 \begin{figure}[!hpt]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/examples/lagrangian/swelling/before-growth}
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    lagrangian/swelling/before-growth}
   \caption{The initial collagen concentration (kg.m$^{-3}$).}
   \label{before_growth}
 \end{figure}
 
 \begin{figure}[!hpt]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/examples/lagrangian/swelling/after-growth}
+  \includegraphics[width=0.8\textwidth]{images/examples/lagrangian/%
+    swelling/after-growth}
   \caption{The collagen concentration (kg.m$^{-3}$) after 1800~s.}
   \label{after_growth}
 \end{figure}
+
+The boundary conditions in this example correspond to immersion of the
+tendon in a nutrient-rich bath. The initial constant collagen
+concentration is 500~kg.m$^{-3}$ and the fluid concentration is
+400~kg.m$^{-3}$ at every point in the tendon. When this tendon is
+exposed to a bath where the fluid concentration is 410~kg.m$^{-3}$,
+i.e. $\rho^\mathrm{f}(\bx,t)=410~\mathrm{kg.m}^{-3} \forall \bx \in
+\partial\Omega_t$, nutrient-rich fluid is transported into the tissue,
+due to the pressure difference, induced by the concentration
+difference, between the fluid in the tendon and in the bath (fluid
+stress gradient-driven flux). Thereby, the nutrient concentration is
+elevated, leading to collagen production, fluid consumption and,
+eventually, growth due to additional collagen.
 
 Figure~\ref{before_growth} shows the initial collagen concentration in
 the tendon. After it has been immersed in the nutrient-rich bath for
@@ -639,34 +650,51 @@ the tendon. After it has been immersed in the nutrient-rich bath for
 higher as seen in Figure~\ref{after_growth}. On performing a uniaxial
 tension test on the tendon before and after growth, it is observed
 (Figure~\ref{stress_strain}) that the grown tissue is stiffer and
-stronger due to its higher collagen concentration. Also note that
-there is a rapid, fluid transport-dominated swelling of the tendon
+stronger due to its higher collagen concentration. Qualitatively, this
+compares favourably with the experimental work of
+\citet{arrudaetal05}, where self-organised tendon constructs after
+growth induced by cyclic stretching are found to contain more collagen
+and become more stiff (see
+Figure~\ref{experiment-before-after-growth}).
+
+\begin{figure}[!hpt]
+  \centering
+  \includegraphics[angle=270,width=0.8\textwidth]{images/examples/%
+    lagrangian/swelling/stress-stretch}
+  \caption{The stress (Pa) vs stretch curves before and after growth.}
+  \label{stress_strain}
+\end{figure}
+
+\begin{figure}[!hpt]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/experiments/%
+      growth-strengthens-tissues.eps}    
+    \caption{The tensile response of tendon constructs
+      \citep{arrudaetal05}.}
+    \label{experiment-before-after-growth}
+  \end{center}
+  {The stress (MPa) vs strain response of self-organised tendon
+    constructs before and after growth induced by cyclic stretching.}
+\end{figure}
+
+There is a rapid, fluid transport-dominated swelling of the tendon
 between 0 and 25 s following immersion in the fluid bath
 (Figure~\ref{volume_evolution}). This causes a small volume change of
-$\approx 1.6$\%. In this transport-dominated regime the contribution
+$\approx 1.6$\%. In this transport-dominated regime, the contribution
 to tendon growth from collagen production is small. However, the
 fluid-induced swelling saturates, and between 25 and 1800 s the
 reaction producing collagen dominates the growth process, producing a
 further $\approx 6.8$\% volume change. Noting that the range of
 collagen concentration in Figure~\ref{after_growth} is $585-626\;
 \mbox{kg.m}^{-3}$, and that (\ref{isotropicgrowth}) gives
-$\bF^{\mathrm{g}^\mathrm{c}} = \left(
-\frac{\rho_0^\mathrm{c}}{\rho_{0_{\mathrm{ini}}}^\mathrm{c}} \right)^
-     {\frac{1}{3}} {\bf 1}$, this portion of the volume change is
-     quite clearly due to collagen production. The total volume change
-     of $8.4$\% corresponds to changes in each linear dimension of the
-     tendon by only $\approx 2.7$\%, and is not discernible upon
-     comparing Figures~\ref{before_growth} and \ref{after_growth}. It
-     is, however, manifest in Figure~\ref{volume_evolution}.
-
-\begin{figure}[!hpt]
-  \centering
-  \includegraphics[angle=270,width=0.8\textwidth]{images/examples/lagrangian/swelling/stress-stretch}
-  \caption{The stress (Pa) vs stretch curves before and after growth.}
-  \label{stress_strain}
-\end{figure}
-
-% Note: A comparison curve from experiment can go here.
+$\bF^{\mathrm{g}^\mathrm{c}} = \left( \frac{\rho_0^\mathrm{c}}
+     {\rho_{0_{\mathrm{ini}}} ^\mathrm{c}} \right) ^ {\frac{1}{3}}
+     {\bf 1}$, this portion of the volume change is quite clearly due
+     to collagen production. The total volume change of $8.4$\%
+     corresponds to changes in each linear dimension of the tendon by
+     only $\approx 2.7$\%, and is not discernible upon comparing
+     Figures~\ref{before_growth} and \ref{after_growth}. It is,
+     however, manifest in Figure~\ref{volume_evolution}.
 
 \begin{figure}[!hpt]
   \begin{center}

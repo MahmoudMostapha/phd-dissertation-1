@@ -34,6 +34,17 @@ discussed in Section~\ref{eu-algorithmic-considerations}.
 \section{Balance laws for an open mixture}
 \label{eu-balance-laws}
 
+% The move to the following perspective was motivated by the fact that
+% the earlier formulation, and corresponding numerical examples (cite
+% sections on role of mass balance in current conf., the deformation
+% gradient split for the fluid, and the numerical example involving
+% assumptions on deformation gradient of the fluid) involved
+% quantities that, while reasonable from a 
+% mathematical pint of view, did not correspond to physical quantities
+% of interest in terms of physiological bvps. Point out that it's been
+% 2--3 years of refining our understanding and trials with the
+% previous code that's led to this point?
+
 We initiate this discussion with the introduction of $\Omega_{t}$, a
 temporally-varying closure of an open set in $\mathbb{R}^{3}$ with a
 piecewise smooth boundary, which we define to be our region of
@@ -93,6 +104,11 @@ relative to the solid component of the tissue.\footnote{And, with the
   redefinition of these quantities as total velocities, the velocity
   of the solid phase ceases to be special. This is manifest in the
   forms of the balance laws deduced.}
+
+% And it is for this reason that the entire treatment is for an
+% arbitrary species~$\iota$ and specialisations to c, f, s are only
+% introduced when talking about constitutive relationships specific to
+% the different constituents of the tissue.
 
 \subsection{Balance of mass}
 \label{eu-balance-of-mass}
@@ -185,6 +201,13 @@ tissue as a whole, it is clear that the sources and sinks satisfy,
 \sum\limits_{\iota}\pi^{\iota} = 0.
 \label{eu-summationrelationmass}
 \end{equation}
+
+% Which, in words, states that the only kinds of chemical interactions
+% allowed in the formulation are those in which the mass of species
+% get converted between each other; similar to the law of mass action?
+
+%i.e., the formulation
+% doesn't allow overall system momentum production at a point.
 
 An identical relation is obtained by \citet{TruesdellToupin:60} and
 others who follow their ideas (see, for e.g., \cite{passmanetal} and
@@ -311,6 +334,11 @@ the relation,
 \bv^{\iota} \right) = 0.
 \label{eu-summationrelationmomentum}
 \end{equation}
+
+% Which states, in words that the momentum being created at a point
+% due to creation of matter has to be countered by the momentum
+% interaction arising from other species. i.e., the formulation
+% doesn't allow overall system momentum production at a point.
 
 \subsection{The balance of angular momentum}
 \label{eu-balance-of-angular-momentum}
