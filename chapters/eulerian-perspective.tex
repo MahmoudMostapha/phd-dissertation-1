@@ -202,10 +202,10 @@ the masses of species get interconverted between each other, i.e.,
 the system contains no internal sources of matter.
 
 An identical relation is obtained by \citet{TruesdellToupin:60} and
-others who follow their ideas (see, for e.g., \cite{passmanetal} and
-\cite{ateshian07}), but their deduction of this result, and other
-similar results involving quantities internal to the system
-(Equations~(\ref{eu-summationrelationmomentum}) and
+others who follow their ideas (see, for e.g., \citet{bowen76},
+\citet{passmanetal} and \citet{ateshian07}), but their deduction of
+this result, and other similar results involving quantities internal
+to the system (Equations~(\ref{eu-summationrelationmomentum}) and
 (\ref{eu-summationrelationenergy})), stems from a formally stated
 assumption that ``the mean response of a heterogeneous mixture obeys
 the ordinary equations of a continuum.'' While we do not explicitly
@@ -526,7 +526,8 @@ the balance of mass (\ref{eu-localbalanceofmass}), we are left with:
 \begin{equation*}
 \begin{split}
 \int_{\Omega_{t}}
-\rho^{\iota} \frac{\partial E^{\iota}}{\partial t}\ \mathrm{d}v  = & \int_{\Omega_{t}}
+\rho^{\iota} \frac{\partial E^{\iota}}{\partial t}\ \mathrm{d}v  = &
+\int_{\Omega_{t}}
   \rho^{\iota} \left(\bg^{\iota} +
   \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v +
 \int_{\Omega_{t}}
@@ -608,7 +609,7 @@ E^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
 \label{eu-energyexternal}
 \end{equation}
  
-\noindent Since the equation above and a summation of Equation~%
+\noindent Since the equation above, and a summation of Equation~%
 (\ref{eu-globalbalanceofenergy}) over all $\iota$ are equivalent
 statements of the balance of energy of the entire system, it follows
 upon inspection and localisation that,
@@ -626,42 +627,52 @@ mechanism internal to the system.
   relationships}
 \label{eu-entropy-inequality}
 
-With the balance laws deduced, we now proceed to 
-The treatment presented in this section builds upon the same
-fundamental assumptions entropy production inequality) is assumed to hold at a continuum point
-for all species as a whole, but, in general, not for each individual
-species. Differing views on the spatial scale at which a continuum
-point is defined lead to varying interpretations of the Second
-Law. The spatial scale of our continuum point is chosen such that the
-following arguments are valid. Another assumption that is tied to this
-spatial scale, and consequently to the degree of observed homogeneity
-between mixed species, is that all species occupying a continuum point
-in the tissue have the same absolute temperature, $\theta$.
+In order to close the system of balance equations deduced in
+Section~\ref{eu-balance-laws}, and make thermodynamically-valid
+constitutive choices pertinent to biological tissues, we turn to the
+principles of entropy growth and material frame-indifference. The
+following treatment builds upon the same fundamental assumptions
+underlying our system of interest as stated in
+Section~\ref{entropy-inequality}:
 
-In contrast with Section~\ref{entropy-inequality}, we assume that the
-observer is external to the system and knows nothing about internal
-interactions. 
+\begin{enumerate}
+\item[(\romannumeral 1)] The entropy production inequality is assumed
+  to hold at a continuum point for all species as a whole, but, in
+  general, not for each individual species.
+\item[(\romannumeral 2)] All species occupying a continuum point in
+  the tissue have the same absolute temperature, $\theta$.%
+  \footnote{Enforcing the entropy inequality separately to each of the
+    individual constituents of the mixture imposes unrealistic
+    constraints on the mixture. (See, for e.g.,
+    \citet{BedfordDrumheller:1983} and \citet{ateshian07}.)}
+\end{enumerate} 
+
+\noindent However, in contrast with Section~\ref{entropy-inequality},
+in the derivation of the Clausius-Duhem form of the Second Law of
+Thermodynamics in Section~\ref{eu-clausius-duhem-form} immediately
+below, we assume the viewpoint of an observer external to the system
+unaware of any internal interactions.
 
 \subsection{The Clausius-Duhem form}
 \label{eu-clausius-duhem-form}
 
-% As an external observer would call it
-
-With these assumptions, and denoting by $\eta^\iota$ the entropy per
-unit mass of species~$\iota$, the entropy inequality, when written out
-for the entire system in $\Omega_{t}$ reads,
+With the assumptions introduced above, and denoting by $\eta^\iota$
+the entropy per unit mass of species~$\iota$, the entropy inequality,
+when written out for the entire system in $\Omega_{t}$ reads,
 
 \begin{equation}
 \begin{split}
-\sum\limits_{\iota} \underbrace{\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}}
-  \rho^{\iota} \eta^{\iota}\ \mathrm{d}v \right)}_{\text{Rate of change
-    of entropy}} \geq & \sum\limits_{\iota} 
+\sum\limits_{\iota}
+\underbrace{\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}}
+  \rho^{\iota} \eta^{\iota}\ \mathrm{d}v \right)}_{\text{Rate of
+    change of entropy}} \geq & \sum\limits_{\iota}
 \underbrace{\int_{\Omega_{t}} \frac{ \rho^{\iota}
-    r^{\iota}}{\theta}\ \mathrm{d}v}_{\text{Entropy supplied}} - \sum\limits_{\iota} 
-\underbrace{\int_{\partial \Omega_{t}}
-  \frac{\bh^{\iota}\cdot\bn}{\theta}\ \mathrm{d}a.}_{\text{Entropy outflux}} \\ - &
-\sum\limits_{\iota}  \underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota} \eta^{\iota}
-  \right) \left(\bv^{\iota} - \bv\right) \cdot
+    r^{\iota}}{\theta}\ \mathrm{d}v}_{\text{Entropy supplied}} -
+\sum\limits_{\iota} \underbrace{\int_{\partial \Omega_{t}}
+  \frac{\bh^{\iota}\cdot\bn}{\theta}\ \mathrm{d}a.}_{\text{Entropy
+    outflux}} \\ - & \sum\limits_{\iota} \underbrace{\int_{\partial
+    \Omega_{t}} \left(\rho^{\iota} \eta^{\iota} \right)
+  \left(\bv^{\iota} - \bv\right) \cdot
   \bn\ \mathrm{d}a}_{\text{Entropy lost due to mass flux}}
 \end{split}
 \label{eu-globalbalanceofentropy}
@@ -674,46 +685,127 @@ integrals, we have,
 
 \begin{equation*}
 \begin{split}
-\sum\limits_{\iota} \int_{\Omega_{t}}
-  \frac{\partial \left(\rho^{\iota} \eta^{\iota}\right) }{\partial t} \ \mathrm{d}v
-  \geq & \sum\limits_{\iota}  
-\int_{\Omega_{t}} \frac{ \rho^{\iota}
-    r^{\iota}}{\theta}\ \mathrm{d}v - \sum\limits_{\iota} 
+\sum\limits_{\iota} \int_{\Omega_{t}} \frac{\partial
+  \left(\rho^{\iota} \eta^{\iota}\right) }{\partial t} \ \mathrm{d}v
+\geq & \sum\limits_{\iota} \int_{\Omega_{t}} \frac{ \rho^{\iota}
+  r^{\iota}}{\theta}\ \mathrm{d}v - \sum\limits_{\iota}
 \int_{\Omega_{t}} \left(
-  \frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta}
-- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
-\right)\ \mathrm{d}v \\ - &
-\sum\limits_{\iota} \int_{\Omega_{t}} \left( \eta^{\iota}\ \mathrm{div}
-\left(\rho^{\iota}\bv^{\iota} 
-  \right) +
-  \rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}\right)
-  \right)\ \mathrm{d}v.
+\frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta} -
+\frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
+\right)\ \mathrm{d}v \\ - & \sum\limits_{\iota} \int_{\Omega_{t}}
+\left( \eta^{\iota}\ \mathrm{div} \left(\rho^{\iota}\bv^{\iota}
+\right) +
+\rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}\right)
+\right)\ \mathrm{d}v.
 \end{split}
 \end{equation*}
 
-\noindent Applying the chain rule and the balance of
-mass~(\ref{eu-localbalanceofmass}),
+\noindent Applying the chain rule of differentiation and the balance
+of mass~(\ref{eu-localbalanceofmass}),
 
 \begin{equation*}
 \begin{split}
-\sum\limits_{\iota} \int_{\Omega_{t}}
-( \rho^{\iota}  \frac{\partial \eta^{\iota}}{\partial t}
-+ \cancelto{\pi^{\iota}\eta^{\iota}}{\eta^{\iota}  \frac{\partial
-    \rho^{\iota}}{\partial t}}) \ \mathrm{d}v 
-  \geq & \sum\limits_{\iota}  
-\int_{\Omega_{t}} \frac{ \rho^{\iota}
-    r^{\iota}}{\theta}\ \mathrm{d}v\\ -& \sum\limits_{\iota} 
+\sum\limits_{\iota} \int_{\Omega_{t}} ( \rho^{\iota} \frac{\partial
+  \eta^{\iota}}{\partial t} +
+\cancelto{\pi^{\iota}\eta^{\iota}}{\eta^{\iota} \frac{\partial
+    \rho^{\iota}}{\partial t}}) \ \mathrm{d}v \geq &
+\sum\limits_{\iota} \int_{\Omega_{t}} \frac{ \rho^{\iota}
+  r^{\iota}}{\theta}\ \mathrm{d}v\\ -& \sum\limits_{\iota}
 \int_{\Omega_{t}} \left(
-  \frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta}
-- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
-\right)\ \mathrm{d}v \\ - &
-\sum\limits_{\iota} \int_{\Omega_{t}} \left( \cancel{\eta^{\iota}\ \mathrm{div}
-\left(\rho^{\iota}\bv^{\iota} 
-  \right)} +
-  \rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}\right)
-  \right)\ \mathrm{d}v.
+\frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta} -
+\frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
+\right)\ \mathrm{d}v \\ - & \sum\limits_{\iota} \int_{\Omega_{t}}
+\left( \cancel{\eta^{\iota}\ \mathrm{div}
+  \left(\rho^{\iota}\bv^{\iota} \right)} +
+\rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}\right)
+\right)\ \mathrm{d}v,
 \end{split}
 \end{equation*}
+
+\noindent and rearranging terms and localising, we have the following
+form of the entropy inequality for the entire system:
+
+\begin{equation}
+\begin{split}
+\sum\limits_{\iota}\ \left( \rho^{\iota} \frac{\partial
+  \eta^{\iota}}{\partial t} + \pi^{\iota}\eta^{\iota}\right) \geq &
+\sum\limits_{\iota} \left( \frac{ \rho^{\iota} r^{\iota}}{\theta} -
+\rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}
+\right)\right)\ \\ -& \sum\limits_{\iota} \left(
+\frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta} -
+\frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
+\right).
+\end{split}
+\label{eu-localentropyinequality}
+\end{equation}
+
+Now, multiplying Equation~(\ref{eu-localentropyinequality}) by the
+temperature field, $\theta$, and subtracting it from a summation of the
+balance of energy~(\ref{eu-localbalanceofenergy}) over all
+species~$\iota$ gives,
+
+\begin{equation*}
+\begin{split}
+\sum\limits_{\iota}\ \left(\rho^{\iota} \dot{e^{\iota}} -
+\rho^{\iota} \dot{\eta^{\iota}} \theta 
+ - \pi^{\iota}\eta^{\iota}\theta \right) \leq &
+\sum\limits_{\iota} \left(
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta}
+\right)\ \\ +& \sum\limits_{\iota}\bigg( \rho^{\iota} \tilde{e}^{\iota} -
+\rho^{\iota}\bv^{\iota} \cdot\left(
+\mathrm{grad} \left(e^{\iota}\right) - \mathrm{grad}\left(\eta^{\iota}
+\right)\theta\right)\bigg),
+\end{split}
+\end{equation*}
+
+\noindent where $\dot{\bullet}=\frac{\partial \bullet}{\partial
+  t}$. Using Equation~(\ref{eu-summationrelationenergy}) to eliminate 
+$\tilde{e}^{\iota}$,
+
+\begin{equation*}
+\begin{split}
+\sum\limits_{\iota}\ \left(\rho^{\iota} \dot{e^{\iota}} -
+\rho^{\iota} \dot{\eta^{\iota}} \theta 
+ - \pi^{\iota}\eta^{\iota}\theta \right) \leq &
+\sum\limits_{\iota} \left(
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta}
+\right)\ \\ -& \sum\limits_{\iota}
+\rho^{\iota}\bv^{\iota} \cdot\left(
+\mathrm{grad} \left(e^{\iota}\right) - \mathrm{grad}\left(\eta^{\iota}
+\right)\theta\right) \\ -& \sum\limits_{\iota} \left( \rho^{\iota}\bq^{\iota}\cdot\bv^{\iota} +
+ \pi^{\iota} \left(e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2\right) \right).
+\end{split}
+\end{equation*}
+
+Introducing the Helmholtz free energy per unit mass of
+species~$\iota$, \mbox{$\psi^\iota = e^\iota - \theta\eta^\iota$}, and
+regrouping terms, the relation above reduces to,
+
+\begin{equation}
+\begin{split}
+\sum\limits_{\iota}\ \bigg(\rho^{\iota} \dot{e^{\iota}} - \rho^{\iota}
+\dot{\eta^{\iota}} \theta
+-\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right) +
+\frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta} \bigg)
+& \\ + \sum\limits_{\iota} \left( \rho^{\iota}
+(\bq^{\iota}+\mathrm{grad}\left(\psi^{\iota}\right)) \cdot\bv^{\iota}
++ \pi^{\iota} \left(\psi^{\iota}+\frac{1}{2}
+\Vert\bv^\iota\Vert^2\right) \right) & \leq 0
+\end{split}
+\label{eu-clausiusduhemform}
+\end{equation}
+
+\noindent the Clausius-Duhem (or reduced dissipation) inequality for
+the growth process; a rule which any prescribed constitutive
+relationship must satisfy \citep{TruesdellToupin:60}.
+
+Over the course of the subsequent sections, we proceed to prescribe
+constitutive relations pertinent to the mechanics of growing
+biological tissue which ensure that the left hand-side of
+Clausius-Duhem inequality~(\ref{eu-clausiusduhemform}) vanishes
+entirely, ensuring that it is satisfied a priori.
 
 
 \subsection{A viscoelastic solid}
