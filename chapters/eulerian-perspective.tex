@@ -199,7 +199,7 @@ tissue as a whole, it is clear that the sources and sinks satisfy,
 \noindent In words, the above relation states that the only kinds of
 chemical interactions considered in the formulation are those in which
 the masses of species get interconverted between each other, i.e.,
-the system contains no additional sources of matter.
+the system contains no internal sources of matter.
 
 An identical relation is obtained by \citet{TruesdellToupin:60} and
 others who follow their ideas (see, for e.g., \cite{passmanetal} and
@@ -341,8 +341,8 @@ the relation,
 
 \noindent which states that the momentum being introduced at a point
 due to the creation of matter has to be negated by momentum
-interactions with other species; ensuring that there is no overall
-system momentum production at any point.
+interactions with other species; ensuring that there is no internal
+system momentum production.
 
 \subsection{The balance of angular momentum}
 \label{eu-balance-of-angular-momentum}
@@ -390,7 +390,7 @@ Equation~(\ref{eu-globalbalanceofangularmomentum}) reduces to,
   \bq^{\iota}\right)\ \mathrm{d}v
 + \int_{\partial \Omega_{t}}
   \bp \times \left(\Bsigma^{\iota}\bn\right)\ \mathrm{d}a\\
-& + \int_{\Omega_{t}} \bp \times 
++ & \int_{\Omega_{t}} \bp \times 
   \pi^{\iota}\bv^{\iota}\ \mathrm{d}v - \int_{\partial \Omega_{t}} \left(\bp
   \times \rho^{\iota} 
   \bv^{\iota}\right) \bv^{\iota} \cdot \bn\ \mathrm{d}a.
@@ -502,8 +502,8 @@ integrals, we have,
 \begin{equation*}
 \begin{split}
 \int_{\Omega_{t}}
-\frac{\partial}{\partial t}  \left(\rho^{\iota}
-E^{\iota}\right)\ \mathrm{d}v  = & \int_{\Omega_{t}}
+\frac{\partial \left(\rho^{\iota}
+E^{\iota}\right)}{\partial t}  \ \mathrm{d}v  = & \int_{\Omega_{t}}
   \rho^{\iota} \left(\bg^{\iota} +
   \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v +
 \int_{\Omega_{t}}
@@ -533,7 +533,7 @@ the balance of mass (\ref{eu-localbalanceofmass}), we are left with:
   \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
   \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
   \right)\ \mathrm{d}v\\ 
-& - \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota}
+ - & \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota}
 \cdot \mathrm{grad}\left( E^{\iota} \right)\ \mathrm{d}v
 \\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
   \tilde{e}^{\iota} \right)\ \mathrm{d}v
@@ -548,23 +548,20 @@ derivatives,
 
 \begin{equation*}
 \begin{split}
+\int_{\Omega_{t}} \rho^{\iota} \left(\frac{\partial
+  e^{\iota}}{\partial t} + \bv^{\iota}\cdot\frac{\partial
+  \bv^{\iota}}{\partial t}\right)\ \mathrm{d}v = & \int_{\Omega_{t}}
+\rho^{\iota} \left(\bg^{\iota} +
+\bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v\\ + &
 \int_{\Omega_{t}}
-\rho^{\iota} \left(\frac{\partial e^{\iota}}{\partial
-  t} + \bv^{\iota}\cdot\frac{\partial \bv^{\iota}}{\partial
-  t}\right)\ \mathrm{d}v  = & \int_{\Omega_{t}} 
-  \rho^{\iota} \left(\bg^{\iota} +
-  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v\\& +
-\int_{\Omega_{t}}
-  \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
-  \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
-  \right)\ \mathrm{d}v\\ 
-& - \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota} \cdot
-  \left(\mathrm{grad}\left(e^{\iota}\right)
-  +\mathrm{grad}(\bv^{\iota})^{\mathrm{T}} \bv^{\iota}\right)\ \mathrm{d}v
-\\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
-  \tilde{e}^{\iota} \right)\ \mathrm{d}v
-- \int_{\Omega_{t}}
-  \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
+\left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+\right)\ \mathrm{d}v\\ - & \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota}
+\cdot \left(\mathrm{grad}\left(e^{\iota}\right)
++\mathrm{grad}(\bv^{\iota})^{\mathrm{T}}
+\bv^{\iota}\right)\ \mathrm{d}v \\ + &\int_{\Omega_{t}} \rho^{\iota}
+\left(r^{\iota} + \tilde{e}^{\iota} \right)\ \mathrm{d}v -
+\int_{\Omega_{t}} \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
 \end{split}
 \end{equation*}
 
@@ -584,7 +581,9 @@ momentum~(\ref{eu-localbalanceofmomentum}) and localise to arrive at,
 \noindent the form of the balance of energy of a species~$\iota$ in
 $\Omega_{t}$ which is most convenient for combining with the entropy
 inequality, leading to the Clausius-Duhem form of the dissipation
-inequality in the following section.
+inequality in the following section.  This result is consistent with
+classical mixture theory \citep{TruesdellToupin:60} and is the current
+configuration analogue of Equation~(\ref{localbalanceofenergy}).
 
 In order to obtain a relationship between the momentum transfer, mass
 interconversion and inter-species energy transfer terms within the
@@ -610,30 +609,114 @@ E^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
 \end{equation}
  
 \noindent Since the equation above and a summation of Equation~%
-\ref{eu-globalbalanceofenergy} over all $\iota$ are equivalent
+(\ref{eu-globalbalanceofenergy}) over all $\iota$ are equivalent
 statements of the balance of energy of the entire system, it follows
 upon inspection and localisation that,
 
 \begin{equation}
  \sum\limits_{\iota} \left( \rho^{\iota}\bq^{\iota}\cdot\bv^{\iota} +
- \pi^{\iota} E^{\iota} + \rho^{\iota}\tilde{e}^{\iota} \right) = 0.
+ \pi^{\iota} E^{\iota} + \rho^{\iota}\tilde{e}^{\iota} \right) = 0,
 \label{eu-summationrelationenergy}
 \end{equation}
 
+\noindent which ensures that there is no net energy production
+mechanism internal to the system.
 
-\section{Entropy inequality and restrictions on constitutive
+\section{The entropy inequality and its restrictions on constitutive
   relationships}
 \label{eu-entropy-inequality}
+
+With the balance laws deduced, we now proceed to 
+The treatment presented in this section builds upon the same
+fundamental assumptions entropy production inequality) is assumed to hold at a continuum point
+for all species as a whole, but, in general, not for each individual
+species. Differing views on the spatial scale at which a continuum
+point is defined lead to varying interpretations of the Second
+Law. The spatial scale of our continuum point is chosen such that the
+following arguments are valid. Another assumption that is tied to this
+spatial scale, and consequently to the degree of observed homogeneity
+between mixed species, is that all species occupying a continuum point
+in the tissue have the same absolute temperature, $\theta$.
 
 In contrast with Section~\ref{entropy-inequality}, we assume that the
 observer is external to the system and knows nothing about internal
 interactions. 
 
-Use an energy that's dependent on internal variables here, allowing for visco-elasticity later.
 \subsection{The Clausius-Duhem form}
-\subsection{Constitutive framework}
-\label{eu-constitutive-framework}
-\subsubsection{Viscoelastic solid}
+\label{eu-clausius-duhem-form}
+
+% As an external observer would call it
+
+With these assumptions, and denoting by $\eta^\iota$ the entropy per
+unit mass of species~$\iota$, the entropy inequality, when written out
+for the entire system in $\Omega_{t}$ reads,
+
+\begin{equation}
+\begin{split}
+\sum\limits_{\iota} \underbrace{\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}}
+  \rho^{\iota} \eta^{\iota}\ \mathrm{d}v \right)}_{\text{Rate of change
+    of entropy}} \geq & \sum\limits_{\iota} 
+\underbrace{\int_{\Omega_{t}} \frac{ \rho^{\iota}
+    r^{\iota}}{\theta}\ \mathrm{d}v}_{\text{Entropy supplied}} - \sum\limits_{\iota} 
+\underbrace{\int_{\partial \Omega_{t}}
+  \frac{\bh^{\iota}\cdot\bn}{\theta}\ \mathrm{d}a.}_{\text{Entropy outflux}} \\ - &
+\sum\limits_{\iota}  \underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota} \eta^{\iota}
+  \right) \left(\bv^{\iota} - \bv\right) \cdot
+  \bn\ \mathrm{d}a}_{\text{Entropy lost due to mass flux}}
+\end{split}
+\label{eu-globalbalanceofentropy}
+\end{equation}
+
+On applying Reynolds' transport theorem
+(Appendix~\ref{reynolds-transport}) to the left hand-side and Gauss'
+divergence theorem (Appendix~\ref{gauss-divergence}) to the area
+integrals, we have,
+
+\begin{equation*}
+\begin{split}
+\sum\limits_{\iota} \int_{\Omega_{t}}
+  \frac{\partial \left(\rho^{\iota} \eta^{\iota}\right) }{\partial t} \ \mathrm{d}v
+  \geq & \sum\limits_{\iota}  
+\int_{\Omega_{t}} \frac{ \rho^{\iota}
+    r^{\iota}}{\theta}\ \mathrm{d}v - \sum\limits_{\iota} 
+\int_{\Omega_{t}} \left(
+  \frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta}
+- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
+\right)\ \mathrm{d}v \\ - &
+\sum\limits_{\iota} \int_{\Omega_{t}} \left( \eta^{\iota}\ \mathrm{div}
+\left(\rho^{\iota}\bv^{\iota} 
+  \right) +
+  \rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}\right)
+  \right)\ \mathrm{d}v.
+\end{split}
+\end{equation*}
+
+\noindent Applying the chain rule and the balance of
+mass~(\ref{eu-localbalanceofmass}),
+
+\begin{equation*}
+\begin{split}
+\sum\limits_{\iota} \int_{\Omega_{t}}
+( \rho^{\iota}  \frac{\partial \eta^{\iota}}{\partial t}
++ \cancelto{\pi^{\iota}\eta^{\iota}}{\eta^{\iota}  \frac{\partial
+    \rho^{\iota}}{\partial t}}) \ \mathrm{d}v 
+  \geq & \sum\limits_{\iota}  
+\int_{\Omega_{t}} \frac{ \rho^{\iota}
+    r^{\iota}}{\theta}\ \mathrm{d}v\\ -& \sum\limits_{\iota} 
+\int_{\Omega_{t}} \left(
+  \frac{\mathrm{div}\left(\bh^{\iota}\right)}{\theta}
+- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta^{2}}
+\right)\ \mathrm{d}v \\ - &
+\sum\limits_{\iota} \int_{\Omega_{t}} \left( \cancel{\eta^{\iota}\ \mathrm{div}
+\left(\rho^{\iota}\bv^{\iota} 
+  \right)} +
+  \rho^{\iota}\bv^{\iota}\cdot\mathrm{grad}\left(\eta^{\iota}\right)
+  \right)\ \mathrm{d}v.
+\end{split}
+\end{equation*}
+
+
+\subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
 
 %% \noindent{\bf Remark 3}: Since soft biological tissues usually
@@ -645,15 +728,28 @@ Use an energy that's dependent on internal variables here, allowing for visco-el
 %% physiologically-valid model may be one with a purely hyperelastic
 %% solid phase, and a viscous fluid. In such a composite model the
 %% rate-dependent behavior would arise from the fluid.
-\subsubsection{Forces between phases}
-\subsubsection{Stress-dependent growth (Fg) term}
+
+% Mooney Rivlin sample goes here, and two tables in Chapter 5.
+
+\subsection{A Newtonian fluid}
+\label{eu-newtonian-fluid}
+
+\subsection{The interaction forces}
+\label{eu-forces-between-phases}
+
+\subsection{Energy-dependent growth source terms}
+\label{eu-energy-dependent-source}
+
+\subsection{Growth deformation gradients dependent on stress states}
 \label{eu-stress-dependent-source}
 Tie this to Wolff's law if possible.
-\subsubsection{Energy-dependent growth (Pi) term}
-\subsubsection{Fluxes dependent on concentration gradients of other
+
+
+\subsection{Fluxes dependent on concentration gradients of other
   species}
-\label{onsager-reciprocity}
+\label{eu-onsager-reciprocity}
 Onsager Reciprocity
+
 \section{Algorithmic considerations}
 \label{eu-algorithmic-considerations}
 \subsection{The saturation constraint}

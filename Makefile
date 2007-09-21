@@ -71,8 +71,6 @@ pristine: clean
 	rm -f *.pdf
 
 thesis.dvi: $(SOURCES)
-	@echo "Setting the version number:"
-	perl -pi -e 's/GROWTH \(.*\)/GROWTH \(${VERSION}\)/' auxiliary/front-matter.tex
 	@echo "Creating the dvi file:"
 	$(LATEX)   $(LFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
 	$(BIBTEX)  $(BFLAGS) thesis && $(LATEX)   $(LFLAGS) thesis && \
@@ -86,7 +84,7 @@ thesis.ps: thesis.dvi
 	perl -pi -e 's/Title \(([A-Z])([A-Z].*)\)/Title (\1\L\2)/' thesis.ps
 #       If you have access to GNU sed (i.e., You're not working on Mac
 #       OS X), comment-out the preceding command and uncomment the
-#       following. It'll be faster, and it's not fucking perl.
+#       following. It'll be faster.
 #	sed '/Title (\([A-Z]\)\([A-Z].*\))/ s//Title (\1\L\2)/' \
 #	thesis.ps > tmp.ps && mv tmp.ps thesis.ps
 
