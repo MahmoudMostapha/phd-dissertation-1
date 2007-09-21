@@ -206,12 +206,13 @@ others who follow their ideas (see, for e.g., \cite{passmanetal} and
 \cite{ateshian07}), but their deduction of this result, and other
 similar results involving quantities internal to the system
 (Equations~(\ref{eu-summationrelationmomentum}) and
-(\ref{eu-summationrelationeneergy})), stems from a formally stated
+(\ref{eu-summationrelationenergy})), stems from a formally stated
 assumption that ``the mean response of a heterogeneous mixture obeys
 the ordinary equations of a continuum.'' While we do not explicitly
 employ the assumption above, it is implicit in our assertion that
-external observers can quantify the mass of a species within a system
-without being aware of phenomena internal to the system.
+external observers can quantify field variables characterising species
+within a system without being aware of phenomena internal to the
+system.
 
 \subsection{The balance of linear momentum}
 \label{eu-balance-of-linear-momentum}
@@ -231,7 +232,7 @@ of a species~$\iota$ over $\Omega_{t}$ requires,
   \left(\bg^{\iota} +
   \bq^{\iota}\right)\ \mathrm{d}v}_{\text{Resultant body force}} +
 \underbrace{\int_{\partial \Omega_{t}}
-  \Bsigma^{\iota}\cdot\bn\ \mathrm{d}a}_{\text{Boundary traction}}\\ +
+  \Bsigma^{\iota}\bn\ \mathrm{d}a}_{\text{Boundary traction}}\\ +
 & \underbrace{\int_{\Omega_{t}}
   \pi^{\iota}\bv^{\iota}\ \mathrm{d}v}_{\text{Momentum being created}}
 - \underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota}
@@ -263,7 +264,7 @@ Application of Reynolds' transport theorem (Appendix~\ref{reynolds%
   \left(\rho^{\iota}\bv^{\iota}\right) \bv \cdot \bn\ \mathrm{d}a} = &
 \int_{\Omega_{t}} \rho^{\iota} \left(\bg^{\iota}+\bq^{\iota}\right)
 \ \mathrm{d}v + \int_{\partial \Omega_{t}}
-\Bsigma^{\iota}\cdot\bn\ \mathrm{d}a\\ + & \int_{\Omega_{t}}
+\Bsigma^{\iota}\bn\ \mathrm{d}a\\ + & \int_{\Omega_{t}}
 \pi^{\iota}\bv^{\iota} \ \mathrm{d}v - \int_{\partial \Omega_{t}}
 \left(\rho^{\iota} \bv^{\iota} \right)\left(\bv^{\iota} -
 \cancel{\bv}\right) \cdot \bn\ \mathrm{d}a.
@@ -319,7 +320,7 @@ of momentum for the entire system can be written as follows,
 \bv^{\iota} \ \mathrm{d}v \right) = & \sum\limits_{\iota}
 \left(\int_{\Omega_{t}} \rho^{\iota} \bg^{\iota} \ \mathrm{d}v +
 \int_{\partial \Omega_{t}}
-\Bsigma^{\iota}\cdot\bn\ \mathrm{d}a\right)\\ -
+\Bsigma^{\iota}\bn\ \mathrm{d}a\right)\\ -
 &\sum\limits_{\iota}\int_{\partial \Omega_{t}} \left(\rho^{\iota}
 \bv^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
 \bn\ \mathrm{d}a.
@@ -354,19 +355,19 @@ a species~$\iota$ over $\Omega_{t}$ requires,
 
 \begin{equation}
 \begin{split}
-\underbrace{\frac{d}{dt}\left(\int_{\Omega_{t}}  \bp \times \rho^{\iota}
-  \bv^{\iota}\ dv\right)}_{\text{Rate of change of angular  momentum}}  = 
-& \underbrace{\int_{\Omega_{t}} \bp \times \rho^{\iota} \left(\bg^{\iota} +
-  \bq^{\iota}\right)\ dv}_{\text{Moment from body forces}} 
-+ \underbrace{\int_{\partial \Omega_{t}}
-  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da}_{\text{Moment
-    from traction}}\\  
-+ & \underbrace{\int_{\Omega_{t}} \bp \times
-  \pi^{\iota}\bv^{\iota}\ dv}_{\text{Angular momentum being created}}
-\\ 
-- & \underbrace{\int_{\partial \Omega_{t}} \left(\bp \times \rho^{\iota}
-  \bv^{\iota}\right) \left(\bv^{\iota} -
-\bv\right) \cdot \bn\ da,}_{\text{Angular momentum leaving the domain}} 
+\underbrace{\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}} \bp
+  \times \rho^{\iota} \bv^{\iota}\ \mathrm{d}v\right)}_{\text{Rate of
+    change of angular momentum}} = & \underbrace{\int_{\Omega_{t}} \bp
+  \times \rho^{\iota} \left(\bg^{\iota} +
+  \bq^{\iota}\right)\ \mathrm{d}v}_{\text{Moment from body forces}} +
+\underbrace{\int_{\partial \Omega_{t}} \bp \times
+  \left(\Bsigma^{\iota}\bn\right)\ \mathrm{d}a}_{\text{Moment
+    from traction}}\\ + & \underbrace{\int_{\Omega_{t}} \bp \times
+  \pi^{\iota}\bv^{\iota}\ \mathrm{d}v}_{\text{Angular momentum being
+    created}} \\ - & \underbrace{\int_{\partial \Omega_{t}} \left(\bp
+  \times \rho^{\iota} \bv^{\iota}\right) \left(\bv^{\iota} -
+  \bv\right) \cdot \bn\ \mathrm{d}a,}_{\text{Angular momentum leaving
+    the domain}}
 \end{split}
 \label{eu-globalbalanceofangularmomentum}
 \end{equation}
@@ -379,59 +380,60 @@ comprising the tissue is not a {\em polar material}.\footnote{Some
 
 On applying Reynolds' transport theorem
 (Appendix~\ref{reynolds-transport}),
-Equation~\ref{eu-globalbalanceofangularmomentum} reduces to,
+Equation~(\ref{eu-globalbalanceofangularmomentum}) reduces to,
 
 \begin{equation*}
 \begin{split}
 \int_{\Omega_{t}} \frac{\partial}{\partial t}\left( \bp \times \rho^{\iota}
-  \bv^{\iota}\right)\ dv \quad =
+  \bv^{\iota}\right)\ \mathrm{d}v \quad =
 & \int_{\Omega_{t}} \bp \times \rho^{\iota} \left(\bg^{\iota} +
-  \bq^{\iota}\right)\ dv
+  \bq^{\iota}\right)\ \mathrm{d}v
 + \int_{\partial \Omega_{t}}
-  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da\\
+  \bp \times \left(\Bsigma^{\iota}\bn\right)\ \mathrm{d}a\\
 & + \int_{\Omega_{t}} \bp \times 
-  \pi^{\iota}\bv^{\iota}\ dv - \int_{\partial \Omega_{t}} \left(\bp
+  \pi^{\iota}\bv^{\iota}\ \mathrm{d}v - \int_{\partial \Omega_{t}} \left(\bp
   \times \rho^{\iota} 
-  \bv^{\iota}\right) \bv^{\iota} \cdot \bn\ da.
+  \bv^{\iota}\right) \bv^{\iota} \cdot \bn\ \mathrm{d}a.
 \end{split}
 \end{equation*}
 
 Using Gauss' divergence theorem (Appendix~\ref{gauss-divergence}) and
-Leibniz rule, we have the following relations:
+Leibniz's product rule, we have the following relations:
 
 \begin{displaymath}
-\int_{\partial \Omega_{t}}
-  \bp \times \left(\Bsigma^{\iota}\cdot\bn\right)\ da =
-\int_{\Omega_{t}}
-  \bp \times \mathrm{div}\left(\Bsigma^{\iota}\right)\ dv
-+\int_{\Omega_{t}} \Bepsilon\colon\Bsigma^{\iota^{\mathrm{T}}} \ dv,
+\int_{\partial \Omega_{t}} \bp \times
+\left(\Bsigma^{\iota}\bn\right)\ \mathrm{d}a = \int_{\Omega_{t}}
+\bp \times \mathrm{div}\left(\Bsigma^{\iota}\right)\ \mathrm{d}v
++\int_{\Omega_{t}} \Bepsilon\colon\Bsigma^{\iota^{\mathrm{T}}}
+\ \mathrm{d}v,
 \end{displaymath}
 
-\noindent where $\Bepsilon$ is the permutation symbol
-(Section~\ref{balance-of-angular-momentum}),
+\noindent where $\Bepsilon$ is the permutation symbol (introduced in
+Section~\ref{balance-of-angular-momentum}),
 
 \begin{displaymath}
-\int_{\Omega_{t}}
-\frac{\partial}{\partial t}\left( \bp \times \rho^{\iota}
-\bv^{\iota}\right)\ dv =
-\int_{\Omega_{t}} \frac{\partial \rho^{\iota}} {\partial t}
-\bp \times \bv^{\iota}\ dv + \int_{\Omega_{t}} \rho^{\iota} \bp \times 
-\frac{\partial \bv^{\iota}} {\partial t}\ dv,\quad\mathrm{and}
+\int_{\Omega_{t}} \frac{\partial}{\partial t}\left( \bp \times
+\rho^{\iota} \bv^{\iota}\right)\ \mathrm{d}v = \int_{\Omega_{t}}
+\frac{\partial \rho^{\iota}} {\partial t} \bp \times
+\bv^{\iota}\ \mathrm{d}v + \int_{\Omega_{t}} \rho^{\iota} \bp \times
+\frac{\partial \bv^{\iota}} {\partial
+  t}\ \mathrm{d}v,\quad\mathrm{and}
 \end{displaymath}
 
 \begin{displaymath}
-\int_{\partial \Omega_{t}} \left(\bp
-  \times \rho^{\iota} 
-  \bv^{\iota}\right) \bv^{\iota} \cdot \bn\ da = 
+\int_{\partial \Omega_{t}} \left(\bp \times \rho^{\iota}
+\bv^{\iota}\right) \bv^{\iota} \cdot \bn\ \mathrm{d}a =
 \int_{\Omega_{t}}\bp \times \bv^{\iota} \mathrm{div}
-\left(\rho^{\iota}\bv^{\iota}\right)\ dv + \int_{\Omega_{t}}\bp \times
-\left(\mathrm{grad}\left(\bv^{\iota}\right)\rho^{\iota}\bv^{\iota}\right)\ dv,
+\left(\rho^{\iota}\bv^{\iota}\right)\ \mathrm{d}v +
+\int_{\Omega_{t}}\bp \times
+\left(\mathrm{grad}\left(\bv^{\iota}\right)
+\rho^{\iota}\bv^{\iota}\right)\ \mathrm{d}v,
 \end{displaymath}
 
 \noindent since $\rho^{\iota} \bv^{\iota}\times\bv^{\iota} =
 0$. Substituting these relations above and invoking the balance of
-mass (Equation~\ref{eu-localbalanceofmass}) and balance of linear
-momentum (Equation~\ref{eu-localbalanceofmomentum}), we obtain,
+mass (\ref{eu-localbalanceofmass}) and balance of linear momentum
+(\ref{eu-localbalanceofmomentum}), we obtain on localisation,
 
 \begin{equation}
 \Bepsilon\colon\Bsigma^{\iota^{\mathrm{T}}} = 0,
@@ -447,13 +449,177 @@ first Piola-Kirchhoff stress tensor.
 When the balance of angular momentum of the entire system, deduced by
 neglecting the interaction terms, is compared to the form of the
 equation obtained by summation of the individual balance of angular
-momenta (Equation~\ref{eu-globalbalanceofangularmomentum}) over all
-species present, one obtains a relationship between the interaction
-forces and source terms that is identical to
-Equation~\ref{eu-summationrelationmomentum}.
+momenta (\ref{eu-globalbalanceofangularmomentum}) over all species
+present, one obtains a relationship between the interaction forces and
+interconversion terms that is identical to
+Equation~(\ref{eu-summationrelationmomentum}).
 
 \subsection{The balance of energy}
 \label{eu-balance-of-energy}
+
+Recall from Section~\ref{balance-of-energy} that the internal energy
+per unit mass of species~$\iota$ is denoted $e^\iota$, the heat supply
+to species~$\iota$ per unit mass of that species is $r^\iota$ and the
+interaction energy, $\tilde{e}^\iota$, accounts for the energy
+transferred to $\iota$ by all other species, also per unit mass of
+$\iota$. We now redefine the partial heat flux vector of $\iota$
+defined on $\Omega_{t}$ as $\bh^\iota$, and for notational simplicity,
+introduce the total energy of each species~$\iota$: $E^{\iota} =
+e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$.
+
+With these quantities defined, the rate of change of internal and
+kinetic energies of species~$\iota$ under the action of mechanical
+loads, processes of mass production and transport, heating and energy
+transfer in $\Omega_{t}$ is,
+
+\begin{equation}
+\begin{split}
+\underbrace{\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}}
+  \rho^{\iota} E^{\iota}\ \mathrm{d}v \right)}_{\text{Rate of change
+    of energy}} = & \underbrace{\int_{\Omega_{t}} \rho^{\iota}
+  \left(\bg^{\iota} +
+  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v}_{\text{Work done by
+    body forces}}\quad + \underbrace{\int_{\partial \Omega_{t}}
+  \left(\Bsigma^{\iota}\bn\right)\cdot\bv^{\iota}\ \mathrm{d}a}_{\text{Work
+    done by boundary traction}}\\ + & \underbrace{\int_{\Omega_{t}}
+  \pi^{\iota}E^{\iota}\ \mathrm{d}v}_{\text{Energy being created}} -
+\underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota} E^{\iota}
+  \right) \left(\bv^{\iota} - \bv\right) \cdot
+  \bn\ \mathrm{d}a}_{\text{Energy leaving the domain}} \\ +
+&\underbrace{\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
+  \tilde{e}^{\iota} \right)\ \mathrm{d}v}_{\text{Energy supplied}} -
+\underbrace{\int_{\partial \Omega_{t}}
+  \bh^{\iota}\cdot\bn\ \mathrm{d}a.}_{\text{Heat flux}}
+\end{split}
+\label{eu-globalbalanceofenergy}
+\end{equation}
+
+On applying Reynolds' transport theorem
+(Appendix~\ref{reynolds-transport}) to the left hand-side and Gauss'
+divergence theorem (Appendix~\ref{gauss-divergence}) to the area
+integrals, we have,
+
+\begin{equation*}
+\begin{split}
+\int_{\Omega_{t}}
+\frac{\partial}{\partial t}  \left(\rho^{\iota}
+E^{\iota}\right)\ \mathrm{d}v  = & \int_{\Omega_{t}}
+  \rho^{\iota} \left(\bg^{\iota} +
+  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v +
+\int_{\Omega_{t}}
+  \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
+  \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+  \right)\ \mathrm{d}v\\ + 
+& \int_{\Omega_{t}} \pi^{\iota}E^{\iota}\ \mathrm{d}v
+- \int_{\Omega_{t}} \mathrm{div}\left(E^{\iota} \rho^{\iota}
+\bv^{\iota}\right)\ \mathrm{d}v
+\\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
+  \tilde{e}^{\iota} \right)\ \mathrm{d}v
+- \int_{\Omega_{t}}
+  \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
+\end{split}
+\end{equation*}
+
+\noindent Upon further simplification with Leibniz's product rule, and
+the balance of mass (\ref{eu-localbalanceofmass}), we are left with:
+
+\begin{equation*}
+\begin{split}
+\int_{\Omega_{t}}
+\rho^{\iota} \frac{\partial E^{\iota}}{\partial t}\ \mathrm{d}v  = & \int_{\Omega_{t}}
+  \rho^{\iota} \left(\bg^{\iota} +
+  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v +
+\int_{\Omega_{t}}
+  \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
+  \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+  \right)\ \mathrm{d}v\\ 
+& - \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota}
+\cdot \mathrm{grad}\left( E^{\iota} \right)\ \mathrm{d}v
+\\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
+  \tilde{e}^{\iota} \right)\ \mathrm{d}v
+- \int_{\Omega_{t}}
+  \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
+\end{split}
+\end{equation*}
+
+We now expand the total energy of each species~$\iota$, $E^{\iota} =
+e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$, and take the
+derivatives,
+
+\begin{equation*}
+\begin{split}
+\int_{\Omega_{t}}
+\rho^{\iota} \left(\frac{\partial e^{\iota}}{\partial
+  t} + \bv^{\iota}\cdot\frac{\partial \bv^{\iota}}{\partial
+  t}\right)\ \mathrm{d}v  = & \int_{\Omega_{t}} 
+  \rho^{\iota} \left(\bg^{\iota} +
+  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v\\& +
+\int_{\Omega_{t}}
+  \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
+  \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+  \right)\ \mathrm{d}v\\ 
+& - \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota} \cdot
+  \left(\mathrm{grad}\left(e^{\iota}\right)
+  +\mathrm{grad}(\bv^{\iota})^{\mathrm{T}} \bv^{\iota}\right)\ \mathrm{d}v
+\\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
+  \tilde{e}^{\iota} \right)\ \mathrm{d}v
+- \int_{\Omega_{t}}
+  \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
+\end{split}
+\end{equation*}
+
+\noindent Finally, we apply the balance of linear
+momentum~(\ref{eu-localbalanceofmomentum}) and localise to arrive at,
+
+\begin{equation}
+\rho^{\iota} \frac{\partial e^{\iota}}{\partial t} =
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right) +
+\rho^{\iota} \left(r^{\iota} + \tilde{e}^{\iota} \right) -
+\mathrm{div}\left(\bh^{\iota}\right) - \rho^{\iota}\bv^{\iota} \cdot
+\mathrm{grad} \left(e^{\iota}\right) \quad
+\mathrm{in}\ \Omega_{t},
+\label{eu-localbalanceofenergy}
+\end{equation}
+
+\noindent the form of the balance of energy of a species~$\iota$ in
+$\Omega_{t}$ which is most convenient for combining with the entropy
+inequality, leading to the Clausius-Duhem form of the dissipation
+inequality in the following section.
+
+In order to obtain a relationship between the momentum transfer, mass
+interconversion and inter-species energy transfer terms within the
+system, we first express the rate of change of energy of the system
+interacting with its environment from the point of view of an external
+observer unaware of these internal interactions as:
+
+\begin{equation}
+\begin{split}
+\sum\limits_{\iota}
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}} \rho^{\iota}
+E^{\iota}\ \mathrm{d}v \right) = & \sum\limits_{\iota}
+\int_{\Omega_{t}} \rho^{\iota} \bg^i\cdot\bv^{\iota}\ \mathrm{d}v +
+\sum\limits_{\iota} \int_{\partial \Omega_{t}}
+\left(\Bsigma^{\iota}\bn\right)\cdot\bv^{\iota}\ \mathrm{d}a\\ -&
+\sum\limits_{\iota} \int_{\partial \Omega_{t}} \left(\rho^{\iota}
+E^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
+\bn\ \mathrm{d}a \\ + & \sum\limits_{\iota} \int_{\Omega_{t}}
+\rho^{\iota} r^{\iota}\ \mathrm{d}v - \sum\limits_{\iota}
+\int_{\partial \Omega_{t}} \bh^{\iota}\cdot\bn\ \mathrm{d}a.
+\end{split}
+\label{eu-energyexternal}
+\end{equation}
+ 
+\noindent Since the equation above and a summation of Equation~%
+\ref{eu-globalbalanceofenergy} over all $\iota$ are equivalent
+statements of the balance of energy of the entire system, it follows
+upon inspection and localisation that,
+
+\begin{equation}
+ \sum\limits_{\iota} \left( \rho^{\iota}\bq^{\iota}\cdot\bv^{\iota} +
+ \pi^{\iota} E^{\iota} + \rho^{\iota}\tilde{e}^{\iota} \right) = 0.
+\label{eu-summationrelationenergy}
+\end{equation}
+
 
 \section{Entropy inequality and restrictions on constitutive
   relationships}
