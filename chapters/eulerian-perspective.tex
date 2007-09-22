@@ -69,39 +69,40 @@ ensures that $\Omega_{t}$ evolves in a well-behaved manner,
 disallowing non-physical deformations from being imposed on the
 tissue, and furthermore, affords the application of Reynolds'
 transport theorem (Appendix~\ref{reynolds-transport}). The map
-$\Bvarphi_{t}$ is visualised in
-Figure~\ref{continuum-potato-current-configuration}.
+$\Bvarphi_{t}$ is visualised in Figure~\ref{continuum-potato%
+-current-configuration}.
 
 Denoting a point in $\Omega_{t}$ by $\bx$, $\bv(\bx,t) =
 \frac{\partial \Bvarphi_{t}}{\partial t}$ defines the {\em spatial
   velocity} of the system domain. In contrast to
 Section~\ref{balance-laws}, it is recognised at the outset that each
 species of the tissue is capable of undergoing its own motion
-independent of the solid component of the tissue; and so we introduce
-the spatial velocity of an arbitrary species~$\iota$,
-$\bv^{\iota}(\bx,t)$, which are assumed to be $\mathit{C}^{1}$ in
-space and time.\footnote{It is important to note that these quantities
-  are primitive variables in themselves. While these species
-  velocities can be formally understood as \mbox{$\bv^{\iota}(\bx,t) =
+independent of the tissue's solid component; and so we introduce the
+spatial velocity of an arbitrary species~$\iota$,
+$\bv^{\iota}(\bx,t)$, which is assumed to be $\mathit{C}^{1}$ in space
+and time.\footnote{It is important to note that these quantities are
+  primitive variables in themselves. While these species velocities
+  can be formally understood as \mbox{$\bv^{\iota}(\bx,t) =
     \frac{\partial \Bvarphi^{\iota}_{t}}{\partial t}$}, where
-  $\Bvarphi^{\iota}_{t}$ is the deformation map of from an arbitrary
-  reference configuration of each species~$\iota$ to $\Omega_{t}$
-  (shown in the portion of Figure~\ref{continuum-potato-current%
-    -configuration} constructed using dashed-lines), the quantities
-  $\Bvarphi^{\iota}_{t}$ are neither explicitly defined nor tracked.}
-Unlike the corresponding quantities defined in
+  $\Bvarphi^{\iota}_{t}$ is the deformation map of each
+  species~$\iota$ from an arbitrary reference configuration to
+  $\Omega_{t}$ (shown in the portion of Figure~\ref{continuum-potato%
+    -current-configuration} constructed using dashed-lines), the
+  quantities $\Bvarphi^{\iota}_{t}$ are neither explicitly defined nor
+  tracked.}  Unlike the corresponding quantities defined in
 Section~\ref{balance-of-linear-momentum}, these velocities are defined
 to be the {\em total} velocities of each species, not velocities
 relative to the solid component of the tissue.\footnote{And, with the
   redefinition of these quantities as total velocities, the velocity
   of the solid phase ceases to be special. This is manifest in the
-  forms of the balance laws deduced.}
+  forms of the balance laws deduced in Sections~\ref{eu-balance-of%
+    -mass}--\ref{eu-balance-of-energy}.}
 
 The following discussion of balance laws is carried out entirely in
 terms of an arbitrary species~$\iota$, and specialisation to the solid
 collagenous, fluid and solute phases (i.e. \mbox{$\iota=\mathrm{c},
   \mathrm{f}, \mathrm{s}$}) is reintroduced only when talking about
-constitutive relationships specific to these different constituents of
+constitutive relationships specific to these different components of
 the tissue.
 
 \subsection{Balance of mass}
@@ -202,17 +203,16 @@ the masses of species get interconverted between each other, i.e.,
 the system contains no internal sources of matter.
 
 An identical relation is obtained by \citet{TruesdellToupin:60} and
-others who follow their ideas (see, for e.g., \citet{bowen76},
-\citet{passmanetal} and \citet{ateshian07}), but their deduction of
+others who follow their ideas (see, for e.g., \citet{bowen76} and
+\citet{passmanetal}), but their deduction of
 this result, and other similar results involving quantities internal
 to the system (Equations~(\ref{eu-summationrelationmomentum}) and
 (\ref{eu-summationrelationenergy})), stems from a formally stated
 assumption that ``the mean response of a heterogeneous mixture obeys
 the ordinary equations of a continuum.'' While we do not explicitly
-employ the assumption above, it is implicit in our assertion that
-external observers can quantify field variables characterising species
-within a system without being aware of phenomena internal to the
-system.
+employ this assumption, it is implicit in our assertion that external
+observers can quantify field variables characterising species within a
+system without being aware of phenomena internal to the system.
 
 \subsection{The balance of linear momentum}
 \label{eu-balance-of-linear-momentum}
@@ -232,8 +232,8 @@ of a species~$\iota$ over $\Omega_{t}$ requires,
   \left(\bg^{\iota} +
   \bq^{\iota}\right)\ \mathrm{d}v}_{\text{Resultant body force}} +
 \underbrace{\int_{\partial \Omega_{t}}
-  \Bsigma^{\iota}\bn\ \mathrm{d}a}_{\text{Boundary traction}}\\ +
-& \underbrace{\int_{\Omega_{t}}
+  \Bsigma^{\iota}\bn\ \mathrm{d}a}_{\text{Boundary traction}}\\ + &
+\underbrace{\int_{\Omega_{t}}
   \pi^{\iota}\bv^{\iota}\ \mathrm{d}v}_{\text{Momentum being created}}
 - \underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota}
   \bv^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
@@ -248,9 +248,11 @@ origin acting on species $\iota$, $\bq^{\iota}(\bx,t)$ is the
 resultant body force on species $\iota$ from all other species {\em in
   the mixture}, and $\Bsigma^{\iota}(\bx,t)$ is the partial Cauchy
 stress on species $\iota$. The partial Cauchy stress tensor
-corresponding to species~$\iota$ as the portion of the total stress
+corresponding to species~$\iota$ is the portion of the total stress
 borne by the species. All of these quantities are assumed to be
-sufficiently smooth.
+sufficiently smooth. In particular, $\bg^{\iota}$ and $\bq^{\iota}$
+are assumed to be integrable, and $\Bsigma^{\iota}$ is assumed to be
+$\mathit{C}^{1}$ in space and time.
 
 Application of Reynolds' transport theorem (Appendix~\ref{reynolds%
   -transport}) to the left hand-side of Equation~(\ref{eu-%
@@ -306,9 +308,9 @@ of momentum of species $\iota$,
 \label{eu-localbalanceofmomentum}
 \end{equation}
 
-\noindent which is a result consistent with classical mixture
-theory \citep{TruesdellToupin:60} and is current configuration
-analogue of Equation~(\ref{localbalanceofmomentum}). 
+\noindent which is a result consistent with classical mixture theory
+\citep{TruesdellToupin:60} and is current configuration analogue of
+Equation~(\ref{localbalanceofmomentum}).
 
 Neglecting the interaction terms as an external observer, the balance
 of momentum for the entire system can be written as follows,
@@ -319,8 +321,7 @@ of momentum for the entire system can be written as follows,
 \frac{\mathrm{d}}{\mathrm{d}t}\left(\int_{\Omega_{t}} \rho^{\iota}
 \bv^{\iota} \ \mathrm{d}v \right) = & \sum\limits_{\iota}
 \left(\int_{\Omega_{t}} \rho^{\iota} \bg^{\iota} \ \mathrm{d}v +
-\int_{\partial \Omega_{t}}
-\Bsigma^{\iota}\bn\ \mathrm{d}a\right)\\ -
+\int_{\partial \Omega_{t}} \Bsigma^{\iota}\bn\ \mathrm{d}a\right)\\ -
 &\sum\limits_{\iota}\int_{\partial \Omega_{t}} \left(\rho^{\iota}
 \bv^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
 \bn\ \mathrm{d}a.
@@ -341,8 +342,8 @@ the relation,
 
 \noindent which states that the momentum being introduced at a point
 due to the creation of matter has to be negated by momentum
-interactions with other species; ensuring that there is no internal
-system momentum production.
+interactions with other species; ensuring that there is no mechanism
+for momentum production internal to the system.
 
 \subsection{The balance of angular momentum}
 \label{eu-balance-of-angular-momentum}
@@ -361,8 +362,8 @@ a species~$\iota$ over $\Omega_{t}$ requires,
   \times \rho^{\iota} \left(\bg^{\iota} +
   \bq^{\iota}\right)\ \mathrm{d}v}_{\text{Moment from body forces}} +
 \underbrace{\int_{\partial \Omega_{t}} \bp \times
-  \left(\Bsigma^{\iota}\bn\right)\ \mathrm{d}a}_{\text{Moment
-    from traction}}\\ + & \underbrace{\int_{\Omega_{t}} \bp \times
+  \left(\Bsigma^{\iota}\bn\right)\ \mathrm{d}a}_{\text{Moment from
+    traction}}\\ + & \underbrace{\int_{\Omega_{t}} \bp \times
   \pi^{\iota}\bv^{\iota}\ \mathrm{d}v}_{\text{Angular momentum being
     created}} \\ - & \underbrace{\int_{\partial \Omega_{t}} \left(\bp
   \times \rho^{\iota} \bv^{\iota}\right) \left(\bv^{\iota} -
@@ -376,11 +377,12 @@ a species~$\iota$ over $\Omega_{t}$ requires,
 comprising the tissue is not a {\em polar material}.\footnote{Some
   materials, for e.g., liquid crystals, become polarised under the
   presence of electric fields and consequently have additional global
-  torque contributions to their balance of momentum equations.}
+  torque contributions to their balance of momentum equations
+  \citep{TruesdellNoll:65}.} 
 
-On applying Reynolds' transport theorem
-(Appendix~\ref{reynolds-transport}),
-Equation~(\ref{eu-globalbalanceofangularmomentum}) reduces to,
+On applying Reynolds' transport theorem (Appendix~\ref{reynolds%
+  -transport}), Equation~(\ref{eu-globalbalanceofangularmomentum})
+reduces to,
 
 \begin{equation*}
 \begin{split}
@@ -433,26 +435,26 @@ Section~\ref{balance-of-angular-momentum}),
 \noindent since $\rho^{\iota} \bv^{\iota}\times\bv^{\iota} =
 0$. Substituting these relations above and invoking the balance of
 mass (\ref{eu-localbalanceofmass}) and balance of linear momentum
-(\ref{eu-localbalanceofmomentum}), we obtain on localisation,
+(\ref{eu-localbalanceofmomentum}), we obtain on localisation that,
 
 \begin{equation}
 \Bepsilon\colon\Bsigma^{\iota^{\mathrm{T}}} = 0,
 \label{eu-localbalanceofangularmomentum}
 \end{equation}
 
-\noindent i.e., the partial Cauchy stress tensor, $\Bsigma^{\iota}$,
-is symmetric. This classical result is the pushed-forward form of
-the synonymous result derived earlier
-(Section~\ref{balance-of-angular-momentum}) in terms of the partial
-first Piola-Kirchhoff stress tensor.
+\noindent or the partial Cauchy stress tensor, $\Bsigma^{\iota}$, is
+symmetric. This classical result is the pushed-forward form of the
+synonymous result derived earlier (Section~\ref{balance-of-angular%
+  -momentum}) in terms of the partial first Piola-Kirchhoff stress
+tensor.
 
 When the balance of angular momentum of the entire system, deduced by
 neglecting the interaction terms, is compared to the form of the
 equation obtained by summation of the individual balance of angular
 momenta (\ref{eu-globalbalanceofangularmomentum}) over all species
 present, one obtains a relationship between the interaction forces and
-interconversion terms that is identical to
-Equation~(\ref{eu-summationrelationmomentum}).
+interconversion terms that is identical to Equation~(\ref{eu%
+  -summationrelationmomentum}).
 
 \subsection{The balance of energy}
 \label{eu-balance-of-energy}
@@ -469,8 +471,8 @@ e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$.
 
 With these quantities defined, the rate of change of internal and
 kinetic energies of species~$\iota$ under the action of mechanical
-loads, processes of mass production and transport, heating and energy
-transfer in $\Omega_{t}$ is,
+loads, processes of mass production and transport, and heating and
+energy transfer, in $\Omega_{t}$, is,
 
 \begin{equation}
 \begin{split}
@@ -480,43 +482,39 @@ transfer in $\Omega_{t}$ is,
   \left(\bg^{\iota} +
   \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v}_{\text{Work done by
     body forces}}\quad + \underbrace{\int_{\partial \Omega_{t}}
-  \left(\Bsigma^{\iota}\bn\right)\cdot\bv^{\iota}\ \mathrm{d}a}_{\text{Work
-    done by boundary traction}}\\ + & \underbrace{\int_{\Omega_{t}}
+  \left(\Bsigma^{\iota}\bn\right)
+  \cdot\bv^{\iota}\ \mathrm{d}a}_{\text{Work done by boundary
+    traction}}\\ + & \underbrace{\int_{\Omega_{t}}
   \pi^{\iota}E^{\iota}\ \mathrm{d}v}_{\text{Energy being created}} -
 \underbrace{\int_{\partial \Omega_{t}} \left(\rho^{\iota} E^{\iota}
   \right) \left(\bv^{\iota} - \bv\right) \cdot
-  \bn\ \mathrm{d}a}_{\text{Energy leaving the domain}} \\ +
+  \bn\ \mathrm{d}a}_{\text{Energy lost due to mass flux}} \\ +
 &\underbrace{\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
   \tilde{e}^{\iota} \right)\ \mathrm{d}v}_{\text{Energy supplied}} -
 \underbrace{\int_{\partial \Omega_{t}}
-  \bh^{\iota}\cdot\bn\ \mathrm{d}a.}_{\text{Heat flux}}
+  \bh^{\iota}\cdot\bn\ \mathrm{d}a.}_{\text{Heat outflux}}
 \end{split}
 \label{eu-globalbalanceofenergy}
 \end{equation}
 
-On applying Reynolds' transport theorem
-(Appendix~\ref{reynolds-transport}) to the left hand-side and Gauss'
-divergence theorem (Appendix~\ref{gauss-divergence}) to the area
-integrals, we have,
+On applying Reynolds' transport theorem (Appendix~\ref{reynolds%
+  -transport}) to the left hand-side and Gauss' divergence theorem
+(Appendix~\ref{gauss-divergence}) to the area integrals, we have,
 
 \begin{equation*}
 \begin{split}
-\int_{\Omega_{t}}
-\frac{\partial \left(\rho^{\iota}
-E^{\iota}\right)}{\partial t}  \ \mathrm{d}v  = & \int_{\Omega_{t}}
-  \rho^{\iota} \left(\bg^{\iota} +
-  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v +
-\int_{\Omega_{t}}
-  \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
-  \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
-  \right)\ \mathrm{d}v\\ + 
-& \int_{\Omega_{t}} \pi^{\iota}E^{\iota}\ \mathrm{d}v
-- \int_{\Omega_{t}} \mathrm{div}\left(E^{\iota} \rho^{\iota}
-\bv^{\iota}\right)\ \mathrm{d}v
-\\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
-  \tilde{e}^{\iota} \right)\ \mathrm{d}v
-- \int_{\Omega_{t}}
-  \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
+\int_{\Omega_{t}} \frac{\partial \left(\rho^{\iota}
+  E^{\iota}\right)}{\partial t} \ \mathrm{d}v = & \int_{\Omega_{t}}
+\rho^{\iota} \left(\bg^{\iota} +
+\bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v + \int_{\Omega_{t}}
+\left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+\right)\ \mathrm{d}v\\ + & \int_{\Omega_{t}}
+\pi^{\iota}E^{\iota}\ \mathrm{d}v - \int_{\Omega_{t}}
+\mathrm{div}\left(E^{\iota} \rho^{\iota}
+\bv^{\iota}\right)\ \mathrm{d}v \\ + &\int_{\Omega_{t}} \rho^{\iota}
+\left(r^{\iota} + \tilde{e}^{\iota} \right)\ \mathrm{d}v -
+\int_{\Omega_{t}} \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
 \end{split}
 \end{equation*}
 
@@ -525,27 +523,22 @@ the balance of mass (\ref{eu-localbalanceofmass}), we are left with:
 
 \begin{equation*}
 \begin{split}
-\int_{\Omega_{t}}
-\rho^{\iota} \frac{\partial E^{\iota}}{\partial t}\ \mathrm{d}v  = &
-\int_{\Omega_{t}}
-  \rho^{\iota} \left(\bg^{\iota} +
-  \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v +
-\int_{\Omega_{t}}
-  \left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
-  \Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
-  \right)\ \mathrm{d}v\\ 
- - & \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota}
-\cdot \mathrm{grad}\left( E^{\iota} \right)\ \mathrm{d}v
-\\  + &\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} +
-  \tilde{e}^{\iota} \right)\ \mathrm{d}v
-- \int_{\Omega_{t}}
-  \mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
+\int_{\Omega_{t}} \rho^{\iota} \frac{\partial E^{\iota}}{\partial
+  t}\ \mathrm{d}v = & \int_{\Omega_{t}} \rho^{\iota} \left(\bg^{\iota}
++ \bq^{\iota}\right)\cdot\bv^{\iota}\ \mathrm{d}v + \int_{\Omega_{t}}
+\left(\mathrm{div}\left(\Bsigma^{\iota}\right)\cdot\bv^{\iota} +
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
+\right)\ \mathrm{d}v\\ - & \int_{\Omega_{t}} \rho^{\iota}\bv^{\iota}
+\cdot \mathrm{grad}\left( E^{\iota} \right)\ \mathrm{d}v \\ +
+&\int_{\Omega_{t}} \rho^{\iota} \left(r^{\iota} + \tilde{e}^{\iota}
+\right)\ \mathrm{d}v - \int_{\Omega_{t}}
+\mathrm{div}\left(\bh^{\iota}\right)\ \mathrm{d}v.
 \end{split}
 \end{equation*}
 
 We now expand the total energy of each species~$\iota$, $E^{\iota} =
-e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$, and take the
-derivatives,
+e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$, and take spatial and
+temporal derivatives to give,
 
 \begin{equation*}
 \begin{split}
@@ -566,8 +559,9 @@ derivatives,
 \end{split}
 \end{equation*}
 
-\noindent Finally, we apply the balance of linear
-momentum~(\ref{eu-localbalanceofmomentum}) and localise to arrive at,
+\noindent Finally, we apply the balance of linear momentum~%
+(\ref{eu-localbalanceofmomentum}) to the equation above and, upon
+localisation, arrive at:
 
 \begin{equation}
 \rho^{\iota} \frac{\partial e^{\iota}}{\partial t} =
@@ -590,7 +584,7 @@ In order to obtain a relationship between the momentum transfer, mass
 interconversion and inter-species energy transfer terms within the
 system, we first express the rate of change of energy of the system
 interacting with its environment from the point of view of an external
-observer unaware of these internal interactions as:
+observer unaware of these internal interactions, as:
 
 \begin{equation}
 \begin{split}
@@ -611,7 +605,7 @@ E^{\iota} \right) \left(\bv^{\iota} - \bv\right) \cdot
  
 \noindent Since the equation above, and a summation of Equation~%
 (\ref{eu-globalbalanceofenergy}) over all $\iota$ are equivalent
-statements of the balance of energy of the entire system, it follows
+statements of the balance of energy for the entire system, it follows
 upon inspection and localisation that,
 
 \begin{equation}
@@ -628,23 +622,22 @@ mechanism internal to the system.
 \label{eu-entropy-inequality}
 
 In order to close the system of balance equations deduced in
-Section~\ref{eu-balance-laws}, and make thermodynamically-valid
-constitutive choices pertinent to biological tissues, we turn to the
-principles of entropy growth and material frame-indifference. The
-following treatment builds upon the same fundamental assumptions
-underlying our system of interest as stated in
-Section~\ref{entropy-inequality}:
+Sections~\ref{eu-balance-of-mass}--\ref{eu-balance-of-energy}, and
+make thermodynamically-valid constitutive choices pertinent to
+biological tissues, we turn to the principles of entropy growth and
+material frame-indifference. The following treatment builds upon the
+same fundamental assumptions underlying our system of interest as
+those stated in Section~\ref{entropy-inequality}:
 
 \begin{enumerate}
 \item[(\romannumeral 1)] The entropy production inequality is assumed
   to hold at a continuum point for all species as a whole, but, in
-  general, not for each individual species.
+  general, not for each individual species.\footnote{Enforcing the
+    entropy inequality separately to each of the individual
+    constituents of the mixture imposes unrealistic constraints on the
+    mixture \citep{BedfordDrumheller:1983}.}
 \item[(\romannumeral 2)] All species occupying a continuum point in
-  the tissue have the same absolute temperature, $\theta$.%
-  \footnote{Enforcing the entropy inequality separately to each of the
-    individual constituents of the mixture imposes unrealistic
-    constraints on the mixture. (See, for e.g.,
-    \citet{BedfordDrumheller:1983} and \citet{ateshian07}.)}
+  the tissue have the same absolute temperature, $\theta$.
 \end{enumerate} 
 
 \noindent However, in contrast with Section~\ref{entropy-inequality},
@@ -678,10 +671,9 @@ when written out for the entire system in $\Omega_{t}$ reads,
 \label{eu-globalbalanceofentropy}
 \end{equation}
 
-On applying Reynolds' transport theorem
-(Appendix~\ref{reynolds-transport}) to the left hand-side and Gauss'
-divergence theorem (Appendix~\ref{gauss-divergence}) to the area
-integrals, we have,
+On applying Reynolds' transport theorem (Appendix~\ref{reynolds%
+  -transport}) to the left hand-side and Gauss' divergence theorem
+(Appendix~\ref{gauss-divergence}) to the area integrals, we have,
 
 \begin{equation*}
 \begin{split}
@@ -700,8 +692,8 @@ integrals, we have,
 \end{split}
 \end{equation*}
 
-\noindent Applying the chain rule of differentiation and the balance
-of mass~(\ref{eu-localbalanceofmass}),
+\noindent Applying Leibniz's product rule and the balance of mass%
+~(\ref{eu-localbalanceofmass}),
 
 \begin{equation*}
 \begin{split}
@@ -742,7 +734,7 @@ form of the entropy inequality for the entire system:
 Now, multiplying Equation~(\ref{eu-localentropyinequality}) by the
 temperature field, $\theta$, and subtracting it from a summation of the
 balance of energy~(\ref{eu-localbalanceofenergy}) over all
-species~$\iota$ gives,
+species~$\iota$, we obtain,
 
 \begin{equation*}
 \begin{split}
@@ -759,9 +751,10 @@ species~$\iota$ gives,
 \end{split}
 \end{equation*}
 
-\noindent where $\dot{\bullet}=\frac{\partial \bullet}{\partial
-  t}$. Using Equation~(\ref{eu-summationrelationenergy}) to eliminate 
-$\tilde{e}^{\iota}$, we have
+\noindent where $\dot{\bullet}$ denotes the partial derivative with
+respect to time. Using Equation~(\ref{eu-summationrelationenergy}) to
+eliminate the species interaction energy, $\tilde{e}^{\iota}$, we
+deduce that
 
 \begin{equation*}
 \begin{split}
@@ -801,21 +794,33 @@ regrouping terms, the relation above reduces to,
 the growth process; a rule which any prescribed constitutive
 relationship must satisfy \citep{TruesdellToupin:60}.
 
-Because of its general nature, the treatment thus far has been in
-terms of an arbitrary species~$\iota$. Recall from
-Section~\ref{balance-laws} that the various species constituting the
+Because of its general nature, the treatment presented thus far has been in
+terms of an arbitrary species~$\iota$. Recall, from
+Section~\ref{balance-laws}, that the various species constituting the
 tissue are grouped into a solid species, consisting of solid
 \emph{collagen fibrils} and \emph{cells}, denoted by $\mathrm{c}$, an
 extra-cellular \emph{fluid} species, denoted by $\mathrm{f}$,
 consisting primarily of water, and \emph{solute} species, consisting
 of precursors to reactions, byproducts, nutrients, and other
-regulatory chemicals, denoted by $\mathrm{s}$.
+regulatory chemicals, denoted by $\mathrm{s}$. We now return to this
+earlier classification, and proceed to prescribe constitutive
+relations pertinent to the mechanics of growing biological tissue for
+each of these species groups.
 
-We now return this the earlier classification, and proceed to
-prescribe constitutive relations pertinent to the mechanics of growing
-biological tissue for each of these species groups. The choices
-detailed in the subsequent sections ensure that the Clausius-Duhem
-inequality~(\ref{eu-clausiusduhemform}) is satisfied a priori.
+The form of the Clausius-Duhem inequality arrived at in
+(\ref{eu-clausiusduhemform}) is equivalent to the forms in recent work
+on mixture theory-based models for biological growth \citep{loret05,
+  ateshian07}.  However, subsequently varying choices made in the
+different works, including this one, for the {\em constitutive
+  independent variables} result in altered constitutive
+specification. I believe it is significant and must be emphasised at
+this point that not only do the constitutive choices detailed in the
+following sections ensure that the Clausius-Duhem inequality is
+satisfied {\em a priori}, but also that they are general enough to
+handle a fairly large class of physics, and most significantly, have
+been implemented in a coupled formulation retaining much of their rich
+detail, as evidenced by the computational examples in
+Chapter~\ref{numerical-simulations-2}.
 
 \subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
@@ -828,21 +833,22 @@ arising from stress-driven fluid flow through the network. In order to
 model either of these cases, or combinations thereof, we first require
 that the constitutive relation for the stress-strain response of the
 solid collagenous phase is general enough to provide this viscoelastic
-response. Noting that the numerical examples presented in
+response.
+
+Noting that the numerical examples presented in
 Chapter~\ref{numerical-simulations-2} solve the momentum balance
 equation (\ref{localbalanceofmomentum}) for the solid phase in the
-reference configuration,\footnote{Recall (from
-  Section~\ref{eu-balance-laws}) that since $\Omega_{t}$ is
-  constructed to coincide with the current position of the solid
-  component of the tissue, we are aware of the deformation gradient
-  $\bF^{\mathrm{c}}=\bF=\frac{\partial \Bvarphi_{t}}{\partial \bX}$ of
-  the this phase.} we deduce the
-constitutive response of the solid phase in terms of its partial first
-Piola-Kirchhoff stress tensor, $\bP^{\mathrm{c}}$.
-
-For this, we turn our attention to the first three terms in the
-Clausius-Duhem inequality (\ref{eu-clausiusduhemform}), specifically
-for $\iota=\mathrm{c}$,
+reference configuration,\footnote{It is instructive to point out here
+  that since $\Omega_{t}$ is constructed to coincide with the current
+  position of the solid component of the tissue (see
+  Section~\ref{eu-balance-laws}), we are aware of the deformation
+  gradient $\bF^{\mathrm{c}}=\bF=\frac{\partial \Bvarphi_{t}}{\partial
+    \bX}$ of the this phase.} we deduce the constitutive response of
+the solid phase in terms of its partial first and second
+Piola-Kirchhoff stress tensors, $\bP^{\mathrm{c}}$ and
+$\bS^{\mathrm{c}}$, respectively. For this, we turn our attention to
+the first three terms in the Clausius-Duhem inequality
+(\ref{eu-clausiusduhemform}), specifically for $\iota=\mathrm{c}$,
 
 \begin{equation*}
 \rho^{\mathrm{c}} \dot{e^{\mathrm{c}}}
