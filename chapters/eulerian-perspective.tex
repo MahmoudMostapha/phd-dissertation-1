@@ -801,32 +801,101 @@ regrouping terms, the relation above reduces to,
 the growth process; a rule which any prescribed constitutive
 relationship must satisfy \citep{TruesdellToupin:60}.
 
-Over the course of the subsequent sections, we proceed to prescribe
-constitutive relations pertinent to the mechanics of growing
-biological tissue which ensure that the Clausius-Duhem
-inequality~(\ref{eu-clausiusduhemform}) is satisfied a priori.
+Because of its general nature, the treatment thus far has been in
+terms of an arbitrary species~$\iota$. Recall from
+Section~\ref{balance-laws} that the various species constituting the
+tissue are grouped into a solid species, consisting of solid
+\emph{collagen fibrils} and \emph{cells}, denoted by $\mathrm{c}$, an
+extra-cellular \emph{fluid} species, denoted by $\mathrm{f}$,
+consisting primarily of water, and \emph{solute} species, consisting
+of precursors to reactions, byproducts, nutrients, and other
+regulatory chemicals, denoted by $\mathrm{s}$.
 
-% We will be reintroducing the species classification and will take
-% apart the equation term by term, seeing what it implies. 
+We now return this the earlier classification, and proceed to
+prescribe constitutive relations pertinent to the mechanics of growing
+biological tissue for each of these species groups. The choices
+detailed in the subsequent sections ensure that the Clausius-Duhem
+inequality~(\ref{eu-clausiusduhemform}) is satisfied a priori.
 
 \subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
 
-\noindent{\bf Remark 3}: Since soft biological tissues usually
-demonstrate rate-dependent response, it has been common to employ
-a solid viscoelastic constitutive model for them. This approach
-fits within our framework, with a modification of the internal
-energy to include its dependence upon internal variables that
-represent the viscoelastic stress-like parameters. However, a more
-physiologically-valid model may be one with a purely hyperelastic
-solid phase, and a viscous fluid. In such a composite model the
-rate-dependent behavior would arise from the fluid.
+It is well established that collagenous tissues demonstrate a
+rate-dependent response to applied loads (see, for e.g.,
+\citet{Provenzanoetal:2001}). This behaviour may be attributed to the
+viscous deformation of the collagen network, and frictional effects
+arising from stress-driven fluid flow through the network. In order to
+model either of these cases, or combinations thereof, we first require
+that the constitutive relation for the stress-strain response of the
+solid collagenous phase is general enough to provide this viscoelastic
+response. Noting that the numerical examples presented in
+Chapter~\ref{numerical-simulations-2} solve the momentum balance
+equation (\ref{localbalanceofmomentum}) for the solid phase in the
+reference configuration,\footnote{Recall (from
+  Section~\ref{eu-balance-laws}) that since $\Omega_{t}$ is
+  constructed to coincide with the current position of the solid
+  component of the tissue, we are aware of the deformation gradient
+  $\bF^{\mathrm{c}}=\bF=\frac{\partial \Bvarphi_{t}}{\partial \bX}$ of
+  the this phase.} we deduce the
+constitutive response of the solid phase in terms of its partial first
+Piola-Kirchhoff stress tensor, $\bP^{\mathrm{c}}$.
 
-Mention the fact that not all aspects of time-dependent response can
-be gathered from poroelasticity alone, and so we generalise the theory
-to account for a viscoelastic solid.
+For this, we turn our attention to the first three terms in the
+Clausius-Duhem inequality (\ref{eu-clausiusduhemform}), specifically
+for $\iota=\mathrm{c}$,
+
+\begin{equation*}
+\rho^{\mathrm{c}} \dot{e^{\mathrm{c}}}
+- \rho^{\mathrm{c}} \dot{\eta^{\mathrm{c}}} \theta
+-\Bsigma^{\mathrm{c}}\colon\mathrm{grad}\left(\bv^{\mathrm{c}}\right)\leq 0.
+\end{equation*}
+
+\noindent From balance of angular momentum for the solid
+(\ref{eu-localbalanceofangularmomentum}), we know that its partial
+Cauchy stress is symmetric and thus,
+$\Bsigma^{\mathrm{c}}\colon\mathrm{grad}\left(\bv^{\mathrm{c}}\right)
+=\Bsigma^{\mathrm{c}}\colon(\dot{\bF}\bF^{-1})
+=\frac{1}{J}\bP^{\mathrm{c}}\colon\dot{\bF}$. Substituting this above,
+recalling that \mbox{$\rho^\iota\ J=\rho_0^\iota$}, we have,
+
+\begin{equation*}
+\rho_{0}^{\mathrm{c}} \dot{e^{\mathrm{c}}}
+- \rho_{0}^{\mathrm{c}} \dot{\eta^{\mathrm{c}}} \theta
+-\bP^{\mathrm{c}}\colon\dot{\bF}\leq 0.
+\end{equation*}
+
+Introducing the kinematic split $\bF=\bF^{\mathrm{e}}\bF^{\mathrm{g}}$
+discussed in Section~\ref{kinematics-of-growth} and applying the
+properties of the contraction operator, the above inequality reads,
+
+\begin{equation*}
+\rho_{0}^{\mathrm{c}} \dot{e^{\mathrm{c}}}
+- \rho_{0}^{\mathrm{c}} \dot{\eta^{\mathrm{c}}} \theta
+- \bP^{\mathrm{c}} \bF^{\mathrm{g}^{\mathrm{T}}} \colon
+\dot{\bF^{\mathrm{e}}}
+- \bF^{\mathrm{e}^{\mathrm{T}}}  \bP^{\mathrm{c}} \colon
+\dot{\bF^{\mathrm{g}}}
+\leq 0.
+\end{equation*}
+
+Assuming that the internal energy of the solid has the following
+functional form: $e^{\mathrm{c}}=W^{\mathrm{c}}(\bF^{\mathrm{e}},\eta^{\mathrm{c}},
+\Bxi_{1},\ldots,\Bxi_{m})$, where $\Bxi_{1},\ldots,\Bxi_{m}$ are a set
+of internal history variables, we have that,
+
+
+
 
 % Mooney Rivlin sample goes here, and two tables in Chapter 5.
+
+\subsection{Growth deformation gradients dependent on stress states}
+\label{eu-stress-dependent-source}
+
+$\bP^{\mathrm{c}} \colon
+\dot{\bF^{\mathrm{g}}}$
+
+Tie this to Wolff's law if possible. Write down whatever it works out
+to be and cite Loret.
 
 \subsection{A Newtonian fluid}
 \label{eu-newtonian-fluid}
@@ -840,17 +909,15 @@ naturally.
 \subsection{Energy-dependent mass source terms}
 \label{eu-energy-dependent-source}
 Read the proposal.
+{\em Any} odd function in that A-space.
 
-\subsection{Growth deformation gradients dependent on stress states}
-\label{eu-stress-dependent-source}
-Tie this to Wolff's law if possible. Write down whatever it works out
-to be and cite Loret.
-
-\subsection{Fluxes dependent on concentration gradients of other
-  species}
-\label{eu-onsager-reciprocity}
-
-\todo{Onsager Reciprocity?}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/elucidation/%
+    energy-based-source}
+  \caption{A thermodynamically-motivated collagen source.}
+  \label{energy-based-source}
+\end{figure}
 
 \section{Algorithmic considerations}
 \label{eu-algorithmic-considerations}
@@ -868,13 +935,11 @@ Then mention something about the lagrange-multiplier kind of thing
 that makes the fluid pressure a fictitious quantity only present to
 ensure saturation.
 
-\subsection{Overall stability of the monolithic numerical scheme}
-\label{eu-monolithic-stability}
-
-\todo{Necessary?}
-
 \subsection{Fluid-structure interaction boundary conditions}
 \label{eu-fluid-structure-interaction}
+
+Since we don't know F for the fluid we don't know Fg or Fe either. The
+new swelling problem is worked out as so:
 
 Kinematics of growth (absence) does not need the use of \bF and this
 differentiates this chapter from chapter 2 (and corresponding swelling
