@@ -761,7 +761,7 @@ species~$\iota$ gives,
 
 \noindent where $\dot{\bullet}=\frac{\partial \bullet}{\partial
   t}$. Using Equation~(\ref{eu-summationrelationenergy}) to eliminate 
-$\tilde{e}^{\iota}$,
+$\tilde{e}^{\iota}$, we have
 
 \begin{equation*}
 \begin{split}
@@ -803,23 +803,28 @@ relationship must satisfy \citep{TruesdellToupin:60}.
 
 Over the course of the subsequent sections, we proceed to prescribe
 constitutive relations pertinent to the mechanics of growing
-biological tissue which ensure that the left hand-side of
-Clausius-Duhem inequality~(\ref{eu-clausiusduhemform}) vanishes
-entirely, ensuring that it is satisfied a priori.
+biological tissue which ensure that the Clausius-Duhem
+inequality~(\ref{eu-clausiusduhemform}) is satisfied a priori.
 
+% We will be reintroducing the species classification and will take
+% apart the equation term by term, seeing what it implies. 
 
 \subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
 
-%% \noindent{\bf Remark 3}: Since soft biological tissues usually
-%% demonstrate rate-dependent response, it has been common to employ
-%% a solid viscoelastic constitutive model for them. This approach
-%% fits within our framework, with a modification of the internal
-%% energy to include its dependence upon internal variables that
-%% represent the viscoelastic stress-like parameters. However, a more
-%% physiologically-valid model may be one with a purely hyperelastic
-%% solid phase, and a viscous fluid. In such a composite model the
-%% rate-dependent behavior would arise from the fluid.
+\noindent{\bf Remark 3}: Since soft biological tissues usually
+demonstrate rate-dependent response, it has been common to employ
+a solid viscoelastic constitutive model for them. This approach
+fits within our framework, with a modification of the internal
+energy to include its dependence upon internal variables that
+represent the viscoelastic stress-like parameters. However, a more
+physiologically-valid model may be one with a purely hyperelastic
+solid phase, and a viscous fluid. In such a composite model the
+rate-dependent behavior would arise from the fluid.
+
+Mention the fact that not all aspects of time-dependent response can
+be gathered from poroelasticity alone, and so we generalise the theory
+to account for a viscoelastic solid.
 
 % Mooney Rivlin sample goes here, and two tables in Chapter 5.
 
@@ -829,43 +834,55 @@ entirely, ensuring that it is satisfied a priori.
 \subsection{The interaction forces}
 \label{eu-forces-between-phases}
 
-\subsection{Energy-dependent growth source terms}
+Cite the fact that many forms are possible, but ours falls out
+naturally.
+
+\subsection{Energy-dependent mass source terms}
 \label{eu-energy-dependent-source}
+Read the proposal.
 
 \subsection{Growth deformation gradients dependent on stress states}
 \label{eu-stress-dependent-source}
-Tie this to Wolff's law if possible.
-
+Tie this to Wolff's law if possible. Write down whatever it works out
+to be and cite Loret.
 
 \subsection{Fluxes dependent on concentration gradients of other
   species}
 \label{eu-onsager-reciprocity}
-Onsager Reciprocity
+
+\todo{Onsager Reciprocity?}
 
 \section{Algorithmic considerations}
 \label{eu-algorithmic-considerations}
+
 \subsection{The saturation constraint}
-% Work on this from ``A Theory of Multiphase Mixtures''
-%in constrast to this, where we impose it all the time
+\label{eu-saturationconstraint}
+
+Unlike in the first part, where we allow for cavitation under ex
+vivo/in vitro conditions, in the calculations in the next chapter we
+impose it all the time.
+
+Work on this from ``A Theory of Multiphase Mixtures.''
+
+Then mention something about the lagrange-multiplier kind of thing
+that makes the fluid pressure a fictitious quantity only present to
+ensure saturation.
+
 \subsection{Overall stability of the monolithic numerical scheme}
+\label{eu-monolithic-stability}
+
+\todo{Necessary?}
+
 \subsection{Fluid-structure interaction boundary conditions}
+\label{eu-fluid-structure-interaction}
 
-%% Kinematics of growth (absence) does not need the use of \bF and
-%% this differentiates this chapter from 2.
+Kinematics of growth (absence) does not need the use of \bF and this
+differentiates this chapter from chapter 2 (and corresponding swelling
+example in chapter 3). Follow the paper to say how pressure is
+converted to a boundary condition because talking just about
+velocities doesn't firm up displacements, which is what we're aiming
+to solve for the solid.
 
-%% \todo{\begin{itemize}
-%%   \item Needs an explanatory figure.
-%%    \item incorporating additional kinematic variables into strain energy
-%%     function: derive viscoelastic response.
-%%   \item Derive the growth law dependent on stress, forces between
-%%     phases, source terms (even/odd), ...
-%%   \item Onsager for the cancer calculation.
-%%   \item Figure out how to word saturation constraint, steal and modify
-%%     numerical stability analysis for monolithic scheme from proposal.
-%%   \item Work from the fluid-structure interaction literature to
-%%     highlight boundary conditions, or perhaps move this to the next
-%%     chapter.
-%% \end{itemize}}
 
 % The move to the following perspective was motivated by the fact that
 % the earlier formulation, and corresponding numerical examples (cite

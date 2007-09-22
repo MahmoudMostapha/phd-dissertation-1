@@ -21,11 +21,11 @@ accounting for mechanical effects. In order to suppress some of the
 coupled phenomena, and take a closer look at the physics of porous
 soft tissues, Section~\ref{biphasic-examples-1} considers some
 examples based on a simplified system comprising only of a solid phase
-and a fluid phase. The final example presented in this chapter
-provides a straightforward extension of the theory to model the
-effects of the mechanical environment on wound healing
-(Section~\ref{wound-healing-example}), evidencing the generality of
-the proposed formulation.
+and a fluid phase.%%  The final example presented in this chapter
+%% provides a straightforward extension of the theory to model the
+%% effects of the mechanical environment on wound healing
+%% (Section~\ref{wound-healing-example}), evidencing the generality of
+%% the proposed formulation.
 
 \section{Introducing the computational model}
 \label{computational-model}
@@ -707,55 +707,94 @@ however, manifest in Figure~\ref{volume_evolution}.
         followed by the longer reaction-dominated growth stage.}
 \end{figure}
 
-\section{Extension to modelling wound healing}
-\label{wound-healing-example}
+%% \section{Extension to modelling wound healing}
+%% \label{wound-healing-example}
 
-\todo{Flesh this example out or remove it.}
+%% \todo{Flesh this example out or remove it.}
 
-%of scars are the result of the body overproducing collagen, which causes the scar to be raised above the surrounding skin. Hypertrophic scars take the form of a red raised lump on the skin, but do not grow beyond the boundaries of the original wound, and they often improve in appearance after a few years
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[width=0.8\textwidth]
+%%                {images/experiments/healing-damaged-ligament} 
+%% \caption{The recovery of a damaged ligament.}
+%% \label{healing-damaged-ligament}
+%% \end{figure}
 
-%% chemo-mechanical
-%% coupling is described in \cite{Provenzanoetal:2003}.
+%% There is experimental evidence to suggest that during wound healing,
+%% newly-de\-po\-sit\-ed collagen fibres are found to align with the
+%% applied stress whereas under unstressed conditions, they are deposited
+%% isotropically \citep{Provenzanoetal:2003}.
 
-\begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]
-               {images/experiments/healing-damaged-ligament} 
-\caption{The recovery of a damaged ligament.}
-\label{healing-damaged-ligament}
-\end{figure}
+%% \begin{equation}
+%% \Pi^\mathrm{c} = \alpha\ k^\mathrm{f}(\rho_0^\mathrm{f} -
+%% \rho_{0_\mathrm{ini}}^\mathrm{f}),
+%% \label{cell-signalling-source}
+%% \end{equation}
 
-\begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]
-                {images/examples/lagrangian/healing/full-skin-mesh} 
-\caption{The computational mesh representing skin.}
-\label{healing-skin-mesh}
-\end{figure}
+%% Contains two phases. Portion of solid initially ``broken.'' --
+%% $400$~\mbox{kg.m}$^{-3}$ in the damaged regions and
+%% 500~\mbox{kg.m}$^{-3}$ everywhere else in the domain. Fluid initially
+%% 400~\mbox{kg.m}$^{-3}$ in the domain and 500~\mbox{kg.m}$^{-3}$ in the
+%% nutrient-rich bath $\Rightarrow$ fluid and nutrients rush in, as in
+%% the swelling problem.
 
-\begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]
-                {images/examples/lagrangian/healing/damaged-region} 
-\caption{The damaged region of the skin highlighted.}
-\label{healing-damaged-region}
-\end{figure}
+%% $\alpha$ is a cell-signalling parameter which
+%% drives preferential growth in damaged regions mimicking the
+%% availability of cells in those regions. It's currently a simple
+%% switch, $\alpha = 1$ if
+%% $\rho_0^{\mathrm{c}}<500$~\mbox{kg.m}$^{-3}$ and $\alpha = 0$
+%% otherwise. Same $k^\mathrm{f}$ as before.
 
-\begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]
-                {images/examples/lagrangian/healing/healed-vertical-displacement} 
-\caption{Vertical displacement upon loading after healing under no external load.}
-\label{healing-vertical-displacement}
-\end{figure}
+%% Time starts, fluid flows in like the swelling problem, but unlike the
+%% swelling problem growth only takes place in damaged regions. The
+%% process is carried out under load, and under no load and the numerical
+%% experiment is run until $\alpha=0$ everywhere, meaning the collagen
+%% concentration is back to $\rho_0^{\mathrm{c}}=500$~\mbox{kg.m}$^{-3}$
+%% at all points in the tissue, indicating a ``fully-healed'' tissue.
 
-\begin{figure}[!hpt]
-\centering
-\includegraphics[width=0.8\textwidth]
-                {images/examples/lagrangian/healing/healed-vertical-stress} 
-\caption{Vertical stress upon loading after healing under no external load.}
-\label{healing-vertical-stress}
-\end{figure}
+%% Newly deposited collagen is modelled as a ``different'' material in the
+%% code. It is the same as the old material, but with but with material
+%% constants that depend on the stress state upon deposition. Under load,
+%% it's 
+
+%% %of scars are the result of the body overproducing collagen, which causes the scar to be raised above the surrounding skin. Hypertrophic scars take the form of a red raised lump on the skin, but do not grow beyond the boundaries of the original wound, and they often improve in appearance after a few years
+
+%% %% chemo-mechanical
+%% %% coupling is described in \cite{Provenzanoetal:2003}.
+
+
+
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[width=0.8\textwidth]
+%%                 {images/examples/lagrangian/healing/full-skin-mesh} 
+%% \caption{The computational mesh representing the tissue.}
+%% \label{healing-skin-mesh}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[width=0.8\textwidth]
+%%                 {images/examples/lagrangian/healing/damaged-region} 
+%% \caption{A section of the mesh highlighting the damaged region.}
+%% \label{healing-damaged-region}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[width=0.8\textwidth]
+%%                 {images/examples/lagrangian/healing/healed-vertical-displacement} 
+%% \caption{Vertical displacement upon loading after healing under no external load.}
+%% \label{healing-vertical-displacement}
+%% \end{figure}
+
+%% \begin{figure}[!hpt]
+%% \centering
+%% \includegraphics[width=0.8\textwidth]
+%%                 {images/examples/lagrangian/healing/healed-vertical-stress} 
+%% \caption{Vertical stress upon loading after healing under no external load.}
+%% \label{healing-vertical-stress}
+%% \end{figure}
 
 %
 
