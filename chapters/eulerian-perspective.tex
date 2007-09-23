@@ -21,16 +21,15 @@ below naturally leads to the identification of a different set of
 primitive variables more suitable to physically relevant boundary
 value problems.
 
-The outline of the chapter is as
-follows. Section~\ref{eu-balance-laws} briefly recapitulates the
-fundamental quantities characterising the tissue, pointing out
-noteworthy differences from Section~\ref{balance-laws}, and derives
-the balance laws governing finite deformation growth in terms of
-spatial quantities. Section~\ref{eu-entropy-inequality} deduces
-constitutive relationships consistent with the entropy
-inequality. Finally, certain algorithmic considerations pertinent to
-the simulations presented in Chapter~\ref{numerical-simulations-2} are
-discussed in Section~\ref{eu-algorithmic-considerations}.
+This chapter is divided into two main parts. The first part
+(Section~\ref{eu-balance-laws}) briefly recapitulates the fundamental
+quantities characterising the tissue, pointing out noteworthy
+differences from Section~\ref{balance-laws}, and derives the balance
+laws governing finite deformation growth in terms of spatial
+quantities. The second (Section~\ref{eu-entropy-inequality}), closes
+this set of balance laws by deducing a set of physiologically relevant
+constitutive relationships which ensure that the entropy inequality is
+satisfied a priori.
 
 \section{Balance laws for an open mixture}
 \label{eu-balance-laws}
@@ -794,19 +793,6 @@ regrouping terms, the relation above reduces to,
 the growth process; a rule which any prescribed constitutive
 relationship must satisfy \citep{TruesdellToupin:60}.
 
-Because of its general nature, the treatment presented thus far has been in
-terms of an arbitrary species~$\iota$. Recall, from
-Section~\ref{balance-laws}, that the various species constituting the
-tissue are grouped into a solid species, consisting of solid
-\emph{collagen fibrils} and \emph{cells}, denoted by $\mathrm{c}$, an
-extra-cellular \emph{fluid} species, denoted by $\mathrm{f}$,
-consisting primarily of water, and \emph{solute} species, consisting
-of precursors to reactions, byproducts, nutrients, and other
-regulatory chemicals, denoted by $\mathrm{s}$. We now return to this
-earlier classification, and proceed to prescribe constitutive
-relations pertinent to the mechanics of growing biological tissue for
-each of these species groups.
-
 The form of the Clausius-Duhem inequality arrived at in
 (\ref{eu-clausiusduhemform}) is equivalent to the forms in recent work
 on mixture theory-based models for biological growth \citep{loret05,
@@ -821,6 +807,19 @@ handle a fairly large class of physics, and most significantly, have
 been implemented in a coupled formulation retaining much of their rich
 detail, as evidenced by the computational examples in
 Chapter~\ref{numerical-simulations-2}.
+
+Because of its general nature, the treatment presented thus far has been in
+terms of an arbitrary species~$\iota$. Recall, from
+Section~\ref{balance-laws}, that the various species constituting the
+tissue are grouped into a solid species, consisting of solid
+\emph{collagen fibrils} and \emph{cells}, denoted by $\mathrm{c}$, an
+extra-cellular \emph{fluid} species, denoted by $\mathrm{f}$,
+consisting primarily of water, and \emph{solute} species, consisting
+of precursors to reactions, byproducts, nutrients, and other
+regulatory chemicals, denoted by $\mathrm{s}$. We now return to this
+earlier classification, and proceed to prescribe constitutive
+relations pertinent to the mechanics of growing biological tissue for
+each of these species groups.
 
 \subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
@@ -862,7 +861,8 @@ Cauchy stress is symmetric and thus,
 $\Bsigma^{\mathrm{c}}\colon\mathrm{grad}\left(\bv^{\mathrm{c}}\right)
 =\Bsigma^{\mathrm{c}}\colon(\dot{\bF}\bF^{-1})
 =\frac{1}{J}\bP^{\mathrm{c}}\colon\dot{\bF}$. Substituting this above,
-recalling that \mbox{$\rho^\iota\ J=\rho_0^\iota$}, we have,
+recalling that \mbox{$\rho^{\mathrm{c}}\ J=\rho_0^{\mathrm{c}}$}, we
+have,
 
 \begin{equation*}
 \rho_{0}^{\mathrm{c}} \dot{e^{\mathrm{c}}}
@@ -889,19 +889,22 @@ functional form: $e^{\mathrm{c}}=W^{\mathrm{c}}(\bF^{\mathrm{e}},\eta^{\mathrm{c
 \Bxi_{1},\ldots,\Bxi_{m})$, where $\Bxi_{1},\ldots,\Bxi_{m}$ are a set
 of internal history variables, we have that,
 
-
-
-
 % Mooney Rivlin sample goes here, and two tables in Chapter 5.
 
 \subsection{Growth deformation gradients dependent on stress states}
 \label{eu-stress-dependent-source}
 
+There is experimental evidence to suggest that during wound healing,
+newly-de\-po\-sit\-ed collagen fibres are found to align with the
+applied stress whereas under unstressed conditions, they are deposited
+isotropically \citep{Provenzanoetal:2003}.
+
 $\bP^{\mathrm{c}} \colon
 \dot{\bF^{\mathrm{g}}}$
 
 Tie this to Wolff's law if possible. Write down whatever it works out
-to be and cite Loret.
+to be and cite Loret. Mention that this is not possible for the fluid
+phase, because we don't know F for it.
 
 \subsection{A Newtonian fluid}
 \label{eu-newtonian-fluid}
@@ -914,8 +917,72 @@ naturally.
 
 \subsection{Energy-dependent mass source terms}
 \label{eu-energy-dependent-source}
-Read the proposal.
-{\em Any} odd function in that A-space.
+
+We now focus on the following term of the Clausius-Duhem form
+(\ref{eu-clausiusduhemform}),
+
+\begin{equation*}
+\sum\limits_{\iota} 
+ \pi^{\iota} \left(\psi^{\iota}+\frac{1}{2}
+\Vert\bv^\iota\Vert^2\right) \leq 0.
+\end{equation*}
+
+Recall that the extra-cellular fluid species, $\mathrm{f}$, consists
+primarily of water and does not take part in reactions, i.e.,
+$\pi^\mathrm{f} = 0$. Also, from the summation relation for mass
+sources and sinks~(\ref{eu-summationrelationmass}), we have that
+$\pi^\mathrm{s} = - \pi^\mathrm{c}$, and so, performing the summation
+on the left hand-side of the inequality above for
+$\iota=\mathrm{c,f,s}$, the dissipation inequality requires that,
+
+\begin{equation*}
+ \pi^{\mathrm{c}} \left(\psi^{\mathrm{c}}+\frac{1}{2}
+\Vert\bv^{\mathrm{c}}\Vert^2\right)
++ \left(-\pi^{\mathrm{c}}\right) \left(\psi^{\mathrm{s}}+\frac{1}{2}
+\Vert\bv^{\mathrm{s}}\Vert^2\right) \leq 0.
+\end{equation*}
+
+\noindent The above relation provides a broad guideline that allows
+for the specification of a very general class of source terms for
+collagen. For instance, the most obvious form is linear in terms of
+the energy (Helmholtz free energy plus the kinetic energy) difference
+between the collagen phase and the solute phase:
+
+\begin{equation}
+ \pi^{\mathrm{c}} = -\kappa^{\mathrm{c}}
+ \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 -
+ \psi^{\mathrm{s}}-\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right),
+\label{eu-energy-source-linear}
+\end{equation}
+
+\noindent where $\kappa^{\mathrm{c}}$ is a non-negative rate
+constant.
+
+Thus, the thermodynamics suggests that it is an energetic difference
+between the reactants and products of a chemical reaction that drive
+the reaction forward; a well-established concept in
+chemistry. More interestingly, since all that the thermodynamics
+requires is that the source term for collagen be positive (negative)
+when the solute is more (less) energetic than collagen, this opens up
+the selection to a variety of forms, such as the nonlinear (in terms
+of the energy difference) example shown below,
+
+\begin{equation}
+\pi^{\mathrm{c}}=\epsilon\ \kappa^{\mathrm{c}}\left( \mathrm{exp}
+\left[-\epsilon\ U \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 - 
+ \psi^{\mathrm{s}}+\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right) \right]
+ - 1\right),
+\label{eu-energy-source-nonlinear}
+\end{equation}
+
+\noindent (where $\epsilon =
+\mathrm{sign}\left(\psi^{\mathrm{c}}+\frac{1}{2}
+\Vert\bv^{\mathrm{c}}\Vert^2 - \psi^{\mathrm{s}}-\frac{1}{2}
+\Vert\bv^{\mathrm{s}}\Vert^2\right)$, $U>0$ and
+$\kappa^{\mathrm{c}}\geq 0$) and can be tailored to represent
+different sorts of biochemistry. The evolution of this nonlinear
+collagen source term with the energy difference between the collagen
+and solute phases is shown in Figure~\ref{energy-based-source}.
 
 \begin{figure}
   \centering
@@ -925,46 +992,28 @@ Read the proposal.
   \label{energy-based-source}
 \end{figure}
 
-\section{Algorithmic considerations}
-\label{eu-algorithmic-considerations}
+\subsection{Duhamel's law of heat conduction}
+\label{eu-duhamel-law}
 
-\subsection{The saturation constraint}
-\label{eu-saturationconstraint}
+A suitable constitutive relation motivated by experiment which relates
+the Cauchy heat flux $\bh^{\iota}(\bx,t)$ to the spatial temperature
+gradient $\mathrm{grad}\left(\theta\right)(\bx,t)$ is the classical
+heat conduction law of Duhamel:
 
-Unlike in the first part, where we allow for cavitation under ex
-vivo/in vitro conditions, in the calculations in the next chapter we
-impose it all the time.
+\begin{equation}
+\bh^{\iota} =  - \Bkappa^{\iota}\ \mathrm{grad}\left(\theta\right),\;\forall\,\iota,
+\end{equation}
 
-Work on this from ``A Theory of Multiphase Mixtures.''
+\noindent where $\Bkappa^{\iota}(\bx,t)$, the spatial thermal
+conductivity tensor, is positive semi-definite. The relation above
+states that heat flows down a temperature gradient. This relation
+ensures that the only remaining term in the dissipation inequality is
+of the appropriate sign,
 
-Then mention something about the lagrange-multiplier kind of thing
-that makes the fluid pressure a fictitious quantity only present to
-ensure saturation.
-
-\subsection{Fluid-structure interaction boundary conditions}
-\label{eu-fluid-structure-interaction}
-
-Since we don't know F for the fluid we don't know Fg or Fe either. The
-new swelling problem is worked out as so:
-
-Kinematics of growth (absence) does not need the use of \bF and this
-differentiates this chapter from chapter 2 (and corresponding swelling
-example in chapter 3). Follow the paper to say how pressure is
-converted to a boundary condition because talking just about
-velocities doesn't firm up displacements, which is what we're aiming
-to solve for the solid.
-
-
-% The move to the following perspective was motivated by the fact that
-% the earlier formulation, and corresponding numerical examples (cite
-% sections on role of mass balance in current conf., the deformation
-% gradient split for the fluid, and the numerical example involving
-% assumptions on deformation gradient of the fluid) involved
-% quantities that, while reasonable from a 
-% mathematical pint of view, did not correspond to physical quantities
-% of interest in terms of physiological bvps. Point out that it's been
-% 2--3 years of refining our understanding and trials with the
-% previous code that's led to this point?
+\begin{equation*}
+\sum\limits_{\iota} \left(\frac{\bh^{\iota} \cdot
+  \mathrm{grad}\left(\theta\right)}{\theta} \right) \leq 0.
+\end{equation*}
 
 %
 

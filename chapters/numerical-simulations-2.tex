@@ -2,24 +2,32 @@
 \label{numerical-simulations-2}
 
 \todo{\begin{itemize}
-  \item Work on this after, and in tandem with, Chapter 4
+  \item Work on this in tandem with, and after, Chapter 4
+    \item Talk about physically-relevant primitive variables and
+      contrast choices with Chapter 3
   \item Weave around the monolithic implementation details and refer
-    COMSOL's documentation to see how it goes about doing things?
-    (Cite back to the fact that monolithic is stable.)
-  \item Figure out the feasibility of: elastica, visco-poro-elasticity
-    friction-coeff. variation or drop the entire section.
-  \item Generate pristine plots for the flow field calculations and
-    write up elaborate descriptions of the problems, citing back to
-    the boundary conditions/saturation constraint of the previous
-    chapter. Justify 2D.
+    COMSOL's documentation. Cite back to the fact that monolithic
+    is stable. Justify 2D.
+  \item Generate pristine plots for the tensile-flow field
+    calculations 
+  \item Cites work from cancer literature to motivate the example. Tie
+    in cell haptotaxis with gradients of other species 
+  \item Talk about swelling boundary conditions and saturation
+    constraint.
   \item Bring in a few experimental figures and point out what we're
     looking for in terms of biphasic response.
-  \item Go through cool/realistic calculations and replot a few from
-    useful cases. Look at the new proposal to see what is sellable.
-  \item Cite work from cancer to motivate the example. Generate many
-    plots of the different fields and describe in great detail the toy
-    problem citing back to Onsager reciprocity.
 \end{itemize}}
+
+% The move to the following perspective was motivated by the fact that
+% the earlier formulation, and corresponding numerical examples (cite
+% sections on role of mass balance in current conf., the deformation
+% gradient split for the fluid, and the numerical example involving
+% assumptions on deformation gradient of the fluid) involved
+% quantities that, while reasonable from a 
+% mathematical pint of view, did not correspond to physical quantities
+% of interest in terms of physiological bvps. Point out that it's been
+% 2--3 years of refining our understanding and trials with the
+% previous code that's led to this point?
 
 \section{The coupled solution scheme}
 \label{coupled-solution-scheme-2}
@@ -27,7 +35,18 @@
 \subsection{Overall stability of the monolithic numerical scheme}
 \label{eu-monolithic-stability}
 
-\todo{Necessary?}
+\subsection{The saturation constraint}
+\label{eu-saturationconstraint}
+
+Unlike in the first part, where we allow for cavitation under ex
+vivo/in vitro conditions, in the calculations in the next chapter we
+impose it all the time.
+
+Work on this from ``A Theory of Multiphase Mixtures.''
+
+Then mention something about the lagrange-multiplier kind of thing
+that makes the fluid pressure a fictitious quantity only present to
+ensure saturation.
 
 
 The second set of numerical simulations reside here.
@@ -37,6 +56,19 @@ The second set of numerical simulations reside here.
 
 \subsection{The swelling balloon}
 \label{balloon}
+
+\subsection{Fluid-structure interaction boundary conditions}
+\label{eu-fluid-structure-interaction}
+
+Since we don't know F for the fluid we don't know Fg or Fe either. The
+new swelling problem is worked out as so:
+
+Kinematics of growth (absence) does not need the use of \bF and this
+differentiates this chapter from chapter 2 (and corresponding swelling
+example in chapter 3). Follow the paper to say how pressure is
+converted to a boundary condition because talking just about
+velocities doesn't firm up displacements, which is what we're aiming
+to solve for the solid.
 
 \begin{figure}[!hptb]
 \centering
