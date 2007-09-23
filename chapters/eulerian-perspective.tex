@@ -821,6 +821,258 @@ earlier classification, and proceed to prescribe constitutive
 relations pertinent to the mechanics of growing biological tissue for
 each of these species groups.
 
+\subsection{Duhamel's law of heat conduction}
+\label{eu-duhamel-law}
+
+A suitable constitutive relation motivated by experiment which relates
+the Cauchy heat flux $\bh^{\iota}(\bx,t)$ to the spatial temperature
+gradient $\mathrm{grad}\left(\theta\right)(\bx,t)$ is the classical
+heat conduction law of Duhamel:
+
+\begin{equation}
+\bh^{\iota} =  -
+\Bkappa^{\iota}\ \mathrm{grad}\left(\theta\right),\;\forall\,\iota,
+\label{eu-heat-conduction}
+\end{equation}
+
+\noindent where $\Bkappa^{\iota}(\bx,t)$, the spatial thermal
+conductivity tensor, is positive semi-definite. The relation above
+states that heat flows down a temperature gradient, and ensures that
+the following portion of the Clausius-Duhem inequality (\ref{eu%
+  -clausiusduhemform}),
+
+\begin{equation*}
+\sum\limits_{\iota=\mathrm{c},\mathrm{f},\mathrm{s}}
+\left(\frac{\bh^{\iota} \cdot 
+  \mathrm{grad}\left(\theta\right)}{\theta} \right) \leq 0,
+\end{equation*}
+
+\noindent is satisfied since the heat conduction law is valid
+for all species in the mixture.
+
+\subsection{Energy-dependent mass source terms}
+\label{eu-energy-dependent-source}
+
+We now focus on the following term of the Clausius-Duhem form
+(\ref{eu-clausiusduhemform}),
+
+\begin{equation*}
+\sum\limits_{\iota=\mathrm{c},\mathrm{f},\mathrm{s}} 
+ \pi^{\iota} \left(\psi^{\iota}+\frac{1}{2}
+\Vert\bv^\iota\Vert^2\right) \leq 0.
+\end{equation*}
+
+Recall that the extra-cellular fluid species, $\mathrm{f}$, consists
+primarily of water and does not take part in reactions, i.e.,
+$\pi^\mathrm{f} = 0$. Also, from the summation relation for mass
+sources and sinks~(\ref{eu-summationrelationmass}), we have that
+$\pi^\mathrm{s} = - \pi^\mathrm{c}$, and so, performing the summation
+on the left hand-side of the inequality above for
+$\iota=\mathrm{c,f,s}$, the dissipation inequality requires that,
+
+\begin{equation*}
+ \pi^{\mathrm{c}} \left(\psi^{\mathrm{c}}+\frac{1}{2}
+\Vert\bv^{\mathrm{c}}\Vert^2\right)
++ \left(-\pi^{\mathrm{c}}\right) \left(\psi^{\mathrm{s}}+\frac{1}{2}
+\Vert\bv^{\mathrm{s}}\Vert^2\right) \leq 0.
+\end{equation*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/elucidation/%
+    energy-based-source}
+  \caption{A thermodynamically-motivated collagen source.}
+  \label{energy-based-source}
+\end{figure}
+
+\noindent The above relation provides a broad guideline that allows
+for the specification of a very general class of source terms for
+collagen. For instance, the most obvious form is linear in terms of
+the energy (Helmholtz free energy plus the kinetic energy) difference
+between the collagen phase and the solute phase:
+
+\begin{equation}
+ \pi^{\mathrm{c}} = -\kappa^{\mathrm{c}}
+ \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 -
+ \psi^{\mathrm{s}}-\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right),
+\label{eu-energy-source-linear}
+\end{equation}
+
+\noindent where $\kappa^{\mathrm{c}}$ is a non-negative rate
+constant.
+
+Thus, the thermodynamics suggests that it is an energetic difference
+between the reactants and products of a chemical reaction that drive
+the reaction forward; a well-established concept in
+chemistry. More interestingly, since all that the thermodynamics
+requires is that the source term for collagen be positive (negative)
+when the solute is more (less) energetic than collagen, this opens up
+the selection to a variety of forms, such as the nonlinear (in terms
+of the energy difference) example shown below,
+
+\begin{equation}
+\pi^{\mathrm{c}}=\epsilon\ \kappa^{\mathrm{c}}\left( \mathrm{exp}
+\left[-\epsilon\ U \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 - 
+ \psi^{\mathrm{s}}+\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right) \right]
+ - 1\right),
+\label{eu-energy-source-nonlinear}
+\end{equation}
+
+\noindent (where $\epsilon =
+\mathrm{sign}\left(\psi^{\mathrm{c}}+\frac{1}{2}
+\Vert\bv^{\mathrm{c}}\Vert^2 - \psi^{\mathrm{s}}-\frac{1}{2}
+\Vert\bv^{\mathrm{s}}\Vert^2\right)$, $U>0$ and
+$\kappa^{\mathrm{c}}\geq 0$) and can be tailored to represent
+different sorts of biochemistry. The evolution of this nonlinear
+collagen source term with the energy difference between the collagen
+and solute phases is shown in Figure~\ref{energy-based-source}, which
+clearly shows the source for collagen having a sign opposite to that
+of the energy difference between collagen and the solute.
+
+With the introduction of the heat conduction relation
+(\ref{eu-heat-conduction}) and a strain energy-dependent mass source
+(such as (\ref{eu-energy-source-linear}) or
+(\ref{eu-energy-source-nonlinear})), the reduced dissipation
+inequality now reads,
+
+\begin{equation}
+\sum\limits_{\iota=\mathrm{c},\mathrm{f},\mathrm{s}}\ \bigg(\rho^{\iota}
+\dot{e^{\iota}} - \rho^{\iota} 
+\dot{\eta^{\iota}} \theta
+-\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)+ \rho^{\iota}
+(\bq^{\iota}+\mathrm{grad}\left(\psi^{\iota}\right)) \cdot\bv^{\iota}
+\bigg) \leq 0
+\label{eu-reduced-dissipation-1}
+\end{equation}
+
+In what follows, recognising that the fluid, solid and solute are
+fundamentally different quantities, we will work with different
+constitutive independent variables most suited to each of them.
+
+\subsection{A Newtonian fluid}
+\label{eu-newtonian-fluid}
+
+For the fluid, the reduced dissipation inequality above requires that,
+
+% Cite the fact that many forms are possible, but ours falls out
+% naturally. -- interaction forces
+
+\begin{equation}
+\rho^{\mathrm{f}}
+\dot{e^{\mathrm{f}}} - \rho^{\mathrm{f}} 
+\dot{\eta^{\mathrm{f}}} \theta
+-\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
+\rho^{\mathrm{f}} 
+(\bq^{\mathrm{f}}+\mathrm{grad}\left(\psi^{\mathrm{f}}\right)) \cdot\bv^{\mathrm{f}}
+\leq 0.
+\label{reduced-dissipation-fluid}
+\end{equation}
+
+Since it is reasonable to assume that temperature is relatively
+uniform and constant during the course of a biological experiment,
+this can be rewritten to read 
+
+\begin{equation*}
+\rho^{\mathrm{f}}
+\dot{\psi^{\mathrm{f}}} -\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
+\rho^{\mathrm{f}} \mathrm{grad}\left(\psi^{\mathrm{f}}\right)
+\cdot\bv^{\mathrm{f}}
++\rho^{\mathrm{f}} \bq^{\mathrm{f}}\cdot\bv^{\mathrm{f}}
+\leq 0.
+\end{equation*}
+
+\noindent Specifying a frictional force on the fluid phase of the
+form,
+
+\begin{equation}
+\rho^{\mathrm{f}} \bq^{\mathrm{f}} = - \bD^{\mathrm{f}}
+\bv^{\mathrm{f}},
+\label{eu-force-rel-fluid}
+\end{equation}
+
+\noindent where  $\bD^{\mathrm{f}}$ is a positive semi-definite
+frictional coefficient tensor, the remaining portion of the
+dissipation inequality for the fluid is:
+
+\begin{equation*}
+\rho^{\mathrm{f}}
+\dot{\psi^{\mathrm{f}}} -\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
+\rho^{\mathrm{f}} \mathrm{grad}\left(\psi^{\mathrm{f}}\right)
+\cdot\bv^{\mathrm{f}}
+\leq 0.
+\end{equation*}
+
+Now, assuming that the Helmholtz free energy of the fluid depends only
+on its current concentration, i.e, $\psi^{\mathrm{f}} =
+\frac{1}{\tilde{\rho^{\mathrm{f}}}} \hat{\psi^{\mathrm{f}}}
+(\rho^{\mathrm{f}})$, where $\tilde{\rho^{\mathrm{f}}}$ is just a
+constant, and substituting it into (\ref{reduced-dissipation-fluid}),
+we have,
+
+\begin{equation*}
+\frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
+\frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}
+\dot{\rho^{\mathrm{f}}}
+-\Bsigma^{\mathrm{f}}\colon\mathrm{grad}
+\left(\bv^{\mathrm{f}}\right) +
+\frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
+\frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}
+\mathrm{grad}\left(\rho^{\mathrm{f}}\right) 
+\cdot\bv^{\mathrm{f}}
+\leq 0.
+\end{equation*}
+
+\noindent Invoking the balance of mass (\ref{eu-localbalanceofmass})
+for the fluid, with $\pi^\mathrm{f} = 0$, we have,
+
+\begin{equation*}
+\frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
+\frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}
+\left(- \rho^{\mathrm{f}} \mathrm{div}\left( v^{\mathrm{f}}
+\right)\right) 
+-\Bsigma^{\mathrm{f}}\colon\mathrm{grad}
+\left(\bv^{\mathrm{f}}\right)
+\leq 0.
+\end{equation*}
+
+Finally, recalling the definition of pressure from classical
+thermodynamics in terms of the Helmholtz free energy {\em at fixed
+  temperature}, and noting that \mbox{$\mathrm{div}(\bullet) =
+\bone\colon\mathrm{grad}(\bullet)$}, we have the following form of the
+reduced dissipation inequality of the fluid,
+
+\begin{equation*}
+\bigg( - \cancelto{p^{\mathrm{f}}(\rho^{\mathrm{f}})}
+{\frac{(\rho^{\mathrm{f}})^2}{\tilde{\rho^{\mathrm{f}}}}
+\frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}}
+\bone -\Bsigma^{\mathrm{f}} \bigg) \colon \mathrm{grad}\left( v^{\mathrm{f}}
+\right)
+\leq 0.
+\end{equation*}
+
+\noindent And, in order to ensure that the term on the left hand-side
+is negative, we require that $\Bsigma^{\mathrm{f}} = -
+p^{\mathrm{f}} \bone + 2 \mu \ \mathrm{grad}\left( v^{\mathrm{f}}
+\right)$, or, recognising from the balance of angular momentum that
+$\Bsigma^{\mathrm{f}}$ is symmetric, we can write the fluid stress in
+terms of its pressure and rate of deformation tensor,
+$\bd^{\mathrm{f}}$ as, 
+
+\begin{equation}
+\Bsigma^{\mathrm{f}} = -
+p^{\mathrm{f}} \bone + 2 \mu \ \bd^{\mathrm{f}}
+\label{eu-stress-rel-fluid}
+\end{equation}
+
+\noindent which is the definition of a Newtonian fluid.
+
+Constitutively prescribing the fluid stress relation as in
+(\ref{eu-stress-rel-fluid}) and an interaction force on the fluid as
+in (\ref{eu-force-rel-fluid}) results in a priori satisfaction of all
+the fluid-derived terms reduced dissipation inequality
+(\ref{reduced-dissipation-fluid}).
+
+
 \subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
 
@@ -892,7 +1144,7 @@ of internal history variables, we have that,
 % Mooney Rivlin sample goes here, and two tables in Chapter 5.
 
 \subsection{Growth deformation gradients dependent on stress states}
-\label{eu-stress-dependent-source}
+\label{eu-stress-dependent-growth}
 
 There is experimental evidence to suggest that during wound healing,
 newly-de\-po\-sit\-ed collagen fibres are found to align with the
@@ -905,115 +1157,6 @@ $\bP^{\mathrm{c}} \colon
 Tie this to Wolff's law if possible. Write down whatever it works out
 to be and cite Loret. Mention that this is not possible for the fluid
 phase, because we don't know F for it.
-
-\subsection{A Newtonian fluid}
-\label{eu-newtonian-fluid}
-
-\subsection{The interaction forces}
-\label{eu-forces-between-phases}
-
-Cite the fact that many forms are possible, but ours falls out
-naturally.
-
-\subsection{Energy-dependent mass source terms}
-\label{eu-energy-dependent-source}
-
-We now focus on the following term of the Clausius-Duhem form
-(\ref{eu-clausiusduhemform}),
-
-\begin{equation*}
-\sum\limits_{\iota} 
- \pi^{\iota} \left(\psi^{\iota}+\frac{1}{2}
-\Vert\bv^\iota\Vert^2\right) \leq 0.
-\end{equation*}
-
-Recall that the extra-cellular fluid species, $\mathrm{f}$, consists
-primarily of water and does not take part in reactions, i.e.,
-$\pi^\mathrm{f} = 0$. Also, from the summation relation for mass
-sources and sinks~(\ref{eu-summationrelationmass}), we have that
-$\pi^\mathrm{s} = - \pi^\mathrm{c}$, and so, performing the summation
-on the left hand-side of the inequality above for
-$\iota=\mathrm{c,f,s}$, the dissipation inequality requires that,
-
-\begin{equation*}
- \pi^{\mathrm{c}} \left(\psi^{\mathrm{c}}+\frac{1}{2}
-\Vert\bv^{\mathrm{c}}\Vert^2\right)
-+ \left(-\pi^{\mathrm{c}}\right) \left(\psi^{\mathrm{s}}+\frac{1}{2}
-\Vert\bv^{\mathrm{s}}\Vert^2\right) \leq 0.
-\end{equation*}
-
-\noindent The above relation provides a broad guideline that allows
-for the specification of a very general class of source terms for
-collagen. For instance, the most obvious form is linear in terms of
-the energy (Helmholtz free energy plus the kinetic energy) difference
-between the collagen phase and the solute phase:
-
-\begin{equation}
- \pi^{\mathrm{c}} = -\kappa^{\mathrm{c}}
- \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 -
- \psi^{\mathrm{s}}-\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right),
-\label{eu-energy-source-linear}
-\end{equation}
-
-\noindent where $\kappa^{\mathrm{c}}$ is a non-negative rate
-constant.
-
-Thus, the thermodynamics suggests that it is an energetic difference
-between the reactants and products of a chemical reaction that drive
-the reaction forward; a well-established concept in
-chemistry. More interestingly, since all that the thermodynamics
-requires is that the source term for collagen be positive (negative)
-when the solute is more (less) energetic than collagen, this opens up
-the selection to a variety of forms, such as the nonlinear (in terms
-of the energy difference) example shown below,
-
-\begin{equation}
-\pi^{\mathrm{c}}=\epsilon\ \kappa^{\mathrm{c}}\left( \mathrm{exp}
-\left[-\epsilon\ U \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 - 
- \psi^{\mathrm{s}}+\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right) \right]
- - 1\right),
-\label{eu-energy-source-nonlinear}
-\end{equation}
-
-\noindent (where $\epsilon =
-\mathrm{sign}\left(\psi^{\mathrm{c}}+\frac{1}{2}
-\Vert\bv^{\mathrm{c}}\Vert^2 - \psi^{\mathrm{s}}-\frac{1}{2}
-\Vert\bv^{\mathrm{s}}\Vert^2\right)$, $U>0$ and
-$\kappa^{\mathrm{c}}\geq 0$) and can be tailored to represent
-different sorts of biochemistry. The evolution of this nonlinear
-collagen source term with the energy difference between the collagen
-and solute phases is shown in Figure~\ref{energy-based-source}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth,angle=270]{images/elucidation/%
-    energy-based-source}
-  \caption{A thermodynamically-motivated collagen source.}
-  \label{energy-based-source}
-\end{figure}
-
-\subsection{Duhamel's law of heat conduction}
-\label{eu-duhamel-law}
-
-A suitable constitutive relation motivated by experiment which relates
-the Cauchy heat flux $\bh^{\iota}(\bx,t)$ to the spatial temperature
-gradient $\mathrm{grad}\left(\theta\right)(\bx,t)$ is the classical
-heat conduction law of Duhamel:
-
-\begin{equation}
-\bh^{\iota} =  - \Bkappa^{\iota}\ \mathrm{grad}\left(\theta\right),\;\forall\,\iota,
-\end{equation}
-
-\noindent where $\Bkappa^{\iota}(\bx,t)$, the spatial thermal
-conductivity tensor, is positive semi-definite. The relation above
-states that heat flows down a temperature gradient. This relation
-ensures that the only remaining term in the dissipation inequality is
-of the appropriate sign,
-
-\begin{equation*}
-\sum\limits_{\iota} \left(\frac{\bh^{\iota} \cdot
-  \mathrm{grad}\left(\theta\right)}{\theta} \right) \leq 0.
-\end{equation*}
 
 %
 
