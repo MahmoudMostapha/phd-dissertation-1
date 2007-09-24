@@ -100,9 +100,9 @@ relative to the solid component of the tissue.\footnote{And, with the
 The following discussion of balance laws is carried out entirely in
 terms of an arbitrary species~$\iota$, and specialisation to the solid
 collagenous, fluid and solute phases (i.e. \mbox{$\iota=\mathrm{c},
-  \mathrm{f}, \mathrm{s}$}) is reintroduced only when talking about
-constitutive relationships specific to these different components of
-the tissue.
+  \mathrm{f}, \mathrm{s}$}) is reintroduced only in Section~\ref{eu%
+  -entropy-inequality} when discussing constitutive relationships
+specific to these different components of the tissue.
 
 \subsection{Balance of mass}
 \label{eu-balance-of-mass}
@@ -188,8 +188,8 @@ for the tissue as a whole reads,
 
 \noindent Comparing Equation~(\ref{eu-systembalanceofmass}) to a
 summation of Equation~(\ref{eu-globalbalanceofmass}) over all species,
-both of which being valid statements of the balance of mass of the
-tissue as a whole, it is clear that the sources and sinks satisfy,
+both being valid statements of the balance of mass of the tissue as a
+whole, it is clear that the sources and sinks satisfy,
 
 \begin{equation}
 \sum\limits_{\iota}\pi^{\iota} = 0.
@@ -374,10 +374,10 @@ a species~$\iota$ over $\Omega_{t}$ requires,
 
 \noindent since it is reasonable to assume that the material
 comprising the tissue is not a {\em polar material}.\footnote{Some
-  materials, for e.g., liquid crystals, become polarised under the
+  materials, such as liquid crystals, become polarised under the
   presence of electric fields and consequently have additional global
   torque contributions to their balance of momentum equations
-  \citep{TruesdellNoll:65}.} 
+  \citep{TruesdellNoll:65}.}
 
 On applying Reynolds' transport theorem (Appendix~\ref{reynolds%
   -transport}), Equation~(\ref{eu-globalbalanceofangularmomentum})
@@ -459,11 +459,11 @@ interconversion terms that is identical to Equation~(\ref{eu%
 \label{eu-balance-of-energy}
 
 Recall from Section~\ref{balance-of-energy} that the internal energy
-per unit mass of species~$\iota$ is denoted $e^\iota$, the heat supply
-to species~$\iota$ per unit mass of that species is $r^\iota$ and the
-interaction energy, $\tilde{e}^\iota$, accounts for the energy
-transferred to $\iota$ by all other species, also per unit mass of
-$\iota$. We now redefine the partial heat flux vector of $\iota$
+per unit mass of species~$\iota$ is denoted $e^\iota$, the external
+heat supply to species~$\iota$ per unit mass of that species is
+$r^\iota$ and the interaction energy, $\tilde{e}^\iota$, accounts for
+the energy transferred to $\iota$ by all other species, also per unit
+mass of $\iota$. We now denote the partial heat flux vector of $\iota$
 defined on $\Omega_{t}$ as $\bh^\iota$, and for notational simplicity,
 introduce the total energy of each species~$\iota$: $E^{\iota} =
 e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$.
@@ -536,7 +536,7 @@ the balance of mass (\ref{eu-localbalanceofmass}), we are left with:
 \end{equation*}
 
 We now expand the total energy of each species~$\iota$, $E^{\iota} =
-e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$, and take spatial and
+e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2$, and take its spatial and
 temporal derivatives to give,
 
 \begin{equation*}
@@ -757,17 +757,16 @@ deduce that
 
 \begin{equation*}
 \begin{split}
-\sum\limits_{\iota}\ \left(\rho^{\iota} \dot{e^{\iota}} -
-\rho^{\iota} \dot{\eta^{\iota}} \theta 
- - \pi^{\iota}\eta^{\iota}\theta \right) \leq &
-\sum\limits_{\iota} \left(
-\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)
-- \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta}
-\right)\ \\ -& \sum\limits_{\iota}
-\rho^{\iota}\bv^{\iota} \cdot\left(
+\sum\limits_{\iota}\ \left(\rho^{\iota} \dot{e^{\iota}} - \rho^{\iota}
+\dot{\eta^{\iota}} \theta - \pi^{\iota}\eta^{\iota}\theta \right) \leq
+& \sum\limits_{\iota} \left(
+\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right) -
+\frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta}
+\right)\ \\ -& \sum\limits_{\iota} \rho^{\iota}\bv^{\iota} \cdot\left(
 \mathrm{grad} \left(e^{\iota}\right) - \mathrm{grad}\left(\eta^{\iota}
-\right)\theta\right) \\ -& \sum\limits_{\iota} \left( \rho^{\iota}\bq^{\iota}\cdot\bv^{\iota} +
- \pi^{\iota} \left(e^\iota + \frac{1}{2} \Vert\bv^\iota\Vert^2\right) \right).
+\right)\theta\right) \\ -& \sum\limits_{\iota} \left(
+\rho^{\iota}\bq^{\iota}\cdot\bv^{\iota} + \pi^{\iota} \left(e^\iota +
+\frac{1}{2} \Vert\bv^\iota\Vert^2\right) \right).
 \end{split}
 \end{equation*}
 
@@ -782,8 +781,9 @@ regrouping terms, the relation above reduces to,
 -\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right) +
 \frac{\bh^{\iota}\cdot\mathrm{grad}\left(\theta\right)}{\theta} \bigg)
 & \\ + \sum\limits_{\iota} \left( \rho^{\iota}
-(\bq^{\iota}+\mathrm{grad}\left(\psi^{\iota}\right)) \cdot\bv^{\iota}
-+ \pi^{\iota} \left(\psi^{\iota}+\frac{1}{2}
+(\bq^{\iota}+\mathrm{grad} \left(e^{\iota}\right) -
+\mathrm{grad}\left(\eta^{\iota} \right)\theta) \cdot\bv^{\iota} +
+\pi^{\iota} \left(\psi^{\iota}+\frac{1}{2}
 \Vert\bv^\iota\Vert^2\right) \right) & \leq 0
 \end{split}
 \label{eu-clausiusduhemform}
@@ -793,22 +793,21 @@ regrouping terms, the relation above reduces to,
 the growth process; a rule which any prescribed constitutive
 relationship must satisfy \citep{TruesdellToupin:60}.
 
-The form of the Clausius-Duhem inequality arrived at in
-(\ref{eu-clausiusduhemform}) is equivalent to the forms in recent work
+The form of the Clausius-Duhem inequality arrived at in (\ref{eu%
+-clausiusduhemform}) is equivalent to the forms in recent work
 on mixture theory-based models for biological growth \citep{loret05,
-  ateshian07}.  However, subsequently varying choices made in the
-different works, including this one, for the {\em constitutive
-  independent variables} result in altered constitutive
-specification. I believe it is significant and must be emphasised at
-this point that not only do the constitutive choices detailed in the
-following sections ensure that the Clausius-Duhem inequality is
-satisfied {\em a priori}, but also that they are general enough to
-handle a fairly large class of physics, and most significantly, have
-been implemented in a coupled formulation retaining much of their rich
-detail, as evidenced by the computational examples in
-Chapter~\ref{numerical-simulations-2}.
+  ateshian07}. However, subsequently varying choices made in the
+different works, including this one, for the constitutive independent
+variables result in altered constitutive specification. I believe it
+is significant, and must be emphasised at this point that not only do the
+constitutive choices detailed in the following sections ensure that
+the Clausius-Duhem inequality is satisfied {\em a priori}, but also
+that they are general enough to handle a fairly large class of
+physics, and most significantly, have been implemented in a coupled
+formulation retaining much of their rich detail, as evidenced by the
+computational examples in Chapter~\ref{numerical-simulations-2}.
 
-Because of its general nature, the treatment presented thus far has been in
+Stemming from its general nature, the treatment thus far has been in
 terms of an arbitrary species~$\iota$. Recall, from
 Section~\ref{balance-laws}, that the various species constituting the
 tissue are grouped into a solid species, consisting of solid
@@ -817,7 +816,8 @@ extra-cellular \emph{fluid} species, denoted by $\mathrm{f}$,
 consisting primarily of water, and \emph{solute} species, consisting
 of precursors to reactions, byproducts, nutrients, and other
 regulatory chemicals, denoted by $\mathrm{s}$. We now return to this
-earlier classification, and proceed to prescribe constitutive
+earlier classification, and motivated by specific portions of
+(\ref{eu-clausiusduhemform}), proceed to prescribe constitutive
 relations pertinent to the mechanics of growing biological tissue for
 each of these species groups.
 
@@ -825,9 +825,9 @@ each of these species groups.
 \label{eu-duhamel-law}
 
 A suitable constitutive relation motivated by experiment which relates
-the Cauchy heat flux $\bh^{\iota}(\bx,t)$ to the spatial temperature
-gradient $\mathrm{grad}\left(\theta\right)(\bx,t)$ is the classical
-heat conduction law of Duhamel:
+the Cauchy heat flux vector $\bh^{\iota}(\bx,t)$ to the spatial
+temperature gradient $\mathrm{grad}\left(\theta\right)(\bx,t)$ is the
+classical heat conduction law of Duhamel:
 
 \begin{equation}
 \bh^{\iota} =  -
@@ -837,9 +837,9 @@ heat conduction law of Duhamel:
 
 \noindent where $\Bkappa^{\iota}(\bx,t)$, the spatial thermal
 conductivity tensor, is positive semi-definite. The relation above
-states that heat flows down a temperature gradient, and ensures that
-the following portion of the Clausius-Duhem inequality (\ref{eu%
-  -clausiusduhemform}),
+states that heat flows down a temperature gradient, and using it
+ensures that the following portion of the Clausius-Duhem inequality
+(\ref{eu-clausiusduhemform}),
 
 \begin{equation*}
 \sum\limits_{\iota=\mathrm{c},\mathrm{f},\mathrm{s}}
@@ -847,10 +847,17 @@ the following portion of the Clausius-Duhem inequality (\ref{eu%
   \mathrm{grad}\left(\theta\right)}{\theta} \right) \leq 0,
 \end{equation*}
 
-\noindent is satisfied since the heat conduction law is valid
-for all species in the mixture.
+\noindent is satisfied a priori since the heat conduction law
+(\ref{eu-heat-conduction}) is valid for all species in the mixture.
 
-\subsection{Energy-dependent mass source terms}
+While Duhamel's law (\ref{eu-heat-conduction}) is indeed useful in a
+general sense, our primary interest lies in specialising concepts from
+classical thermodynamics to biological tissues, where the temperature
+field under most physiological scenarios is relatively uniform and
+constant in time. In what follows, this simplifying assumption will be
+incorporated.
+
+\subsection{Species energy-dependent mass source terms}
 \label{eu-energy-dependent-source}
 
 We now focus on the following term of the Clausius-Duhem form
@@ -912,9 +919,9 @@ of the energy difference) example shown below,
 
 \begin{equation}
 \pi^{\mathrm{c}}=\epsilon\ \kappa^{\mathrm{c}}\left( \mathrm{exp}
-\left[-\epsilon\ U \left(\psi^{\mathrm{c}}+\frac{1}{2} \Vert\bv^{\mathrm{c}}\Vert^2 - 
- \psi^{\mathrm{s}}+\frac{1}{2} \Vert\bv^{\mathrm{s}}\Vert^2\right) \right]
- - 1\right),
+\left[-\epsilon\ U \left(\psi^{\mathrm{c}}+\frac{1}{2}
+  \Vert\bv^{\mathrm{c}}\Vert^2 - \psi^{\mathrm{s}}+\frac{1}{2}
+  \Vert\bv^{\mathrm{s}}\Vert^2\right) \right] - 1\right),
 \label{eu-energy-source-nonlinear}
 \end{equation}
 
@@ -929,85 +936,82 @@ and solute phases is shown in Figure~\ref{energy-based-source}, which
 clearly shows the source for collagen having a sign opposite to that
 of the energy difference between collagen and the solute.
 
-With the introduction of the heat conduction relation
-(\ref{eu-heat-conduction}) and a strain energy-dependent mass source
-(such as (\ref{eu-energy-source-linear}) or
-(\ref{eu-energy-source-nonlinear})), the reduced dissipation
-inequality now reads,
+With the introduction of an energy-dependent mass source (such as
+(\ref{eu-energy-source-linear}) or (\ref{eu-energy-source%
+  -nonlinear})), and drawing upon the assumption that the temperature
+field is uniform and constant\footnote{Which allows one to write
+  $\dot{e^{\iota}} - \dot{\eta^{\iota}} \theta = \dot{\psi^{\iota}}$
+  and $\mathrm{grad} \left(e^{\iota}\right) -
+  \mathrm{grad}\left(\eta^{\iota} \right)\theta =
+  \mathrm{grad}\left(\psi^{\iota} \right)$.} during the course of a
+biological experiment, a portion of the Clausius-Duhem form (\ref{eu%
+  -clausiusduhemform}) is satisfied a priori. The remainder now reads:
 
 \begin{equation}
 \sum\limits_{\iota=\mathrm{c},\mathrm{f},\mathrm{s}}\ \bigg(\rho^{\iota}
-\dot{e^{\iota}} - \rho^{\iota} 
-\dot{\eta^{\iota}} \theta
--\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)+ \rho^{\iota}
-(\bq^{\iota}+\mathrm{grad}\left(\psi^{\iota}\right)) \cdot\bv^{\iota}
-\bigg) \leq 0
+\dot{\psi^{\iota}}
+-\Bsigma^{\iota}\colon\mathrm{grad}\left(\bv^{\iota}\right)+
+\rho^{\iota} (\bq^{\iota}+\mathrm{grad}\left(\psi^{\iota}\right))
+\cdot\bv^{\iota} \bigg) \leq 0.
 \label{eu-reduced-dissipation-1}
 \end{equation}
 
-In what follows, recognising that the fluid, solid and solute are
-fundamentally different quantities, we will work with different
-constitutive independent variables most suited to each of them.
+In the treatment that follows, recognising that the fluid, solid and
+solute are fundamentally different constituents, we turn to the
+specification of different constitutive independent variables most
+suited to each of them in deriving relevant constitutive
+relationships.
 
 \subsection{A Newtonian fluid}
 \label{eu-newtonian-fluid}
 
-For the fluid, the reduced dissipation inequality above requires that,
+For the fluid, the reduced dissipation inequality (\ref{eu-reduced%
+ -dissipation-1}) requires that,
 
-% Cite the fact that many forms are possible, but ours falls out
-% naturally. -- interaction forces
+\begin{equation*}
+\rho^{\mathrm{f}} \dot{\psi^{\mathrm{f}}}
+-\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
+\rho^{\mathrm{f}} \mathrm{grad}\left(\psi^{\mathrm{f}}\right)
+\cdot\bv^{\mathrm{f}} +\rho^{\mathrm{f}}
+\bq^{\mathrm{f}}\cdot\bv^{\mathrm{f}} \leq 0.
+\end{equation*}
+
+%% \noindent Motivated by the last term in (\ref{reduced-dissipation%
+%%   -fluid}), we specify a frictional force on the fluid phase of the
+%% form,
+
+%% \begin{equation}
+%% \rho^{\mathrm{f}} \bq^{\mathrm{f}} = - \bD^{\mathrm{f}}
+%% \bv^{\mathrm{f}},
+%% \label{eu-force-rel-fluid}
+%% \end{equation}
+
+%% % Cite the fact that many forms are possible, but ours falls out
+%% % naturally. -- interaction forces
+
+%% \noindent where  $\bD^{\mathrm{f}}$ is a positive semi-definite
+%% frictional coefficient tensor, the remaining portion of the
+%% dissipation inequality for the fluid is:
+
+We will return to the last term, $\rho^{\mathrm{f}} \bq^{\mathrm{f}}
+\cdot \bv^{\mathrm{f}}$, in Section~(\ref{eu-interaction%
+  -foces}). Now, we turn our attention to the remaining portion of the
+dissipation inequality for the fluid:
 
 \begin{equation}
-\rho^{\mathrm{f}}
-\dot{e^{\mathrm{f}}} - \rho^{\mathrm{f}} 
-\dot{\eta^{\mathrm{f}}} \theta
--\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
-\rho^{\mathrm{f}} 
-(\bq^{\mathrm{f}}+\mathrm{grad}\left(\psi^{\mathrm{f}}\right)) \cdot\bv^{\mathrm{f}}
+\rho^{\mathrm{f}} \dot{\psi^{\mathrm{f}}} -\Bsigma^{\mathrm{f}} \colon
+\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+ \rho^{\mathrm{f}}
+\mathrm{grad} \left(\psi^{\mathrm{f}}\right) \cdot\bv^{\mathrm{f}}
 \leq 0.
 \label{reduced-dissipation-fluid}
 \end{equation}
 
-Since it is reasonable to assume that temperature is relatively
-uniform and constant during the course of a biological experiment,
-this can be rewritten to read 
-
-\begin{equation*}
-\rho^{\mathrm{f}}
-\dot{\psi^{\mathrm{f}}} -\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
-\rho^{\mathrm{f}} \mathrm{grad}\left(\psi^{\mathrm{f}}\right)
-\cdot\bv^{\mathrm{f}}
-+\rho^{\mathrm{f}} \bq^{\mathrm{f}}\cdot\bv^{\mathrm{f}}
-\leq 0.
-\end{equation*}
-
-\noindent Specifying a frictional force on the fluid phase of the
-form,
-
-\begin{equation}
-\rho^{\mathrm{f}} \bq^{\mathrm{f}} = - \bD^{\mathrm{f}}
-\bv^{\mathrm{f}},
-\label{eu-force-rel-fluid}
-\end{equation}
-
-\noindent where  $\bD^{\mathrm{f}}$ is a positive semi-definite
-frictional coefficient tensor, the remaining portion of the
-dissipation inequality for the fluid is:
-
-\begin{equation*}
-\rho^{\mathrm{f}}
-\dot{\psi^{\mathrm{f}}} -\Bsigma^{\mathrm{f}}\colon\mathrm{grad}\left(\bv^{\mathrm{f}}\right)+
-\rho^{\mathrm{f}} \mathrm{grad}\left(\psi^{\mathrm{f}}\right)
-\cdot\bv^{\mathrm{f}}
-\leq 0.
-\end{equation*}
-
-Now, assuming that the Helmholtz free energy of the fluid depends only
-on its current concentration, i.e, $\psi^{\mathrm{f}} =
+Assuming that the Helmholtz free energy of the fluid depends only on
+its current concentration, i.e, $\psi^{\mathrm{f}} =
 \frac{1}{\tilde{\rho^{\mathrm{f}}}} \hat{\psi^{\mathrm{f}}}
-(\rho^{\mathrm{f}})$, where $\tilde{\rho^{\mathrm{f}}}$ is just a
-constant, and substituting it into (\ref{reduced-dissipation-fluid}),
-we have,
+(\rho^{\mathrm{f}})$, where $\tilde{\rho^{\mathrm{f}}}$, the intrinsic
+density of the fluid, is just a positive constant, and substituting it
+into (\ref{reduced-dissipation-fluid}), we have,
 
 \begin{equation*}
 \frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
@@ -1023,7 +1027,7 @@ we have,
 \end{equation*}
 
 \noindent Invoking the balance of mass (\ref{eu-localbalanceofmass})
-for the fluid, with $\pi^\mathrm{f} = 0$, we have,
+for the fluid, with $\pi^\mathrm{f} = 0$, we obtain,
 
 \begin{equation*}
 \frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
@@ -1035,11 +1039,10 @@ for the fluid, with $\pi^\mathrm{f} = 0$, we have,
 \leq 0.
 \end{equation*}
 
-Finally, recalling the definition of pressure from classical
-thermodynamics in terms of the Helmholtz free energy {\em at fixed
-  temperature}, and noting that \mbox{$\mathrm{div}(\bullet) =
-\bone\colon\mathrm{grad}(\bullet)$}, we have the following form of the
-reduced dissipation inequality of the fluid,
+\noindent Finally, recalling the definition of pressure in terms of
+the Helmholtz free energy at fixed temperature from classical
+thermodynamics, we have the following form of the reduced dissipation
+inequality for the fluid,
 
 \begin{equation*}
 \bigg( - \cancelto{p^{\mathrm{f}}(\rho^{\mathrm{f}})}
@@ -1047,31 +1050,36 @@ reduced dissipation inequality of the fluid,
 \frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}}
 \bone -\Bsigma^{\mathrm{f}} \bigg) \colon \mathrm{grad}\left( v^{\mathrm{f}}
 \right)
-\leq 0.
+\leq 0,
 \end{equation*}
 
-\noindent And, in order to ensure that the term on the left hand-side
-is negative, we require that $\Bsigma^{\mathrm{f}} = -
-p^{\mathrm{f}} \bone + 2 \mu \ \mathrm{grad}\left( v^{\mathrm{f}}
-\right)$, or, recognising from the balance of angular momentum that
-$\Bsigma^{\mathrm{f}}$ is symmetric, we can write the fluid stress in
-terms of its pressure and rate of deformation tensor,
-$\bd^{\mathrm{f}}$ as, 
+\noindent since \mbox{$\mathrm{div}(\bullet) = \bone \colon
+  \mathrm{grad}(\bullet)$}, where $\bone$ is the second order
+isotropic tensor. 
+
+In order to ensure that the term on the left hand-side is negative, we
+require that $\Bsigma^{\mathrm{f}} = - p^{\mathrm{f}} \bone + 2
+\mu^{\mathrm{f}} \ \mathrm{grad}\left( v^{\mathrm{f}} \right)$, where
+$\mu^{\mathrm{f}}$ is the viscosity of the fluid. Furthermore,
+recognising from the balance of angular momentum that
+$\Bsigma^{\mathrm{f}}$ is symmetric, we write the fluid Cauchy stress
+tensor in terms of its pressure and rate of deformation tensor,
+$\bd^{\mathrm{f}}$, as:
 
 \begin{equation}
 \Bsigma^{\mathrm{f}} = -
-p^{\mathrm{f}} \bone + 2 \mu \ \bd^{\mathrm{f}}
+p^{\mathrm{f}} \bone + 2 \mu \ \bd^{\mathrm{f}},
 \label{eu-stress-rel-fluid}
 \end{equation}
 
-\noindent which is the definition of a Newtonian fluid.
+\noindent which is the defines the behaviour of a classical Newtonian
+fluid.
 
-Constitutively prescribing the fluid stress relation as in
-(\ref{eu-stress-rel-fluid}) and an interaction force on the fluid as
-in (\ref{eu-force-rel-fluid}) results in a priori satisfaction of all
-the fluid-derived terms reduced dissipation inequality
-(\ref{reduced-dissipation-fluid}).
-
+%% Constitutively prescribing the fluid stress relation
+%% (\ref{eu-stress-rel-fluid}) and an interaction force on the fluid as 
+%% in (\ref{eu-force-rel-fluid}) results in a priori satisfaction of all
+%% the fluid-derived terms reduced dissipation inequality
+%% (\ref{reduced-dissipation-fluid}).
 
 \subsection{A viscoelastic solid}
 \label{eu-viscoelastic-solid}
@@ -1157,6 +1165,66 @@ $\bP^{\mathrm{c}} \colon
 Tie this to Wolff's law if possible. Write down whatever it works out
 to be and cite Loret. Mention that this is not possible for the fluid
 phase, because we don't know F for it.
+
+\subsection{Source-based solute velocities}
+\label{eu-solute-velocity}
+
+Since the solute species are present only in low concentrations in solution,
+they are not capable of exerting significant forces upon other phases
+and do not bear appreciable stress. Consequently, for the solute, the
+reduced dissipation inequality (\ref{eu-reduced-dissipation-1})
+requires only that,
+
+\begin{equation*}
+\rho^{\mathrm{s}} \dot{\psi^{\mathrm{s}}} +
+\rho^{\mathrm{s}} \mathrm{grad}\left(\psi^{\mathrm{s}}\right)
+\cdot\bv^{\mathrm{s}} \leq 0.
+\end{equation*}
+
+Assuming that the Helmholtz free energy of the solute depends only on
+its current concentration, i.e, $\psi^{\mathrm{s}} =
+\frac{1}{\tilde{\rho^{\mathrm{s}}}} \hat{\psi^{\mathrm{s}}}
+(\rho^{\mathrm{s}})$, where $\tilde{\rho^{\mathrm{s}}}$, the intrinsic
+density of the solute, the above inequality becomes,
+
+\begin{equation*}
+\frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
+\frac{\partial \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
+\dot{\rho^{\mathrm{s}}}+
+\frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
+\frac{\partial \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
+\mathrm{grad}\left(\rho^{\mathrm{s}}\right) 
+\cdot\bv^{\mathrm{s}}
+\leq 0,
+\end{equation*}
+
+\noindent which on application of the solute balance of mass
+(\ref{eu-localbalanceofmass}) reduces to:
+
+\begin{equation*}
+\frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
+\frac{\partial \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
+\left(\pi^{\mathrm{s}}- \rho^{\mathrm{s}} \mathrm{div}\left( v^{\mathrm{s}}
+\right)\right) 
+\leq 0.
+\end{equation*}
+
+A sufficient condition to satisfy the above inequality a priori is
+obtained when $\mathrm{div}\left( v^{\mathrm{s}} \right) =
+\pi^{\mathrm{s}}/\rho^{\mathrm{s}}$, which states that an increase in
+solute mass brought about by the source term causes an outflow of
+solute (corresponding to the positive sign on the divergence of its
+velocity field). From this, the following simple form for the solute
+velocity can be constructed:
+
+\begin{equation}
+\bv^{\mathrm{s}}(\bx,t) = \frac{1}{3}
+\frac{\pi^{\mathrm{s}}(\bx,t)}{\rho^{\mathrm{s}}(\bx,t)} \bx
+\end{equation}
+
+
+\subsection{Interaction forces}
+\label{eu-interaction-foces}
 
 %
 
