@@ -1,74 +1,78 @@
 \chapter{Representative numerical simulations -- II}
 \label{numerical-simulations-2}
 
-%% \todo{\begin{itemize}
-%%   \item Work on this in tandem with, and after, Chapter 4
-%%     \item Talk about physically-relevant primitive variables and
-%%       contrast choices with Chapter 3
-%%   \item Weave around the monolithic implementation details and refer
-%%     COMSOL's documentation. Cite back to the fact that monolithic
-%%     is stable. Justify 2D.
-%%   \item Generate pristine plots for the tensile-flow field
-%%     calculations 
-%%   \item Cites work from cancer literature to motivate the example. Tie
-%%     in cell haptotaxis with gradients of other species 
-%%   \item Talk about swelling boundary conditions and saturation
-%%     constraint.
-%%   \item Bring in a few experimental figures and point out what we're
-%%     looking for in terms of biphasic response.
-%% \end{itemize}}
+\textbullet\ Introduce the chapter.
 
-% The move to the following perspective was motivated by the fact that
-% the earlier formulation, and corresponding numerical examples (cite
-% sections on role of mass balance in current conf., the deformation
-% gradient split for the fluid, and the numerical example involving
-% assumptions on deformation gradient of the fluid) involved
-% quantities that, while reasonable from a 
-% mathematical pint of view, did not correspond to physical quantities
-% of interest in terms of physiological bvps. Point out that it's been
-% 2--3 years of refining our understanding and trials with the
-% previous code that's led to this point?
+\textbullet\ Perhaps use the final (unused) paragraph from Chapter 3's
+introduction.
 
-\section{The coupled solution scheme}
-\label{coupled-solution-scheme-2}
+\section{Introducing the computational model}
+\label{eu-computational-model}
 
-\subsection{Overall stability of the monolithic numerical scheme}
-\label{eu-monolithic-stability}
+\textbullet\ Discuss the implementation: coupled solution scheme and
+aspects of the computational technology. Point to the fact that
+something can be said about the overall stability of the monolithic
+solution scheme.
+
+\textbullet\ Introduce the actual equations solved, variables used,
+and talk about which configuration they're solved in: ALE.
+
+\textbullet\ Motivate the geometry (2D) and constitutive choices;
+detailing the simple Mooney-Rivlin model as an example of
+hyperelasticity. Mention others, such as the complicated one used
+earlier and elastica, can be used.
 
 \subsection{The saturation constraint}
 \label{eu-saturationconstraint}
 
-Unlike in the first part, where we allow for cavitation under ex
-vivo/in vitro conditions, in the calculations in the next chapter we
-impose it all the time.
+\textbullet\ Unlike in the first part, where we allow for cavitation
+under ex vivo/in vitro conditions, in these calculations, we impose
+saturation at all times. This is what it is.
 
-Work on this from ``A Theory of Multiphase Mixtures.''
+\textbullet\ Work on this from ``A Theory of Multiphase Mixtures.''
 
-Then mention something about the lagrange-multiplier kind of thing
-that makes the fluid pressure a fictitious quantity only present to
-ensure saturation.
-
-
-The second set of numerical simulations reside here.
+\textbullet\ And this is how we impose it: mention something about the
+Lagrange-multiplier kind of thing that makes the fluid pressure a
+fictitious quantity only present to ensure saturation.
 
 \section{Simple physical tests}
 \label{simple-physics}
 
+\textbullet\ And, with all this, we first work on some simple biphasic
+examples with arbitrary physical properties to study physical aspects
+of the coupling.
+
 \subsection{The swelling balloon}
 \label{balloon}
 
-\subsection{Fluid-structure interaction boundary conditions}
+\textbullet\ This first test involves driving the mechanics via fluid
+flow. Set up the problem by discussing the initial and boundary
+conditions used and reiterating the equations solved. Either work
+through the application of FSI boundary conditions in a separate
+subsection like below, or just incorporate it into the main text.
+
+\subsubsection{Fluid-structure interaction boundary conditions}
 \label{eu-fluid-structure-interaction}
 
-Since we don't know F for the fluid we don't know Fg or Fe either. The
-new swelling problem is worked out as so:
+\textbullet\ Since we don't know F for the fluid we don't know Fg or
+Fe either. Thus, the new swelling problem is worked out differently
+from the older one.
 
-Kinematics of growth (absence) does not need the use of \bF and this
-differentiates this chapter from chapter 2 (and corresponding swelling
-example in chapter 3). Follow the paper to say how pressure is
-converted to a boundary condition because talking just about
-velocities doesn't firm up displacements, which is what we're aiming
-to solve for the solid.
+\textbullet\ Follow the paper to say how pressure is converted to a
+boundary condition because talking just about velocities (that there
+is no relative velocity) doesn't directly specify the relevant
+boundary conditions for the solid displacement; which is what we're
+aiming to solve for the solid.
+
+\textbullet\ {\bf Results:} The plots show a the solid velocity
+variation and x-displacements over the first 3~s. Perhaps mention that
+the time-scale is arbitrary. There is initially a slight oscillation
+in the fluid flow fields due to dynamics (not apparent in the
+plots). Shortly, oscillations fade. The fluid pressure boundary
+conditions causes inflow and inability to flow out of other boundaries
+corresponds to a force $\bp\cdot\bn$ boundary condition, causing it to
+swell outward. This can be tailored to model other interesting things,
+like inflation of car tyres.
 
 \begin{figure}[!hptb]
 \centering
@@ -118,8 +122,30 @@ eulerian/swelling/balloon-swell-3p0}
 \label{swelling-balloon-image-3p0}
 \end{figure}
 
+\clearpage
+
 \subsection{The tissue under constriction}
 \label{constriction-2}
+
+\textbullet\ Similar to constriction
+problem earlier, aim is to see stress-driven flow. Set up the initial
+and boundary conditions for both phases.  Flow arises from the
+frictional force and boundary conditions which allow no relative
+flow. The plot is asymmetric in the vertical direction because it's
+the bottom that's being held fixed.
+
+\textbullet\ Since effects from the dynamics were observed in the
+previous example, we explicitly carry out this calculation under
+quasistatic and dynamic modes to see the difference.
+
+\textbullet\ {\bf Results:} The plots show the x-displacement of the
+solid which is loaded and held fixed after the first 1~s. The
+fluid-velocity field is tracked, and watch it die out, over a total of
+3~s. The same calculation, as mentioned was carried out under a
+dynamic and quasistatic case and the vertical velocity field tracked
+at the centre point velocity field dies out differently. This is quite
+interesting. This is similar to relaxation of the top-face seen in the
+earlier calculation (which was in terms of displacement).
 
 \begin{figure}[!hptb]
 \centering
@@ -185,8 +211,15 @@ eulerian/constriction/constrict-vel-drop-quasistatic}
 \label{velocity-evolution-quasistatic}
 \end{figure}
 
+\clearpage
+
 \subsection{Flow fields under tension}
 \label{tension-flow}
+
+\textbullet\ Now that we're reasonably confident about the fluid flow
+fields and have an idea of its effects on the mechanics, we proceed to
+tailor the material model, geometry and constants to better represent
+actual cases.
 
 \section{Examples exploring the biphasic nature of porous soft tissue}
 \label{biphasic-examples-2}
@@ -194,8 +227,16 @@ eulerian/constriction/constrict-vel-drop-quasistatic}
 \subsection{Stress relaxation}
 \label{stress-relaxation}
 
+\textbullet\ Set up the boundary conditions relevant to the
+case. Basically pull and hold, and no outflow at the top and
+bottom.
+
 \subsubsection{Under different rates of loading}
 \label{modifying-load-rates}
+
+\textbullet\ In order to differentiate the effect of load rate. The
+results show, as expected, that the faster-pulled case is stiffer,
+arising from the higher force from the frictional interaction term.
 
 \begin{figure}[!hptb]
 \centering
@@ -215,9 +256,16 @@ eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p02}
 \label{poro-stress-relax-0p02}
 \end{figure}
 
-\subsubsection{Comparison with representative linear viscoelastic
-  curve}
+\subsubsection{Comparison with representative viscoelastic curves}
 \label{viscoelastic-stress-relaxation}
+
+\textbullet\ This calculation uses a linear-viscoelastic model and is
+presented for qualitative comparison. We're interested, as mentioned
+in a Section before, in the inelastic behaviour of tissues. The goal
+of these examples are not to solve the final problem, but to show that
+different cases can be solved reasonably within the framework and show
+different results qualitatively and quantitatively. Notice that the
+viscoelastic curve does the same general thing.
 
 \begin{figure}[!hptb]
 \centering
@@ -228,20 +276,43 @@ eulerian/pulling/plots/visco-elastic/visco-stress-relax-0p02-t0p3}
 \label{visco-stress-relax-0p02-t0p3}
 \end{figure}
 
-\subsection{Hysteresis in the cyclic stress-strain response}
-\label{hysteresis}
+\textbullet\ Also, the nonlinear case can also be trivially handled,
+and it's comparison with experiment is shown below.
 
-\subsubsection{Quasistatic vs. dynamic}
-\label{quasistatic-vs-dynamic}
+\subsubsection{Non-linear viscoelasticity}
+\label{non-linear-viscoelasticity}
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d1p037}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
-\label{medium-hysteresis-dynamic-0p01-d1p037}
+eulerian/nonlinear-viscoelasticity/provenzano-data-comparison}
+\caption{The non-linear time constants fit to experiment.} 
+\label{provenzano-data-fit}
 \end{figure}
+
+\begin{figure}[!hptb]
+\centering
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+eulerian/nonlinear-viscoelasticity/nonlinear-viscoelasticity-stress-relaxation}
+\caption{Stress relaxation under nonlinear viscoelasticity.}
+\label{nonlinear-viscoelasticity-stress-relaxation}
+\end{figure}
+
+\clearpage
+
+\subsection{Hysteresis in the cyclic stress-strain response}
+\label{hysteresis}
+
+\textbullet\ Now that we've established a simple pull and hold, we
+move onto a more complicated pull and unload. Talk about the boundary
+conditions and perhaps provide the 2 experimental results first?
+
+\textbullet\ Since quasistatic and dynamic were found important, we
+look at those two cases for a certain ratio of fluid to
+solid. Clearly, there is a difference.
+
+\subsubsection{Quasistatic vs. dynamic}
+\label{quasistatic-vs-dynamic}
 
 \begin{figure}[!hptb]
 \centering
@@ -252,8 +323,30 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-static-0p01-d1p037}
 \label{medium-hysteresis-static-0p01-d1p037}
 \end{figure}
 
+\begin{figure}[!hptb]
+\centering
+\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d1p037}
+\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
+  MPa.s.mm$^{-1}$.}
+\label{medium-hysteresis-dynamic-0p01-d1p037}
+\end{figure}
+
+\textbullet\ Note that the fluid-sloshy-effects go away during the
+higher strain ranges where the solid is substantially stiffer.
+
 \subsubsection{Changing load-rates and friction coefficients}
 \label{load-rates-and-friction-coefficients}
+
+\textbullet\ We now proceed to change the load rates/friction
+coefficients in order to observe effects. Clearly, slower tests tend
+the process toward equilibrium and it tends to become elastic,
+reducing the dissipation and area under the curve.
+
+\textbullet\ With the fluid (relative) velocities fixed (by the
+boundary conditions), increasing
+the frictional coefficient 10-fold increases the effects of the
+fluid-sloshing dynamics substantially.
 
 \begin{figure}[!hptb]
 \centering
@@ -276,6 +369,11 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d10p37}
 \subsubsection{Changing the overall shape and stress range}
 \label{changing-shape}
 
+\textbullet\ All the plots shown thus far have had the same general
+shape, but experiments show different things for different tissues at
+different ages. We can easily model this by changing the material
+parameters to change the stress-ranges and shapes.
+
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
@@ -288,6 +386,11 @@ eulerian/pulling/plots/poro-elastic/low-hysteresis-dynamic-0p01-d1p037}
 \subsubsection{Comparison with representative linear viscoelastic
   curves}
 \label{viscoelastic-hysteresis}
+
+And, to compare, here are two plots (one for each set of material
+properties) using a linear viscoelastic model. Clearly, the visco case
+misses the noisyness arising from fluid-sloshing which the poro case
+captures. Therefore, combinations must be explored.
 
 \begin{figure}[!hptb]
 \centering
@@ -307,36 +410,25 @@ eulerian/pulling/plots/visco-elastic/low-hysteresis-visco-0p01-t0p7}
 \label{low-hysteresis-visco-0p01-t0p7}
 \end{figure}
 
-\section{Material modelling}
-\label{material-modelling}
-
-\subsection{Non-linear viscoelasticity}
-\label{non-linear-viscoelasticity}
-
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/nonlinear-viscoelasticity/provenzano-data-comparison}
-\caption{The non-linear time constants fit to experiment.} 
-\label{provenzano-data-fit}
-\end{figure}
-
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/nonlinear-viscoelasticity/nonlinear-viscoelasticity-stress-relaxation}
-\caption{Stress relaxation under nonlinear viscoelasticity.}
-\label{nonlinear-viscoelasticity-stress-relaxation}
-\end{figure}
-
-\subsection{Friction coefficient variation with concentration}
-\label{variable-friction-coefficient}
+\clearpage
 
 \section{Tumour growth}
 \label{tumour-growth}
 
+\textbullet\ Introduce the general lack of direct experimental
+backing here. And point to the fact that the example will be gradually
+built up from scratch to separate effects.
+
 \subsection{Isotropic swelling}
 \label{tumour-isotropic-swelling}
+
+\textbullet\ One of the primary focuses of this work is growth, and this includes
+kinematic swelling. Try to clarify that the cell concentration is
+uniform, and growth is of the collagen network + cells. As a result of
+this uniform cell concentration and growth, the solid tends to swell.
+
+\textbullet\ The plots show the radial displacements at two times, and
+the evolution of the area.
 
 \begin{figure}[!hptb]
 \centering
@@ -362,8 +454,22 @@ eulerian/cancer/isotropic-swelling-area-evolution}
 \label{tumour-isotropic-area-evolution}
 \end{figure}
 
+\clearpage
+
 \subsection{Constrained by a wall}
 \label{wall-constraint}
+
+\textbullet\ Now, we're interested in the case where there is a boundary condition
+arising from a wall or pressure of some sort, and since we're working
+with a dynamic calculation, arbitrary introduction of the wall at some
+time is numerically bad. So, we move to soft contact mechanics and
+have an exponential rule like so that kicks in gradually. The cells
+still don't do any mechanics, yet.
+
+\textbullet\ The plot shows the velocity of the growing tumour
+(arrows) and the compressive horizontal stress built up at a certain
+time. Notice that the velocity in those regions are zeroing out, as
+they should. The temporal variation at that end point is plotted separately.
 
 \begin{figure}[!hptb]
 \centering
@@ -381,11 +487,22 @@ eulerian/cancer/constrained-stress-evolution}
 \label{tumour-constrained-stress-evolution}
 \end{figure}
 
-\subsection{The role of the cells}
+\subsection{The mechanics of cells}
 \label{cell-roles}
+
+So far, we worked with no mechanics but there are two fundamental
+things cells do.
 
 \subsubsection{Inward tug}
 \label{inward-tug}
+
+\textbullet\ Cells pull inwards, following this law that says that an
+optimal cell-ECM concentration is best for maximum inward
+tuginess. Their stress now follows this rule motivated by this paper.
+
+\textbullet\ As a result of uniform cell concentrations, we see
+this. As a result of an (arbitrary) heterogeneous contribution, we see
+something else. Note that the regions with higher cells pull in more.
 
 \begin{figure}[!hptb]
 \centering
@@ -403,8 +520,16 @@ eulerian/cancer/heterogeneous-inward-tug}
 \label{tumour-heterogeneous-inward-tug}
 \end{figure}
 
+\clearpage
+
 \subsubsection{Transport of the cells}
 \label{cell-transport}
+
+\textbullet\ So far, we assumed that the cell concentration remains
+constant in time and space. Now we add an additional differential
+equation (advection diffusion reaction governing its
+movement). Diffusion is obvious, and the plots below show the cells
+diffusing from a central bulb outwards while they proliferate.
 
 {\bf Diffusion and proliferation}
 
@@ -440,13 +565,19 @@ eulerian/cancer/diffusing-proliferating-cells-100}
 \label{tumour-diffusion-proliferation-100}
 \end{figure}
 
-{\bf Haptotaxis}
+\subsubsection{Cell haptotaxis}
+\label{eu-cell-haptotaxis}
 
-\subsubsection{Fluxes dependent on concentration gradients of other
-  species}
-\label{eu-onsager-reciprocity}
+\textbullet\ But there is another mechanism for their movement, they
+move along the gradients of ECM contributions. This is added as an
+additional flux term to the calculation above, and the magnitude of
+this mobility is motivated by this paper. Clearly, this effect is
+less/more important than general diffusion.
 
-%% \todo{Onsager Reciprocity?}
+\textbullet\ In order to kick this off, we start with an (arbitrary)
+heterogeneous ECM concentration, as shown. Note that the cell inward
+tug changes with the concentration, as noted by the sizes and
+directions of the arrows.
 
 \begin{figure}[!hptb]
 \centering
@@ -455,6 +586,11 @@ eulerian/cancer/heterogeneous-ecm-concentration}
 \caption{Heterogeneous extra-cellular matrix concentration.}
 \label{heterogeneous-ecm-concentration}
 \end{figure}
+
+\textbullet\ And with this, we have (apart from proliferating and
+diffusing), heading toward areas of higher ECM. In these calculations,
+growth (swelling) has been turned off and the arrows show the inward
+tug. 
 
 \begin{figure}[!hptb]
 \centering
@@ -488,8 +624,24 @@ eulerian/cancer/haptotaxis-proliferating-cells-10}
 \label{tumour-haptotaxis-proliferation-10}
 \end{figure}
 
+\clearpage
+
 \subsection{Combining everything}
 \label{cacophonous-medley}
+
+\textbullet\ We are finally ready to solve the problem we described
+initially. The range of physics incorporated here include, diffusing,
+proliferating and haptotacting cells, growth induced by them and
+swelling, nutrient is a constant field, growth follows a simple rate
+law, soft contact mechanics introduced by the wall.
+
+\textbullet\ Clearly, regions with more cells grow faster, and the
+plots show the x-displacement as a measure of swelling. Also, the
+presence of the wall biases the growth toward the top and bottom as
+seen in experiment. Currently, all this arises out of a growth law
+that's independent of stress (isotropic swelling), but with careful
+experimental work its form can be fixed. Compare this to the case
+where the growth happened without a wall.
 
 \begin{figure}[!hptb]
 \centering
@@ -546,6 +698,33 @@ eulerian/cancer/growing-tumour-5.eps}
 \caption{A constrained growing tumour at $t=5$ months.}
 \label{tumour-growth-constrained-5}
 \end{figure}
+
+%% \todo{\begin{itemize}
+%%     \item Talk about physically-relevant primitive variables and
+%%       contrast choices with Chapter 3
+%%   \item Weave around the monolithic implementation details and refer
+%%     COMSOL's documentation. Cite back to the fact that monolithic
+%%     is stable. Justify 2D.
+%%   \item Generate pristine plots for the tensile-flow field
+%%     calculations 
+%%   \item Cite works from cancer literature to motivate the example. Tie
+%%     in cell haptotaxis with gradients of other species 
+%%   \item Talk about swelling boundary conditions and saturation
+%%     constraint.
+%%   \item Bring in a few experimental figures and point out what we're
+%%     looking for in terms of biphasic response.
+%% \end{itemize}}
+
+% The move to the following perspective was motivated by the fact that
+% the earlier formulation, and corresponding numerical examples (cite
+% sections on role of mass balance in current conf., the deformation
+% gradient split for the fluid, and the numerical example involving
+% assumptions on deformation gradient of the fluid) involved
+% quantities that, while reasonable from a 
+% mathematical pint of view, did not correspond to physical quantities
+% of interest in terms of physiological bvps. Point out that it's been
+% 2--3 years of refining our understanding and trials with the
+% previous code that's led to this point?
 
 
 %
