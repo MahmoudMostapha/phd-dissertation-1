@@ -834,12 +834,12 @@ ensures that the following portion of the Clausius-Duhem inequality
   \mathrm{grad}\left(\theta\right)}{\theta} \right) \leq 0,
 \end{equation*}
 
-\noindent is satisfied a priori since the heat conduction law
-(\ref{eu-heat-conduction}) is valid for all species in the mixture.
+\noindent is satisfied since the heat conduction law (\ref{eu-heat%
+  -conduction}) is valid for all species in the mixture.
 
 While Duhamel's law (\ref{eu-heat-conduction}) is indeed useful in a
 general setting, our primary interest lies in specialising concepts
-from classical thermodynamics to biological tissues, where the
+from classical thermodynamics to biological systems, where the
 temperature field under most physiological scenarios is relatively
 uniform and constant in time. In what follows, this simplifying
 assumption will be incorporated. Additionally, the general nature of
@@ -871,17 +871,16 @@ We first focus on the following term of the Clausius-Duhem form
 
 Recall that the extra-cellular fluid species, $\mathrm{f}$, consists
 primarily of water and does not take part in reactions, i.e.,
-$\pi^\mathrm{f} = 0$. Also, from the summation relation for mass
+$\pi^\mathrm{f} = 0$. Therefore, from the summation relation for mass
 sources and sinks~(\ref{eu-summationrelationmass}), we have that
-$\pi^\mathrm{s} = - \pi^\mathrm{c}$, and so, performing the summation
-on the left hand-side of the inequality above for
-$\iota=\mathrm{c,f,s}$, the dissipation inequality requires that,
+$\pi^\mathrm{s} = - \pi^\mathrm{c}$. Using this fact, the inequality
+above reads,
 
 \begin{equation*}
  \pi^{\mathrm{c}} \left(\psi^{\mathrm{c}}+\frac{1}{2}
-\Vert\bv^{\mathrm{c}}\Vert^2\right)
-+ \left(-\pi^{\mathrm{c}}\right) \left(\psi^{\mathrm{s}}+\frac{1}{2}
-\Vert\bv^{\mathrm{s}}\Vert^2\right) \leq 0.
+ \Vert\bv^{\mathrm{c}}\Vert^2\right) + \left(-\pi^{\mathrm{c}}\right)
+ \left(\psi^{\mathrm{s}}+\frac{1}{2}
+ \Vert\bv^{\mathrm{s}}\Vert^2\right) \leq 0.
 \end{equation*}
 
 \begin{figure}
@@ -894,8 +893,8 @@ $\iota=\mathrm{c,f,s}$, the dissipation inequality requires that,
 
 \noindent The above relation provides a broad guideline that allows
 for the specification of a very general class of source terms for
-collagen. For instance, the most obvious form is linear in terms of
-the energy (Helmholtz free energy plus the kinetic energy) difference
+collagen. An obvious form that it suggests is linear in terms of the
+energy (Helmholtz free energy plus the kinetic energy) difference
 between the collagen phase and the solute phase:
 
 \begin{equation}
@@ -921,7 +920,7 @@ of the energy difference) example shown below,
 \pi^{\mathrm{c}}=\epsilon\ \kappa^{\mathrm{c}}\left( \mathrm{exp}
 \left[-\epsilon\ U \left(\psi^{\mathrm{c}}+\frac{1}{2}
   \Vert\bv^{\mathrm{c}}\Vert^2 - \psi^{\mathrm{s}}+\frac{1}{2}
-  \Vert\bv^{\mathrm{s}}\Vert^2\right) \right] - 1\right),
+  \Vert\bv^{\mathrm{s}}\Vert^2\right) \right] - 1\right)
 \label{eu-energy-source-nonlinear}
 \end{equation}
 
@@ -929,10 +928,10 @@ of the energy difference) example shown below,
 \mathrm{sign}\left(\psi^{\mathrm{c}}+\frac{1}{2}
 \Vert\bv^{\mathrm{c}}\Vert^2 - \psi^{\mathrm{s}}-\frac{1}{2}
 \Vert\bv^{\mathrm{s}}\Vert^2\right)$, $U>0$ and
-$\kappa^{\mathrm{c}}\geq 0$) and can be tailored to represent
+$\kappa^{\mathrm{c}}\geq 0$), and can be tailored to represent
 different sorts of biochemistry. The evolution of this nonlinear
 collagen source term with the energy difference between the collagen
-and solute phases is shown in Figure~\ref{energy-based-source}, which
+and solute phases is shown in Figure~\ref{energy-based-source}; which
 clearly shows the source for collagen having a sign opposite to that
 of the energy difference between collagen and the solute.
 
@@ -996,7 +995,7 @@ dissipation inequality (\ref{eu-reduced-dissipation-1}) requires that,
 \bq^{\mathrm{c}}\cdot\bv^{\mathrm{c}}$ when discussing interaction
 forces between the solid and fluid phases in Section~(\ref{eu%
   -interaction-forces}). Currently, we turn our attention to the
-remaining terms in left hand-side of the inequality above:
+remaining terms in the inequality above:
 
 \begin{equation}
 \rho^{\mathrm{c}} \dot{\psi^{\mathrm{c}}}
@@ -1009,8 +1008,8 @@ remaining terms in left hand-side of the inequality above:
 Noting that the numerical examples presented in
 Chapter~\ref{numerical-simulations-2} solve the momentum balance
 equation (\ref{localbalanceofmomentum}) for the solid phase in the
-reference configuration,\footnote{It is instructive to point out here
-  that since $\Omega_{t}$ is constructed to coincide with the current
+reference configuration,\footnote{It is instructive to note here that
+  since $\Omega_{t}$ is constructed to coincide with the current
   position of the solid component of the tissue (see
   Section~\ref{eu-balance-laws}), we are aware of the deformation
   gradient $\bF^{\mathrm{c}}=\bF=\frac{\partial \Bvarphi_{t}}{\partial
@@ -1020,7 +1019,7 @@ response of the solid phase in terms of its partial first and second
 Piola-Kirchhoff stress tensors, $\bP^{\mathrm{c}}$ and
 $\bS^{\mathrm{c}}$, respectively.
 
-From balance of angular momentum for the solid (\ref{eu%
+From the balance of angular momentum for the solid (\ref{eu%
   -localbalanceofangularmomentum}), we know that its partial Cauchy
 stress is symmetric and thus, $\Bsigma^{\mathrm{c}} \colon
 \mathrm{grad} \left(\bv^{\mathrm{c}}\right) =\Bsigma^{\mathrm{c}}
@@ -1030,7 +1029,7 @@ above, recalling that \mbox{$\rho^{\mathrm{c}}\ J =
   \rho_0^{\mathrm{c}}$} and $\rho^{\mathrm{c}}
 \dot{\psi^{\mathrm{c}}}+ \rho^{\mathrm{c}}
 \mathrm{grad}\left(\psi^{\mathrm{c}}\right) \cdot\bv^{\mathrm{c}}$
-provides the material time derivative of $\psi$, we have,
+provides the material time derivative of $\psi^{\mathrm{c}}$, we have,
 
 \begin{equation*}
 \rho_{0}^{\mathrm{c}} \dot{\psi^{\mathrm{c}}}
@@ -1065,11 +1064,11 @@ As in Section~\ref{constitutive-framework}, if we were to assume at
 this point that the Helmholtz free energy of the solid had the form,
 $\psi^{\mathrm{c}} = \frac{1}{\tilde{\rho_{0}^{\mathrm{c}}}}
 \hat{\psi^{\mathrm{c}}} (\bF^{\mathrm{e}})$, where
-$\rho_{0}^{\mathrm{c}}$ is the intrinsic density of the solid collagen
-in the reference configuration, i.e., it depends only upon the elastic
-portion of its deformation gradient, then a sufficient condition to
-satisfy the inequality above is to assume a hyperelastic model of the
-form:
+$\tilde{\rho_{0}^{\mathrm{c}}}$ is the intrinsic density of the solid
+collagen in the reference configuration, i.e., the free energy depends
+only upon the elastic portion of the deformation gradient, then a
+sufficient condition to satisfy the inequality above is to assume a
+hyperelastic model of the form:
 
 \begin{equation}
 \bP^{\mathrm{c}} =
@@ -1102,7 +1101,7 @@ Piola-Kirchhoff stress tensor using the relation $\bP^{\mathrm{c}} =
 \bF \bS^{\mathrm{c}}$, we have,\footnote{The computations presented in
   Chapter~\ref{numerical-simulations-2} use the second partial
   Piola-Kirchhoff stress tensor,~$\bS^{\mathrm{c}}$, since it is a
-  symmetric quantity, and this requires less memory for storage.}
+  symmetric quantity, and thus requires less memory for storage.}
 
 \begin{equation}
 \frac{\rho_{0}^{\mathrm{c}}}{\tilde{\rho_{0}^{\mathrm{c}}}}
@@ -1114,11 +1113,11 @@ Piola-Kirchhoff stress tensor using the relation $\bP^{\mathrm{c}} =
 \colon \dot{\BGamma}_{\alpha} - (\bF^{\mathrm{e}}\bF^{\mathrm{g}})
 \bS^{\mathrm{c}} \bF^{\mathrm{g}^{\mathrm{T}}} \colon
 \dot{\bF^{\mathrm{e}}} \leq 0.
-\label{eu-reduced-dissipation-solid-2}
+\label{eu-reduced-dissipation-solid-3}
 \end{equation}
 
 \noindent A sufficient condition to satisfy (\ref{eu-reduced%
-  -dissipation-solid-2}) is to specify that the partial second
+  -dissipation-solid-3}) is to specify that the partial second
 Piola-Kirchhoff stress tensor has the form,
 
 \begin{equation}
@@ -1167,21 +1166,24 @@ solid stress takes the form,
 \label{eu-solid-visco-stress}
 \end{equation}
 
-\noindent where,
+\noindent where, denoting by $\mathbb{I}$ the fourth order unit
+tensor,
 
 \begin{equation*}
 \bS^{\mathrm{c}}_{\mathrm{vol}} = J^{\mathrm{e}} \frac{\partial
   \sW_{\mathrm{vol}}(J^{\mathrm{e}})}{\partial J^{\mathrm{e}}} \quad
 \mathrm{and} \quad \bS^{\mathrm{c}}_{\mathrm{iso}} =
 J^{\mathrm{e}^{-2/3}} \left(\mathbb{I} - \frac{1}{3}\ \bC^{-1} \otimes
-\bC \right) \colon
+\bC \right) \colon 2 
 \frac{\partial\sW_{\mathrm{iso}}(\bar{\bC^{\mathrm{e}}})}{\partial
   \bar{\bC^{\mathrm{e}}}}.
 \end{equation*}
 
 \noindent Equation (\ref{eu-solid-visco-stress}), along with the
 following evolution equations for the {\em non-equilibrium stresses},
-$\bQ_{\alpha}$, motivated by a generalised Maxwell model,
+$\bQ_{\alpha}$,\footnote{Which are work-conjugate variables to
+  $\BGamma_{\alpha}$.} in agreement with the dissipation inequality
+motivated by a generalised Maxwell model,
 
 \begin{equation}
 \dot{\bQ}_{\alpha}+\frac{\bQ_{\alpha}}{\tau_{\alpha}} =
@@ -1199,43 +1201,62 @@ a straightforward manner to a nonlinear model by introducing the
 notion of a {\em modified time}, as seen in a computation in
 Section~\ref{non-linear-viscoelasticity}.
 
-\subsection{Effect of the stress state on tissue growth}
+\subsection{Effects of the stress state on tissue growth}
 \label{eu-stress-dependent-growth}
 
-One important 
+One important influence that the local stress state has on tissue
+growth directly relates to its regulation of species production (and
+consumption) rates. An example of this fact lies in oft-cited work of
+\citet{wolff1892} who found that bone is deposited and resorbed in
+accordance with the stresses placed upon it. In this formulation, this
+effect is modelled through the use of the strain-energy dependent
+source terms~(\ref{strain-energy-based-source}) introduced in
+Section~\ref{nature-of-sources}.
 
-There is experimental evidence to suggest that during wound healing,
-newly-de\-po\-sit\-ed collagen fibres are found to align with the
-applied stress whereas under unstressed conditions, they are deposited
-isotropically \citep{Provenzanoetal:2003}. In this section, it will be
-shown that the thermodynamics naturally motivates a form for the
-rate of change of the growth deformation gradient tensor that reflects
-this fact. 
+There is experimental evidence to suggest that there is another
+important influence of the stress state on the development of tissues,
+relating to the spatial alignment of deposited matter.  An example of
+this is found in \citet{Provenzanoetal:2003}, where it is observed
+that during wound healing, newly-de\-po\-sit\-ed collagen fibres are
+found to aligned with the applied stress, whereas under unstressed
+conditions, they are deposited isotropically. Momentarily, will see
+that the thermodynamics naturally motivates a form for the rate of
+change of the growth deformation gradient tensor that reflects this
+observation.
 
+During the derivation of the constitutive relationship for the solid
+stress in the preceding section, the implication of the following
+inequality,
 
-\begin{equation}
+\begin{equation*}
 - \bF^{\mathrm{e}^{\mathrm{T}}}  \bP^{\mathrm{c}} \colon
 \dot{\bF^{\mathrm{g}}}
-\leq 0.
+\leq 0,
+\end{equation*}
+
+\noindent had not been explored. Turning our attention to it now, it
+is clear that a sufficient condition to satisfy this inequality is,
+
+\begin{equation}
+\dot{\bF^{\mathrm{g}}} = \lambda\ \bF^{\mathrm{e}^{\mathrm{T}}}
+\bP^{\mathrm{c}},
+\label{eu-stressgrowthtensorrate}
 \end{equation}
 
-However, since growth does not take place at the time scales
-mechanical tests are performed, calculations in Sections which show
-the mechanical behaviour of the model under various cases assumes
-fg = 1 and fgdot = 0, which also obey the above inequality. This term
-will be reintroduced when studying the mechanics of growing tumours in
-section. 
+\noindent where $\lambda$ is a non-negative scalar. 
 
-Tie this to Wolff's law if possible. Write down whatever it works out
-to be and cite Loret. Mention that this is not possible for the fluid
-phase, because we don't know F for it.
-\citep{wolff1892}
-%% Wolff's law states that bone is deposited and resorbed in accordance with the stresses placed upon it.
+Equation~(\ref{eu-stressgrowthtensorrate}) specifies that incremental
+changes in the growth deformation gradient in time has to be aligned
+along the partial first Piola-Kirchhoff stress tensor, suitably
+transformed by the elastic portion of the deformation gradient.
 
-it is for this reason that the fluid phase in the section immediately
-below is carried out in the current configuration, without a mention
-of the deformation gradient.
-
+The treatment presented in Sections~\ref{eu-viscoelastic-solid} and
+\ref{eu-stress-dependent-growth} involve the notion of deformation
+gradients and are thus only applicable to the solid collagen phase for
+reasons discussed. In contrast, the analyses for the fluid and solute
+phases below are carried out in $\Omega_{t}$, and we work with their
+respective velocities as primitive variables characterising their
+mechanics.
  
 \subsection{A Newtonian fluid}
 \label{eu-newtonian-fluid}
@@ -1244,7 +1265,7 @@ As eluded to toward the end of Section~\ref{eu-energy-dependent%
   -source}, one of the mechanisms underlying the rate-dependent
 behaviour of soft collagenous tissues is the inherent viscosity of the
 extra-cellular fluid. In this section, we derive the constitutive
-relationship for a viscous Newtonian fluid from thermodynamic
+relationship for a Newtonian (viscous) fluid from thermodynamic
 considerations.
 
 For the terms arising from the fluid phase, the reduced dissipation
@@ -1273,11 +1294,11 @@ the remaining portion of the dissipation inequality for the fluid:
 \end{equation}
 
 Assuming that the Helmholtz free energy of the fluid depends only on
-its current concentration, i.e, $\psi^{\mathrm{f}} =
-\frac{1}{\tilde{\rho^{\mathrm{f}}}} \hat{\psi^{\mathrm{f}}}
-(\rho^{\mathrm{f}})$, where $\tilde{\rho^{\mathrm{f}}}$, the intrinsic
-density of the fluid, is just a positive constant, and substituting it
-into (\ref{reduced-dissipation-fluid}), we have,
+its current concentration, i.e, $\psi^{\mathrm{f}} = \frac{1}
+{\tilde{\rho^{\mathrm{f}}}} \hat{\psi^{\mathrm{f}}}
+(\rho^{\mathrm{f}})$, where $\tilde{\rho^{\mathrm{f}}}$ is the
+intrinsic density of the fluid, and substituting this form into
+(\ref{reduced-dissipation-fluid}), we have,
 
 \begin{equation*}
 \frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
@@ -1298,7 +1319,7 @@ for the fluid, with $\pi^\mathrm{f} = 0$, we obtain,
 \begin{equation*}
 \frac{\rho^{\mathrm{f}}}{\tilde{\rho^{\mathrm{f}}}}
 \frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}
-\left(- \rho^{\mathrm{f}} \mathrm{div}\left( v^{\mathrm{f}}
+\left(- \rho^{\mathrm{f}} \mathrm{div}\left(\bv^{\mathrm{f}}
 \right)\right) 
 -\Bsigma^{\mathrm{f}}\colon\mathrm{grad}
 \left(\bv^{\mathrm{f}}\right)
@@ -1314,24 +1335,24 @@ inequality for the fluid,
 \bigg( - \cancelto{p^{\mathrm{f}}(\rho^{\mathrm{f}})}
 {\frac{(\rho^{\mathrm{f}})^2}{\tilde{\rho^{\mathrm{f}}}}
 \frac{\partial \hat{\psi^{\mathrm{f}}}}{\partial \rho^{\mathrm{f}}}}
-\bone -\Bsigma^{\mathrm{f}} \bigg) \colon \mathrm{grad}\left( v^{\mathrm{f}}
+\bone -\Bsigma^{\mathrm{f}} \bigg) \colon \mathrm{grad}\left(\bv^{\mathrm{f}}
 \right)
 \leq 0,
 \end{equation*}
 
 \noindent since \mbox{$\mathrm{div}(\bullet) = \bone \colon
   \mathrm{grad}(\bullet)$}, where $\bone$ is the second order
-isotropic tensor. 
+identity tensor.
 
-In order to ensure that the term on the left hand-side is negative, we
-require that $\Bsigma^{\mathrm{f}} = - p^{\mathrm{f}} \bone + 2
-\mu^{\mathrm{f}} \mathrm{grad}\left( v^{\mathrm{f}} \right)$, where
-$\mu^{\mathrm{f}}$, the viscosity of the fluid, is a non-negative
-scalar. Setting it to zero results in the prescription of an ideal
-fluid. Furthermore, recognising from the balance of angular momentum
-that $\Bsigma^{\mathrm{f}}$ is symmetric, we write the fluid Cauchy
-stress tensor in terms of its pressure and rate of deformation
-\mbox{tensor, $\bd^{\mathrm{f}}$}:
+A suitable form for the partial Cauchy stress tensor of the fluid
+phase motivated by the above inequality is: $\Bsigma^{\mathrm{f}} = -
+p^{\mathrm{f}} \bone + 2 \mu^{\mathrm{f}} \mathrm{grad}\left(
+\bv^{\mathrm{f}} \right)$, where $\mu^{\mathrm{f}}$, the viscosity of
+the fluid, is a non-negative scalar. Setting it to zero results in the
+case of an ideal fluid. Furthermore, recognising from the balance of
+angular momentum that $\Bsigma^{\mathrm{f}}$ is symmetric, we rewrite
+the above constitutive relationship in terms of the fluid of rate of
+deformation tensor,~$\bd^{\mathrm{f}}$:
 
 \begin{equation}
 \Bsigma^{\mathrm{f}} = -
@@ -1339,43 +1360,47 @@ p^{\mathrm{f}} \bone + 2 \mu^{\mathrm{f}}\bd^{\mathrm{f}},
 \label{eu-stress-rel-fluid}
 \end{equation}
 
-\noindent which is the defines the behaviour of a classical Newtonian
-fluid.
+\noindent which defines the behaviour of a classical Newtonian fluid.
 
 \subsection{Frictional interaction forces}
 \label{eu-interaction-forces}
 
-Upon constitutively prescribing the solid stress relation that
-corresponds to a viscoelastic or hyperelastic material
-(Equation~(\ref{}) or (\ref{})), a suitable form for the rate of
-change of the growth deformation gradient tensor (from
-Equation~(\ref{}), and specify that the fluid stress follows the
-definition of a standard Newtonian fluid, the only terms remaining in
-dissipation inequality (\ref{eu-reduced-dissipation-1}) arising from
-the solid and fluid phases are as follows:
+We now focus our attention on the following two terms that were left
+unaccounted for when exploring the implications of the terms arising
+from the solid and fluid phases in the reduced dissipation inequality
+(\ref{eu-reduced-dissipation-1}) in
+Sections~\ref{eu-viscoelastic-solid} and \ref{eu-newtonian-fluid}:
 
 \begin{equation}
 \rho^{\mathrm{c}} \bq^{\mathrm{c}}\cdot\bv^{\mathrm{c}} +
 \rho^{\mathrm{f}} \bq^{\mathrm{f}}\cdot\bv^{\mathrm{f}} \leq 0.
+\label{eu-interactionremaining}
 \end{equation}
 
-Recalling the summation relationship between the interaction forces
-(\ref{eu-summationrelationmomentum}), assuming that in the case of a
-mechanics experiment growth is not significant, i.e. $\pi^\mathrm{c} =
-\pi^\mathrm{f} = 0$, we obtain,
+In the time-scales of experiments studying the mechanical response of
+tissues, growth is not usually significant, i.e. $\pi^\mathrm{c} =
+\pi^\mathrm{f} = 0$. Applying this simplification to the summation
+relationship between the interaction forces
+(\ref{eu-summationrelationmomentum}), we see that,
 
-\begin{equation*}
+\begin{equation}
+\rho^\mathrm{c}
+\bq^\mathrm{c} = - \rho^\mathrm{f} \bq^\mathrm{f}.
+\label{eu-simplifiedsummationrelation}
+\end{equation}
+
+\noindent Substituting Equation~(\ref{eu-simplifiedsummationrelation})
+in (\ref{eu-interactionremaining}), we obtain,
+
+\begin{equation}
 \rho^{\mathrm{c}} \bq^{\mathrm{c}}\cdot \left(\bv^{\mathrm{c}} -
 \bv^{\mathrm{f}}\right) \leq 0.
-\end{equation*}
+\label{eu-frictionresult}
+\end{equation}
 
-\noindent Which indicates that a suitable form for the interaction
-forces are:\footnote{This is only the simplest term possible. See
-  %% \citet{}
-  for a thorough review of various thermodynamically and
-  phenomenologically motivated forms for this interaction
-  force. Careful modelling of this form is just as important as
-  getting the deformation gradient split was in those calculations.}
+Relationships (\ref{eu-simplifiedsummationrelation}) and
+(\ref{eu-frictionresult}) indicate that a suitable form for the
+interaction forces between the solid collagen and fluid phases are:
 
 \begin{equation}
 \rho^{\mathrm{c}} \bq^{\mathrm{c}} 
@@ -1385,11 +1410,14 @@ forces are:\footnote{This is only the simplest term possible. See
 \label{eu-interactionforces}
 \end{equation}
 
-\noindent where  $\bD^{\mathrm{fc}}$ is a positive semi-definite
-frictional coefficient tensor.
-
-%% % Cite the fact that many forms are possible, but ours falls out
-%% % naturally. -- interaction forces
+\noindent where $\bD^{\mathrm{fc}}$ is a positive semi-definite
+frictional coefficient tensor.\footnote{This is only the simplest form
+  possible. See \citet{massoudi03} for a thorough review of various
+  thermodynamically and phenomenologically motivated forms for this
+  interaction force.} This frictional interaction between the phases
+is the basis for the time-dependent mechanical response observed in
+the biphasic computations presented in
+Section~\ref{biphasic-examples-2}.
 
 \subsection{Mass source-based solute velocities}
 \label{eu-solute-velocity}
@@ -1409,8 +1437,8 @@ requires only that,
 Assuming that the Helmholtz free energy of the solute depends only on
 its current concentration, i.e, $\psi^{\mathrm{s}} =
 \frac{1}{\tilde{\rho^{\mathrm{s}}}} \hat{\psi^{\mathrm{s}}}
-(\rho^{\mathrm{s}})$, where $\tilde{\rho^{\mathrm{s}}}$, the intrinsic
-density of the solute, the above inequality becomes,
+(\rho^{\mathrm{s}})$, where $\tilde{\rho^{\mathrm{s}}}$ is the
+intrinsic density of the solute, the above inequality becomes,
 
 \begin{equation*}
 \frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
@@ -1423,37 +1451,35 @@ density of the solute, the above inequality becomes,
 \leq 0,
 \end{equation*}
 
-\noindent which on application of the solute balance of mass
-(\ref{eu-localbalanceofmass}) reduces to:
+\noindent which, on application of the solute balance of mass
+(\ref{eu-localbalanceofmass}), reduces to:
 
 \begin{equation*}
 \frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
 \frac{\partial \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
-\left(\pi^{\mathrm{s}}- \rho^{\mathrm{s}} \mathrm{div}\left( v^{\mathrm{s}}
+\left(\pi^{\mathrm{s}}- \rho^{\mathrm{s}} \mathrm{div}\left(\bv^{\mathrm{s}}
 \right)\right) 
 \leq 0.
 \end{equation*}
 
-\noindent A sufficient condition to satisfy the above inequality a
-priori is obtained when $\mathrm{div}\left( v^{\mathrm{s}} \right) =
-\pi^{\mathrm{s}}/\rho^{\mathrm{s}}$, which states that an increase in
-solute mass brought about by the source term causes an outflow of
+\noindent A sufficient condition to satisfy the above inequality is:
+$\mathrm{div}\left(\bv^{\mathrm{s}} \right) = \pi^{\mathrm{s}}/
+\rho^{\mathrm{s}}$, which states that an increase in solute mass
+brought about by the source term at a point causes an outflow of
 solute (corresponding to the positive sign on the divergence of its
-velocity field). From this, the following simple form for the solute
-velocity can be constructed:
+velocity field) at that point. From this, the following simple form
+for the solute velocity can be constructed:
 
 \begin{equation}
 \bv^{\mathrm{s}}(\bx,t) = \frac{1}{3}
-\frac{\pi^{\mathrm{s}}(\bx,t)}{\rho^{\mathrm{s}}(\bx,t)} \bx
+\frac{\pi^{\mathrm{s}}(\bx,t)}{\rho^{\mathrm{s}}(\bx,t)} \bx.
 \end{equation}
 
-And thus, with the specification of this final constitutive
-relationship, along with all others deduced in
-Sections~\ref{eu-duhamel-law}--\ref{eu-interaction-forces}, we 
-ensure that the Clausius-Duhem form (\ref{eu-clausiusduhemform}) is
-satisfied a priori. The following chapter uses combinations of the
-species, balance equations and these constitutive relations to solve
-illustrative boundary value problems.
+Thus, we have shown that with the specification of this final
+constitutive relationship, along with all others deduced in
+Sections~\ref{eu-duhamel-law}--\ref{eu-interaction-forces}, the
+Clausius-Duhem form (\ref{eu-clausiusduhemform}) is satisfied a
+priori.
 
 %
 
