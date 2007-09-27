@@ -274,8 +274,8 @@ Theorem (Appendix~\ref{gauss-divergence}), one obtains:
 \nonumber & &
 \end{eqnarray}
 
-\noindent Applying Leibniz's product rule to the last term and using
-the mass balance equation (\ref{localbalanceofmass}) gives
+\noindent Applying the product rule to the last term and using the
+mass balance equation (\ref{localbalanceofmass}) gives
 
 \begin{eqnarray}
 \int\limits_{\Omega_0} \rho_0^\iota\frac{\partial}{\partial
@@ -400,9 +400,8 @@ requires,
 \label{globalbalanceofangularmomentum}
 \end{eqnarray}
 
-\noindent Applying properties of the cross product, Leibniz's product
-rule and Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence})
-gives
+\noindent Applying properties of the cross product, the product rule
+and Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence}) gives
 
 \begin{eqnarray}
 \int\limits_{\Omega_0}\bV\times\rho^\iota_0\bV^\iota + \Bvarphi\times
@@ -537,9 +536,9 @@ and energy transfer as:
 \end{eqnarray}
 
 The above equation for the rate of change of energy of a single
-species can be further simplified by applying Leibniz's product rule
-and Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence}),
-giving first,
+species can be further simplified by applying the product rule and
+Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence}), giving
+first,
 
 \begin{eqnarray}
 \int\limits_{\Omega_0}\left(\frac{\partial\rho_0^\iota}{\partial t}
@@ -1315,8 +1314,8 @@ $\rho^\iota_0\bV^\iota$ we have,
 \end{eqnarray}
 
 \noindent From this, the constitutive relationship for mass flux is
-written as a product of product of a mobility tensor and a
-thermodynamic driving force,
+written as a product of a mobility tensor and a thermodynamic driving
+force,
 
 \begin{eqnarray}
 \bM^\iota & &=\underbrace{\bF^{-1}\left(\bone +
@@ -1338,7 +1337,7 @@ configuration takes the following form,
 \begin{equation}
 \bM^\mathrm{f} = \bD^\mathrm{f}\left(\rho_0^\mathrm{f}\bF^T\bg +
 \bF^T\mathrm{DIV}\left[\bP^{\,\mathrm{f}}\right] -
-\rho_0^\mathrm{f}\mathrm{GRAD}\left[\mu^\mathrm{f}\right]\right),
+\rho_0^\mathrm{f}\mathrm{GRAD}\left[\psi^\mathrm{f}\right]\right),
 \label{fluidflux}
 \end{equation}
 
@@ -1346,11 +1345,12 @@ configuration takes the following form,
 mobility of the fluid, and isothermal conditions are assumed in order
 to approximate the physiological ones.\footnote{Additionally, this
   assumption allows application of the Legendre transformation
-  \mbox{$\mu^\iota = e^\iota - \theta\eta^\iota$} to rewrite
+  \mbox{$\psi^\iota = e^\iota - \theta\eta^\iota$} to rewrite
   \mbox{$\mathrm{GRAD}\left[e^\iota\right] -
     \theta\ \mathrm{GRAD}\left[\eta^\iota\right]$} as
-  $\mathrm{GRAD}\left[\mu^\iota\right]\vert_\theta$ (at uniform
-  temperature), where $\mu^\iota$ is the chemical potential.}
+  $\mathrm{GRAD}\left[\psi^\iota\right]\vert_\theta$ (at uniform
+  temperature), where $\psi^\iota$ is the Helmholtz free energy
+  potential.}
 
 Experimentally determined transport coefficients (e.g. for mouse tail
 skin \citep{Swartzetal:99} and rabbit Achilles tendons
@@ -1366,9 +1366,9 @@ along $\bP^\iota$. For an ideal fluid, it reduces to a pressure
 gradient (as detailed in Appendix~\ref{ideal-fluid-transport}),
 thereby specifying that the fluid moves down a compressive pressure
 gradient, which is Darcy's Law. The third term is the gradient of the
-chemical potential, $\mu^\mathrm{f} = e^\mathrm{f} - \theta
-\eta^\mathrm{f}$, where $e^\mathrm{f}$ is the mass-specific internal
-energy, $\theta$ is temperature and $\eta^\mathrm{f}$ is the
+Helmholtz free energy potential, $\psi^\mathrm{f} = e^\mathrm{f} -
+\theta \eta^\mathrm{f}$, where $e^\mathrm{f}$ is the mass-specific
+internal energy, $\theta$ is temperature and $\eta^\mathrm{f}$ is the
 mass-specific entropy. The entropy gradient included in this term
 results in classical Fickean diffusion if only mixing entropy exists,
 as discussed in the following section.
@@ -1380,15 +1380,15 @@ section) to rewrite (\ref{fluidflux}) as
 \begin{equation}
 \bM^\mathrm{f} = \bD^\mathrm{f}_{P}\ \bF^T\mathrm{DIV}
 \left[\bP^{\,\mathrm{f}}\right] -
-\bD^\mathrm{f}_{\mu}\ \mathrm{GRAD}\left[\mu^\mathrm{f}\right],
+\bD^\mathrm{f}_{\psi}\ \mathrm{GRAD}\left[\psi^\mathrm{f}\right],
 \label{splitflux}
 \end{equation}
 
 \noindent where $\bD^\mathrm{f}_{P}$ is now the permeability of the
 tissue, corresponding to stress gradient-driven transport, and
-$\bD^\mathrm{f}_{\mu}$ is the mobility, corresponding to transport of
+$\bD^\mathrm{f}_{\psi}$ is the mobility, corresponding to transport of
 the fluid phase through the porous solid driven by the gradient of the
-chemical potential.
+Helmholtz free energy.
 
 \subsection{Saturation and Fickean diffusion}
 \label{saturation-and-fickean-diffusion}
@@ -1424,11 +1424,11 @@ concentration gradient-driven flux.
 
 The saturation dependence of Fickean diffusion is modelled by using
 the measure of saturation introduced in
-Section~\ref{saturation-and-tissue-swelling}. We rewrite the chemical
-potential as
+Section~\ref{saturation-and-tissue-swelling}. We rewrite the free
+energy potential as:
 
 \begin{eqnarray}
-\mu^\mathrm{f} &=&  
+\psi^\mathrm{f} &=&  
 e^\mathrm{f} - \theta\eta^\mathrm{f},\ \mathrm{and}\nonumber\\
 \eta^\mathrm{f} &\to& 0, \quad \mbox{as}\ \, \tilde{v}^\mathrm{f} +
 \tilde{v}^\mathrm{c} \to 1.
@@ -1437,7 +1437,7 @@ e^\mathrm{f} - \theta\eta^\mathrm{f},\ \mathrm{and}\nonumber\\
 
 \noindent It is again important to note that under physiological
 conditions, soft tissues are fully saturated by fluid, and it is
-appropriate to set $\mu^\mathrm{f} = e^\mathrm{f}$.
+appropriate to set $\psi^\mathrm{f} = e^\mathrm{f}$.
 
 \subsection{Solute transport}
 \label{solute-transport}
@@ -1490,7 +1490,8 @@ biochemical environment on the processes underlying growth.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{images/experiments/implantation-strengthening}
+  \includegraphics[width=0.8\textwidth]{images/experiments/%
+    implantation-strengthening}
   \caption{Growth and strengthening of a tendon under biochemical
     influences.}
   \label{implantation-strengthening}
@@ -1541,7 +1542,8 @@ for e.g., \citet{sbromadill}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{images/experiments/load-strengthening}
+  \includegraphics[width=0.8\textwidth]{images/experiments/%
+    load-strengthening}
   \caption{Growth and strengthening of a tendon under mechanical
     influences.}
   \label{load-strengthening}
