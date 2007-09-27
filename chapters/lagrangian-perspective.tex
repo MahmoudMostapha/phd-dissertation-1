@@ -10,11 +10,11 @@ derived from general principles governing the behaviour of multiphase
 mixtures. Specifically, Section~\ref{balance-laws} helps define the
 system and formally introduces fundamental quantities characterising
 it, before deriving the balance laws from fundamental
-axioms. Section~\ref{kinematics-of-growth}, presents the kinematics
+axioms. Section~\ref{kinematics-of-growth} presents the kinematics
 associated with finite deformation growth. A fundamental axiom of
-thermodynamics, the entropy inequality, and its restriction on
-functional forms of constitutive relationships is the subject of
-Section~\ref{entropy-inequality}. The chapter concludes with key
+Thermodynamics, the entropy inequality, and the restrictions it places
+on functional forms of constitutive relationships is the subject of
+Section~\ref{entropy-inequality}. The Chapter concludes with key
 algorithmic considerations (Section~\ref{algorithmic-considerations})
 which play an important role in the computational formulation
 underlying the numerical experiments presented in
@@ -29,13 +29,14 @@ placement of the tissue, $\Omega_0$, points in the tissue are
 identified by their reference positions, $\bX \in \Omega_0$. The
 motion of the tissue is a sufficiently smooth bijective map $\Bvarphi:
 \overline{\Omega}_0 \times [0,T] \rightarrow \mathbb{R}^3$, where
-$\overline{\Omega}_0 := \Omega_0 \cup \partial\Omega_0$;
+$\overline{\Omega}_0 :=\ \overline{\Omega_0\cup\partial\Omega_0}$;
 $\partial\Omega_0$ being the boundary of $\Omega_0$. At a typical time
-$t \in [0,T]$, $\Bvarphi(\bX,t)$ maps a point $\bX$ to its current
-position, $\bx$. In its current configuration, the tissue occupies a
-region $\Omega_t = \Bvarphi_t (\Omega_0)$. These details are depicted
-in Figure~\ref{continuum-potato-mass}. The deformation gradient $\bF
-:= \partial \Bvarphi/ \partial\bX$ is the tangent map of $\Bvarphi$.
+instant $t \in [0,T]$, $\Bvarphi(\bX,t)$ maps a point $\bX$ to its
+current position, $\bx$. In its current configuration, the tissue
+occupies a region $\Omega_t = \Bvarphi_t (\Omega_0)$. These details
+are depicted in Figure~\ref{continuum-potato-mass}. The deformation
+gradient $\bF := \partial \Bvarphi/ \partial\bX$ is the tangent map of
+$\Bvarphi$.
 
 \begin{figure}
   \centering
@@ -117,7 +118,7 @@ $\Omega_0$ states
 \noindent where $\bN$ is the unit outward normal to the boundary,
 $\partial\Omega_0$.
 
-Applying Gauss' divergence theorem (Appendix~\ref{gauss-divergence})
+Applying Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence})
 to the surface integral term, and localising the result (recalling
 that since $\Omega_0$ is a fixed volume, the time derivative on the
 first term can be simply moved into the integral), we arrive at the
@@ -209,15 +210,15 @@ this coupling, the balance of linear momentum should be solved to
 determine the local state of strain and stress.
 
 Recall that the deformation of the tissue is characterised by the map
-$\Bvarphi(\bX,t)$. Recognising that, in tendons, the solid collagen
-fibrils and fibroblasts do not undergo mass transport, the material
-velocity of this species, $\bV = \partial\Bvarphi/\partial t$, is used
-as the primitive variable for mechanics. Each remaining species can
-undergo mass transport relative to the solid collagen. For this
-purpose, it is useful to define the material velocity of a species
-$\iota$ \emph{relative to the solid phase} as: $\bV^\iota =
-(1/\rho_0^\iota)\bF\bM^\iota$. Thus, the total material velocity of a
-species~$\iota$ is $\bV+\bV^\iota$.
+$\Bvarphi(\bX,t)$. Recalling that we are working under the assumption
+that the solid collagen fibrils and fibroblasts do not undergo mass
+transport, the material velocity of this species, $\bV = \partial
+\Bvarphi / \partial t$, is used as the primitive variable for
+mechanics. Each remaining species can undergo mass transport relative
+to the solid collagen. For this purpose, it is useful to define the
+material velocity of a species $\iota$ \emph{relative to the solid
+  phase} as: $\bV^\iota = (1/\rho_0^\iota)\bF\bM^\iota$. Thus, the
+total material velocity of a species~$\iota$ is $\bV+\bV^\iota$.
 
 The tissue is subjected to a surface traction, $\bT$, and a body force
 per unit mass, $\bg$. We define the partial first Piola-Kirchhoff
@@ -257,8 +258,8 @@ boundary to the rate of change of momentum in
 Equation~(\ref{globalbalanceofmomentum}).
 
 Writing $(\bV+\bV^\iota) \bM^\iota\cdot\bN$ as
-$((\bV+\bV^\iota)\otimes\bM^\iota)\bN$, and using Gauss' divergence
-theorem (Appendix~\ref{gauss-divergence}), one obtains:
+$((\bV+\bV^\iota)\otimes\bM^\iota)\bN$, and using Gauss' Divergence
+Theorem (Appendix~\ref{gauss-divergence}), one obtains:
 
 \begin{eqnarray}
 \int\limits_{\Omega_0} \left(\frac{\partial\rho_0^\iota}{\partial
@@ -379,8 +380,8 @@ that the Cauchy stress is symmetric: $\Bsigma =
 open system comprising of multiple interacting and inter-converting
 species.
 
-The balance of angular momentum about the origin, as observed from an
-inertial reference frame, of a species~$\iota$ over $\Omega_{0}$
+The balance of angular momentum about the origin of a species~$\iota$
+over $\Omega_{0}$, as observed from an inertial reference frame,
 requires,
 
 \begin{eqnarray}
@@ -400,7 +401,7 @@ requires,
 \end{eqnarray}
 
 \noindent Applying properties of the cross product, Leibniz's product
-rule and Gauss' divergence theorem (Appendix~\ref{gauss-divergence})
+rule and Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence})
 gives
 
 \begin{eqnarray}
@@ -466,9 +467,8 @@ therefore symmetric: $\Bsigma^\iota = \Bsigma^{\iota^\mathrm{T}}$, and
 this is also seen directly in terms of spatial quantities in
 Section~\ref{eu-balance-of-angular-momentum}.
 
-Divergent results on this topic (in terms of which stress-like
-quantities are deduced symmetric) stem primarily from the exact
-definitions of the fundamental quantities involved in the
+Disparate results on the symmetry of stress stem primarily from the
+exact definitions of the fundamental quantities involved in the
 analysis. This is especially true of how the total stress in the
 system is distributed as partial stresses borne by the species
 comprising the system. For e.g., \citet{EpsteinMaugin:2000}
@@ -538,7 +538,7 @@ and energy transfer as:
 
 The above equation for the rate of change of energy of a single
 species can be further simplified by applying Leibniz's product rule
-and Gauss' divergence theorem (Appendix~\ref{gauss-divergence}),
+and Gauss' Divergence Theorem (Appendix~\ref{gauss-divergence}),
 giving first,
 
 \begin{eqnarray}
@@ -682,11 +682,12 @@ mechanics stems from this phenomenon.\footnote{Another important facet
 of the solid collagen or fluid remains stress free, it swells with an
 increase in concentration (mass of the species per unit system
 volume), and shrinks as its concentration decreases. This leads to the
-notion of a \emph{growth deformation gradient}. This observation has
-led to an active field of study within the literature on biological
-growth \citep{Skalak:81, SkalakHoger:96, Klischetal:2001,
-  TaberHumphrey:2001, LubardaHoger:02, AmbrosiMollica:2002}, and the
-treatment below follows in the same vein.
+notion of the \emph{growth component} of the deformation
+gradient. This observation has led to an active field of study within
+the literature on biological growth \citep{Skalak:81, SkalakHoger:96,
+  Klischetal:2001, TaberHumphrey:2001, LubardaHoger:02,
+  AmbrosiMollica:2002}, and the treatment below follows in the same
+vein.
 
 In the setting of finite strain kinematics, the total deformation
 gradient, $\bF$, is decomposed into the growth component of the solid
@@ -874,35 +875,39 @@ in the tissue have the same absolute temperature, $\theta$.
 
 With these assumptions, and denoting by $\eta^\iota$ the entropy per
 unit mass of species~$\iota$, the entropy inequality, when written out
-for the entire system in the reference configuration, reads
+for the entire system in the reference configuration from the
+viewpoint of an external observer, reads:
 
 \begin{eqnarray}
 \underbrace{\sum\limits_{\iota}\frac{\mathrm{d}}{\mathrm{d}t}
   \int\limits_{\Omega_0} \rho_0^\iota \eta^\iota
   \mathrm{d}V}_{\text{Rate of change of entropy}} &\geq&
-\underbrace{\sum\limits_{\iota}\int\limits_{\Omega_0}\left( \Pi^\iota
-  \eta^\iota + \frac{\rho_0^\iota r^\iota}{\theta}\right)
-  \mathrm{d}V}_{\text{Entropy added through mass creation and heat
-    supply}}\nonumber\\ & &- \underbrace{\sum\limits_{\iota}\int\limits_{\partial
-  \Omega_0} \left(\bM^\iota \cdot \bN\eta^\iota +
-\frac{\bQ^\iota}{\theta} \cdot \bN \right)\mathrm{d}A}_{\text{Entropy
-      lost through mass and heat flux}}.
+\underbrace{\sum\limits_{\iota}\int\limits_{\Omega_0}
+  \frac{\rho_0^\iota r^\iota}{\theta}
+  \mathrm{d}V}_{\text{Entropy added through heat supply}}\nonumber\\ &
+&- \underbrace{\sum\limits_{\iota}\int\limits_{\partial \Omega_0}
+  \left(\bM^\iota \cdot \bN\eta^\iota + \frac{\bQ^\iota}{\theta} \cdot
+  \bN \right)\mathrm{d}A}_{\text{Entropy lost through mass and heat
+    flux}}.
 \label{globalentropyinequality}
 \end{eqnarray}
 
-\noindent Applying Gauss' divergence theorem
+\noindent Applying Gauss' Divergence Theorem
 (Appendix~\ref{gauss-divergence}), using the mass balance equation
 (\ref{localbalanceofmass}), and localising the result, we have the
 following form of the entropy inequality,
 
-\begin{equation}
-\sum\limits_{\iota}\rho_0^\iota\frac{\partial\eta^\iota}{\partial
-t} \geq \sum\limits_{\iota}\left(\frac{\rho_0^\iota
-r^\iota}{\theta} -\mathrm{GRAD}\left[\eta^\iota\right]\cdot\bM^\iota -
-\frac{\mathrm{DIV}\left[\bQ^\iota\right]}{\theta} +
+\begin{eqnarray}
+\sum\limits_{\iota}\left(\rho_0^\iota\frac{\partial\eta^\iota}{\partial
+  t} + \Pi^{\iota}\eta^{\iota}
+\right) & & \geq
+\sum\limits_{\iota}\left(\frac{\rho_0^\iota 
+r^\iota}{\theta} -\mathrm{GRAD}\left[\eta^\iota\right]\cdot\bM^\iota
+\right) \nonumber \\ & & - \sum\limits_{\iota}\left(
+\frac{\mathrm{DIV}\left[\bQ^\iota\right]}{\theta} -
 \frac{\mathrm{GRAD}\left[\theta\right]\cdot\bQ^\iota}{\theta^2}\right).
 \label{localentropyinequality}
-\end{equation}
+\end{eqnarray}
 
 Now, multiplying Equation~(\ref{localentropyinequality}) by the
 temperature field, $\theta$, subtracting it from the balance of
@@ -913,7 +918,7 @@ gives,
 \begin{eqnarray}
 & &\sum\limits_{\iota}\rho^\iota_0\left(\frac{\partial
 e^\iota}{\partial t} -\theta\frac{\partial\eta^\iota}{\partial
-t}\right) +\sum\limits_{\iota}\left(\Pi^\iota\left(e^\iota +
+t}\right) +\sum\limits_{\iota}\left(\Pi^\iota\left(\psi^\iota +
 \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right) +
 \frac{\mathrm{GRAD}\left[\theta\right]\cdot\bQ^\iota}{\theta}\right)
 \nonumber\\
@@ -931,7 +936,9 @@ t}\left(\bV+\bV^\iota\right) - \rho_0^\iota\bg -
 \end{eqnarray}
 
 \noindent the Clausius-Duhem (or reduced dissipation) inequality for
-the growth process.
+the growth process. Here, \mbox{$\psi^\iota = e^\iota -
+  \theta\eta^\iota$} is the mass-specific Helmholtz free energy of
+species~$\iota$.
 
 \subsection{Thermodynamically-consistent constitutive framework}
 \label{constitutive-framework}
@@ -975,7 +982,7 @@ chain rule of differentiation and regrouping some terms,
   \left(\mathrm{GRAD}\left[e^\iota\right] -
     \theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)
     \right)\cdot\bV^\iota\nonumber\\  
-    &+&\sum\limits_{\iota}\Pi^\iota\left(e^\iota
+    &+&\sum\limits_{\iota}\Pi^\iota\left(\psi^\iota
     + \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right) +
     \sum\limits_{\iota} \frac{\mathrm{GRAD}\left[\theta\right]
       \cdot\bQ^\iota}{\theta}\nonumber\\  &  & + 
@@ -1004,10 +1011,11 @@ system of differential equations governing our tissue:
 \end{equation}
 
 \noindent which specifies that the constitutive relation for
-$\bP^\iota\bF^{\mathrm{g}^{\iota\mathrm{T}}}$ has the form of a purely
-elastic material (Details regarding the specific hyperelastic model
-used for the computations in Chapter~\ref{numerical-simulations-1}
-have been discussed in the following section.),
+$\bP^\iota\bF^{\mathrm{g}^{\iota\mathrm{T}}}$ has the form of a
+hyperelastic material (Details regarding the specific hyperelastic
+model used for the computations in
+Chapter~\ref{numerical-simulations-1} have been discussed in the
+following section.),
 
 \begin{equation}
 \theta = \frac{\partial e^\iota}{\partial \eta^\iota},
@@ -1071,7 +1079,7 @@ terms of the dissipation inequality vanish,
   \rho^\iota_0\bV^\iota\cdot\left(\frac{\partial}{\partial t}
   \left(\bV+\bV^\iota\right) +
   \left(\mathrm{GRAD}\left[\bV^\iota\right]\right)
-  \bF^{-1}\bV^\iota\right)+\Pi^\iota\left(e^\iota +
+  \bF^{-1}\bV^\iota\right)+\Pi^\iota\left(\psi^\iota +
   \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right)\right)\\+
   &\sum\limits_{\iota} \left(\rho^\iota_0\frac{\partial}{\partial
     t}\left(\bV+\bV^\iota\right) - \rho_0^\iota\bg -
@@ -1133,12 +1141,12 @@ has been obtained from hierarchical multi-scale considerations based
 upon an entropic elasticity-based worm-like chain (WLC) model
 \citep{KratkyPorod:49}. The WLC model has been widely used for long
 chain single molecules, most prominently for DNA
-\citep{MarkoSiggia:95,Riefetal:97,Bustamanteetal:2003}, and recently
-for the collagen mono\-mer \citep{Sunetal:2002}. The central
-parameters of this model are the chain's contour length, $L$, and
-persistence length, $A$. The latter is a measure of its stiffness and
-given by $A = \chi/k\theta$, where $\chi$ is the bending rigidity, $k$
-is Boltzmann's constant and $\theta$ is the temperature. See
+\citep{MarkoSiggia:95,Riefetal:97,Bustamanteetal:2003}, and for the
+collagen mono\-mer \citep{Sunetal:2002}. The central parameters of
+this model are the chain's contour length, $L$, and persistence
+length, $A$. The latter is a measure of its stiffness and given by $A
+= \chi/k\theta$, where $\chi$ is the bending rigidity, $k$ is
+Boltzmann's constant and $\theta$ is the temperature. See
 \citet{LandLif} for a general formulation of statistical mechanics
 models of long chain molecules.
 
