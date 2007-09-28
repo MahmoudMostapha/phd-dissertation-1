@@ -1,10 +1,28 @@
 \chapter{Representative numerical simulations -- II}
 \label{numerical-simulations-2}
 
-\textbullet\ Introduce the chapter.
+The theoretical framework developed in the preceding chapter resulted
+in a set of coupled partial differential equations governing the
+interrelated mechanics, mass transport and biochemistry pertinent to
+biological tissue growth. In order to demonstrate the applicability of
+the theory, this chapter presents the results of several illustrative
+numerical experiments posed within a corresponding computational
+framework retaining all aspects of the coupling between the equations.
 
-\textbullet\ Perhaps use the final (unused) paragraph from Chapter 3's
-introduction.
+The chapter begins by providing some insight into the numerical
+methods used to solve the coupled equations and introducing the
+computational model (Section~\ref{eu-computational-model}). The first
+set of examples, presented in Section~\ref{simple-physics}, serve to
+illustrate basic aspects of the coupled physics underlying biphasic
+mechanics models for tissues. In Section~\ref{biphasic-examples-2},
+the biphasic model parameters are refined to be more representative of
+experimental studies on the mechanics of tendons, and aspects of the
+time- and rate-dependent behaviour of the model are explored and
+compared with experimental results. The final example presented in
+this chapter provides a straightforward extension of the theory to
+model the effects of the mechanical environment on growing tumours
+(Section~\ref{tumour-growth}), evidencing the generality of the
+proposed formulation.
 
 \section{Introducing the computational model}
 \label{eu-computational-model}
@@ -22,6 +40,10 @@ detailing the simple Mooney-Rivlin model as an example of
 hyperelasticity. Mention others, such as the complicated one used
 earlier and elastica, can be used.
 
+2D -- We're performing calculations on samples of large
+thickness, and we're looking at some central plane, where, because of
+symmetry, things do not flow in the out-of-plane direction.
+
 \subsection{The saturation constraint}
 \label{eu-saturationconstraint}
 
@@ -35,7 +57,7 @@ saturation at all times. This is what it is.
 Lagrange-multiplier kind of thing that makes the fluid pressure a
 fictitious quantity only present to ensure saturation.
 
-\section{Simple physical tests}
+\section{Some simple physical tests}
 \label{simple-physics}
 
 \textbullet\ And, with all this, we first work on some simple biphasic
@@ -212,9 +234,6 @@ eulerian/constriction/constrict-vel-drop-quasistatic}
 \end{figure}
 
 \clearpage
-
-\subsection{Flow fields under tension}
-\label{tension-flow}
 
 \textbullet\ Now that we're reasonably confident about the fluid flow
 fields and have an idea of its effects on the mechanics, we proceed to
@@ -522,7 +541,7 @@ eulerian/cancer/heterogeneous-inward-tug}
 
 \clearpage
 
-\subsubsection{Transport of the cells}
+\subsection{Transport of the cells}
 \label{cell-transport}
 
 \textbullet\ So far, we assumed that the cell concentration remains
@@ -531,7 +550,8 @@ equation (advection diffusion reaction governing its
 movement). Diffusion is obvious, and the plots below show the cells
 diffusing from a central bulb outwards while they proliferate.
 
-{\bf Diffusion and proliferation}
+\subsubsection{Diffusion and proliferation}
+\label{cell-diffusion-proliferation}
 
 \begin{figure}[!hptb]
 \centering
@@ -709,6 +729,9 @@ eulerian/cancer/growing-tumour-5.eps}
 % of interest in terms of physiological bvps. Point out that it's been
 % 2--3 years of refining our understanding and trials with the
 % previous code that's led to this point?
+
+%\subsection{Flow fields under tension}
+%\label{tension-flow} -- Can be moved in with the tension tests
 
 
 %
