@@ -10,39 +10,92 @@ numerical experiments posed within a corresponding computational
 framework retaining all aspects of the coupling between the equations.
 
 The chapter begins by providing some insight into the numerical
-methods used to solve the coupled equations and introducing the
-computational model (Section~\ref{eu-computational-model}). The first
-set of examples, presented in Section~\ref{simple-physics}, serve to
-illustrate basic aspects of the coupled physics underlying biphasic
-mechanics models for tissues. In Section~\ref{biphasic-examples-2},
-the biphasic model parameters are refined to be more representative of
-experimental studies on the mechanics of tendons, and aspects of the
-time- and rate-dependent behaviour of the model are explored and
-compared with experimental results. The final example presented in
-this chapter provides a straightforward extension of the theory to
-model the effects of the mechanical environment on growing tumours
-(Section~\ref{tumour-growth}), evidencing the generality of the
-proposed formulation.
+methods used to solve the coupled equations in Section~\ref{eu%
+  -computational-model}. The first set of examples, presented in
+Section~\ref{simple-physics}, serve to illustrate basic aspects of the
+coupled physics underlying biphasic models for tissue mechanics. In
+Section~\ref{biphasic-examples-2}, the biphasic model parameters are
+tailored to be more representative of experimental studies on the
+mechanics of tendons, and aspects of the time- and rate-dependent
+behaviour of the model are explored and compared with experimental
+results. The final example presented in this chapter provides a
+straightforward extension of the theory to model the effects of the
+mechanical environment on growing tumours (Section~\ref{tumour%
+  -growth}), evidencing the generality of the proposed formulation.
 
 \section{Introducing the computational model}
 \label{eu-computational-model}
 
-\textbullet\ Discuss the implementation: coupled solution scheme and
-aspects of the computational technology. Point to the fact that
-something can be said about the overall stability of the monolithic
-solution scheme.
+The mathematical formulation developed in Chapter~\ref{eulerian%
+  -perspective} has been implemented in a finite element setting using
+{\tt COMSOL Multiphysics},\footnote{\href {http://www.comsol.com/}
+  {http://www.comsol.com/}} a computational environment for solving
+coupled systems of partial differential equations. For simplicity, the
+numerical implementation is in two spatial dimensions and it uses
+triangular elements of order 2 (quadratic elements) to approximate the
+displacement field of the solid phase, and triangular elements of
+order 1 (linear elements) to approximate all other field variables,
+including fluid velocities and concentration fields. A representative
+unstructured mesh used in the computations on a unit square domain in
+Section~\ref{simple-physics} is shown in Figure~\ref{egmesh2d}, and
+consists of 3267 elements.
 
-\textbullet\ Introduce the actual equations solved, variables used,
-and talk about which configuration they're solved in: ALE.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    eulerian/mesh}
+  \caption{A representative unstructured finite element mesh used in
+    the computations.}
+  \label{egmesh2d}
+\end{figure}
 
-\textbullet\ Motivate the geometry (2D) and constitutive choices;
-detailing the simple Mooney-Rivlin model as an example of
-hyperelasticity. Mention others, such as the complicated one used
-earlier and elastica, can be used.
+In the numerical implementation presented in Chapter~\ref{numerical%
+  -simulations-1}, a simplified form of the balance of momentum was
+imposed by treating the tissue as a whole and solving a summation of
+Equation~(\ref{localbalanceofmomentum}) over all species. This
+simplification necessitated additional assumptions on the underlying
+micro-mechanics, and these were discussed in
+Section~\ref{constriction-1}. In contrast, in the implementation used
+in this chapter, the {\em detailed} momentum balance equations are
+solved, i.e., each species is treated separately, and coupling between
+the mechanics equations of the individual species is introduced by
+specifying momentum transfer terms, $\bq^{\iota}$, arising from
+frictional interaction as discussed in
+Section~\ref{eu-interaction-forces}.
 
-2D -- We're performing calculations on samples of large
-thickness, and we're looking at some central plane, where, because of
-symmetry, things do not flow in the out-of-plane direction.
+The balance of mass~(\ref{localbalanceofmass}) and
+momentum~(\ref{localbalanceofmomentum}) equations for the solid
+collagen are solved in the reference configuration of the tissue,
+$\Omega_{0}$, and the balance of mass~(\ref{eu-localbalanceofmass})
+and momentum~(\ref{eu-localbalanceofmomentum}) equations for the fluid
+phase are solved in the current configuration, $\Omega_{t}$. Recall
+that this choice is justified because we know the reference
+configuration of the solid phase of the tissue. These equations, along
+with the saturation constraint discussed in the following section, are
+solved simultaneously for the for the solid
+concentration,~$\rho_{0}^{\mathrm{c}}$, and
+displacement,~$\bu^{\mathrm{c}}$; and the fluid
+concentration,~$\rho^{\mathrm{f}}$, velocity,~$\bv^{\mathrm{f}}$, and
+pressure,~$p^{\mathrm{f}}$. Variable-order backward difference
+formulae \citep{leveque2007} are used for forwarding the equations
+through time.
+
+For simplicity, the strain energy function used for the elastic
+portion of the response of the solid collagen is the model
+of Mooney and Rivlin \citep{mooney1940},
+
+\begin{equation}
+\hat{\psi^{\mathrm{c}}} (\bC^{\mathrm{e}}) = \sum\limits_{i,j=0}^{n}
+C_{ij} (I_{1}-3)^{i} (I_{2}-3)^{j}.
+\end{equation}
+
+\noindent suitably decomposed into volumetric and isochoric parts,
+where $I_{1}$ and $I_{2}$ are the first and second principal
+invariants of the elastic right Cauchy-Greent tensor,
+$\bC^{\mathrm{e}}$. A mixed displacement-pressure \citep{ZienkTay:89}
+formulation is used to treat the near-incompressibility of the solid
+phase. Also for simplicity, the fluid is assumed to be ideal, i.e. the
+fluid viscosity, $\mu^{\mathrm{f}}=0$.
 
 \subsection{The saturation constraint}
 \label{eu-saturationconstraint}
@@ -242,6 +295,17 @@ actual cases.
 
 \section{Examples exploring the biphasic nature of porous soft tissue}
 \label{biphasic-examples-2}
+
+%% The model geometry, based on the experimental work of \citet{Calve:04}
+%% on the engineering and characterisation of tendon-like constructs (see
+%% Figure~\ref{engconst}), is a cylinder 12 mm in length and 1 mm$^2$ in
+%% cross-sectional area. The corresponding finite element mesh using 3840
+%% hexahedral elements is shown in Figure~\ref{egmesh}. The constitutive
+%% relation for the solid collagen phase uses a strain energy arising
+%% from the eight-chain model incorporating worm-like chains, as
+%% discussed in Section~\ref{anisotropic-network-elasticity} . The
+%% constitutive relation for the (ideal) fluid stress follows (\ref{Pf})
+%% with,
 
 \subsection{Stress relaxation}
 \label{stress-relaxation}
