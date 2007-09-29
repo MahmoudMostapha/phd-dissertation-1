@@ -31,11 +31,11 @@ The mathematical formulation developed in Chapter~\ref{eulerian%
 {\tt COMSOL Multiphysics},\footnote{\href {http://www.comsol.com/}
   {http://www.comsol.com/}} a computational environment for solving
 coupled systems of partial differential equations. For simplicity, the
-numerical implementation is in two spatial dimensions and it uses
+numerical implementation is in two spatial dimensions, and it uses
 triangular elements of order 2 (quadratic elements) to approximate the
 displacement field of the solid phase, and triangular elements of
 order 1 (linear elements) to approximate all other field variables,
-including fluid velocities and concentration fields. A representative
+including the fluid velocity and concentration. A representative
 unstructured mesh used in the computations on a unit square domain in
 Section~\ref{simple-physics} is shown in Figure~\ref{egmesh2d}, and
 consists of 3267 elements.
@@ -71,8 +71,8 @@ and momentum~(\ref{eu-localbalanceofmomentum}) equations for the fluid
 phase are solved in the current configuration, $\Omega_{t}$. Recall
 that this choice is justified because we know the reference
 configuration of the solid phase of the tissue. These equations, along
-with the saturation constraint discussed in the following section, are
-solved simultaneously for the for the solid
+with the saturation constraint discussed below, are solved
+simultaneously for the for the solid
 concentration,~$\rho_{0}^{\mathrm{c}}$, and
 displacement,~$\bu^{\mathrm{c}}$; and the fluid
 concentration,~$\rho^{\mathrm{f}}$, velocity,~$\bv^{\mathrm{f}}$, and
@@ -80,35 +80,60 @@ pressure,~$p^{\mathrm{f}}$. Variable-order backward difference
 formulae \citep{leveque2007} are used for forwarding the equations
 through time.
 
+In the interest of generality, the formulation and corresponding
+implementation presented in Chapters~\ref{lagrangian-perspective} and
+\ref{numerical-simulations-1} allowed for the possibility of
+cavitation in tissues under certain ex~vivo/in~vitro
+conditions. However, since it is well established that, under normal
+physiological conditions, soft tissues are fully saturated by the
+fluid, this saturation condition will be imposed in the following
+calculations.
+
+The concentration of each species~$\iota$ can be expressed as the
+product of two scalar fields: $\rho^\iota = \phi^\iota
+\tilde{\rho}^\iota$, where $\phi^\iota$ is the volume fraction and
+$\tilde{\rho}^\iota$ is the intrinsic density of species~$\iota$
+\citep{passmanetal}, and the mixture is said to be saturated if the
+total volume fraction, $\phi = \sum\limits_{\iota}\phi^\iota =
+1$. Since the solute species are present only in very low
+concentrations, the above condition can be suitably approximated
+by:\footnote{The saturation condition, as stated in Equation
+  (\ref{eu-saturationconstraint}), incorporates an implicit assumption
+  that the solid and fluid phases of the tissue are individually {\em
+    intrinsically} incompressible. This means that their intrinsic
+  densities, $\tilde{\rho}^\iota$, do not change under load. This is a
+  common assumption employed in soft tissue mechanics
+  literature. (See, for e.g., \citet{mowetal1980} and
+  \citet{ateshian07}.)}
+
+\begin{equation}
+\frac{\rho^{\mathrm{c}}}{\tilde{\rho}^{\mathrm{c}}} +
+\frac{\rho^{\mathrm{f}}}{\tilde{\rho}^{\mathrm{f}}} = 1.
+\label{eu-saturationconstraint}
+\end{equation}
+
+\noindent In this computational implementation, the fluid
+pressure,~$p^{\mathrm{f}}$, is not constitutively specified in terms
+of the current concentration of the fluid, and instead serves as an
+indeterminate Lagrange multiplier to impose the saturation
+constraint~(\ref{eu-saturationconstraint}).
+
 For simplicity, the strain energy function used for the elastic
-portion of the response of the solid collagen is the model
-of Mooney and Rivlin \citep{mooney1940},
+portion of the response of the solid collagen is the model of Mooney
+and Rivlin \citep{mooney1940},
 
 \begin{equation}
 \hat{\psi^{\mathrm{c}}} (\bC^{\mathrm{e}}) = \sum\limits_{i,j=0}^{n}
-C_{ij} (I_{1}-3)^{i} (I_{2}-3)^{j}.
+C_{ij} (I_{1}-3)^{i} (I_{2}-3)^{j}
 \end{equation}
 
-\noindent suitably decomposed into volumetric and isochoric parts,
-where $I_{1}$ and $I_{2}$ are the first and second principal
-invariants of the elastic right Cauchy-Greent tensor,
-$\bC^{\mathrm{e}}$. A mixed displacement-pressure \citep{ZienkTay:89}
-formulation is used to treat the near-incompressibility of the solid
-phase. Also for simplicity, the fluid is assumed to be ideal, i.e. the
-fluid viscosity, $\mu^{\mathrm{f}}=0$.
-
-\subsection{The saturation constraint}
-\label{eu-saturationconstraint}
-
-\textbullet\ Unlike in the first part, where we allow for cavitation
-under ex vivo/in vitro conditions, in these calculations, we impose
-saturation at all times. This is what it is.
-
-\textbullet\ Work on this from ``A Theory of Multiphase Mixtures.''
-
-\textbullet\ And this is how we impose it: mention something about the
-Lagrange-multiplier kind of thing that makes the fluid pressure a
-fictitious quantity only present to ensure saturation.
+\noindent (where $I_{1}$ and $I_{2}$ are the first and second
+principal invariants of the elastic right Cauchy-Greent tensor,
+$\bC^{\mathrm{e}}$), suitably decomposed into volumetric and isochoric
+parts. A mixed displacement-pressure \citep{ZienkTay:89} formulation
+is used to treat the near-incompressibility of the solid phase. Also
+for simplicity, the fluid is assumed to be ideal, i.e. the fluid
+viscosity, $\mu^{\mathrm{f}}=0$.
 
 \section{Some simple physical tests}
 \label{simple-physics}
