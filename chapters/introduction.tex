@@ -15,6 +15,51 @@
 %% second formulation is much more natural and amenable to
 %% experiments.
 
+%% - This is what growth is and these are the sorts of things that affect
+%% it. (e.g. fig)
+%% - We're interested in growth in a particular class of tissues, because
+%% of the potential medical implications
+%% - But the physics involved in these processes are complex and we began
+%% to focus particularly on the mechanics, since that is our
+%% background. (a) for structural response (b) for figuring out internal
+%% things like fluid flows and transport of species because they are
+%% intimately tied to the biology of growth. (mech is rich in itself fig)
+%% - We're working on a continuum scale because we believe it provides a
+%% reasonable setting for fairly detailed bvp solving without being
+%% bogged down by too much inner detail. The inner detail can be complex
+%% (cite jacks) but they can all be abstracted into a general setting
+%% once it is fleshed out.
+%% - Our first take, 5 years ago, stemmed from classical theories for
+%% the mechanics of solids. Chapter 2 discusses this approach and Chapter
+%% 3 computes with it.
+%% - Talk about the contributions of this approach.
+%% - The basic problem with this approach was though the mathematical
+%% treatment was consistent and rigorous, modelling choices and viewpoint
+%% choices resulted in having to use quantities like ``deformation
+%% gradient of the fluid.'' While such quantities can be formally
+%% defined, they are not known in practise. Furthermore, they rely on
+%% other assumptions (def grad split) which results in a wide range of
+%% flows and fails to be precise without a lot of work (pedro ponte)
+%% - Refining our understanding over these few years, recognising that
+%% there exist many fluid-like phases in the tissue, and they have to be
+%% treated fundamentally different--in terms of their own primitive
+%% variables (velocities, pressure), we revised and further enhanced the
+%% formulation by infusing few years worth of insight gathered about the
+%% system. This discussion is at the heart of Chapter 4.
+%% - Talk about contributions here, and relate it to modern literature.
+%% - With the revised formulation exists the related computational
+%% framework, now written to solve the detailed set of balance equations
+%% and not rely on simplifying assumptions. This seems promising in that
+%% it demonstrates several basic aspects of the physics of these problems
+%% and has been relatively easy to extend to varied classes of problems,
+%% as evidenced by the examples in Chapter 5.
+%% - I believe it's fairly capable, and the scope of the work is general,
+%% from filling tyres (balloon) to modelling visco mechanics arising from
+%% different internal mechanisms, to  the evolution of tumours and wound
+%% healing. The story is brought to a close, along with many ideas on
+%% where else to go in Chapter 6.
+
+
 This dissertation presents a continuum treatment of growth in
 biological tissue developed within the context of modern mixture
 theory. The crux of this work is a careful examination of the
