@@ -31,14 +31,14 @@ The mathematical formulation developed in Chapter~\ref{eulerian%
 {\tt COMSOL Multiphysics},\footnote{\href {http://www.comsol.com/}
   {http://www.comsol.com/}} a computational environment for solving
 coupled systems of partial differential equations. For simplicity, the
-numerical implementation is in two spatial dimensions, and it uses
-triangular elements of order 2 (quadratic elements) to approximate the
-displacement field of the solid phase, and triangular elements of
-order 1 (linear elements) to approximate all other field variables,
-including the fluid velocity and concentration. A representative
-unstructured mesh used in the computations on a unit square domain in
-Section~\ref{simple-physics} is shown in Figure~\ref{egmesh2d}, and
-consists of 3267 elements.
+numerical implementation is in two spatial dimensions assuming a state
+of plain strain, and it uses triangular elements of order 2 (quadratic
+elements) to approximate the displacement field of the solid phase,
+and triangular elements of order 1 (linear elements) to approximate
+all other field variables, including the fluid velocity and
+concentration. A representative unstructured mesh, used in the
+computations on a unit square domain in Section~\ref{simple-physics},
+is shown in Figure~\ref{egmesh2d} and consists of 3267 elements.
 
 \begin{figure}[ht]
   \centering
@@ -55,12 +55,12 @@ imposed by treating the tissue as a whole and solving a summation of
 Equation~(\ref{localbalanceofmomentum}) over all species. This
 simplification necessitated additional assumptions on the underlying
 micro-mechanics, and these were discussed in
-Section~\ref{constriction-1}. In contrast, in the implementation used
-in this chapter, the {\em detailed} momentum balance equations are
-solved, i.e., each species is treated separately, and coupling between
-the mechanics equations of the individual species is introduced by
-specifying momentum transfer terms, $\bq^{\iota}$, arising from
-frictional interaction as discussed in
+Section~\ref{constriction-1}. In contrast, the implementation used in
+this chapter solves the {\em detailed} momentum balance equations;
+enforcing the balance of momentum for each species separately. The
+coupling between the mechanics equations of the individual species is
+introduced by specifying momentum transfer terms, $\bq^{\iota}$,
+arising from frictional interaction as discussed in
 Section~\ref{eu-interaction-forces}.
 
 The balance of mass~(\ref{localbalanceofmass}) and
@@ -84,30 +84,30 @@ In the interest of generality, the formulation and corresponding
 implementation presented in Chapters~\ref{lagrangian-perspective} and
 \ref{numerical-simulations-1} allowed for the possibility of
 cavitation in tissues under certain ex~vivo/in~vitro
-conditions. However, since it is well established that, under normal
-physiological conditions, soft tissues are fully saturated by the
-fluid, this saturation condition will be imposed in the following
-calculations.
+conditions. However, since it is well established that under normal
+physiological conditions soft tissues are fully saturated by the
+fluid, this condition will be imposed in the following calculations.
 
 The concentration of each species~$\iota$ can be expressed as the
-product of two scalar fields: $\rho^\iota = \phi^\iota
+product of two non-negative scalar fields: $\rho^\iota = \phi^\iota
 \tilde{\rho}^\iota$, where $\phi^\iota$ is the volume fraction and
-$\tilde{\rho}^\iota$ is the intrinsic density of species~$\iota$
-\citep{passmanetal}, and the mixture is said to be saturated if the
-total volume fraction, $\phi = \sum\limits_{\iota}\phi^\iota =
-1$. Since the solute species are present only in very low
-concentrations, the above condition can be suitably approximated
-by:\footnote{The saturation condition, as stated in Equation
-  (\ref{eu-saturationconstraint}), incorporates an implicit assumption
-  that the solid and fluid phases of the tissue are individually {\em
-    intrinsically} incompressible. This means that their intrinsic
-  densities, $\tilde{\rho}^\iota$, do not change under load. This is a
-  common assumption employed in soft tissue mechanics
-  literature. (See, for e.g., \citet{mowetal1980} and
+$\tilde{\rho}^\iota$ is the intrinsic density of species~$\iota$ in
+$\Omega_{t}$. The mixture is said to be saturated if the total volume
+fraction, \mbox{$\phi = \sum\limits_{\iota}\phi^\iota = 1$}
+\citep{passmanetal}. Since the solute species are present only in very
+low concentrations, the preceding condition can be suitably
+approximated by:\footnote{The saturation condition, as stated in
+  Equation (\ref{eu-saturationconstraint}), incorporates an implicit
+  assumption that the solid and fluid phases of the tissue are
+  individually {\em intrinsically} incompressible. This means that
+  their intrinsic densities, $\tilde{\rho}^\iota$, do not change under
+  load, and this is a common assumption employed in the soft tissue
+  mechanics literature. (See, for e.g., \citet{mowetal1980} and
   \citet{ateshian07}.)}
 
 \begin{equation}
-\frac{\rho^{\mathrm{c}}}{\tilde{\rho}^{\mathrm{c}}} +
+\frac{\left(\rho_{0}^{\mathrm{c}}/J\right)}
+{\tilde{\rho}^{\mathrm{c}}} + 
 \frac{\rho^{\mathrm{f}}}{\tilde{\rho}^{\mathrm{f}}} = 1.
 \label{eu-saturationconstraint}
 \end{equation}
@@ -118,13 +118,14 @@ of the current concentration of the fluid, and instead serves as an
 indeterminate Lagrange multiplier to impose the saturation
 constraint~(\ref{eu-saturationconstraint}).
 
-For simplicity, the strain energy function used for the elastic
-portion of the response of the solid collagen is the model of Mooney
-and Rivlin \citep{mooney1940},
+For simplicity, in the calculations that follow, the strain energy
+function used for the elastic portion of the response of the solid
+collagen is the model of Mooney and Rivlin \citep{mooney1940},
 
 \begin{equation}
 \hat{\psi^{\mathrm{c}}} (\bC^{\mathrm{e}}) = \sum\limits_{i,j=0}^{n}
 C_{ij} (I_{1}-3)^{i} (I_{2}-3)^{j}
+\label{mooney-rivlin-model}
 \end{equation}
 
 \noindent (where $I_{1}$ and $I_{2}$ are the first and second
@@ -138,47 +139,83 @@ viscosity, $\mu^{\mathrm{f}}=0$.
 \section{Some simple physical tests}
 \label{simple-physics}
 
-\textbullet\ And, with all this, we first work on some simple biphasic
-examples with arbitrary physical properties to study physical aspects
-of the coupling.
+The preliminary calculations presented in this section aim to
+illustrate basic aspects of the coupled physics that arise in mixture
+models that include only two non-reacting phases: a solid and a
+fluid. In these calculations, the tissue is assumed to be $1$~mm thick
+and the material model for the solid phase uses the Mooney-Rivlin
+strain energy function~(\ref{mooney-rivlin-model}) with just one term
+having the material constant \mbox{$C_{10} = 0.8$~MPa.}
 
-\subsection{The swelling balloon}
+\subsection{An inflating balloon}
 \label{balloon}
 
-\textbullet\ This first test involves driving the mechanics via fluid
-flow. Set up the problem by discussing the initial and boundary
-conditions used and reiterating the equations solved. Either work
-through the application of FSI boundary conditions in a separate
-subsection like below, or just incorporate it into the main text.
+This example studies the inflation of the tissue as a result of
+pressure-gradient driven influx of fluid.  The total duration of the
+test is 3~s. The initial concentrations of the solid collagen and
+fluid phases at all points in a unit square domain \mbox{(1~mm
+  $\times$ 1~mm)} are 500~kg.m$^{-3}$, and their intrinsic densities
+are 1000~kg.m$^{-3}$. Thus, each phase has an initial volume fraction
+of 0.5. At the initial time, the solid displacement and velocity
+fields, and the fluid velocity and pressure fields are each 0 in their
+respective units at all points in the domain.
 
-\subsubsection{Fluid-structure interaction boundary conditions}
-\label{eu-fluid-structure-interaction}
+The boundary conditions for this problem correspond to holding the
+bottom edge of the tissue fixed to prevent rigid body motion, and
+forcing inflow of the fluid at this bottom edge while disallowing
+outflow at any of the other edges, simulating an inflating balloon. In
+particular:
 
-\textbullet\ Since we don't know F for the fluid we don't know Fg or
-Fe either. Thus, the new swelling problem is worked out differently
-from the older one.
+\begin{itemize}
+\item For the fluid, the boundary condition on the bottom edge
+  specifies that its pressure increases linearly in time from 0~MPa to
+  0.3~MPa during the duration of this test. The boundary condition for
+  the fluid on the other three edges specifies that its velocity field
+  is the same as that of the solid, $\bv^{\mathrm{f}} =
+  \bv^{\mathrm{c}}$, disallowing outflow of fluid.
+\item For the solid, the boundary condition on the bottom edge fixes
+  the components of the solid displacement to 0~mm for the entire
+  duration of the test. On the other three edges, following literature
+  on fluid-structure interaction \citep{doneaetal2004}, there is a
+  traction boundary condition on the solid that reads,
+  $\bt^{\mathrm{c}}=\Bsigma^{\mathrm{c}} \bn = -p^{\mathrm{f}} \bn$,
+  suitably pulled-back to the reference configuration. Here, $\bn$ is
+  the normal to $\Omega_{t}$, and this condition relates the stress in
+  the solid to the pressure in the fluid along the edges where there
+  is no relative motion between the solid and the fluid.\footnote{In
+    contrast to the example discussed in Section~\ref{swelling-1},
+    which used the notion of the growth portion of the deformation
+    gradient of the fluid, $\bF^{\mathrm{g}^\mathrm{f}}$, to cause
+    kinematic swelling of the domain, in this example, it is this
+    interaction between the solid and fluid stresses that causes the
+    domain to swell.}
+\end{itemize}
 
-\textbullet\ Follow the paper to say how pressure is converted to a
-boundary condition because talking just about velocities (that there
-is no relative velocity) doesn't directly specify the relevant
-boundary conditions for the solid displacement; which is what we're
-aiming to solve for the solid.
+In this example, the frictional coefficient tensor is assumed to have
+a relatively small magnitude ($\bD^{\mathrm{fc}} =
+1\mathrm{e}^{-5}\ \bone$~MPa.s.mm$^{-2}$) because we are currently
+more interested in observing the swelling of the domain due to fluid
+influx at one edge rather than the frictional interaction between the
+phases.
 
-\textbullet\ {\bf Results:} The plots show a the solid velocity
-variation and x-displacements over the first 3~s. Perhaps mention that
-the time-scale is arbitrary. There is initially a slight oscillation
-in the fluid flow fields due to dynamics (not apparent in the
-plots). Shortly, oscillations fade. The fluid pressure boundary
-conditions causes inflow and inability to flow out of other boundaries
-corresponds to a force $\bp\cdot\bn$ boundary condition, causing it to
-swell outward. This can be tailored to model other interesting things,
-like inflation of car tyres.
+Figures~\ref{swelling-balloon-image-0p0}--\ref{swelling-balloon-image-3p0}
+show snapshots of the swelling domain during the course of the
+test. The colour contours provide the horizontal displacement field of
+the solid (in~mm) and the arrows provide the direction of the solid
+velocity field. The increasing fluid pressure boundary condition on
+the bottom edge causes an inflow of fluid, and the inability of the
+fluid to flow out of other boundaries corresponds to a boundary traction
+on the solid, causing the domain to swell outward as seen in
+the figures.  Because the computation was run with dynamics, there is
+initially a slight oscillation in the velocity field due to wave
+propagation in the fluid (not apparent in the plots) which fade in the
+first 0.4~s.
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-0p0}
-\caption{The swelling balloon at time $t=0$ s.} 
+\caption{The inflating balloon at time $t=0$ s.} 
 \label{swelling-balloon-image-0p0}
 \end{figure}
 
@@ -186,7 +223,7 @@ eulerian/swelling/balloon-swell-0p0}
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-0p6}
-\caption{The swelling balloon at time $t=0.6$ s.} 
+\caption{The inflating balloon at time $t=0.6$ s.} 
 \label{swelling-balloon-image-0p6}
 \end{figure}
 
@@ -194,7 +231,7 @@ eulerian/swelling/balloon-swell-0p6}
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-1p2}
-\caption{The swelling balloon at time $t=1.2$ s.} 
+\caption{The inflating balloon at time $t=1.2$ s.} 
 \label{swelling-balloon-image-1p2}
 \end{figure}
 
@@ -202,7 +239,7 @@ eulerian/swelling/balloon-swell-1p2}
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-1p8}
-\caption{The swelling balloon at time $t=1.8$ s.} 
+\caption{The inflating balloon at time $t=1.8$ s.} 
 \label{swelling-balloon-image-1p8}
 \end{figure}
 
@@ -210,7 +247,7 @@ eulerian/swelling/balloon-swell-1p8}
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-2p4}
-\caption{The swelling balloon at time $t=2.4$ s.} 
+\caption{The inflating balloon at time $t=2.4$ s.} 
 \label{swelling-balloon-image-2p4}
 \end{figure}
 
@@ -218,7 +255,7 @@ eulerian/swelling/balloon-swell-2p4}
 \centering
 \includegraphics[width=0.8\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-3p0}
-\caption{The swelling balloon at time $t=3.0$ s.} 
+\caption{The inflating balloon at time $t=3.0$ s.} 
 \label{swelling-balloon-image-3p0}
 \end{figure}
 

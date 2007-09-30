@@ -27,7 +27,7 @@ DFLAGS  = -q -z -Z -t letter -Ppdf -G0 -o thesis.ps  #dvips flags
 PFLAGS  = -dPDFSETTINGS=/prepress		#ps2pdf flags
 ADPATH  = "/Library/Application Support/Adobe/Adobe PDF/Settings/"
 ADFILE  = "High Quality Print.joboptions"	#distiller settings file
-
+#ADFILE  = "Press Quality.joboptions"
 
 # Human-readable targets:
 
