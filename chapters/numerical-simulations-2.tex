@@ -213,7 +213,7 @@ first 0.4~s.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-0p0}
 \caption{The inflating balloon at time $t=0$ s.} 
 \label{swelling-balloon-image-0p0}
@@ -221,7 +221,7 @@ eulerian/swelling/balloon-swell-0p0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-0p6}
 \caption{The inflating balloon at time $t=0.6$ s.} 
 \label{swelling-balloon-image-0p6}
@@ -229,7 +229,7 @@ eulerian/swelling/balloon-swell-0p6}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-1p2}
 \caption{The inflating balloon at time $t=1.2$ s.} 
 \label{swelling-balloon-image-1p2}
@@ -237,7 +237,7 @@ eulerian/swelling/balloon-swell-1p2}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-1p8}
 \caption{The inflating balloon at time $t=1.8$ s.} 
 \label{swelling-balloon-image-1p8}
@@ -245,7 +245,7 @@ eulerian/swelling/balloon-swell-1p8}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-2p4}
 \caption{The inflating balloon at time $t=2.4$ s.} 
 \label{swelling-balloon-image-2p4}
@@ -253,7 +253,7 @@ eulerian/swelling/balloon-swell-2p4}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/swelling/balloon-swell-3p0}
 \caption{The inflating balloon at time $t=3.0$ s.} 
 \label{swelling-balloon-image-3p0}
@@ -264,29 +264,76 @@ eulerian/swelling/balloon-swell-3p0}
 \subsection{The tissue under constriction}
 \label{constriction-2}
 
-\textbullet\ Similar to constriction
-problem earlier, aim is to see stress-driven flow. Set up the initial
-and boundary conditions for both phases.  Flow arises from the
-frictional force and boundary conditions which allow no relative
-flow. The plot is asymmetric in the vertical direction because it's
-the bottom that's being held fixed.
-
-\textbullet\ Since effects from the dynamics were observed in the
-previous example, we explicitly carry out this calculation under
-quasistatic and dynamic modes to see the difference.
-
-\textbullet\ {\bf Results:} The plots show the x-displacement of the
-solid which is loaded and held fixed after the first 1~s. The
-fluid-velocity field is tracked, and watch it die out, over a total of
-3~s. The same calculation, as mentioned was carried out under a
-dynamic and quasistatic case and the vertical velocity field tracked
-at the centre point velocity field dies out differently. This is quite
-interesting. This is similar to relaxation of the top-face seen in the
-earlier calculation (which was in terms of displacement).
+In the previous numerical experiment, we studied the deformation of
+the tissue under an influx of fluid. In this example, we turn our
+attention to fluid flow fields induced by the deformation of the solid
+phase of the tissue and frictional interactions between the
+phases. The initial condition for this problem is identical to the
+previous case, i.e., the tissue is at rest initially and the initial
+concentrations of the solid collagen and fluid phases at all points in
+the unit square domain \mbox{(1~mm $\times$ 1~mm)} are
+500~kg.m$^{-3}$. As before, the total duration of the test is 3~s.
 
 \begin{figure}[!hptb]
 \centering
+\psfrag{u}{$u$}
+\psfrag{y}{$y$}
+\psfrag{t}{$t$}
 \includegraphics[width=0.8\textwidth]{images/examples/%
+  eulerian/constriction/displacement-load}
+\caption{The magnitude of the displacement load on the vertical edges
+  of the tissue.}
+\label{eu-constrict-disp-load}
+\end{figure}
+
+The boundary conditions for this problem correspond to immersing the
+tissue in a bath and applying a displacement load on the vertical
+edges so as to constrict the tissue in order to observe the fluid
+flow. In particular, the fluid is subjected to a pressure boundary
+condition on all four edges; where the pressure of the fluid is
+equated to that of the bath,~0~MPa. For the solid, the bottom edge is
+held fixed and the top edge is traction free. The left edge is
+subjected to the temporally-varying constrictive horizontal
+displacement (in~mm) visualised in Figure~\ref{eu-constrict%
+  -disp-load}. The figure shows the horizontal displacement being
+increased linearly in time for the first 1~s and then held fixed for
+the remainder of the test. The right edge is subjected to the negative
+of this load. In this example, the magnitude of the frictional
+coefficient tensor is significantly greater than the previous example
+($\bD^{\mathrm{fc}} = \bone$~MPa.s.mm$^{-2}$) and the effects of the
+frictional interaction between the phases are manifest in the results.
+
+Figures~\ref{constrict-image-0p0}--\ref{constrict-image-3p0} show
+snapshots of the constricted tissue during the course of the test. The
+colour contours provide the horizontal displacement field of the solid
+(in~mm) which remains fixed after the first 1~s of the test. The
+arrows provide the direction and magnitude of the fluid velocity
+field. Their lengths scale linearly with the magnitude of the fluid
+velocity field and the longest arrow corresponds to a fluid velocity
+magnitude of 7.03e-3 mm.s$^{-1}$. This fluid flow is mainly driven by
+a combination of frictional interaction with the solid phase and the
+saturation condition. The plots are asymmetric in the vertical
+direction because the bottom edge is held fixed. Observe that the
+fluid velocity grows with increasing constriction and gradually decays
+after the constriction of the solid has come to an end at 1~s (this is
+clearly seen in seen in Figure~\ref{velocity-evolution%
+  -dynamic}). There is also a nominal relaxation of the top face after
+the constriction phase, as observed in the example in
+Section~\ref{constriction-1}.
+
+As in the previous example, effects from the dynamics were observed in
+this case as well, and an equivalent quasistatic calculation was
+performed for comparison. When the vertical fluid velocity is tracked
+at the centre of the domain for the duration of the test in both these
+cases, it is observed that the dynamic case decays gradually and has
+oscillations (Figure~\ref{velocity-evolution-dynamic}) while the
+quasistatic case reaches a higher magnitude, and decays much quicker
+without manifesting oscillations (Figure~\ref{velocity-evolution%
+  -quasistatic}).
+
+\begin{figure}[!hptb]
+\centering
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/constriction/constrict-0p0}
 \caption{The constricted tissue at time $t=0$ s.} 
 \label{constrict-image-0p0}
@@ -294,7 +341,7 @@ eulerian/constriction/constrict-0p0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/constriction/constrict-0p32}
 \caption{The constricted tissue at time $t=0.32$ s.} 
 \label{constrict-image-0p32}
@@ -302,7 +349,7 @@ eulerian/constriction/constrict-0p32}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/constriction/constrict-0p66}
 \caption{The constricted tissue at time $t=0.66$ s.} 
 \label{constrict-image-0p66}
@@ -310,7 +357,7 @@ eulerian/constriction/constrict-0p66}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/constriction/constrict-1p0}
 \caption{The constricted tissue at time $t=1.0$ s.} 
 \label{constrict-image-1p0}
@@ -318,7 +365,7 @@ eulerian/constriction/constrict-1p0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/constriction/constrict-2p0}
 \caption{The constricted tissue at time $t=2.0$ s.} 
 \label{constrict-image-2p0}
@@ -326,7 +373,7 @@ eulerian/constriction/constrict-2p0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/constriction/constrict-3p0}
 \caption{The constricted tissue at time $t=3.0$ s.} 
 \label{constrict-image-3p0}
@@ -336,7 +383,8 @@ eulerian/constriction/constrict-3p0}
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/constriction/constrict-vel-drop-dynamic}
-\caption{Vertical fluid velocity evolution with dynamics.} 
+\caption{Dynamic evolution of the vertical fluid velocity at the
+  centre point.}
 \label{velocity-evolution-dynamic}
 \end{figure}
 
@@ -344,7 +392,8 @@ eulerian/constriction/constrict-vel-drop-dynamic}
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/constriction/constrict-vel-drop-quasistatic}
-\caption{Vertical fluid velocity evolution with quasistatics.} 
+\caption{Quasistatic evolution of the vertical fluid velocity at the
+  centre point.}
 \label{velocity-evolution-quasistatic}
 \end{figure}
 
@@ -577,7 +626,7 @@ the evolution of the area.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/isotropic-swelling-0}
 \caption{A semicircular tumour at time $t=0$ days.}
 \label{tumour-isotropic-swelling-0}
@@ -585,7 +634,7 @@ eulerian/cancer/isotropic-swelling-0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/isotropic-swelling-100}
 \caption{A semicircular tumour at time $t=100$ days.}
 \label{tumour-isotropic-swelling-100}
@@ -618,7 +667,7 @@ they should. The temporal variation at that end point is plotted separately.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/constrained-swelling-120}
 \caption{The growing tumour constrained by a wall at time $t=100$ days.}
 \label{tumour-constrained-swelling-120}
@@ -651,7 +700,7 @@ something else. Note that the regions with higher cells pull in more.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/homogeneous-inward-tug}
 \caption{Homogeneous inward tug due to a uniform distribution of cells.}
 \label{tumour-homogeneous-inward-tug}
@@ -659,7 +708,7 @@ eulerian/cancer/homogeneous-inward-tug}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/heterogeneous-inward-tug}
 \caption{Heterogeneous inward tug due to a non-uniform distribution of cells.}
 \label{tumour-heterogeneous-inward-tug}
@@ -681,7 +730,7 @@ diffusing from a central bulb outwards while they proliferate.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/diffusing-proliferating-cells-0}
 \caption{The cells diffusing and proliferating at time $t=0$ days.}
 \label{tumour-diffusion-proliferation-0}
@@ -689,7 +738,7 @@ eulerian/cancer/diffusing-proliferating-cells-0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/diffusing-proliferating-cells-33}
 \caption{The cells diffusing and proliferating at time $t=33$ days.}
 \label{tumour-diffusion-proliferation-33}
@@ -697,7 +746,7 @@ eulerian/cancer/diffusing-proliferating-cells-33}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/diffusing-proliferating-cells-67}
 \caption{The cells diffusing and proliferating at time $t=67$ days.}
 \label{tumour-diffusion-proliferation-67}
@@ -705,7 +754,7 @@ eulerian/cancer/diffusing-proliferating-cells-67}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/diffusing-proliferating-cells-100}
 \caption{The cells diffusing and proliferating at time $t=100$ days.}
 \label{tumour-diffusion-proliferation-100}
@@ -727,7 +776,7 @@ directions of the arrows.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/heterogeneous-ecm-concentration}
 \caption{Heterogeneous extra-cellular matrix concentration.}
 \label{heterogeneous-ecm-concentration}
@@ -740,7 +789,7 @@ tug.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-0}
 \caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=0$ days.}
 \label{tumour-haptotaxis-proliferation-0}
@@ -748,7 +797,7 @@ eulerian/cancer/haptotaxis-proliferating-cells-0}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-3p3}
 \caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=3.3$ days.}
 \label{tumour-haptotaxis-proliferation-3p3}
@@ -756,7 +805,7 @@ eulerian/cancer/haptotaxis-proliferating-cells-3p3}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-6p7}
 \caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=6.7$ days.}
 \label{tumour-haptotaxis-proliferation-6p7}
@@ -764,7 +813,7 @@ eulerian/cancer/haptotaxis-proliferating-cells-6p7}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-10}
 \caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=10$ days.}
 \label{tumour-haptotaxis-proliferation-10}
@@ -791,7 +840,7 @@ where the growth happened without a wall.
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-no-wall-4}
 \caption{An unconstrained growing tumour at $t=4$ months.}
 \label{tumour-growth-no-wall-4}
@@ -799,7 +848,7 @@ eulerian/cancer/growing-tumour-no-wall-4}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-0.eps}
 \caption{A constrained growing tumour at $t=0$ months.}
 \label{tumour-growth-constrained-0}
@@ -807,7 +856,7 @@ eulerian/cancer/growing-tumour-0.eps}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-1.eps}
 \caption{A constrained growing tumour at $t=1$ months.}
 \label{tumour-growth-constrained-1}
@@ -815,7 +864,7 @@ eulerian/cancer/growing-tumour-1.eps}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-2.eps}
 \caption{A constrained growing tumour at $t=2$ months.}
 \label{tumour-growth-constrained-2}
@@ -823,7 +872,7 @@ eulerian/cancer/growing-tumour-2.eps}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-3.eps}
 \caption{A constrained growing tumour at $t=3$ months.}
 \label{tumour-growth-constrained-3}
@@ -831,7 +880,7 @@ eulerian/cancer/growing-tumour-3.eps}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-4.eps}
 \caption{A constrained growing tumour at $t=4$ months.}
 \label{tumour-growth-constrained-4}
@@ -839,7 +888,7 @@ eulerian/cancer/growing-tumour-4.eps}
 
 \begin{figure}[!hptb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/examples/%
+\includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-5.eps}
 \caption{A constrained growing tumour at $t=5$ months.}
 \label{tumour-growth-constrained-5}
