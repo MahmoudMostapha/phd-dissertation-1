@@ -120,7 +120,7 @@ constraint~(\ref{eu-saturationconstraint}).
 
 For simplicity, in the calculations that follow, the strain energy
 function used for the elastic portion of the response of the solid
-collagen is the model of Mooney and Rivlin \citep{mooney1940},
+collagen is the model of Mooney and Rivlin \citep{mooney1940}:
 
 \begin{equation}
 \hat{\psi^{\mathrm{c}}} (\bC^{\mathrm{e}}) = \sum\limits_{i,j=0}^{n}
@@ -183,33 +183,33 @@ particular:
   the normal to $\Omega_{t}$, and this condition relates the stress in
   the solid to the pressure in the fluid along the edges where there
   is no relative motion between the solid and the fluid.\footnote{In
-    contrast to the example discussed in Section~\ref{swelling-1},
-    which used the notion of the growth portion of the deformation
-    gradient of the fluid, $\bF^{\mathrm{g}^\mathrm{f}}$, to cause
-    kinematic swelling of the domain, in this example, it is this
-    interaction between the solid and fluid stresses that causes the
-    domain to swell.}
+    contrast to the swelling example discussed in
+    Section~\ref{swelling-1}, which used the notion of the growth
+    portion of the deformation gradient of the fluid,
+    $\bF^{\mathrm{g}^\mathrm{f}}$, to cause kinematic swelling of the
+    domain, in this example, it is this interaction between the solid
+    and fluid stresses on the boundary that causes the domain to
+    swell.}
 \end{itemize}
 
 In this example, the frictional coefficient tensor is assumed to have
-a relatively small magnitude ($\bD^{\mathrm{fc}} =
-1\mathrm{e}^{-5}\ \bone$~MPa.s.mm$^{-2}$) because we are currently
-more interested in observing the swelling of the domain due to fluid
-influx at one edge rather than the frictional interaction between the
-phases.
+a relatively small magnitude ($\bD^{\mathrm{fc}} = 1\mathrm{e}^{-5}
+\ \bone$~MPa.s.mm$^{-2}$) because we are currently more interested in
+observing the swelling of the domain due to fluid influx rather than
+the frictional interaction between the phases.
 
 Figures~\ref{swelling-balloon-image-0p0}--\ref{swelling-balloon-image-3p0}
 show snapshots of the swelling domain during the course of the
 test. The colour contours provide the horizontal displacement field of
 the solid (in~mm) and the arrows provide the direction of the solid
-velocity field. The increasing fluid pressure boundary condition on
-the bottom edge causes an inflow of fluid, and the inability of the
-fluid to flow out of other boundaries corresponds to a boundary traction
-on the solid, causing the domain to swell outward as seen in
-the figures.  Because the computation was run with dynamics, there is
-initially a slight oscillation in the velocity field due to wave
-propagation in the fluid (not apparent in the plots) which fade in the
-first 0.4~s.
+velocity field. The pressure gradient induced by the increasing fluid
+pressure boundary condition on the bottom edge causes an inflow of
+fluid. The inability of the fluid to flow out of other boundaries
+manifests itself as an outward boundary traction on the solid, causing
+the domain to swell as seen in the figures.  Because the computation
+was run with dynamics, there is initially a small oscillation in the
+fluid and solid velocity fields due to wave propagation in the fluid
+(not apparent in the plots) which fade in the first 0.4~s.
 
 \begin{figure}[!hptb]
 \centering
@@ -267,18 +267,18 @@ eulerian/swelling/balloon-swell-3p0}
 In the previous numerical experiment, we studied the deformation of
 the tissue under an influx of fluid. In this example, we turn our
 attention to fluid flow fields induced by the deformation of the solid
-phase of the tissue and frictional interactions between the
-phases. The initial condition for this problem is identical to the
-previous case, i.e., the tissue is at rest initially and the initial
-concentrations of the solid collagen and fluid phases at all points in
-the unit square domain \mbox{(1~mm $\times$ 1~mm)} are
-500~kg.m$^{-3}$. As before, the total duration of the test is 3~s.
+phase and frictional interactions between the phases. The initial
+condition for this problem is identical to the previous case, i.e.,
+the tissue is at rest initially and the initial concentrations of the
+solid collagen and fluid phases at all points in the unit square
+domain \mbox{(1~mm $\times$ 1~mm)} are 500~kg.m$^{-3}$. As before, the
+total duration of the test is 3~s.
 
 \begin{figure}[!hptb]
 \centering
-\psfrag{u}{$u$}
-\psfrag{y}{$y$}
-\psfrag{t}{$t$}
+\psfrag{u}{$u$ (mm)}
+\psfrag{y}{$y$ (mm)}
+\psfrag{t}{$t$ (s)}
 \includegraphics[width=0.8\textwidth]{images/examples/%
   eulerian/constriction/displacement-load}
 \caption{The magnitude of the displacement load on the vertical edges
@@ -288,19 +288,20 @@ the unit square domain \mbox{(1~mm $\times$ 1~mm)} are
 
 The boundary conditions for this problem correspond to immersing the
 tissue in a bath and applying a displacement load on the vertical
-edges so as to constrict the tissue in order to observe the fluid
-flow. In particular, the fluid is subjected to a pressure boundary
-condition on all four edges; where the pressure of the fluid is
-equated to that of the bath,~0~MPa. For the solid, the bottom edge is
-held fixed and the top edge is traction free. The left edge is
+edges so as to constrict the tissue in order to observe the resulting
+fluid flow. In particular, the fluid is subjected to a pressure
+boundary condition on all four edges; where the pressure of the fluid
+is equated to that of the bath,~0~MPa. For the solid, the bottom edge
+is held fixed and the top edge is traction free. The left edge is
 subjected to the temporally-varying constrictive horizontal
 displacement (in~mm) visualised in Figure~\ref{eu-constrict%
   -disp-load}. The figure shows the horizontal displacement being
 increased linearly in time for the first 1~s and then held fixed for
 the remainder of the test. The right edge is subjected to the negative
 of this load. In this example, the magnitude of the frictional
-coefficient tensor is significantly greater than the previous example
-($\bD^{\mathrm{fc}} = \bone$~MPa.s.mm$^{-2}$) and the effects of the
+coefficient tensor ($\bD^{\mathrm{fc}} = \bone$~MPa.s.mm$^{-2}$) 
+is significantly greater than in the previous case,
+ and the effects of the
 frictional interaction between the phases are manifest in the results.
 
 Figures~\ref{constrict-image-0p0}--\ref{constrict-image-3p0} show
@@ -312,14 +313,14 @@ field. Their lengths scale linearly with the magnitude of the fluid
 velocity field and the longest arrow corresponds to a fluid velocity
 magnitude of 7.03e-3 mm.s$^{-1}$. This fluid flow is mainly driven by
 a combination of frictional interaction with the solid phase and the
-saturation condition. The plots are asymmetric in the vertical
+saturation condition. The plots are asymmetrical in the vertical
 direction because the bottom edge is held fixed. Observe that the
-fluid velocity grows with increasing constriction and gradually decays
-after the constriction of the solid has come to an end at 1~s (this is
-clearly seen in seen in Figure~\ref{velocity-evolution%
-  -dynamic}). There is also a nominal relaxation of the top face after
-the constriction phase, as observed in the example in
-Section~\ref{constriction-1}.
+fluid velocity grows with increasing constriction of the solid for the
+first 1~s and gradually decays after the solid phase is held fixed
+(this is clearly seen in seen in Figure~\ref{velocity-evolution%
+  -dynamic}). There is also a nominal relaxation of the top edge after
+the constriction phase, as observed in the example in Section~\ref%
+{constriction-1}.
 
 As in the previous example, effects from the dynamics were observed in
 this case as well, and an equivalent quasistatic calculation was
@@ -402,10 +403,26 @@ eulerian/constriction/constrict-vel-drop-quasistatic}
 \section{Examples exploring the biphasic nature of porous soft tissue}
 \label{biphasic-examples-2}
 
-\textbullet\ Now that we're reasonably confident about the fluid flow
-fields and have an idea of its effects on the mechanics, we proceed to
-tailor the material model, geometry and constants to better represent
-actual cases.
+The preliminary examples presented in the preceding section
+illustrated some basic aspects of the coupled physics exhibited by
+non-reacting two-phase mixtures. They allowed us to determine the
+evolution of the fluid flow fields and study their effects on the
+mechanics. As mentioned toward the end of Section~\ref{eu-energy-dependent%
+-source}, one of the mechanisms underlying the time- and
+rate-dependent behaviour of soft collagenous tissues  arises from 
+frictional effects due to the stress-driven 
+fluid flow through the porous collagenous 
+network.  In this section, the material parameters and model geometry
+of the computational model are tailored to better represent realistic
+experimental data, and .... . In certain cases, these results are
+compared to a model
+(Section~\ref{eu-viscoelastic-solid}) comprising only of a linearly
+viscoelastic solid to discern between the results arising from a
+poroelastic model with a viscoelastic model. Of course, realistic
+tissues may show a combination of these effects.
+
+
+
 
 %% The model geometry, based on the experimental work of \citet{Calve:04}
 %% on the engineering and characterisation of tendon-like constructs (see
@@ -437,7 +454,7 @@ arising from the higher force from the frictional interaction term.
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p01}
 \caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{poro-stress-relax-0p01}
 \end{figure}
 
@@ -446,7 +463,7 @@ eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p01}
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p02}
 \caption{Dynamic poroelastic model, $\dot{\epsilon}=0.02$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{poro-stress-relax-0p02}
 \end{figure}
 
@@ -473,25 +490,6 @@ eulerian/pulling/plots/visco-elastic/visco-stress-relax-0p02-t0p3}
 \textbullet\ Also, the nonlinear case can also be trivially handled,
 and it's comparison with experiment is shown below.
 
-\subsubsection{Non-linear viscoelasticity}
-\label{non-linear-viscoelasticity}
-
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/nonlinear-viscoelasticity/provenzano-data-comparison}
-\caption{The non-linear time constants fit to experiment.} 
-\label{provenzano-data-fit}
-\end{figure}
-
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/nonlinear-viscoelasticity/nonlinear-viscoelasticity-stress-relaxation}
-\caption{Stress relaxation under nonlinear viscoelasticity.}
-\label{nonlinear-viscoelasticity-stress-relaxation}
-\end{figure}
-
 \clearpage
 
 \subsection{Hysteresis in the cyclic stress-strain response}
@@ -513,7 +511,7 @@ solid. Clearly, there is a difference.
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-static-0p01-d1p037}
 \caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-static-0p01-d1p037}
 \end{figure}
 
@@ -522,7 +520,7 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-static-0p01-d1p037}
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d1p037}
 \caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-dynamic-0p01-d1p037}
 \end{figure}
 
@@ -547,7 +545,7 @@ fluid-sloshing dynamics substantially.
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p001-d1p037}
 \caption{Dynamic poroelastic model, $\dot{\epsilon}=0.001$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-dynamic-0p001-d1p037}
 \end{figure}
 
@@ -556,7 +554,7 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p001-d1p037}
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d10p37}
 \caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=10.37$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-dynamic-0p01-d10p37}
 \end{figure}
 
@@ -573,7 +571,7 @@ parameters to change the stress-ranges and shapes.
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/low-hysteresis-dynamic-0p01-d1p037}
 \caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-1}$.}
+  MPa.s.mm$^{-2}$.}
 \label{low-hysteresis-dynamic-0p01-d1p037}
 \end{figure}
 
