@@ -16,7 +16,7 @@ Section~\ref{simple-physics}, serve to illustrate basic aspects of the
 coupled physics underlying biphasic models for tissue mechanics. In
 Section~\ref{biphasic-examples-2}, the biphasic model parameters are
 tailored to be more representative of experimental studies on the
-mechanics of tendons, and aspects of the time- and rate-dependent
+mechanics of engineered ligaments, and aspects of the time- and rate-dependent
 behaviour of the model are explored and compared with experimental
 results. The final example presented in this chapter provides a
 straightforward extension of the theory to model the effects of the
@@ -192,9 +192,9 @@ particular:
     swell.}
 \end{itemize}
 
-In this example, the frictional coefficient tensor is assumed to have
-a relatively small magnitude ($\bD^{\mathrm{fc}} = 1\mathrm{e}^{-5}
-\ \bone$~MPa.s.mm$^{-2}$) because we are currently more interested in
+In this example, the frictional coefficient tensor, $\bD^{\mathrm{fc}}
+= 1\mathrm{e}^{-5} \ \bone$~MPa.s.mm$^{-2}$, is assumed to have a
+relatively small magnitude because we are currently more interested in
 observing the swelling of the domain due to fluid influx rather than
 the frictional interaction between the phases.
 
@@ -299,10 +299,10 @@ displacement (in~mm) visualised in Figure~\ref{eu-constrict%
 increased linearly in time for the first 1~s and then held fixed for
 the remainder of the test. The right edge is subjected to the negative
 of this load. In this example, the magnitude of the frictional
-coefficient tensor ($\bD^{\mathrm{fc}} = \bone$~MPa.s.mm$^{-2}$) 
-is significantly greater than in the previous case,
- and the effects of the
-frictional interaction between the phases are manifest in the results.
+coefficient tensor, $\bD^{\mathrm{fc}} = \bone$~MPa.s.mm$^{-2}$, is
+significantly greater than in the previous case, and the effects of
+the frictional interaction between the phases are manifest in the
+results.
 
 Figures~\ref{constrict-image-0p0}--\ref{constrict-image-3p0} show
 snapshots of the constricted tissue during the course of the test. The
@@ -400,61 +400,162 @@ eulerian/constriction/constrict-vel-drop-quasistatic}
 
 \clearpage
 
-\section{Examples exploring the biphasic nature of porous soft tissue}
+\section{Examples exploring the biphasic nature of porous soft
+  tissues}
 \label{biphasic-examples-2}
 
-The preliminary examples presented in the preceding section
-illustrated some basic aspects of the coupled physics exhibited by
-non-reacting two-phase mixtures. They allowed us to determine the
-evolution of the fluid flow fields and study their effects on the
-mechanics. As mentioned toward the end of Section~\ref{eu-energy-dependent%
--source}, one of the mechanisms underlying the time- and
-rate-dependent behaviour of soft collagenous tissues  arises from 
-frictional effects due to the stress-driven 
-fluid flow through the porous collagenous 
-network.  In this section, the material parameters and model geometry
-of the computational model are tailored to better represent realistic
-experimental data, and .... . In certain cases, these results are
-compared to a model
-(Section~\ref{eu-viscoelastic-solid}) comprising only of a linearly
-viscoelastic solid to discern between the results arising from a
-poroelastic model with a viscoelastic model. Of course, realistic
-tissues may show a combination of these effects.
+The introductory examples presented in the preceding section
+illustrated basic aspects of the coupled physics exhibited by
+non-reacting two-phase mixtures. The computational formulation thus
+provides a means for determining the evolution of fluid flow fields
+under varying physically-relevant boundary conditions, and allows us
+to study their effects on the mechanics of tissues. With this
+established, we now turn our attention to a more realistic
+application---studying aspects of the time- and rate-dependent
+behaviour of ligaments.
 
+In the following examples, the material parameters and model geometry
+are tailored to more closely represent experimental studies on the
+mechanics of engineered ligaments \citep{Calvethesis:06}. The examples
+focus on the viscoelastic behaviour of these tissues arising primarily
+from frictional interaction between two purely-elastic phases: an
+ideal fluid perfusing a porous, hyperelastic solid (as in the
+preceding section). In particular cases, this {\em poroelastic}
+response is compared to analogous results obtained using a
+single-phase linearly viscoelastic solid model (discussed in
+Section~\ref{eu-viscoelastic-solid}).
 
+Motivated by the experimental work, the model geometry is initially
+12~mm in length and 1.128~mm in width, and has a uniform thickness of
+1.128~mm. The initial concentration of the solid collagen is
+300~kg.m$^{-3}$ and the initial fluid concentration is 700~kg.m$^{-3}$
+at all points in the rectangular domain. The intrinsic densities of
+the solid collagen and fluid phases are both 1000~kg.m$^{-3}$, as
+before. The hyperelastic model for the solid phase uses the
+Mooney-Rivlin strain energy function~(\ref{mooney-rivlin-model}) with
+9 terms, and the values of the corresponding parameters used in the
+analysis are reported in Table~\ref{parameters-explant}.
 
+\begin{table}[!hptb]
+\centering
+\begin{tabular}{|l|l|}
+\hline Parameter & Value (GPa) \\
+\hline \hline
+$C_{10}$  &   0  \\
+$C_{01}$  &   0  \\
+$C_{20}$  &   0.544338  \\
+$C_{11}$  &   0  \\
+$C_{02}$  &   0.547138  \\
+$C_{30}$  &   1.83688  \\
+$C_{21}$  &   1.19985  \\
+$C_{12}$  &   10.6863  \\
+$C_{03}$  &   38.3875  \\
+\hline
+\end{tabular}
+\caption{Material constants corresponding to the explanted
+  ligament (Figure~\ref{explanted-ligament}).}
+\label{parameters-explant}
+\end{table}
 
-%% The model geometry, based on the experimental work of \citet{Calve:04}
-%% on the engineering and characterisation of tendon-like constructs (see
-%% Figure~\ref{engconst}), is a cylinder 12 mm in length and 1 mm$^2$ in
-%% cross-sectional area. The corresponding finite element mesh using 3840
-%% hexahedral elements is shown in Figure~\ref{egmesh}. The constitutive
-%% relation for the solid collagen phase uses a strain energy arising
-%% from the eight-chain model incorporating worm-like chains, as
-%% discussed in Section~\ref{anisotropic-network-elasticity} . The
-%% constitutive relation for the (ideal) fluid stress follows (\ref{Pf})
-%% with,
+The initial solid and fluid concentrations, and the Mooney-Rivlin
+parameters chosen, approximate the collagen content and the tensile response
+ of the explanted ligament\footnote{This tissue is from a
+  batch of engineered ligaments explanted after implantation for one
+  month as medial collateral ligament replacements in live rats
+  \citep{Calvethesis:06}.} whose mechanical response under repeated
+cyclic loading is shown in Figure~\ref{explanted-ligament}. In
+particular, the hyperelastic material parameters are chosen to fit the
+stress-strain response corresponding to the first load excursion
+(denoted by the blue points).
+
+\begin{figure}[!hptb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/experiments/%
+    explant-cyclic-load}
+  \caption{Mechanical response of an explanted ligament
+    \citep{Calvethesis:06}.}
+  \label{explanted-ligament}
+\end{figure}
+
+The basal magnitude of the frictional coefficient tensor used in
+following calculations is fit to the experimental work of
+\citet{Swartzetal:99} on fluid transport through mouse tails. This was
+achieved by subjecting the computational model to a fluid pressure
+gradient identical to that in their experiment, and the frictional
+coefficient tensor magnitude was modified until the until the
+steady-state flow velocity in the computations matched those reported
+in the experiment. The resulting frictional coefficient tensor is:
+$\bD^{\mathrm{fc}} = 1.037 \mathrm{e}^{-5} \ \bone$~MPa.s.mm$^{-2}$.
 
 \subsection{Stress relaxation}
 \label{stress-relaxation}
 
-\textbullet\ Set up the boundary conditions relevant to the
-case. Basically pull and hold, and no outflow at the top and
-bottom.
+In these tests, the boundary conditions correspond to gripping the
+tissue at its longitudinal ends, and loading the tissue at a constant
+strain rate to a specific strain and holding it fixed at that strain
+for the remainder of the test. For the solid phase, this translates to holding one of the
+longitudinal edges fixed while subjecting the other to the suitable
+displacement load. The lateral edges of the solid remain traction
+free. For the fluid, there is no flow relative to the solid at the
+longitudinal edges, i.e., $\bv^{\mathrm{f}} =
+\bv^{\mathrm{c}}$.\footnote{Since the displacement condition applied
+  to the solid is not smooth in time, the corresponding velocity
+  boundary condition on the fluid is discontinuous in
+  time. Consequently, the poroelastic calculations in this section are
+  carried out quasistatically, since dynamic calculations require time
+  derivatives of the velocity fields.} Since we are simulating the
+tissue being held by grips at the longitudinal edges, this boundary
+condition ensures that there is no outflow or inflow along those
+edges. The lateral edges expose the fluid to the bath, and therefore
+the fluid pressure is equated to that of the bath, 0~MPa, on those
+edges.
 
-\subsubsection{Under different rates of loading}
-\label{modifying-load-rates}
+Figure~\ref{poro-stress-relax-0p01} shows the stress relaxation in a
+quasistatic calculation where the tissue is loaded at a strain rate of
+$\dot{\epsilon}=0.01$ Hz to a maximum strain of 0.085 in 8.5~s, and
+then held fixed at that strain for the remainder of the test. A large
+portion of the tensile response is provided by the hyperelastic solid
+collagen, and the decaying peak in the stress is due to the decaying
+relative velocity between the phases. Notice that the stress decays
+rapidly, corresponding to the rapidly decaying velocity field in the
+quasistatic calculation in Figure~\ref{velocity-evolution%
+  -quasistatic}. In order to study the effects of load rate on the mechanical response,
+this next test doubles the strain rate to $\dot{\epsilon}=0.02$
+Hz. The tissue is subjected to the same maximum strain of 0.085, now
+in 4.25~s, and is held fixed for the remainder of the test. The stress
+relaxation resulting from this test is shown in
+Figure~\ref{poro-stress-relax-0p02}. The initial peak stress is now
+increased. This is because the increased strain rate results in an
+increased relative velocity between the phases initially, which
+correspondingly increases the frictional interaction between the
+phases.
 
-\textbullet\ In order to differentiate the effect of load rate. The
-results show, as expected, that the faster-pulled case is stiffer,
-arising from the higher force from the frictional interaction term.
+Finally, the poroelastic response is compared to the response of a
+model comprising only of one linear viscoelastic solid collagen
+phase. In this computation, the elastic portion of the response of the
+solid collagen is has the same form and material properties
+(Table~\ref{parameters-explant}) as the poroelastic case, and has a
+characteristic relaxation time $\tau=0.3$~s and strain-energy factor
+$\beta=0.5$.\footnote{Refer Section~\ref{eu-viscoelastic-solid} for
+  details.} This test is carried out at a strain rate
+of $\dot{\epsilon}=0.02$~Hz for 4.25~s, at which point the tissue is
+held fixed. Figure~\ref{visco-stress-relax-0p02-t0p3} shows the
+corresponding stress relaxation, and there are two noticeable 
+differences from the poroelastic calculation (presented in
+Figure~\ref{poro-stress-relax-0p02}). Stemming
+from the initially high relative velocity between the phases, the
+poroelastic curve starts at a higher stiffness than the viscoelastic
+case. Also, the quasistatic nature of the poroelastic calculation
+results in a sharper, more rapidly-decaying peak in stress.
+
+\clearpage
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p01}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-2}$.}
+\caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.01$ Hz,
+  $D=1.037$ MPa.s.mm$^{-2}$.}
 \label{poro-stress-relax-0p01}
 \end{figure}
 
@@ -462,21 +563,10 @@ eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p01}
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p02}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.02$ Hz, $D=1.037$
-  MPa.s.mm$^{-2}$.}
+\caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.02$ Hz,
+  $D=1.037$ MPa.s.mm$^{-2}$.}
 \label{poro-stress-relax-0p02}
 \end{figure}
-
-\subsubsection{Comparison with representative viscoelastic curves}
-\label{viscoelastic-stress-relaxation}
-
-\textbullet\ This calculation uses a linear-viscoelastic model and is
-presented for qualitative comparison. We're interested, as mentioned
-in a Section before, in the inelastic behaviour of tissues. The goal
-of these examples are not to solve the final problem, but to show that
-different cases can be solved reasonably within the framework and show
-different results qualitatively and quantitatively. Notice that the
-viscoelastic curve does the same general thing.
 
 \begin{figure}[!hptb]
 \centering
@@ -486,11 +576,6 @@ eulerian/pulling/plots/visco-elastic/visco-stress-relax-0p02-t0p3}
   $\tau=0.3$ s.}
 \label{visco-stress-relax-0p02-t0p3}
 \end{figure}
-
-\textbullet\ Also, the nonlinear case can also be trivially handled,
-and it's comparison with experiment is shown below.
-
-\clearpage
 
 \subsection{Hysteresis in the cyclic stress-strain response}
 \label{hysteresis}
@@ -558,23 +643,6 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d10p37}
 \label{medium-hysteresis-dynamic-0p01-d10p37}
 \end{figure}
 
-\subsubsection{Changing the overall shape and stress range}
-\label{changing-shape}
-
-\textbullet\ All the plots shown thus far have had the same general
-shape, but experiments show different things for different tissues at
-different ages. We can easily model this by changing the material
-parameters to change the stress-ranges and shapes.
-
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/low-hysteresis-dynamic-0p01-d1p037}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-2}$.}
-\label{low-hysteresis-dynamic-0p01-d1p037}
-\end{figure}
-
 \subsubsection{Comparison with representative linear viscoelastic
   curves}
 \label{viscoelastic-hysteresis}
@@ -593,14 +661,9 @@ eulerian/pulling/plots/visco-elastic/medium-hysteresis-visco-0p01-t0p3}
 \label{medium-hysteresis-visco-0p01-t0p3}
 \end{figure}
 
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/visco-elastic/low-hysteresis-visco-0p01-t0p7}
-\caption{Dynamic viscoelastic model, $\dot{\epsilon}=0.01$ Hz,
-  $\tau=0.7$ s.}
-\label{low-hysteresis-visco-0p01-t0p7}
-\end{figure}
+%% Just note that the stress and strain ranges, as well as the general
+%% shapes of the curves can be changed in a straightforward manner by
+%% tweaking the Mooney-Rivlin constants.
 
 \clearpage
 
