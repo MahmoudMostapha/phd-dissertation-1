@@ -16,12 +16,13 @@ Section~\ref{simple-physics}, serve to illustrate basic aspects of the
 coupled physics underlying biphasic models for tissue mechanics. In
 Section~\ref{biphasic-examples-2}, the biphasic model parameters are
 tailored to be more representative of experimental studies on the
-mechanics of engineered ligaments, and aspects of the time- and rate-dependent
-behaviour of the model are explored and compared with experimental
-results. The final example presented in this chapter provides a
-straightforward extension of the theory to model the effects of the
-mechanical environment on growing tumours (Section~\ref{tumour%
-  -growth}), evidencing the generality of the proposed formulation.
+mechanics of engineered ligaments, and aspects of the time- and
+rate-dependent behaviour of the model are explored. The final example
+presented in this chapter 
+provides a straightforward extension of the theory to model the
+effects of the mechanical environment on growing tumours
+(Section~\ref{tumour-growth}), evidencing the generality of the
+proposed formulation.
 
 \section{Introducing the computational model}
 \label{eu-computational-model}
@@ -107,8 +108,8 @@ approximated by:\footnote{The saturation condition, as stated in
 
 \begin{equation}
 \frac{\left(\rho_{0}^{\mathrm{c}}/J\right)}
-{\tilde{\rho}^{\mathrm{c}}} + 
-\frac{\rho^{\mathrm{f}}}{\tilde{\rho}^{\mathrm{f}}} = 1.
+     {\tilde{\rho}^{\mathrm{c}}} +
+     \frac{\rho^{\mathrm{f}}}{\tilde{\rho}^{\mathrm{f}}} = 1.
 \label{eu-saturationconstraint}
 \end{equation}
 
@@ -198,13 +199,13 @@ relatively small magnitude because we are currently more interested in
 observing the swelling of the domain due to fluid influx rather than
 the frictional interaction between the phases.
 
-Figures~\ref{swelling-balloon-image-0p0}--\ref{swelling-balloon-image-3p0}
-show snapshots of the swelling domain during the course of the
-test. The colour contours provide the horizontal displacement field of
-the solid (in~mm) and the arrows provide the direction of the solid
-velocity field. The pressure gradient induced by the increasing fluid
-pressure boundary condition on the bottom edge causes an inflow of
-fluid. The inability of the fluid to flow out of other boundaries
+Figures~\ref{swelling-balloon-image-0p0}--\ref{swelling-balloon%
+  -image-3p0} show snapshots of the swelling domain during the course
+of the test. The colour contours provide the horizontal displacement
+field of the solid (in~mm) and the arrows provide the direction of the
+solid velocity field. The pressure gradient induced by the increasing
+fluid pressure boundary condition on the bottom edge causes an inflow
+of fluid. The inability of the fluid to flow out of other boundaries
 manifests itself as an outward boundary traction on the solid, causing
 the domain to swell as seen in the figures.  Because the computation
 was run with dynamics, there is initially a small oscillation in the
@@ -212,51 +213,51 @@ fluid and solid velocity fields due to wave propagation in the fluid
 (not apparent in the plots) which fade in the first 0.4~s.
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/swelling/balloon-swell-0p0}
-\caption{The inflating balloon at time $t=0$ s.} 
-\label{swelling-balloon-image-0p0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/swelling/balloon-swell-0p0}
+  \caption{The inflating balloon at time $t=0$ s.} 
+  \label{swelling-balloon-image-0p0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/swelling/balloon-swell-0p6}
-\caption{The inflating balloon at time $t=0.6$ s.} 
-\label{swelling-balloon-image-0p6}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/swelling/balloon-swell-0p6}
+  \caption{The inflating balloon at time $t=0.6$ s.} 
+  \label{swelling-balloon-image-0p6}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/swelling/balloon-swell-1p2}
-\caption{The inflating balloon at time $t=1.2$ s.} 
-\label{swelling-balloon-image-1p2}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/swelling/balloon-swell-1p2}
+  \caption{The inflating balloon at time $t=1.2$ s.} 
+  \label{swelling-balloon-image-1p2}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/swelling/balloon-swell-1p8}
-\caption{The inflating balloon at time $t=1.8$ s.} 
-\label{swelling-balloon-image-1p8}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/swelling/balloon-swell-1p8}
+  \caption{The inflating balloon at time $t=1.8$ s.} 
+  \label{swelling-balloon-image-1p8}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/swelling/balloon-swell-2p4}
-\caption{The inflating balloon at time $t=2.4$ s.} 
-\label{swelling-balloon-image-2p4}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/swelling/balloon-swell-2p4}
+  \caption{The inflating balloon at time $t=2.4$ s.} 
+  \label{swelling-balloon-image-2p4}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/swelling/balloon-swell-3p0}
-\caption{The inflating balloon at time $t=3.0$ s.} 
-\label{swelling-balloon-image-3p0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/swelling/balloon-swell-3p0}
+  \caption{The inflating balloon at time $t=3.0$ s.} 
+  \label{swelling-balloon-image-3p0}
 \end{figure}
 
 \clearpage
@@ -275,15 +276,15 @@ domain \mbox{(1~mm $\times$ 1~mm)} are 500~kg.m$^{-3}$. As before, the
 total duration of the test is 3~s.
 
 \begin{figure}[!hptb]
-\centering
-\psfrag{u}{$u$ (mm)}
-\psfrag{y}{$y$ (mm)}
-\psfrag{t}{$t$ (s)}
-\includegraphics[width=0.8\textwidth]{images/examples/%
-  eulerian/constriction/displacement-load}
-\caption{The magnitude of the displacement load on the vertical edges
-  of the tissue.}
-\label{eu-constrict-disp-load}
+  \centering
+  \psfrag{u}{$u$ (mm)}
+  \psfrag{y}{$y$ (mm)}
+  \psfrag{t}{$t$ (s)}
+  \includegraphics[width=0.8\textwidth]{images/examples/%
+    eulerian/constriction/displacement-load}
+  \caption{The magnitude of the displacement load on the vertical
+    edges of the tissue.}
+  \label{eu-constrict-disp-load}
 \end{figure}
 
 The boundary conditions for this problem correspond to immersing the
@@ -333,69 +334,69 @@ instantaneously without manifesting oscillations
 (Figure~\ref{velocity-evolution-quasistatic}).
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/constriction/constrict-0p0}
-\caption{The constricted tissue at time $t=0$ s.} 
-\label{constrict-image-0p0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/constriction/constrict-0p0}
+  \caption{The constricted tissue at time $t=0$ s.} 
+  \label{constrict-image-0p0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/constriction/constrict-0p32}
-\caption{The constricted tissue at time $t=0.32$ s.} 
-\label{constrict-image-0p32}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/constriction/constrict-0p32}
+  \caption{The constricted tissue at time $t=0.32$ s.} 
+  \label{constrict-image-0p32}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/constriction/constrict-0p66}
-\caption{The constricted tissue at time $t=0.66$ s.} 
-\label{constrict-image-0p66}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/constriction/constrict-0p66}
+  \caption{The constricted tissue at time $t=0.66$ s.} 
+  \label{constrict-image-0p66}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/constriction/constrict-1p0}
-\caption{The constricted tissue at time $t=1.0$ s.} 
-\label{constrict-image-1p0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/constriction/constrict-1p0}
+  \caption{The constricted tissue at time $t=1.0$ s.} 
+  \label{constrict-image-1p0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/constriction/constrict-2p0}
-\caption{The constricted tissue at time $t=2.0$ s.} 
-\label{constrict-image-2p0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/constriction/constrict-2p0}
+  \caption{The constricted tissue at time $t=2.0$ s.} 
+  \label{constrict-image-2p0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/constriction/constrict-3p0}
-\caption{The constricted tissue at time $t=3.0$ s.} 
-\label{constrict-image-3p0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/constriction/constrict-3p0}
+  \caption{The constricted tissue at time $t=3.0$ s.} 
+  \label{constrict-image-3p0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/constriction/constrict-vel-drop-dynamic}
-\caption{Dynamic evolution of the vertical fluid velocity at the
-  centre point.}
-\label{velocity-evolution-dynamic}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/constriction/constrict-vel-drop-dynamic}
+  \caption{Dynamic evolution of the vertical fluid velocity at the
+    centre point.}
+  \label{velocity-evolution-dynamic}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/constriction/constrict-vel-drop-quasistatic}
-\caption{Quasistatic evolution of the vertical fluid velocity at the
-  centre point.}
-\label{velocity-evolution-quasistatic}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/constriction/constrict-vel-drop-quasistatic}
+  \caption{Quasistatic evolution of the vertical fluid velocity at the
+    centre point.}
+  \label{velocity-evolution-quasistatic}
 \end{figure}
 
 \clearpage
@@ -416,7 +417,7 @@ behaviour of ligaments.
 
 In the following examples, the material parameters and model geometry
 are tailored to more closely represent experimental studies on the
-mechanics of engineered ligaments \citep{Calvethesis:06}. The examples
+mechanics of engineered ligaments \citep{Syed-Picard:06}. The examples
 focus on the viscoelastic behaviour of these tissues arising primarily
 from frictional interaction between two purely-elastic phases: an
 ideal fluid perfusing a porous, hyperelastic solid (as in the
@@ -437,32 +438,32 @@ Mooney-Rivlin strain energy function~(\ref{mooney-rivlin-model}) with
 analysis are reported in Table~\ref{parameters-explant}.
 
 \begin{table}[!hptb]
-\centering
-\begin{tabular}{|l|l|}
-\hline Parameter & Value (GPa) \\
-\hline \hline
-$C_{10}$  &   0  \\
-$C_{01}$  &   0  \\
-$C_{20}$  &   0.544338  \\
-$C_{11}$  &   0  \\
-$C_{02}$  &   0.547138  \\
-$C_{30}$  &   1.83688  \\
-$C_{21}$  &   1.19985  \\
-$C_{12}$  &   10.6863  \\
-$C_{03}$  &   38.3875  \\
-\hline
-\end{tabular}
-\caption{Material constants corresponding to the explanted
-  ligament (Figure~\ref{explanted-ligament}).}
-\label{parameters-explant}
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline Parameter & Value (GPa) \\
+    \hline \hline
+    $C_{10}$  &   0$\phantom{.00000}$  \\
+    $C_{01}$  &   0$\phantom{.00000}$  \\
+    $C_{20}$  &   0.54434  \\
+    $C_{11}$  &   0$\phantom{.00000}$  \\
+    $C_{02}$  &   0.54714  \\
+    $C_{30}$  &   1.83688  \\
+    $C_{21}$  &   1.19985  \\
+    $C_{12}$  &   10.6863  \\
+    $C_{03}$  &   38.3875  \\
+    \hline
+  \end{tabular}
+  \caption{Material constants corresponding to the explanted
+    ligament (Figure~\ref{explanted-ligament}).}
+  \label{parameters-explant}
 \end{table}
 
 The initial solid and fluid concentrations, and the Mooney-Rivlin
-parameters chosen, approximate the collagen content and the tensile response
- of the explanted ligament\footnote{This tissue is from a
+parameters chosen, approximate the collagen content and the tensile
+response of the explanted ligament\footnote{This tissue is from a
   batch of engineered ligaments explanted after implantation for one
   month as medial collateral ligament replacements in live rats
-  \citep{Calvethesis:06}.} whose mechanical response under repeated
+  \citep{Syed-Picard:06}.} whose mechanical response under repeated
 cyclic loading is shown in Figure~\ref{explanted-ligament}. In
 particular, the hyperelastic material parameters are chosen to fit the
 stress-strain response corresponding to the first load excursion
@@ -473,7 +474,7 @@ stress-strain response corresponding to the first load excursion
   \includegraphics[width=0.8\textwidth]{images/experiments/%
     explant-cyclic-load}
   \caption{Mechanical response of an explanted ligament
-    \citep{Calvethesis:06}.}
+    \citep{Syed-Picard:06}.}
   \label{explanted-ligament}
 \end{figure}
 
@@ -485,7 +486,9 @@ gradient identical to that in their experiment, and the frictional
 coefficient tensor magnitude was modified until the until the
 steady-state flow velocity in the computations matched those reported
 in the experiment. The resulting frictional coefficient tensor is:
-$\bD^{\mathrm{fc}} = 1.037 \mathrm{e}^{-5} \ \bone$~MPa.s.mm$^{-2}$.
+$\bD^{\mathrm{fc}} = 1.037 \ \bone$~MPa.s.mm$^{-2}$. In what follows,
+this isotropic tensor will be characterised by its scalar magnitude,
+$D$.
 
 \subsection{Stress relaxation}
 \label{stress-relaxation}
@@ -493,103 +496,187 @@ $\bD^{\mathrm{fc}} = 1.037 \mathrm{e}^{-5} \ \bone$~MPa.s.mm$^{-2}$.
 In these tests, the boundary conditions correspond to gripping the
 tissue at its longitudinal ends, and loading the tissue at a constant
 strain rate to a specific strain and holding it fixed at that strain
-for the remainder of the test. For the solid phase, this translates to holding one of the
-longitudinal edges fixed while subjecting the other to the suitable
-displacement load. The lateral edges of the solid remain traction
-free. For the fluid, there is no flow relative to the solid at the
-longitudinal edges, i.e., $\bv^{\mathrm{f}} =
-\bv^{\mathrm{c}}$.\footnote{Since the displacement condition applied
-  to the solid is not smooth in time, the corresponding velocity
-  boundary condition on the fluid is discontinuous in
-  time. Consequently, the poroelastic calculations in this section are
-  carried out quasistatically, since dynamic calculations require time
-  derivatives of the velocity fields.} Since we are simulating the
-tissue being held by grips at the longitudinal edges, this boundary
-condition ensures that there is no outflow or inflow along those
-edges. The lateral edges expose the fluid to the bath, and therefore
-the fluid pressure is equated to that of the bath, 0~MPa, on those
-edges.
+for the remainder of the test. For the solid phase, this translates to
+holding one of the longitudinal edges fixed while subjecting the other
+to the suitable displacement load. The lateral edges of the solid
+remain traction free. For the fluid, there is no flow relative to the
+solid at the longitudinal edges, i.e., $\bv^{\mathrm{f}} =
+\bv^{\mathrm{c}}$. Since we are simulating the tissue being held by
+grips at the longitudinal edges, this boundary condition ensures that
+there is no outflow or inflow along those edges. The lateral edges
+expose the fluid to the bath, and therefore the fluid pressure is
+equated to that of the bath, 0~MPa, along those edges.
 
 Figure~\ref{poro-stress-relax-0p01} shows the stress relaxation in a
-quasistatic calculation where the tissue is loaded at a strain rate of
-$\dot{\epsilon}=0.01$ Hz to a maximum strain of 0.085 in 8.5~s, and
-then held fixed at that strain for the remainder of the test. A large
-portion of the tensile response is provided by the hyperelastic solid
-collagen, and the decaying peak in the stress is due to the decaying
-relative velocity between the phases. Notice that the stress decays
-rapidly, corresponding to the rapidly decaying velocity field in the
-quasistatic calculation in Figure~\ref{velocity-evolution%
-  -quasistatic}. In order to study the effects of load rate on the mechanical response,
-this next test doubles the strain rate to $\dot{\epsilon}=0.02$
-Hz. The tissue is subjected to the same maximum strain of 0.085, now
-in 4.25~s, and is held fixed for the remainder of the test. The stress
-relaxation resulting from this test is shown in
-Figure~\ref{poro-stress-relax-0p02}. The initial peak stress is now
-increased. This is because the increased strain rate results in an
-increased relative velocity between the phases initially, which
-correspondingly increases the frictional interaction between the
-phases.
+quasistatic calculation\footnote{Since the displacement condition
+  applied to the solid is not smooth in time, the corresponding
+  velocity boundary condition on the fluid is discontinuous in
+  time. Consequently, the poroelastic calculations presented in this
+  section assume that the process is quasistatic; only requiring that
+  the velocity fields be integrable in time.}  where the tissue is
+loaded at a strain rate of $\dot{\epsilon}=0.01$ Hz to a maximum
+strain of 0.085 in 8.5~s, and then held fixed at that strain for the
+remainder of the test. A large portion of the tensile response is
+furnished by the hyperelastic solid collagen, and the decaying peak in
+the stress is due to the decaying relative velocity between the
+phases. Notice that this peak in stress decays rapidly, corresponding
+to the rapidly decaying velocity field in the quasistatic calculation
+in Figure~\ref{velocity-evolution-quasistatic}.
 
-Finally, the poroelastic response is compared to the response of a
-model comprising only of one linear viscoelastic solid collagen
-phase. In this computation, the elastic portion of the response of the
-solid collagen is has the same form and material properties
-(Table~\ref{parameters-explant}) as the poroelastic case, and has a
-characteristic relaxation time $\tau=0.3$~s and strain-energy factor
-$\beta=0.5$.\footnote{Refer Section~\ref{eu-viscoelastic-solid} for
-  details.} This test is carried out at a strain rate
-of $\dot{\epsilon}=0.02$~Hz for 4.25~s, at which point the tissue is
-held fixed. Figure~\ref{visco-stress-relax-0p02-t0p3} shows the
-corresponding stress relaxation, and there are two noticeable 
-differences from the poroelastic calculation (presented in
-Figure~\ref{poro-stress-relax-0p02}). Stemming
-from the initially high relative velocity between the phases, the
+In order to study the effects of the load rate on the mechanical
+response, the next test doubles the strain rate to $\dot{\epsilon} =
+0.02$ Hz. The tissue is subjected to the same maximum strain of 0.085,
+now in 4.25~s, and is held fixed for the remainder of the test. The
+stress relaxation resulting from this test is shown in
+Figure~\ref{poro-stress-relax-0p02}. The initial peak stress is now
+increased; an observation which is in agreement with classical results
+in viscoelasticity theory. This is because the increased strain rate
+results in an increased relative velocity between the phases
+initially, which correspondingly increases the frictional interaction
+between the phases.
+
+Finally, the biphasic poroelastic response is compared to the response
+of a model comprising of only one phase: linear viscoelastic solid
+collagen. In this computation, the elastic portion of the response of
+the solid collagen has the same form~(\ref{mooney-rivlin-model}) and
+material properties (Table~\ref{parameters-explant}) as the
+poroelastic case, and has a characteristic relaxation time
+$\tau=0.3$~s and strain-energy factor $\beta=0.5$.\footnote{Refer
+  Section~\ref{eu-viscoelastic-solid} for details.} This test is
+carried out at a strain rate of $\dot{\epsilon}=0.02$~Hz for 4.25~s,
+at which point the tissue is held fixed.
+Figure~\ref{visco-stress-relax-0p02-t0p3} shows the corresponding
+stress relaxation, and there are two noticeable differences in the
+results from the poroelastic calculation performed at the same strain
+rate (Figure~\ref{poro-stress-relax-0p02}).  Firstly, stemming from
+the initially high relative velocity between the phases, the
 poroelastic curve starts at a higher stiffness than the viscoelastic
-case. Also, the quasistatic nature of the poroelastic calculation
-results in a sharper, more rapidly-decaying peak in stress.
+case. And secondly, the quasistatic nature of the poroelastic
+calculation results in a sharper, more rapidly-decaying peak in
+stress.
 
 \clearpage
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p01}
-\caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.01$ Hz,
-  $D=1.037$ MPa.s.mm$^{-2}$.}
-\label{poro-stress-relax-0p01}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p01}
+  \caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.01$ Hz,
+    $D=1.037$ MPa.s.mm$^{-2}$.}
+  \label{poro-stress-relax-0p01}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p02}
-\caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.02$ Hz,
-  $D=1.037$ MPa.s.mm$^{-2}$.}
-\label{poro-stress-relax-0p02}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/poro-elastic/poro-stress-relax-0p02}
+  \caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.02$ Hz,
+    $D=1.037$ MPa.s.mm$^{-2}$.}
+  \label{poro-stress-relax-0p02}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/visco-elastic/visco-stress-relax-0p02-t0p3}
-\caption{Dynamic viscoelastic model, $\dot{\epsilon}=0.02$ Hz,
-  $\tau=0.3$ s.}
-\label{visco-stress-relax-0p02-t0p3}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/visco-elastic/visco-stress-relax-0p02-t0p3}
+  \caption{Dynamic viscoelastic model, $\dot{\epsilon}=0.02$ Hz,
+    $\tau=0.3$ s.}
+  \label{visco-stress-relax-0p02-t0p3}
 \end{figure}
 
 \subsection{Hysteresis in the cyclic stress-strain response}
 \label{hysteresis}
 
-\textbullet\ Now that we've established a simple pull and hold, we
-move onto a more complicated pull and unload. Talk about the boundary
-conditions and perhaps provide the 2 experimental results first?
+The examples in this section study the hysteresis in the stress-strain
+response when the model is subjected to a complete load-unload
+cycle. As before, for the solid phase, the boundary conditions specify
+that one of longitudinal edges of the tissue is held fixed, while
+subjecting the other to the suitable displacement load. The lateral
+edges of the solid remain traction free. For the fluid, there is no
+flow relative to the solid at the longitudinal edges, i.e.,
+$\bv^{\mathrm{f}} = \bv^{\mathrm{c}}$. The lateral edges expose the
+fluid to the bath, and therefore the fluid pressure is equated to that
+of the bath, 0~MPa, along those edges.
 
-\textbullet\ Since quasistatic and dynamic were found important, we
-look at those two cases for a certain ratio of fluid to
-solid. Clearly, there is a difference.
+In all these tests, the model was first loaded to a maximum strain of
+0.085 (to approximate the experimental data presented in Figure~%
+\ref{explanted-ligament}) and subsequently unloaded to no
+strain. Since the numerical experiments so far have suggested conspicuous
+differences between the quasistatic and dynamic solutions, both forms
+of computations have been explored in this section. When the fluid
+flow fields are observed during the course of these load-unload tests,
+it is found that they constantly lag behind the motion of the solid,
+and it is this relative velocity and corresponding frictional
+interaction between the phases that leads to the dissipation
+manifesting itself as the hysteresis loop.
 
-\subsubsection{Quasistatic vs. dynamic}
-\label{quasistatic-vs-dynamic}
+In the quasistatic hysteresis curve presented in
+Figure~\ref{medium-hysteresis-static-0p01-d1p037}, the model was
+loaded at a rate of $\dot{\epsilon}=0.01$ Hz for 8.5~s to a total
+strain of 0.085, and then subsequently unloaded at the same rate back
+to 0 strain in another 8.5~s. This discontinuous (in time) velocity
+boundary condition for the fluid is acceptable for the quasistatic
+calculation. When compared to the hysteresis result arising from the
+dynamic calculation loaded and unloaded at the same average strain
+rate,\footnote{Since the uniform load-unload displacement condition
+  prescribed for the quasistatic calculation (termed the {\em triangular
+    load}) is insufficiently smooth in time, the dynamic calculations
+  are instead subjected to a load-unload displacement that takes the
+  shape of a cosine curve. This displacement condition reaches the
+  same maximum strain and unloads to no strain at the same times as
+  the triangular load, but maintains the necessary smoothness in the
+  velocity fields to allow the dynamic calculations.}
+Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}, it is clear once
+more that the quasistatic calculation lacks the characteristic
+oscillations arising from pressure wave propagation in the fluid in
+the dynamic calculation. Observe also that beyond a certain strain,
+the solid is stiff enough to overcome the oscillatory effects arising
+from the fluid flow.
+
+When this average strain rate is decreased to $\dot{\epsilon} = 0.001$
+Hz, (1/10$^\mathrm{th}$ the rate of the preceding calculation), the
+relative velocity between the phases correspondingly decreases,
+resulting in reduced dissipation and area under the hysteresis curve
+(see Figure~\ref{medium-hysteresis-dynamic-0p001-d1p037}). In other
+words, this slower process proceeds closer to thermodynamic
+equilibrium. In an analogous comparison, when the average strain rate
+is maintained at $\dot{\epsilon} = 0.01$ Hz, but the magnitude of the
+frictional coefficient tensor is increased by a factor of 10 to
+$D=1.037$ MPa.s.mm$^{-2}$, it is observed that the dynamic effects of
+the fluid flow are much more prominent (as observed in
+Figure~\ref{medium-hysteresis-dynamic-0p01-d10p37}). This is because
+the comparable strain rates ensure similar relative velocity between
+the phases (in the calculations corresponding to
+Figures~\ref{medium-hysteresis-dynamic-0p01-d1p037} and
+\ref{medium-hysteresis-dynamic-0p01-d10p37}), but the frictional
+interaction between the fluid and solid phases has now scaled by this
+factor of 10.
+
+The results presented in this section demonstrate aspects of the
+experimentally observed mechanical response of the explanted ligaments
+subjected to cyclic loads seen in
+Figure~\ref{explanted-ligament}. Finally, the biphasic poroelastic
+results presented in this section are compared to the purely linear
+viscoelastic model introduced in the preceding section. As before, the
+viscoelastic material has a characteristic relaxation time
+$\tau=0.3$~s and strain-energy factor $\beta=0.5$. This model was
+loaded at a rate of $\dot{\epsilon}=0.01$ Hz for 8.5~s to a total
+strain of 0.085, and then subsequently unloaded at the same rate back
+to 0 strain in another 8.5~s. The resulting stress-strain curve is
+shown in Figure~\ref{medium-hysteresis-visco-0p01-t0p3}. When
+comparing it to Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}, we
+find as we did before that, stemming from initial frictional
+interaction between the phases, the poroelastic case starts out stiffer,
+and the viscoelastic model fails to capture the dynamic effects
+arising from the fluid flow.
+
+%% All the calculations presented in Section~\ref{} have used the same
+%% material constants resulting in the same general shape and
+%% stress-strain ranges of the results. This can be, and has been,
+%% tweaked to fit other sorts of curves changing both ranges and shapes
+%% by tweaking the Mooney-Rivlin constants.
+
+\clearpage
 
 \begin{figure}[!hptb]
 \centering
@@ -604,32 +691,16 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-static-0p01-d1p037}
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d1p037}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
+\caption{Dynamic poroelastic model, mean $\dot{\epsilon}=0.01$ Hz, $D=1.037$
   MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-dynamic-0p01-d1p037}
 \end{figure}
-
-\textbullet\ Note that the fluid-sloshy-effects go away during the
-higher strain ranges where the solid is substantially stiffer.
-
-\subsubsection{Changing load-rates and friction coefficients}
-\label{load-rates-and-friction-coefficients}
-
-\textbullet\ We now proceed to change the load rates/friction
-coefficients in order to observe effects. Clearly, slower tests tend
-the process toward equilibrium and it tends to become elastic,
-reducing the dissipation and area under the curve.
-
-\textbullet\ With the fluid (relative) velocities fixed (by the
-boundary conditions), increasing
-the frictional coefficient 10-fold increases the effects of the
-fluid-sloshing dynamics substantially.
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p001-d1p037}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.001$ Hz, $D=1.037$
+\caption{Dynamic poroelastic model, mean $\dot{\epsilon}=0.001$ Hz, $D=1.037$
   MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-dynamic-0p001-d1p037}
 \end{figure}
@@ -638,19 +709,10 @@ eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p001-d1p037}
 \centering
 \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
 eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d10p37}
-\caption{Dynamic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=10.37$
+\caption{Dynamic poroelastic model, mean $\dot{\epsilon}=0.01$ Hz, $D=10.37$
   MPa.s.mm$^{-2}$.}
 \label{medium-hysteresis-dynamic-0p01-d10p37}
 \end{figure}
-
-\subsubsection{Comparison with representative linear viscoelastic
-  curves}
-\label{viscoelastic-hysteresis}
-
-And, to compare, here are two plots (one for each set of material
-properties) using a linear viscoelastic model. Clearly, the visco case
-misses the noisyness arising from fluid-sloshing which the poro case
-captures. Therefore, combinations must be explored.
 
 \begin{figure}[!hptb]
 \centering
@@ -660,12 +722,6 @@ eulerian/pulling/plots/visco-elastic/medium-hysteresis-visco-0p01-t0p3}
   $\tau=0.3$ s.}
 \label{medium-hysteresis-visco-0p01-t0p3}
 \end{figure}
-
-%% Just note that the stress and strain ranges, as well as the general
-%% shapes of the curves can be changed in a straightforward manner by
-%% tweaking the Mooney-Rivlin constants.
-
-\clearpage
 
 \section{Tumour growth}
 \label{tumour-growth}
