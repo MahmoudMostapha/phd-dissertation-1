@@ -1,59 +1,5 @@
-\chapter{Supplementary considerations}
+\chapter{Supplementary topics}
 \label{supplementary-considerations}
-
-%% \section{Source balance and the law of mass action}
-%% \label{law-of-mass-action}
-
-%% The conversion of precursors to tissue and the reverse process of
-%% its breakdown are governed by a series of chemical reactions. The
-%% stoichiometry of these reactions varies in a limited range.
-%% Continuing in the simple vein adopted above, it is assumed that
-%% the formation of tissue and byproducts from precursors, and the
-%% breakdown of tissue, are governed by the forward and reverse
-%% directions of a single reaction:
-%% \begin{equation}
-%% \sum\limits_{\iota=\alpha}^{\omega} n_\iota[\iota] \longrightarrow
-%% [\mathrm{s}]. \label{chemreac}
-%% \end{equation}
-
-%% \noindent Here, $n_\iota$ is the (possibly fractional) number of
-%% moles of species $\iota$ in the reaction. For a tissue precursor,
-%% $n_\iota > 0$, and for a byproduct, $n_\iota < 0$. By the Law of
-%% Mass Action for this reaction, the rate of the forward reaction
-%% (number of moles of $\mathrm{s}$ produced per unit time, per unit
-%% volume in $\Omega_0$) is
-%% $k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
-%% [\rho_0^\iota]^{n_\iota}$, where $\prod$ on the right hand-side
-%% denotes a product, not to be confused with the source, $\Pi$. The
-%% rate of the reverse reaction (number of moles of $\mathrm{s}$
-%% consumed per unit time, per unit volume in $\Omega_0$) is
-%% $k_\mathrm{r}[\rho_0^\mathrm{s}]$, where $k_f$ and $k_r$ are the
-%% corresponding reaction rates. Assuming, for the purpose of this
-%% example, that the solid phase is a single compound, let the
-%% molecular weight of $\mathrm{s}$ be $\sM_\mathrm{s}$. From the
-%% above arguments the source term for $\mathrm{s}$ is
-%% \begin{equation}
-%% \Pi^\mathrm{s} =
-%% \left(k_\mathrm{f}\prod\limits_{\iota=\alpha}^\omega
-%% [\rho_0^\iota]^{n_\iota} -
-%% k_\mathrm{r}[\rho_0^\mathrm{s}]\right)\sM_\mathrm{s},
-%% \label{sourceA}
-%% \end{equation}
-
-%% \noindent Since the formation of one mole of $\mathrm{s}$ requires
-%% consumption of $n_\iota$ moles of $\iota$, we have
-%% \begin{equation}
-%% \Pi^\iota =
-%% -\left(k_\mathrm{f}\prod\limits_{\vartheta=\alpha}^\omega
-%% [\rho_0^\vartheta]^{n_\vartheta} -
-%% k_\mathrm{r}[\mathrm{s}]\right)n_\iota\sM_\iota, \label{sourceI}
-%% \end{equation}
-
-%% \noindent where $\sM_\iota$ is the molecular weight of species
-%% $\iota$. Since, due to conservation of mass, $\sM_\mathrm{s} =
-%% \sum\limits_{\iota=\alpha}^\omega n^\iota\sM_\iota$ the sources
-%% satisfy $\sum\limits_{\iota=\mathrm{s},\alpha}^\omega \Pi^\iota =
-%% 0$.
 
 \section{Frame invariance and the contribution from acceleration}
 \label{acceleration-objectivity}
@@ -88,84 +34,11 @@ and the term has been dropped in \mbox{Equation (\ref{fluidflux})}.
 
 %% \todo{Cite Einstein's general relativity here.}
 
-\section{Transport of a the fluid species: the example of an ideal
-  fluid}
-\label{ideal-fluid-transport}
-
-Consider the stress divergence term
-$\bF^\mathrm{T}\Bnabla\cdot\bP^\iota$. An elementary calculation
-gives
-\begin{equation}
-\bF^\mathrm{T}\Bnabla\cdot\bP^\iota =
-\Bnabla\cdot\left(\bF^\mathrm{T}\bP^\iota\right) -
-\Bnabla\bF^\mathrm{T}\colon\bP^\iota. \label{stressdivI}
-\end{equation}
-
-\noindent In indicial form, where lower/upper case indices are for
-components of quantities in the current/reference configuration
-respectively, this relation is
-\begin{displaymath}
-F_{iK}P^\iota_{iJ,J} = \left(F_{iK}P^\iota_{iJ}\right)_{,J} -
-F_{iK,J}P^\iota_{iJ}.
-\end{displaymath}
-
-\noindent For an ideal fluid, supporting only an isotropic Cauchy
-stress, $p\bone$, we have $\bP^\mathrm{f} =
-\mathrm{det}(\bF)p\bF^{-\mathrm{T}}$, where $p$ is positive in
-tension. The arguments that follow assume this case. (The more
-general case of a non-ideal, viscous fluid will merely have
-additional terms from the viscous Cauchy stress.) The stress
-divergence term is
-\begin{equation}
-\bF^\mathrm{T}\Bnabla\cdot\bP^\mathrm{f} =
-\Bnabla\left(\mathrm{det}(\bF)p\right) -
-\Bnabla\bF^\mathrm{T}\colon\bF^{-\mathrm{T}}\mathrm{det}(\bF)p,
-\end{equation}
-
-\noindent demonstrating the appearance of a hydrostatic
-stress-driven contribution to $\sF^\mathrm{f}$. This
-is Darcy's Law for transport of a fluid down a pressure gradient.
-
-For the special case of a compressible, ideal fluid we have
-$e^\mathrm{f} =
-\bar{e}^\mathrm{f}(\eta^\mathrm{f},\bar{\rho}^\mathrm{f})$; i.e.,
-the fluid stores strain energy as a function of its \emph{current,
-intrinsic} density. Fluid saturation conditions hold in biological
-tissue, for which case the fluid volume fraction, $f^\mathrm{f}$,
-is simply the pore volume fraction. Recall from Section
-\ref{sect2} that the individual species deform with the common
-deformation gradient $\bF$. Therefore the pores deform
-\emph{homogeneously} with the surrounding solid phase. Physically
-this corresponds to the pore size being smaller than the scale at
-which the homogenization assumption of a continuum theory holds.
-Momentarily ignoring changes in reference concentration of the
-fluid, we have $\bF^{\mathrm{e}^\mathrm{f}} = \bF$.  Then, since
-$\rho^\mathrm{f}_0 = \bar{\rho}^\mathrm{f}_0 f^\mathrm{f}$, we can
-write $\hat{e}^\mathrm{f}(\bF,\eta^\mathrm{f},\rho^\mathrm{f}_0) =
-\hat{e}^\mathrm{f}(\bF,\eta^\mathrm{f},\bar{\rho}^\mathrm{f}_0
-f^\mathrm{f}) =
-\bar{e}^\mathrm{f}(\eta^\mathrm{f},\bar{\rho}^\mathrm{f}_0/\mathrm{det}\bF)=
-\bar{e}^\mathrm{f}(\eta^\mathrm{f},\bar{\rho}^\mathrm{f})$. In
-this case a simple calculation shows that the hydrostatic pressure
-is
-\begin{displaymath}
-p =
--\frac{\bar{\rho}^\mathrm{f}}{\mathrm{det}(\bF)}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}},
-\end{displaymath}
-
-\noindent and the stress divergence term is
-\begin{displaymath}
-\bF^\mathrm{T}\Bnabla\cdot\bP^\mathrm{f} =
--\Bnabla\left(\bar{\rho}^\mathrm{f}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}}\right)
-+
-\Bnabla\bF^\mathrm{T}\colon\bF^{-\mathrm{T}}\bar{\rho}^\mathrm{f}\frac{\partial\bar{e}^\mathrm{f}}{\partial\bar{\rho}^\mathrm{f}}.
-\end{displaymath}
-
 \section{Stabilisation of the simplified solute transport equation}
 \label{stabilisation-solute-transport}
 
-In weak form, the SUPG-stabilised method for
-Equation~(\ref{morestdform}) is
+In weak form, the SUPG-stabilised method \citep{Paper6} for
+Equation~(\ref{morestdform}) is,
 
 \begin{equation}
 \begin{split}
@@ -177,19 +50,21 @@ Equation~(\ref{morestdform}) is
   \left[w^{\mathrm{h}}\right] \cdot \bar{\bD^\mathrm{s}} \mathrm{grad}
   \left[ \rho^{\mathrm{s}^{h}}\right] \right)\ d\Omega\\ +&
   \sum_{\mathrm{e}=1}^{\mathrm{n_{el}}} \int_{\Omega_{\mathrm{e}}}
-  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad} \left[w^{\mathrm{h}}\right] \left(
+  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad}
+  \left[w^{\mathrm{h}}\right] \left(
   \frac{\mathrm{d}\rho^{\mathrm{s}^{h}}}{\mathrm{d}t} +
   \bm^f\cdot\mathrm{grad}\left[\frac{
       \rho^{\mathrm{s}^{h}}}{\rho^f}\right] \right) \ d\Omega\\ -&
   \sum_{\mathrm{e}=1}^{\mathrm{n_{el}}} \int_{\Omega_{\mathrm{e}}}
-  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad} \left[w^{\mathrm{h}}\right]
+  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad}
+  \left[w^{\mathrm{h}}\right]
   \left(\mathrm{div}\left[\bar{\bD^\mathrm{s}}\ \mathrm{grad} \left[
       \rho^{\mathrm{s}^{h}}\right]\right]\right) \ d\Omega\\ = &
   \int_{\Omega} w^{\mathrm{h}} \pi^\mathrm{s} \ d\Omega +
   \int_{\Gamma_{\mathrm{h}}} w^{\mathrm{h}} h \ d\Gamma\\ +&
   \sum_{\mathrm{e}=1}^{\mathrm{n_{el}}} \int_{\Omega_{\mathrm{e}}}
-  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad} \left[w^{\mathrm{h}}\right]
-  \pi^\mathrm{s} \ d\Omega,
+  \tau \frac{\bm^{f}}{\rho^f} \cdot \mathrm{grad}
+  \left[w^{\mathrm{h}}\right] \pi^\mathrm{s} \ d\Omega,
 \label{stabilizedmassbal}
 \end{split}
 \end{equation}
@@ -197,10 +72,9 @@ Equation~(\ref{morestdform}) is
 \noindent where quantities with the superscript $\mathrm{h}$ represent
 finite-di\-men\-sion\-al approximations of infinite-dimensional field
 variables, $\Gamma_{\mathrm{h}}$ is the Neumann boundary, and this
-equation introduces a numerical stabilisation parameter $\tau$, which
-we have calculated from the $\mathrm{L}_{2}$ norms of element level
-matrices, as described in
-\cite{tezduyarsupg}.
+equation introduces a numerical stabilisation parameter, $\tau$, which
+we calculate from the $\mathrm{L}_{2}$~norms of element level
+matrices, as described in \cite{tezduyarsupg}.
 
 
 %
