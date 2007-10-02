@@ -23,25 +23,28 @@ overview of the topics considered in the remainder of the Dissertation
 \section{Background and motivation}
 \label{background}
 
-\textbullet\ This is what growth is and these are the sorts of things
-that affect it. (e.g. fig). Describe the current state of the field.
-
 \emph{Growth} involves the addition or depletion of mass in biological
 tissue. Growth occurs in combination with
 \emph{remodelling}, which is a change in microstructure, and possibly
 with \emph{morphogenesis}, which is a change in form in the embryonic
 state. The physics of these processes are quite distinct, and for
-modelling purposes can, and must, be separated. Our previous work
-\citep{growthpaper}, upon which we now seek to build, drew in some
-measure from \citet{CowinHegedus:76, EpsteinMaugin:2000}, and
-\citet{TaberHumphrey:2001}, and was focused upon a comprehensive
-account of the coupling between transport and mechanics. The origins
-of this coupling were traced to the balance equations, kinematics and
-constitutive relations. A major contribution of that work was the
-identification and discussion of several driving forces for transport
-that are thermodynamically-consistent, in the sense that specification
-of these relations does not violate the Clausius-Duhem dissipation
-inequality. 
+modelling purposes can, and must, be separated.
+
+\textbullet\ We're working on a continuum scale because we believe it provides a
+reasonable setting for fairly detailed bvp solving without being
+bogged down by too much inner detail. The inner detail can be complex
+(cite jacks) but they can all be abstracted into a general setting
+once the superstructure is fleshed out.
+
+Virtually all biological tissue consists of a solid and fluid
+phase and can be treated in the context of mixture theory
+\citep{TruesdellToupin:60,TruesdellNoll:65,BedfordDrumheller:1983}.
+When growth is of interest, additional species (reactants and
+byproducts) must be considered as outlined above.
+
+ Additionally,
+this is a continuum treatment at a macroscopic scale, rather than at a
+cellular or sub-cellular leve.l
 
 Recognising the complexity of the system presented (that it is open
 with respect to mass and energy, and contains numerous species which
@@ -160,16 +163,6 @@ intimately tied to the biology of growth. (mech is rich in itself fig)
 \label{tendon-cyclic-load}
 \end{figure}
 
-\textbullet\ We're working on a continuum scale because we believe it provides a
-reasonable setting for fairly detailed bvp solving without being
-bogged down by too much inner detail. The inner detail can be complex
-(cite jacks) but they can all be abstracted into a general setting
-once the superstructure is fleshed out.
-
- Additionally,
-this is a continuum treatment at a macroscopic scale, rather than at a
-cellular or sub-cellular leve.l
-
 \section{Goals and scope}
 \label{goals}
 
@@ -208,6 +201,18 @@ within our description of mass transport in a subsequent paper.
 \textbullet\ Our first take, 5 years ago, stemmed from classical theories for
 the mechanics of solids. Chapter 2 discusses this approach and Chapter
 3 computes with it.
+
+ Our previous work
+\citep{growthpaper}, upon which we now seek to build, drew in some
+measure from \citet{CowinHegedus:76, EpsteinMaugin:2000}, and
+\citet{TaberHumphrey:2001}, and was focused upon a comprehensive
+account of the coupling between transport and mechanics. The origins
+of this coupling were traced to the balance equations, kinematics and
+constitutive relations. A major contribution of that work was the
+identification and discussion of several driving forces for transport
+that are thermodynamically-consistent, in the sense that specification
+of these relations does not violate the Clausius-Duhem dissipation
+inequality. 
 
 \textbullet\ Talk about the contributions of this approach.
 
@@ -350,11 +355,7 @@ interesting.
 %% observed during homeostatic tissue growth, we will ignore
 %% transport of the solid phase of the tissue.
 
-%% Virtually all biological tissue consists of a solid and fluid
-%% phase and can be treated in the context of mixture theory
-%% \citep{TruesdellToupin:60,TruesdellNoll:65,BedfordDrumheller:1983}.
-%% When growth is of interest, additional species (reactants and
-%% byproducts) must be considered as outlined above. The solid phase
+%% The solid phase
 %% is an anisotropic composite that is inhomogeneous at microscopic
 %% and macroscopic scales. The fluid, being mostly water, may be
 %% modelled as incompressible, or compressible with a very large bulk

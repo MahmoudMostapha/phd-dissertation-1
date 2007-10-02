@@ -1,39 +1,67 @@
 \chapter{Review of mathematical results}
 \label{additional-proofs}
 
+The following sections catalog some classical mathematical results
+that have been frequently called-upon during the course of the
+development of the theoretical formulation in
+Chapters~\ref{lagrangian-perspective} and
+\ref{eulerian-perspective}.\footnote{The material presented in
+  Appendix~\ref{additional-proofs} is covered under the GNU Free
+  Documentation License (See \href{http://www.gnu.org/copyleft/}
+  {http://www.gnu.org/copyleft/}). This affords the reader the freedom
+  to copy and redistribute the matter with or without modification,
+  either commercially or noncommercially.}
+
 \section{Gauss-Greens' divergence theorem}
 \label{gauss-divergence}
 
-%% \todo{Write this out for the necessary objects, and prove it.}
-
-\begin{theorem}[Theorem]
-Let $\Omega\subset \R^n$ be a bounded open set with $C^1$ boundary, let $\nu_\Omega\colon \partial \Omega\to \R^n$ be the exterior unit normal vector to $\Omega$ in the point $x$ and let $f\colon \overline{\Omega}\to \R^n$ be a vector function in $C^0(\overline\Omega,\R^n)\cap C^1(\Omega,\R^n)$. Then
+Let $\Omega\subset \R^n$ be a bounded open set with $C^1$ boundary,
+let $\Bnu_\Omega\colon \partial \Omega\to \R^n$ be the exterior unit
+normal vector to $\Omega$ in the point $x$ and let $\bv\colon
+\overline{\Omega}\to \R^n$ be a vector function in
+$C^0(\overline\Omega,\R^n)\cap C^1(\Omega,\R^n)$. Then
 \[
-\int_\Omega \mathrm{div} f(x)\, dx
-=\int_{\partial \Omega} \langle f(x),\nu_\Omega(x)\rangle \, d\sigma(x).
+\int_\Omega \mathrm{div} \bv(x)\, dx =\int_{\partial \Omega} \langle
+\bv(x),\Bnu_\Omega(x)\rangle \, d\sigma(x).
 \]
-\end{theorem}
 
-Some remarks on notation.
-The operator $\mathrm{div} f$ is the divergence of the vector field $f$, which is sometimes written as $\nabla \cdot f$.
-In the right-hand side we have a surface integral, $d\sigma$ is the corresponding area measure on $\partial \Omega$.
-The scalar product in the second integral is sometimes written as $f_n(x)$
-and represents the \emph{normal component} of $f$ with respect to $\partial \Omega$; hence the whole integral represents the \emph{flux} of the vector field $f$ through $\partial \Omega$;
+Here, the operator $\mathrm{div} \bv$ is the
+divergence of the vector field $\bv$, which is sometimes written as
+$\nabla \cdot \bv$.  In the right-hand side we have a surface integral,
+$d\sigma$ is the corresponding area measure on $\partial \Omega$.  The
+scalar product in the second integral is sometimes written as $\bv_n(x)$
+and represents the \emph{normal component} of $\bv$ with respect to
+$\partial \Omega$; hence the whole integral represents the \emph{flux}
+of the vector field $\bv$ through $\partial \Omega$.
 
-This theorem can be easily extended to \emph{piecewise} regular domains.
-However the more general statement of this Theorem involves the theory of \emph{perimeters} and $BV$ functions.
+The theorem as stated for the vector function $\bv$ can be extended to
+the forms below:
+
+\begin{equation*}
+\int_\Omega \mathrm{grad} \bv(x)\, dx =\int_{\partial \Omega} 
+\bv(x)\otimes \Bnu_\Omega(x) \, d\sigma(x),\ \phantom{\mathrm{and}}
+\end{equation*}
+
+\begin{equation*}
+\int_\Omega \mathrm{curl} \bv(x)\, dx =\int_{\partial \Omega} 
+\bv(x)\times \Bnu_\Omega(x) \, d\sigma(x),\ \mathrm{and}
+\end{equation*}
+
+\begin{equation*}
+\int_\Omega \mathrm{div} \bT(x)\, dx =\int_{\partial \Omega} 
+\bT(x)\ \Bnu_\Omega(x) \, d\sigma(x),
+\end{equation*}
+
+\noindent where  $\bT\colon\R^n \to \R^n$ is a tensor function.
 
 \section{Reynolds' transport theorem}
 \label{reynolds-transport}
 
-%% \todo{Make this notationally consistent with the rest of the
-%%   document. Transport theorem is a generalisation of Liebniz rule.}
-
 \paragraph{Introduction}
-{\em Reynolds transport theorem} \citep{Reynolds:1903} is a fundamental
-theorem used in formulating the basic laws of fluid mechanics. For our
-purpose, let us consider a fluid flow, characterized by its
-streamlines, in the Euclidean vector space
+{\em Reynolds' transport theorem} \citep{Reynolds:1903} is a
+fundamental theorem used in formulating the basic laws of fluid
+mechanics. For our purpose, let us consider a fluid flow,
+characterised by its streamlines, in the Euclidean vector space
 $(\mathbb{R}^3,\lVert\cdot\rVert)$ and embedded on it we consider, a
 continuum body $\mathscr{B}$ occupying a volume $\mathscr{V}$ whose
 particles are fixed by their material (Lagrangian) coordinates
@@ -42,29 +70,41 @@ is defined whose points are fixed by it spatial (Eulerian) coordinates
 $\mathbf{x}$ and bounded by the control surface
 $\partial\mathfrak{v}$. An arbitrary tensor field of any rank is
 defined over the fluid flow according to the following definition.
+
 \begin{definition*} We call an {\em extensive tensor property} to the expression
 \begin{align}
 \Psi(\mathbf{x},t):=
 \int_{\mathfrak{v}}\psi(\mathbf{x},t)\rho(\mathbf{x},t)dv,
 \end{align}
-where $\psi(\mathbf{x},t)$ is the respective {\em intensive tensor property}.
+where $\psi(\mathbf{x},t)$ is the respective {\em intensive tensor
+  property}.
 \end{definition*}
 \paragraph{Theorem's hypothesis}
-The kinematics of the continuum can be described by a diffeomorphism $\chi$ which, at any given instant $t\in [0,\infty)\subset\mathbb{R}$, gives the spatial coordinates $\mathbf{x}$ of the material particle $\mathbf{X}$,
+The kinematics of the continuum can be described by a diffeomorphism
+$\chi$ which, at any given instant $t\in [0,\infty)\subset\mathbb{R}$,
+  gives the spatial coordinates $\mathbf{x}$ of the material particle
+  $\mathbf{X}$,
 \begin{align*}
-\mathscr{V}\times[0,\infty)\rightarrow \mathfrak{v}\times[0,\infty), \qquad
-t \mapsto t, \qquad \mathbf{X}\mapsto\mathbf{x}=\chi(\mathbf{X},t).
+\mathscr{V}\times[0,\infty)\rightarrow \mathfrak{v}\times[0,\infty),
+    \qquad t \mapsto t, \qquad
+    \mathbf{X}\mapsto\mathbf{x}=\chi(\mathbf{X},t).
 \end{align*}
-Indeed the above sentence corresponds to a change of coordinates which must verify
+Indeed the above sentence corresponds to a change of coordinates which
+must verify
 \begin{align*}
 J=\bigg\vert\frac{\partial{x}_i}{\partial{X}_j}\bigg\vert\equiv
 \big\vert{F_{ij}}\big\vert\neq{0}, \qquad
 F_{ij}:=\frac{\partial{x}_i}{\partial{X}_j},
 \end{align*}
-$J$ being the Jacobian of transformation and $F_{ij}$ the Cartesian components of the so-called {\em strain gradient tensor} $\mathbf{F}$.
-\begin{theorem*}
-The material rate of an extensive tensor property associate to a continuum body $\mathscr{B}$ is equal to the local rate of such property in a control volume $\mathfrak{v}$ plus the efflux of the respective intensive property across its control surface $\partial\mathfrak{v}$.
-\end{theorem*}
+$J$ being the Jacobian of transformation and $F_{ij}$ the Cartesian
+components of the so-called {\em strain gradient tensor} $\mathbf{F}$.
+
+{\bf Theorem$\quad$} The material rate of an extensive tensor property
+associate to a continuum body $\mathscr{B}$ is equal to the local rate
+of such property in a control volume $\mathfrak{v}$ plus the efflux of
+the respective intensive property across its control surface
+$\partial\mathfrak{v}$.
+
 \begin{proof}
 By taking on Eq.(1) the material time derivative,
 \begin{align*}
@@ -75,13 +115,13 @@ By taking on Eq.(1) the material time derivative,
 \end{align*}
 \begin{align*}
 \int_{\mathscr{V}}\Big\{J\Big[\frac{\partial}{\partial{t}}(\psi\rho)+
-\mathbf{v}\!\cdot\!\nabla_x(\psi\rho)\Big]+
+  \mathbf{v}\!\cdot\!\nabla_x(\psi\rho)\Big]+
 \psi\rho\;(J\nabla_x\!\cdot\!\mathbf{v})\Big\}dV=
 \end{align*}
 \begin{align*}
 \int_{\mathscr{V}}\Big\{\Big[\frac{\partial}{\partial{t}}(\psi\rho)\Big]
 +\big[\mathbf{v}\!\cdot\!\nabla_x(\psi\rho)+
-(\psi\rho)\nabla_x\!\cdot\!\mathbf{v}\big]\Big\}(JdV)
+  (\psi\rho)\nabla_x\!\cdot\!\mathbf{v}\big]\Big\}(JdV)
 \end{align*}
 \begin{align*}
 =\int_{\mathfrak{v}}\frac{\partial}{\partial{t}}(\psi\rho)dv+
@@ -89,10 +129,18 @@ By taking on Eq.(1) the material time derivative,
 \frac{\partial}{\partial{t}}\int_{\mathfrak{v}}\psi\rho\,dv+
 \int_{\partial\mathfrak{v}}\psi\rho\,\mathbf{v}\!\cdot\!\mathbf{n}\,da,
 \end{align*}
-since $\partial_t(dv)=0$ ($\mathbf{x}$ fixed) on the first integral and by applying the Gauss-Green divergence theorem on the second integral at the left-hand side. Finally, by substituting Eq.(1) on the first integral at the right-hand side, we obtain
+since $\partial_t(dv)=0$ ($\mathbf{x}$ fixed) on the first integral
+and by applying the Gauss-Green's divergence theorem on the second
+integral at the left-hand side. Finally, by substituting Eq.(1) on the
+first integral at the right-hand side, we obtain
 \begin{align}
 \dot{\Psi}=\frac{\partial\Psi}{\partial{t}}+
 \int_{\partial\mathfrak{v}}\psi\rho\,\mathbf{v}\!\cdot\!\mathbf{n}\,da,
 \end{align}
 endorsing the theorem statement.
 \end{proof}
+
+%% \todo{Prove the divergnce theorem.}
+
+%% \todo{Make this notationally consistent with the rest of the
+%%   document. Transport theorem is a generalisation of Liebniz rule.}
