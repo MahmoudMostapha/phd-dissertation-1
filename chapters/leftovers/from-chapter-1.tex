@@ -1,0 +1,148 @@
+%% \section{Specific goals}
+%% \label{specific_goals}
+
+%% \section{Background and motivation}
+%% \label{back_motivate}
+
+%% The processes involved in the development of biological tissue, though
+%% numerous and involving several cascades of complex interactions, are
+%% generally broken down into the distinct processes of {\em growth},
+%% {\em remodelling}, and {\em morphogenesis} in biomechanics literature
+%% \cite{Taber:95}. This present work treats these 
+%% processes as mathematically independent and its focus, growth, is
+%% defined to be an addition\footnote{Or depletion, if one is dealing
+%%   with the converse process of {\em resorption}.} of mass through the
+%% processes of mass transport and biochemical reactions.
+
+%% In the context of biological growth, the notion of a mass source was
+%% first introduced in \cite{CowinHegedus:76}. The notion of a mass flux
+%% is a more recent introduction \cite{EpsteinMaugin:2000}, but this work
+%% regarded fluxes purely as irreversible fluxes of momentum and
+%% entropy. In \cite{KuhlSteinmann:02}, configurational forces motivate
+%% mass flux where the transported species is the same material as the tissue
+%% itself.  These few cited examples of previous work are just a subset
+%% of a large body of theoretical and computational literature in this
+%% area. But, while the details vary, the body of literature represented
+%% by these works is largely based upon a single species undergoing
+%% transport and being produced/annihilated.
+
+
+%% These issues are treated in detail in relevant sections of the paper,
+%% which is laid out as follows: Balance equations and kinematics are
+%% discussed in Section~\ref{sec:2}, constitutive relations for
+%% reactions, transport and mechanics in Section \ref{sec:3}, and
+%% numerical examples are presented in Section
+%% \ref{numericalimplementation}. Conclusions are drawn in
+%% Section~\ref{sec:5}.
+
+%% % \hrule
+
+ %% Finally, Appendix~\ref{model-parameters} houses much of
+%% the detail regarding material modelling choices and parameters
+%% pertinent to the numerical experiments presented herein. In instances
+%% where there were non-trivial parametric studies involved before
+%% arriving at a set of reasonable parameters, they have been
+%% highlighted.
+
+%% The present paper is aimed at a complete treatment of mass
+%% transport, coupled with mechanics, for the growth problem. Initial
+%% sections (Sections \ref{sect2}--\ref{sect3bis}) treat the balance
+%% of mass, balance of linear and angular momenta, the forms of the
+%% First and Second Laws for this problem, and kinematics of growth,
+%% respectively. The Clausius-Duhem inequality and its implications
+%% for constitutive relations are the subject of Section \ref{sect5}.
+%% Examples are provided as appropriate to illustrate the important
+%% results. A preliminary numerical example appears in Section
+%% \ref{sect6}. A discussion and conclusion are provided in Section
+%% \ref{sect7}.
+
+%% Below, we briefly introduce each aspect that we have
+%% considered, but postpone details until relevant sections in the paper.
+
+%% \begin{itemize}
+
+%% \item[\textbullet] The state of saturation is crucial in determining
+%%   whether the tissue swells or shrinks with infusion/expulsion of
+%%   fluid. This aspect has been introduced into the formulation.
+
+%% \item[\textbullet] The fluid phase, whether slightly compressible or
+%%   incompressible, can develop compressive stress without
+%%   bound. However, it can develop at most a small tensile stress
+%%   \citep{cavitationchris}, having implications for the stiffness of
+%%   the tissue in tension as against compression. Although 
+%%   this also has implications for void formation through cavitation,
+%%   the ambient pressure in the tissue under normal physiological
+%%   conditions ensures that this manifests itself only as a reduction in
+%%   compressive pressure.
+
+%% \item[\textbullet] When modelling transport, it is common to assume
+%%   Fickean diffusion \citep{KuhlSteinmann:02}. This implies the
+%%   existence of a mixing entropy due to the configurations available to
+%%   molecules of the diffusing species at fixed values of the
+%%   macroscopic concentration. The state of fluid saturation directly
+%%   influences its mixing entropy.
+
+%% \item[\textbullet] If fluid saturation is maintained, void formation
+%%   in the pores is disallowed even under an increase in the pores'
+%%   volume. This has implications for the fluid exchanges between a
+%%   deforming tissue and a fluid bath with which it is in contact.
+
+%% \item[\textbullet] Recognising the incompressibility of the fluid
+%%   phase, it is common to treat soft biological tissue as either
+%%   incompressible or nearly-incompressible \citep{Fung:1993}. At the
+%%   scale of the pores (the microscopic scale in this case), however, a
+%%   distinction exists in that the fluid is exactly (or nearly)
+%%   incompressible, while the porous solid network is not obviously
+%%   incompressible.
+
+%% \item[\textbullet] In \citet{growthpaper}, the acceleration of the
+%%   solid phase was included as a driving force in the constitutive
+%%   relation for the flux of other phases. However, acceleration is not
+%%   frame-invariant and its use in constitutive relations is
+%%   inappropriate.
+
+%% \item[\textbullet] Chemical solutes in the extra-cellular fluid are
+%%   advected by the fluid velocity and additionally undergo transport
+%%   under a chemical potential gradient relative to the fluid. In the
+%%   hyperbolic limit, where advection dominates, spatial instabilities
+%%   emerge in numerical solutions of these transport equations
+%%   \citep{Brooks:82, Paper6}. Numerical stabilisation of the equations
+%%   is intimately tied to the mathematical representation of fluid
+%%   incompressibility.
+
+%% In a simplification that avoided the complexity of mixture theory
+%% or porous media, \cite{CowinHegedus:76} accounted for the fluid
+%% phase via irreversible sources and fluxes of momentum, energy and
+%% entropy. This approach was also followed by
+%% \cite{EpsteinMaugin:2000} and \cite{KuhlSteinmann:02}. While the
+%% approach followed in the present paper, i.e. derivation of a mass
+%% balance law with mass source and flux, and postulating sources and
+%% fluxes for momentum, energy and entropy, has been attempted
+%% recently by \cite{EpsteinMaugin:2000}, and
+%% \cite{KuhlSteinmann:02}, there are important differences between
+%% those works and our paper. Epstein and Maugin conclude that the
+%% mass flux vanishes unless the internal energy depends upon strain
+%% gradient terms (a second-order theory). This view ignores Fickean
+%% diffusion (where the flux is linearly dependent upon concentration
+%% of the relevant species). Our treatment also results in the
+%% dependence of mass flux upon strain gradient, but without the
+%% requirement of a strain gradient dependence of the internal
+%% energy. Instead, the dissipation inequality motivates a
+%% constitutive relation for the mass flux of each transported
+%% species. When properly formulated in a thermodynamic setting, the
+%% mass flux can be constrained to depend upon the strain/stress
+%% gradient \emph{and} the gradient in concentration (mass per unit
+%% system volume) of the corresponding species. The latter term is
+%% the Fickean contribution to the mass flux. The form obtained is
+%% essentially identical to \cite{DeGrootMazur:1984}.
+
+%% While modelling hard biological tissue, it is common to assume a
+%% Fickean flux, and a mass source that depends upon the strain
+%% energy density \citep{HarriganHamilton:1993}, and therefore upon
+%% the strain. This introduces coupling between mass transport and
+%% mechanics. One possible difficulty with this approach is that one
+%% could conceive of a mass source that satisfies other requirements,
+%% such as the dissipation inequality, but does not depend upon any
+%% mechanical quantities. Strain- or stress-mediated mass transport
+%% would then be absent in the boundary value problems solved with
+%% such a formulation.
