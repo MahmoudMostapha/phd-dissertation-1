@@ -18,11 +18,10 @@ Section~\ref{biphasic-examples-2}, the biphasic model parameters are
 tailored to be more representative of experimental studies on the
 mechanics of engineered ligaments, and aspects of the time- and
 rate-dependent behaviour of the model are explored. The final example
-presented in this chapter 
-provides a straightforward extension of the theory to model the
-effects of the mechanical environment on growing tumours
-(Section~\ref{tumour-growth}), evidencing the generality of the
-proposed formulation.
+presented in this chapter provides a straightforward extension of the
+theory to model the effects of the mechanical environment on growing
+tumours (Section~\ref{tumour-growth}), evidencing the generality of
+the proposed formulation.
 
 \section{Introducing the computational model}
 \label{eu-computational-model}
@@ -710,23 +709,88 @@ eulerian/pulling/plots/visco-elastic/medium-hysteresis-visco-0p01-t0p3}
 \label{medium-hysteresis-visco-0p01-t0p3}
 \end{figure}
 
-\section{Tumour growth}
+\section{Examining the effects of the mechanical environment on the
+  growth of tumours}
 \label{tumour-growth}
 
-\textbullet\ Introduce the general lack of direct experimental
-backing here. And point to the fact that the example will be gradually
-built up from scratch to separate effects.
+This final section presents a preliminary foray into tailoring the
+mathematical formulation developed in Chapter~\ref{eulerian%
+  -perspective} to studying the mechanics of growing tumours. Unlike
+the computations presented in the preceding sections, which
+principally focused on the biphasic mechanics of soft tissues in the
+absence of biochemical interactions between the phases (tissue
+growth), in examples that follow, we will turn our attention to an
+idealisation of growing tumours, and examine the role of the
+mechanical environment on its growth.
 
-\subsection{Isotropic swelling}
+Similar to the approach followed in Section~\ref{simple-physics}, the
+computations presented below serve only to demonstrate aspects of the
+coupled physics underlying the problem, and the actual constitutive
+modelling choices (and corresponding numerical parameters) chosen are
+not intended for direct comparison with experiment. Incorporating more
+realistic modelling choices (such as the use of more sophisticated
+biochemistry involving additional species \citep{tjacks2000}), and the
+ascertainment of corresponding parameters, is a direction for future
+work.
+
+The computations presented in this section are motivated by and aim to
+replicate a fundamental experimental observation: Compressive solid
+stresses along a given direction restricts the in vitro
+growth of tumours along those directions \citep{jain1997}. The
+foundational examples discussed in
+Sections~\ref{tumour-isotropic-swelling}--\ref{cell-transport} focus 
+on different aspects of this confined tumour growth problem and a
+combination of all these phenomena are manifested in the final
+computation presented in Section~\ref{cacophonous-medley}.
+
+The computational model used in this section is primarily comprised of
+the solid collagen making up the extra-cellular matrix (ECM) and
+motile tumour cells.\footnote{We have already studied the effects of
+  the fluid flow on the mechanics in some detail in the preceding
+  sections, and since it is reasonable to assume that motion
+  associated with growing tumours are relatively slow and do not
+  result in significant flow fields, the extra-cellular fluid phase
+  has been ignored in this section.} It is assumed that there is a
+sufficient amount of solute phases, such as nutrients and enzymes, to
+drive the biochemistry that allows the cells produce more ECM, and to
+proliferate. The model geometry, as visualised in
+Figure~\ref{tumour-isotropic-swelling-0} is a semicircle, of radius
+1~cm initially.
+
+\subsection{Kinematic swelling concomitant with growth}
 \label{tumour-isotropic-swelling}
 
-\textbullet\ One of the primary focuses of this work is growth, and this includes
-kinematic swelling. Try to clarify that the cell concentration is
-uniform, and growth is of the collagen network + cells. As a result of
-this uniform cell concentration and growth, the solid tends to swell.
+Initially, the cells have no mechanics associated with themselves. The
+only equation is the mass balance for the ECM, with a source driven
+by current cell presence (everywhere), and the momentum balance for
+the ECM. Both of these are in the reference configuration. We now
+introduce the growth portion of the deformation gradient
 
-\textbullet\ The plots show the radial displacements at two times, and
-the evolution of the area.
+\begin{equation}
+\bF^{\mathrm{g}} = \left(
+\begin{array}{ccc}
+\left(\frac{\rho_0^{\mathrm{c}}}{\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2} & 0 & 0 \\
+0 & \left(\frac{\rho_0^{\mathrm{c}}}{\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2} & 0 \\
+0 & 0 & 1 \end{array}
+ \right)
+\end{equation}
+
+\noindent since we are working under a plain strain assumption.
+
+The boundary conditions involve preventing horizontal movement of the
+vertical edge, and fixing the centre point of that edge. This is just
+to prevent RBM.
+
+$\rho_{0_{\mathrm{ini}}}=1$
+$R=0.001$ massunits/timeunits
+
+The ECM uses the Mooney-Rivlin Model with 0.37 and 0.11 MPa.
+
+As a result of this uniform cell concentration and production of the
+ECM, and the Fg above, the solid tends to swell. The plots show the
+radial displacements at two times, and the evolution of the
+area. Since there is no stress preventing the growth of the solid, it
+just happily swells outwards.
 
 \begin{figure}[!hptb]
 \centering
@@ -1009,9 +1073,20 @@ eulerian/cancer/growing-tumour-5.eps}
 % 2--3 years of refining our understanding and trials with the
 % previous code that's led to this point?
 
-%\subsection{Flow fields under tension}
-%\label{tension-flow} -- Can be moved in with the tension tests
-
+%% Perhaps a bit surprisingly the above body of literature, except for
+%% Ambrosi and Mollica (2002), has steered clear of the application to
+%% cancer, despite the obvious centrality of growth and resorption to the
+%% physical modelling of solid tumors. The preference has been for
+%% healthy and pathological growth of bones, and soft tissue. The
+%% literature on cancer modelling in mathematical biology has focused on
+%% time evolution of populations, while ignoring spatial variations (for
+%% example Kuznetsov et al., 1994; d'Onofrio, 2005). Recently, however,
+%% there has been some work on tumor modelling that has included spatial
+%% variations by accounting for mechanical effects, such as Jackson and
+%% Byrne (2002) and the more recent review on cancer dynamics by Byrne et
+%% al. (2006). These works include a multi-species formulation with
+%% reactions, mass transport and mechanics, and are therefore more
+%% aligned with Garikipati et al. (2004) and Sengers et al. (2004).
 
 %
 
