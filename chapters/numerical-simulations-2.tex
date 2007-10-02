@@ -135,7 +135,7 @@ $\bC^{\mathrm{e}}$), suitably decomposed into volumetric and isochoric
 parts. A mixed displacement-pressure \citep{ZienkTay:89} formulation
 is used to treat the near-incompressibility of the solid phase. Also
 for simplicity, the fluid is assumed to be ideal, i.e. the fluid
-viscosity, $\mu^{\mathrm{f}}=0$.
+viscosity, $\mu^{\mathrm{f}}=0$~Pa.s.
 
 \section{Some simple physical tests}
 \label{simple-physics}
@@ -188,9 +188,9 @@ particular:
     Section~\ref{swelling-1}, which used the notion of the growth
     portion of the deformation gradient of the fluid,
     $\bF^{\mathrm{g}^\mathrm{f}}$, to cause kinematic swelling of the
-    domain, in this example, it is this interaction between the solid
-    and fluid stresses on the boundary that causes the domain to
-    swell.}
+    domain with an increase in fluid concentration, in this example,
+    it is primarily this interaction between the solid and fluid
+    stresses on the boundary that causes the domain to swell.}
 \end{itemize}
 
 In this example, the frictional coefficient tensor, $\bD^{\mathrm{fc}}
@@ -326,9 +326,9 @@ the constriction phase, as observed in the example in Section~\ref%
 As in the previous example, effects from the dynamics were observed in
 this case as well, and an equivalent quasistatic calculation was
 performed for comparison. When the vertical fluid velocity is tracked
-at the centre of the domain for the duration of the test in both these
-cases, it is observed that the dynamic case decays gradually and has
-oscillations (Figure~\ref{velocity-evolution-dynamic}) while the
+at the centre of the top edge for the duration of the test in both
+these cases, it is observed that the dynamic case decays gradually and
+has oscillations (Figure~\ref{velocity-evolution-dynamic}) while the
 quasistatic case reaches a higher magnitude, and decays nearly
 instantaneously without manifesting oscillations
 (Figure~\ref{velocity-evolution-quasistatic}).
@@ -385,8 +385,7 @@ instantaneously without manifesting oscillations
   \centering
   \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
     eulerian/constriction/constrict-vel-drop-dynamic}
-  \caption{Dynamic evolution of the vertical fluid velocity at the
-    centre point.}
+  \caption{Dynamic evolution of the vertical fluid velocity.}
   \label{velocity-evolution-dynamic}
 \end{figure}
 
@@ -394,8 +393,7 @@ instantaneously without manifesting oscillations
   \centering
   \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
     eulerian/constriction/constrict-vel-drop-quasistatic}
-  \caption{Quasistatic evolution of the vertical fluid velocity at the
-    centre point.}
+  \caption{Quasistatic evolution of the vertical fluid velocity.}
   \label{velocity-evolution-quasistatic}
 \end{figure}
 
@@ -419,23 +417,23 @@ In the following examples, the material parameters and model geometry
 are tailored to more closely represent experimental studies on the
 mechanics of engineered ligaments \citep{Syed-Picard:06}. The examples
 focus on the viscoelastic behaviour of these tissues arising primarily
-from frictional interaction between two purely-elastic phases: an
+from frictional interaction between two purely elastic phases: an
 ideal fluid perfusing a porous, hyperelastic solid (as in the
 preceding section). In particular cases, this {\em poroelastic}
 response is compared to analogous results obtained using a
-single-phase linearly viscoelastic solid model (discussed in
+single-phase linear viscoelastic solid model (discussed in
 Section~\ref{eu-viscoelastic-solid}).
 
 Motivated by the experimental work, the model geometry is initially
 12~mm in length and 1.128~mm in width, and has a uniform thickness of
 1.128~mm. The initial concentration of the solid collagen is
 300~kg.m$^{-3}$ and the initial fluid concentration is 700~kg.m$^{-3}$
-at all points in the rectangular domain. The intrinsic densities of
-the solid collagen and fluid phases are both 1000~kg.m$^{-3}$, as
-before. The hyperelastic model for the solid phase uses the
-Mooney-Rivlin strain energy function~(\ref{mooney-rivlin-model}) with
-9 terms, and the values of the corresponding parameters used in the
-analysis are reported in Table~\ref{parameters-explant}.
+at all points in the domain. The intrinsic densities of the solid
+collagen and fluid phases are both 1000~kg.m$^{-3}$, as before. The
+hyperelastic model for the solid phase uses the Mooney-Rivlin strain
+energy function~(\ref{mooney-rivlin-model}) with 9 terms, and the
+values of the corresponding parameters used in the analysis are
+reported in Table~\ref{parameters-explant}.
 
 \begin{table}[!hptb]
   \centering
@@ -465,9 +463,9 @@ response of the explanted ligament\footnote{This tissue is from a
   month as medial collateral ligament replacements in live rats
   \citep{Syed-Picard:06}.} whose mechanical response under repeated
 cyclic loading is shown in Figure~\ref{explanted-ligament}. In
-particular, the hyperelastic material parameters are chosen to fit the
-stress-strain response corresponding to the first load excursion
-(denoted by the blue points).
+particular, the hyperelastic material parameters are chosen to
+approximate the stress-strain response corresponding to the first load
+excursion (denoted by the blue points).
 
 \begin{figure}[!hptb]
   \centering
@@ -518,9 +516,9 @@ loaded at a strain rate of $\dot{\epsilon}=0.01$ Hz to a maximum
 strain of 0.085 in 8.5~s, and then held fixed at that strain for the
 remainder of the test. A large portion of the tensile response is
 furnished by the hyperelastic solid collagen, and the decaying peak in
-the stress is due to the decaying relative velocity between the
+the stress is due to the decaying relative velocity between the two
 phases. Notice that this peak in stress decays rapidly, corresponding
-to the rapidly decaying velocity field in the quasistatic calculation
+to the rapidly decaying velocity field in the quasistatic result shown
 in Figure~\ref{velocity-evolution-quasistatic}.
 
 In order to study the effects of the load rate on the mechanical
@@ -540,20 +538,19 @@ of a model comprising of only one phase: linear viscoelastic solid
 collagen. In this computation, the elastic portion of the response of
 the solid collagen has the same form~(\ref{mooney-rivlin-model}) and
 material properties (Table~\ref{parameters-explant}) as the
-poroelastic case, and has a characteristic relaxation time
-$\tau=0.3$~s and strain-energy factor $\beta=0.5$.\footnote{Refer
+poroelastic case, and has a characteristic relaxation time,
+$\tau=0.3$~s, and strain-energy factor, $\beta=0.5$.\footnote{Refer
   Section~\ref{eu-viscoelastic-solid} for details.} This test is
 carried out at a strain rate of $\dot{\epsilon}=0.02$~Hz for 4.25~s,
-at which point the tissue is held fixed.
-Figure~\ref{visco-stress-relax-0p02-t0p3} shows the corresponding
-stress relaxation, and there are two noticeable differences in the
-results from the poroelastic calculation performed at the same strain
-rate (Figure~\ref{poro-stress-relax-0p02}).  Firstly, stemming from
-the initially high relative velocity between the phases, the
-poroelastic curve starts at a higher stiffness than the viscoelastic
-case. And secondly, the quasistatic nature of the poroelastic
-calculation results in a sharper, more rapidly-decaying peak in
-stress.
+at which point the tissue is held fixed. Figure~\ref{visco-stress%
+  -relax-0p02-t0p3} shows the corresponding stress relaxation, and
+there are two noticeable differences in the results from the
+poroelastic calculation performed at the same strain rate
+(Figure~\ref{poro-stress-relax-0p02}).  Firstly, stemming from the
+initially high relative velocity between the phases, the poroelastic
+curve starts with a higher stiffness than the viscoelastic case. And
+secondly, the quasistatic nature of the poroelastic calculation
+results in a sharper, more rapidly-decaying peak in stress.
 
 \clearpage
 
@@ -599,53 +596,53 @@ fluid to the bath, and therefore the fluid pressure is equated to that
 of the bath, 0~MPa, along those edges.
 
 In all these tests, the model was first loaded to a maximum strain of
-0.085 (to approximate the experimental data presented in Figure~%
-\ref{explanted-ligament}) and subsequently unloaded to no
-strain. Since the numerical experiments so far have suggested conspicuous
-differences between the quasistatic and dynamic solutions, both forms
-of computations have been explored in this section. When the fluid
-flow fields are observed during the course of these load-unload tests,
-it is found that they constantly lag behind the motion of the solid,
-and it is this relative velocity and corresponding frictional
-interaction between the phases that leads to the dissipation
-manifesting itself as the hysteresis loop.
+0.085 (to match the experimental data presented in Figure~\ref%
+{explanted-ligament}) and subsequently unloaded to no strain. Since
+the numerical experiments so far have suggested conspicuous
+differences between the quasistatic and dynamic solutions, both these
+cases have been explored in this section. When the fluid flow fields
+are observed during the course of these load-unload tests, it is found
+that they constantly lag behind the motion of the solid; and it is
+this relative velocity, and the corresponding frictional interaction
+between the phases, that leads to energy dissipation manifesting
+itself as the hysteresis loop.
 
-In the quasistatic hysteresis curve presented in
+For the quasistatic hysteresis curve presented in
 Figure~\ref{medium-hysteresis-static-0p01-d1p037}, the model was
 loaded at a rate of $\dot{\epsilon}=0.01$ Hz for 8.5~s to a total
 strain of 0.085, and then subsequently unloaded at the same rate back
 to 0 strain in another 8.5~s. This discontinuous (in time) velocity
 boundary condition for the fluid is acceptable for the quasistatic
 calculation. When compared to the hysteresis result arising from the
-dynamic calculation loaded and unloaded at the same average strain
-rate,\footnote{Since the uniform load-unload displacement condition
-  prescribed for the quasistatic calculation (termed the {\em triangular
-    load}) is insufficiently smooth in time, the dynamic calculations
-  are instead subjected to a load-unload displacement that takes the
-  shape of a cosine curve. This displacement condition reaches the
-  same maximum strain and unloads to no strain at the same times as
-  the triangular load, but maintains the necessary smoothness in the
-  velocity fields to allow the dynamic calculations.}
-Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}, it is clear once
-more that the quasistatic calculation lacks the characteristic
-oscillations arising from pressure wave propagation in the fluid in
-the dynamic calculation. Observe also that beyond a certain strain,
-the solid is stiff enough to overcome the oscillatory effects arising
-from the fluid flow.
+dynamic calculation loaded and unloaded at the same {\em average}
+strain rate (Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}),%
+\footnote{Since the uniform strain rate load-unload displacement
+  condition prescribed for the quasistatic calculation (termed the
+  {\em triangular load}) is insufficiently smooth in time, the dynamic
+  calculations are instead subjected to a load-unload displacement
+  that takes the shape of a cosine curve. This displacement condition
+  reaches the same maximum strain and unloads to no strain at the same
+  times as the triangular load, but maintains the necessary smoothness
+  in the velocity fields to allow for dynamic calculations.} it is
+clear once more that the quasistatic calculation lacks the
+characteristic oscillations arising from pressure wave propagation in
+the fluid observed in the dynamic calculation. It is also interesting
+to note that beyond a certain strain, the solid is stiff enough to
+overcome the oscillatory effects arising from the fluid flow.
 
 When this average strain rate is decreased to $\bar{\dot{\epsilon}} =
 0.001$ Hz, (1/10$^\mathrm{th}$ the rate of the preceding calculation),
 the relative velocity between the phases correspondingly decreases,
-resulting in reduced dissipation and area under the hysteresis curve
+resulting in reduced dissipation and area of the hysteresis loop
 (see Figure~\ref{medium-hysteresis-dynamic-0p001-d1p037}). In other
 words, this slower process proceeds closer to thermodynamic
 equilibrium. In an analogous comparison, when the average strain rate
 is maintained at $\bar{\dot{\epsilon}} = 0.01$ Hz, but the magnitude
 of the frictional coefficient tensor is increased by a factor of 10 to
-$D=1.037$ MPa.s.mm$^{-2}$, it is observed that the dynamic effects of
+$D=10.37$ MPa.s.mm$^{-2}$, it is observed that the dynamic effects of
 the fluid flow are much more prominent (as observed in
 Figure~\ref{medium-hysteresis-dynamic-0p01-d10p37}). This is because
-the comparable strain rates ensure similar relative velocity between
+the comparable strain rates ensure similar relative velocities between
 the phases (in the calculations corresponding to
 Figures~\ref{medium-hysteresis-dynamic-0p01-d1p037} and
 \ref{medium-hysteresis-dynamic-0p01-d10p37}), but the frictional
@@ -655,17 +652,18 @@ factor of 10.
 The results presented in this section demonstrate aspects of the
 experimentally observed mechanical response of ligaments seen in
 Figure~\ref{explanted-ligament}. Finally, the biphasic poroelastic
-results presented in this section are compared to the purely linear
-viscoelastic model introduced in the preceding section. This model was
-loaded at a strain rate of $\dot{\epsilon}=0.01$ Hz for 8.5~s to a
-total strain of 0.085, and then subsequently unloaded at the same rate
-back to 0 strain in another 8.5~s. The resulting stress-strain curve
-is shown in Figure~\ref{medium-hysteresis-visco-0p01-t0p3}. When
-comparing it to Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}, we
-find as we did before that, stemming from initial frictional
-interaction between the phases, the poroelastic case starts out
-stiffer, and the viscoelastic model fails to capture any of the
-dynamic effects arising from the fluid flow.
+results presented in this section are compared to the response of the
+purely linear viscoelastic model introduced in the preceding
+section. This model was loaded at a strain rate of
+$\dot{\epsilon}=0.01$ Hz for 8.5~s to a total strain of 0.085, and
+then subsequently unloaded at the same rate back to 0 strain in
+another 8.5~s. The resulting stress-strain curve is shown in
+Figure~\ref{medium-hysteresis-visco-0p01-t0p3}. Upon comparing it with
+Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}, we find as we did
+before that, stemming from initial frictional interaction between the
+phases, the poroelastic case starts out stiffer, and the viscoelastic
+model fails to capture any of the dynamic effects arising from the
+fluid flow.
 
 \begin{figure}[!hptb]
 \centering
