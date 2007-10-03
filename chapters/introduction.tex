@@ -13,9 +13,9 @@ reactions. A computational formulation built upon the theory is used
 to solve a broad class of numerical examples demonstrating several
 biophysical aspects of tissue growth.
 
-This initial chapter provides some context for this work
-(Section~\ref{background}) and an overview of the topics considered in
-the remainder of the dissertation (Section~\ref{overview}).
+This initial chapter provides some context for this work (Section%
+~\ref{background}) and an overview of the topics considered in the
+remainder of the dissertation (Section~\ref{overview}).
 
 \section{Background}
 \label{background}
@@ -46,7 +46,7 @@ importance of mass transport to the growth problem,
 \citet{EpsteinMaugin:2000} introduced a mass flux term to the
 corresponding transport equation. In their work, they also considered
 irreversible momentum and entropy contributions from the species flux
-to account for these aspects of the inter-species interactions and
+to account for these aspects of the inter-species interactions, and
 deduce non-symmetric partial Cauchy stresses, in contrast to the
 treatment here. (See Sections~\ref{balance-of-angular-momentum} and
 \ref{eu-balance-of-angular-momentum}.)
@@ -61,7 +61,7 @@ bears some resemblance to this idea. This concept also forms the basis
 for an active active field of study within the literature
 \citep{Skalak:81, SkalakHoger:96, Klischetal:2001, TaberHumphrey:2001,
   LubardaHoger:02, AmbrosiMollica:2002} focusing on the kinematic
-aspects of on biological growth.
+aspects of biological growth.
 
 \citet{PreziosiFarina:2002} developed an extension to the classical
 Darcy's Law to incorporate mass exchanges between reacting
@@ -84,12 +84,11 @@ recent work on mixture theory-based models for biological growth
 made in the different works, including this one, for the constitutive
 independent variables result in altered constitutive
 specification. Moreover, the constitutive choices detailed in this
-work ensure that the Clausius-Duhem inequality is 
-satisfied {\em a priori}, are adequately general to handle a fairly
-large class of physics, and most significantly, have been implemented
-in a coupled formulation retaining much of their rich detail, as
-evidenced by the computational examples in
-Chapter~\ref{numerical-simulations-2}.
+work ensure that the Clausius-Duhem inequality is satisfied {\em a
+  priori}, are adequately general to handle a fairly large class of
+physics, and most significantly, have been implemented in a coupled
+formulation retaining much of their rich detail, as evidenced by the
+computational examples in Chapter~\ref{numerical-simulations-2}.
 
 \section{An overview}
 \label{overview}
@@ -115,82 +114,77 @@ are thermody\-namically-consistent, in the sense that specification of
 these relations does not violate the Clausius-Duhem dissipation
 inequality. Two important contributions of this work include a
 comprehensive account of the coupling between transport and mechanics
-(stemming from from the balance equations, kinematics and constitutive
+(stemming from the balance equations, kinematics and constitutive
 relations), and an improvement to the mathematical treatment that
 allows for the numerical stabilisation of the advection-diffusion mass
 transport equation in the advection-dominated regime.
 
 This approach was impaired by some basic deficiencies. Firstly, while
-the transport equations were posed (consistently) reference
+the transport equations were posed (consistently) in the reference
 configuration, for a tissue undergoing finite strains, the physics of
 fluid-tissue interactions and the imposition of relevant boundary
 conditions is best understood and represented in the current
-configuration.
-Secondly, also stemming from its 
-roots in solid mechanics, the formulation relied upon primitive
-quantities that are not natural to fluids, such as the {\em
-  deformation gradient of the fluid}. While such quantities can be
-formally defined, they are not easily tracked during the course of
-solving boundary value problems. One final problem with this approach
-arose from attempting to impose the balance of momentum for the tissue
-as a whole, and this required additional assumptions on the
-microstructural mechanics. These require sophisticated homogenisation
-techniques (e.g., \citet{IdiartCastaneda:2003}) and have strong implications
-for the stiffness of tissue response, the nature of fluid transport,
-and since nutrients are dissolved in the fluid, ultimately for
-growth. This meant that without additional, complex assumptions, the
-formulation could not provide precise, quantitative results. (The calculations in
-Section~\ref{constriction-1}, however, do work determine the upper and
-lower bounds of the solutions.)
+configuration.  Secondly, also stemming from its roots in solid
+mechanics, the formulation relied upon primitive quantities that are
+not natural to fluids, such as the {\em deformation gradient of the
+  fluid}. While such quantities can be formally defined, they are not
+easily tracked during the course of solving boundary value
+problems. One final complication with this approach arose from
+attempting to impose the balance of momentum for the tissue as a
+whole, as this necessitated additional assumptions on the
+microstructural mechanics. Accurate modelling of the micromechanics
+requires sophisticated homogenisation techniques (e.g.,
+\citet{IdiartCastaneda:2003}) and these assumptions have strong
+implications for the stiffness of tissue response, the nature of fluid
+transport, and since nutrients are dissolved in the fluid, ultimately
+for growth. This meant that without additional, complex, assumptions,
+the formulation could not provide precise, quantitative results. (The
+calculations in Section~\ref{constriction-1}, however, do determine
+the upper and lower bounds of the solutions.)
 
-It is these drawbacks that motivate work presented in the second half
-of this dissertation, composed of Chapters~\ref{eulerian-perspective} and
-\ref{numerical-simulations-2}.
-
-%% Mention the fact that the boundary conditions we work with in the
-%% second formulation is much more natural and amenable to
-%% experiments.
+It is these drawbacks in the Lagrangian formulation that motivate the
+work presented in the second half of this dissertation, composed of
+Chapters~\ref{eulerian-perspective} and \ref{numerical-simulations-2}.
 
 Chapter~\ref{eulerian-perspective} is a reflection of our current
 understanding of the system that has evolved over these past few
 years. Recognising that the tissue is composed of many phases that
-undergo long-range transport associated with fluids, the formulation
-is rederived from an Eulerian perspective; the viewpoint used for
-formulating the basic laws of fluid mechanics.
+undergo long-range transport, the formulation is rederived from an
+Eulerian perspective; the viewpoint used for formulating the basic
+laws of fluid mechanics.
 
 In this approach, the balance equations are derived in the current
-configuration of the tissue in terms of spatial variables  enabling a
-straightforward application of 
-physically-relevant boundary conditions, but more importantly, the
-governing equations for the fluid phase are recast in terms of
-primitive variables that are more natural to fluid mechanics: fluid
-velocity and pressure. Another significant aspect of this work is
-that, upon revisiting the Clausius-Duhem inequality in terms of
-spatial variables, appropriate constitutive choices are made to ensure
-that the inequality is satisfied a priori.
+configuration of the tissue in terms of spatial variables enabling a
+straightforward application of physically-relevant boundary
+conditions, but more importantly, the governing equations for the
+fluid phase are recast in terms of primitive variables that are more
+natural to fluid mechanics: fluid velocity and pressure. Another
+significant aspect of this work is that, upon revisiting the
+Clausius-Duhem inequality in terms of spatial variables, appropriate
+constitutive choices are made to ensure that the inequality is
+satisfied a priori.
 
 Accompanying this revised formulation is an improved computational
-framework, now designed to solve detailed set of balance equations,
-eliminating the need for the micromechanics assumptions
-mentioned earlier. A discussion of this framework along with selected
-computational examples are the subject of
-Chapter~\ref{numerical-simulations-2}. This seems promising in that
-it demonstrates several basic aspects of the physics of these problems
-and has been relatively easy to extend to varied classes of problems,
-as evidenced by the examples in Chapter 5. it works well for our
-tissues of interest.
+framework, now designed to solve the {\em detailed} set of momentum
+balance equations, i.e., for each species separately, eliminating the
+need for the micromechanics assumptions mentioned earlier. A brief
+discussion of this framework, along with selected computational
+examples, is the subject of Chapter~\ref{numerical%
+  -simulations-2}. This coupled implementation demonstrates several
+basic aspects of the physics of biphasic non-reacting mixtures, has
+been tailored to closely study aspects of the experimentally observed
+mechanics of ligaments, and has been extended in a straightforward
+manner to a substantially different class of problem: modelling tumour
+growth, as evidenced by the examples in Chapter 5.
 
-The computational framework presents a powerful tool to answer
-specific questions—ranging from those pertinent to viscoelastic
-aspects of the mechanical response of growing tendons under different
-loading conditions, to quantitative investigations of the efficacy of
-drugs based on how they are administered, to understanding the
-cellular processes associated with tumour growth.
-
-Chapter 6 concludes, As is their very nature, the appendices at the end of this thesis
-house topics that while useful, and sometimes interesting, interrupt
-the flow of ideas during the main
-discourse.
+The computational framework thus furnishes a powerful tool that can
+possibly be tailored to answer specific questions---ranging from those
+pertinent to viscoelastic aspects of the mechanical response of
+growing tendons under different loading conditions, to quantitative
+investigations of the efficacy of drugs based on how they are
+administered, to understanding the cellular processes associated with
+tumour growth. Such suggestions for future work, and other concluding
+remarks, are housed in Chapter~\ref{conclusions}.
 
 % Local Variables:
 % TeX-master: "thesis"
