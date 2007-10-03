@@ -13,12 +13,11 @@ reactions. A computational formulation built upon the theory is used
 to solve a broad class of numerical examples demonstrating several
 biophysical aspects of tissue growth.
 
-The first portion of this initial chapter (Section~\ref{background})
-provides some context for this work and the second
-(Section~\ref{overview}) provides an overview of the topics considered
-in the remainder of the dissertation.
+This initial chapter provides some context for this work
+(Section~\ref{background}) and an overview of the topics considered in
+the remainder of the dissertation (Section~\ref{overview}).
 
-\section{Background and motivation}
+\section{Background}
 \label{background}
 
 \emph{Growth} involves the addition or depletion of mass in biological
@@ -33,36 +32,34 @@ which allows us to systematically account for the numerous interacting
 and inter-converting species constituting the tissue. The crux of this
 work is a careful examination of the assumptions underlying continuum
 thermodynamics for these mixtures, especially in the presence of
-supplementary terms which enhance balance laws from classical
+supplementary terms which enhance the balance laws from classical
 mechanics to allow for the complex behaviour of tissues.
 
 There have been a number of significant papers on biological growth
-(and remodelling) in the past decade, of which we touch upon some whose
-approaches are either similar to this work in some respects, or differ
-in important ways.
+(and remodelling), of which we touch upon some whose approaches are
+either similar to this work in some respects, or differ in important
+ways.
 
-Mass transport is important to the growth problem, and
+In the context of biological growth, the notion of a mass source was
+first introduced in \citet{CowinHegedus:76}. Also recognising the
+importance of mass transport to the growth problem,
 \citet{EpsteinMaugin:2000} introduced a mass flux term to the
-corresponding transport equation. In their work, they also considered irreversible
-momentum and entropy contributions from the species flux to account
-for these aspects of the inter-species interactions.
+corresponding transport equation. In their work, they also considered
+irreversible momentum and entropy contributions from the species flux
+to account for these aspects of the inter-species interactions and
+deduce non-symmetric partial Cauchy stresses, in contrast to the
+treatment here. (See Sections~\ref{balance-of-angular-momentum} and
+\ref{eu-balance-of-angular-momentum}.)
 
-Recognising the importance of mass transport to the
-growth problem, introduced a mass flux term
-to their transport equation. Their work also introduced , and deduces
-non-symmetric partial Cauchy stresses, in contrast to the treatment here. (See
-Section~\ref{balance-of-angular-momentum}).
-
-\citet{HumphreyRajagopal:02} provided a
-mathematical treatment of \emph{adaptation} in a tissue, which
-includes growth and remodelling in the sense of this work. They
-introduced the notion of evolving natural configurations to model the
-state of material deposited at different instants in time. The
-treatment of the growth part of the deformation gradient in this work
-(Section~\ref{kinematics-of-growth}) bears some resemblance to this
-idea. This concept also forms the basis for an active active field of
-study within the literature \citep{Skalak:81,
-  SkalakHoger:96, Klischetal:2001, TaberHumphrey:2001,
+\citet{HumphreyRajagopal:02} provided a mathematical treatment of
+\emph{adaptation} in a tissue, which includes growth and remodelling
+in the sense of this work. They introduced the notion of evolving
+natural configurations to model the state of material deposited at
+different instants in time. The treatment of the growth part of the
+deformation gradient in this work (Section~\ref{kinematics-of-growth})
+bears some resemblance to this idea. This concept also forms the basis
+for an active active field of study within the literature
+\citep{Skalak:81, SkalakHoger:96, Klischetal:2001, TaberHumphrey:2001,
   LubardaHoger:02, AmbrosiMollica:2002} focusing on the kinematic
 aspects of on biological growth.
 
@@ -72,33 +69,27 @@ species. This consideration is relevant to growth problems; however,
 these issues were subsumed in \citet{growthpaper}, upon which this
 work is based.
 
-Finally, we turn to some recent works on the area. HMB, BL, GAT, And
-they all have the same balance laws, plus subsequently varying choices made in the
-different works, including this one, for the constitutive independent
-variables result in altered constitutive specification. PLUS, the
-choices in this work are {\em actually} fleshed out and solved
-retaining much of their complexity. It is not just a formulation.
+While most of the computational examples in this dissertation are
+presented in the context of modelling our primary tissues of interest,
+engineered tendon and ligament constructs
+\citep{Calve:04,Syed-Picard:06}, many of the general ideas presented
+in this work are applicable to modelling tumour growth. The ideas
+proposed are similar to tumour modelling work that account for
+mechanical effects \citep{Jackson-Byrne:02,Byrneetal:06}.
 
- Many of the ideas 
-employed here are applicable to tumour growth problems; however, due
-to our current focus on tendon, we do not include phenomena
-such as angiogenesis and cell migration \citep[see for
-  example][]{Brewardetal:2003}.
-
-Perhaps a bit surprisingly the above body of literature, except for
-Ambrosi and Mollica (2002), has steered clear of the application to
-cancer, despite the obvious centrality of growth and resorption to the
-physical modelling of solid tumors. The preference has been for
-healthy and pathological growth of bones, and soft tissue. The
-literature on cancer modelling in mathematical biology has focused on
-time evolution of populations, while ignoring spatial variations (for
-example Kuznetsov et al., 1994; d'Onofrio, 2005). Recently, however,
-there has been some work on tumor modelling that has included spatial
-variations by accounting for mechanical effects, such as Jackson and
-Byrne (2002) and the more recent review on cancer dynamics by Byrne et
-al. (2006). These works include a multi-species formulation with
-reactions, mass transport and mechanics, and are therefore more
-aligned with Garikipati et al. (2004) and Sengers et al. (2004).
+The form of the Clausius-Duhem inequality arrived at in
+Section~\ref{eu-entropy-inequality} is equivalent to the forms in
+recent work on mixture theory-based models for biological growth
+\citep{loret05, ateshian07}. However, subsequently varying choices
+made in the different works, including this one, for the constitutive
+independent variables result in altered constitutive
+specification. Moreover, the constitutive choices detailed in this
+work ensure that the Clausius-Duhem inequality is 
+satisfied {\em a priori}, are adequately general to handle a fairly
+large class of physics, and most significantly, have been implemented
+in a coupled formulation retaining much of their rich detail, as
+evidenced by the computational examples in
+Chapter~\ref{numerical-simulations-2}.
 
 \section{An overview}
 \label{overview}
@@ -148,29 +139,42 @@ techniques (e.g., \citet{IdiartCastaneda:2003}) and have strong implications
 for the stiffness of tissue response, the nature of fluid transport,
 and since nutrients are dissolved in the fluid, ultimately for
 growth. This meant that without additional, complex assumptions, the
-formulation could not provide accurate results. (The calculations in
+formulation could not provide precise, quantitative results. (The calculations in
 Section~\ref{constriction-1}, however, do work determine the upper and
 lower bounds of the solutions.)
 
-It is this that motivates the second part of this dissertation,
-composed of Chapters~\ref{eulerian-perspective} and
+It is these drawbacks that motivate work presented in the second half
+of this dissertation, composed of Chapters~\ref{eulerian-perspective} and
 \ref{numerical-simulations-2}.
-
 
 %% Mention the fact that the boundary conditions we work with in the
 %% second formulation is much more natural and amenable to
 %% experiments.
 
-Chapter~\ref{eulerian-perspective} Refining our understanding over these few years, recognising that
-there exist many fluid-like phases in the tissue, and they have to be
-treated fundamentally different--in terms of their own primitive
-variables (velocities, pressure), we revised and further enhanced the
-formulation by infusing few years worth of insight gathered about the
-system. This discussion is at the heart of Chapter 4.
+Chapter~\ref{eulerian-perspective} is a reflection of our current
+understanding of the system that has evolved over these past few
+years. Recognising that the tissue is composed of many phases that
+undergo long-range transport associated with fluids, the formulation
+is rederived from an Eulerian perspective; the viewpoint used for
+formulating the basic laws of fluid mechanics.
 
- With the revised formulation exists the related computational
-framework, now written to solve the detailed set of balance equations
-and not rely on simplifying assumptions. This seems promising in that
+In this approach, the balance equations are derived in the current
+configuration of the tissue in terms of spatial variables  enabling a
+straightforward application of 
+physically-relevant boundary conditions, but more importantly, the
+governing equations for the fluid phase are recast in terms of
+primitive variables that are more natural to fluid mechanics: fluid
+velocity and pressure. Another significant aspect of this work is
+that, upon revisiting the Clausius-Duhem inequality in terms of
+spatial variables, appropriate constitutive choices are made to ensure
+that the inequality is satisfied a priori.
+
+Accompanying this revised formulation is an improved computational
+framework, now designed to solve detailed set of balance equations,
+eliminating the need for the micromechanics assumptions
+mentioned earlier. A discussion of this framework along with selected
+computational examples are the subject of
+Chapter~\ref{numerical-simulations-2}. This seems promising in that
 it demonstrates several basic aspects of the physics of these problems
 and has been relatively easy to extend to varied classes of problems,
 as evidenced by the examples in Chapter 5. it works well for our
