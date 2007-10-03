@@ -891,11 +891,10 @@ In order to observe just the gross kinematic swelling associated with
 an increase in the mass of the tumour, we have treated the tumour thus
 far as a homogenous solid, not distinguishing between the cells and
 the ECM. In this section, we turn off the growth process, and begin to
-differentiate between the species 
-by decomposing the total solid stress into two parts, a ``passive''
-stress associated with the hyperelastic response of the ECM, and an
-``active'' stress, associated with the cell traction forces on the
-surrounding medium:
+differentiate between the species by decomposing the total solid
+stress into two parts: a ``passive'' stress associated with the
+hyperelastic response of the ECM, and an ``active'' stress, associated
+with the cell traction forces on the surrounding medium:
 
 \begin{equation}
 \Bsigma^{\mathrm{c}} =
@@ -958,14 +957,45 @@ eulerian/cancer/heterogeneous-inward-tug}
 \subsection{Transport of the cells}
 \label{cell-transport}
 
-\textbullet\ So far, we assumed that the cell concentration remains
-constant in time and space. Now we add an additional differential
-equation (advection diffusion reaction governing its
-movement). Diffusion is obvious, and the plots below show the cells
-diffusing from a central bulb outwards while they proliferate.
+In the calculations presented in the preceding section, the cell
+concentrations were fixed spatially and temporally. In this section,
+we allow for the cells to proliferate and move via diffusion and
+haptotaxis (again, following the work of \citet{namyetal:04}). We
+solve the mass transport equation (\ref{eu-localbalanceofmass}) for
+the cells to determine their current concentration
+fields. In order to account for the aforementioned modes of mass
+transport, we specify the following constitutive form for the cell
+mass flux:
 
-\subsubsection{Diffusion and proliferation}
-\label{cell-diffusion-proliferation}
+\begin{equation}
+\rho^{\mathrm{cell}}\ \bv^{\mathrm{cell}} = \underbrace{h\ \rho^{\mathrm{cell}}\
+\mathrm{grad}\left(\rho^{\mathrm{c}}\right)}_{\text{Haptotactic flux}}
+-\underbrace{D^{\mathrm{cell}}\ \mathrm{grad}\left(\rho^{\mathrm{cell}}\right)
+}_{\text{Cell diffusion}},
+\end{equation}
+
+\noindent where $h$ is the haptotactic coefficient and
+$D^{\mathrm{cell}}$ is the diffusivity of the cells in the matrix. In
+this section, we are primarily interested in observing the
+proliferation and transport of the cells, and so we will not associate
+any kinematics with this changing concentration of cells.
+
+In the first set of results, we look at cell proliferation and
+diffusion, and observe the effect that this has on the traction that
+they apply on their ECM neighbourhoods. Starting with a cell-rich
+circle of radius 5~mm at the centre of the domain (having a cell
+concentration of 6.266~kg.m$^{-3}$), and a smaller cell concentration
+(3.778~kg.m$^{-3}$) everywhere else; and using a uniform cell source
+$\pi^{\mathrm{cell}}=0.001$~kg.m$^{-3}$/day and a diffusion
+coefficient of $D^{\mathrm{cell}}=0.01$mm$^2$/day,
+Figures~\ref{tumour-diffusion-proliferation-0}--Figure~%
+\ref{tumour-diffusion-proliferation-100} show the snapshots of the
+diffusing and proliferating cells during the course of the test. The colour
+contours provide the evolving cell concentration fields and the arrows
+provide the deformation direction of the ECM, induced by the cell
+traction.
+
+\clearpage
 
 \begin{figure}[!hptb]
 \centering
@@ -999,19 +1029,25 @@ eulerian/cancer/diffusing-proliferating-cells-100}
 \label{tumour-diffusion-proliferation-100}
 \end{figure}
 
-\subsubsection{Cell haptotaxis}
-\label{eu-cell-haptotaxis}
+\clearpage
 
-\textbullet\ But there is another mechanism for their movement, they
-move along the gradients of ECM contributions. This is added as an
-additional flux term to the calculation above, and the magnitude of
-this mobility is motivated by this paper. Clearly, this effect is
-less/more important than general diffusion.
-
-\textbullet\ In order to kick this off, we start with an (arbitrary)
-heterogeneous ECM concentration, as shown. Note that the cell inward
-tug changes with the concentration, as noted by the sizes and
-directions of the arrows.
+In the second set of results, we look at cell proliferation and
+haptotaxis, and observe the effect that this has on the traction that
+they apply on their ECM neighbourhoods. We start this test with the
+same initial conditions for the cells as the previous calculation (a
+cell rich bulb at the centre of the domain), but in order to induce
+haptotaxis, we begin with the heterogenous ECM concentration (varying
+between 0.5~kg.m$^{-3}$ and 1.5kg.m$^{-3}$), seen in
+Figure~\ref{heterogeneous-ecm-concentration}. In these tests, the
+haptotactic coefficient $h$ is 0.1mm$^2$/day.  Figures~\ref{tumour-haptotaxis-proliferation-0}--\ref{tumour-haptotaxis-proliferation-10}
+show snapshots of the cells undergoing haptotaxis and proliferating
+during the course of the test. The colour
+contours provide the evolving cell concentration fields and the arrows
+provide the deformation direction of the ECM, induced by the cell
+traction. We observe that the cells migrate toward areas of higher ECM
+while proliferating. Note that the directionality of the cell traction field
+changes with the concentration, as noted by the sizes and directions
+of the arrows.
 
 \begin{figure}[!hptb]
 \centering
@@ -1020,11 +1056,6 @@ eulerian/cancer/heterogeneous-ecm-concentration}
 \caption{Heterogeneous extra-cellular matrix concentration.}
 \label{heterogeneous-ecm-concentration}
 \end{figure}
-
-\textbullet\ And with this, we have (apart from proliferating and
-diffusing), heading toward areas of higher ECM. In these calculations,
-growth (swelling) has been turned off and the arrows show the inward
-tug. 
 
 \begin{figure}[!hptb]
 \centering
@@ -1058,7 +1089,12 @@ eulerian/cancer/haptotaxis-proliferating-cells-10}
 \label{tumour-haptotaxis-proliferation-10}
 \end{figure}
 
-\clearpage
+While the magnitudes for the cell diffusivity, $D^{\mathrm{cell}}$,
+and haptotactic coefficient, $h$, are arbitrarily chosen, following
+the experimental data cited in \citet{namyetal:04}, the value assumed
+for $h$ is an order of magnitude greater than that assumed for
+$D^{\mathrm{cell}}$, which will ensure that when combined, the
+dominant mechanism will carry most weight.
 
 \subsection{Coupling the phenomena}
 \label{cacophonous-medley}
