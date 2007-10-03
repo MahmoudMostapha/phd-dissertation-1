@@ -746,14 +746,15 @@ Section~\ref{cacophonous-medley}.
 The computational model used in this section is primarily a solid
 comprised of an extra-cellular matrix (ECM) and tumour cells capable
 of moving with respect to this matrix.\footnote{We have already
-  studied the effects of the fluid flow on the mechanics in some
-  detail in the preceding sections, and the extra-cellular fluid phase
-  has been ignored in this section.} It is assumed that the solute
+  studied the effects of the extra-cellular fluid flow on the
+  mechanics in some detail in the preceding sections. Since we are
+  focusing on other phenomena in this section, we have chosen to
+  ignore the fluid here.} It is assumed that the solute
 phases, such as the nutrients and enzymes, are present in sufficient
 amounts to drive the biochemistry that allows the cells to proliferate
 and produce more ECM. The model geometry, as visualised in
 Figure~\ref{tumour-isotropic-swelling-0}, is a semicircle and has a
-radius 10~mm initially.
+radius of 10~mm initially.
 
 \subsection{Kinematic swelling concomitant with growth}
 \label{tumour-isotropic-swelling}
@@ -782,19 +783,19 @@ balance (\ref{localbalanceofmomentum}) equations for the solid
 reference configuration. The boundary conditions for the momentum
 balance equations only prevent rigid body motion of the domain, and do
 not constrain the constrain its deformation in anyway. The mass
-balance equation is solved with uniform source term
+balance equation is solved with a uniform source term
 $\Pi^{\mathrm{c}}=0.001$~kg.m$^{-3}$/day. The initial solid
 concentration is $\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}=1~$kg.m$^{-3}$.
 
 As a result of this uniform mass source, and the increasing solid
 concentration, the domain begins to
 swell. Figures~\ref{tumour-isotropic-swelling-0} and
-\ref{tumour-isotropic-swelling-100} show the tumour at the
-initial time and after 100 days. The colour contours provide the
+\ref{tumour-isotropic-swelling-100} show the tumour
+initially, and after 100 days. The colour contours provide the
 radial displacement of the solid in mm, and the arrows provide the
 direction of its velocity. Since there are no constraints on the
 deformation, this swelling is
-isotropic. Figure~\ref{tumour-isotropic-area-evolution}, shows area of
+isotropic. Figure~\ref{tumour-isotropic-area-evolution}, shows the area of
 the domain increasing linearly in time over the duration of the
 computation. Note that the ratio of the final to initial areas
 172.788~mm$^2$/157.08~mm$^2$ is exactly the same as the ratio of final
@@ -913,7 +914,7 @@ in the remaining calculations, is based on the modelling work of
 \citet{namyetal:04}. Here, $\tau$ is a parameter that monitors the
 individual cellular traction amplitude, $\rho^{\mathrm{c}}$ and
 $\rho^{\mathrm{cell}}$ are the current concentrations of the ECM and
-cells, respectively, and $N$ is a real, positive constant
+the cells, respectively, and $N$ is a real, positive constant
 ($N>\rho^{\mathrm{cell}}$) that controls the cell traction inhibition
 when the cell density increases. The model assumes that the active
 stresses are proportional to the ECM concentration, and that there is
@@ -922,7 +923,7 @@ maximum.
 
 Assuming the following uniform distribution of cells and ECM,
 $\rho^{\mathrm{cell}}=0.5$~kg.m$^{-3}$ and
-$\rho^{\mathrm{cell}}=1$~kg.m$^{-3}$, and the values for the constants
+$\rho^{\mathrm{c}}=1$~kg.m$^{-3}$, and the values for the constants
 $\tau=1000$~MPa.kg$^{-3}$.m$^{9}$ and $N=1$~kg.m$^{-3}$,
 Figure~\ref{tumour-homogeneous-inward-tug} shows the cells uniformly
 pulling the matrix inward. The colour contours provide the radial
@@ -978,16 +979,16 @@ mass flux:
 $D^{\mathrm{cell}}$ is the diffusivity of the cells in the matrix. In
 this section, we are primarily interested in observing the
 proliferation and transport of the cells, and so we will not associate
-any kinematics with this changing concentration of cells.
+any kinematics with the changing concentration of cells.
 
 In the first set of results, we look at cell proliferation and
 diffusion, and observe the effect that this has on the traction that
 they apply on their ECM neighbourhoods. Starting with a cell-rich
-circle of radius 5~mm at the centre of the domain (having a cell
+circle of radius 5~mm at the centre of the domain (having a uniform cell
 concentration of 6.266~kg.m$^{-3}$), and a smaller cell concentration
 (3.778~kg.m$^{-3}$) everywhere else; and using a uniform cell source
 $\pi^{\mathrm{cell}}=0.001$~kg.m$^{-3}$/day and a diffusion
-coefficient of $D^{\mathrm{cell}}=0.01$mm$^2$/day,
+coefficient of $D^{\mathrm{cell}}=0.01$~mm$^2$/day,
 Figures~\ref{tumour-diffusion-proliferation-0}--Figure~%
 \ref{tumour-diffusion-proliferation-100} show the snapshots of the
 diffusing and proliferating cells during the course of the test. The colour
@@ -1037,17 +1038,19 @@ they apply on their ECM neighbourhoods. We start this test with the
 same initial conditions for the cells as the previous calculation (a
 cell rich bulb at the centre of the domain), but in order to induce
 haptotaxis, we begin with the heterogenous ECM concentration (varying
-between 0.5~kg.m$^{-3}$ and 1.5kg.m$^{-3}$), seen in
+between 0.5~kg.m$^{-3}$ and 1.5~kg.m$^{-3}$), seen in
 Figure~\ref{heterogeneous-ecm-concentration}. In these tests, the
-haptotactic coefficient $h$ is 0.1mm$^2$/day.  Figures~\ref{tumour-haptotaxis-proliferation-0}--\ref{tumour-haptotaxis-proliferation-10}
-show snapshots of the cells undergoing haptotaxis and proliferating
-during the course of the test. The colour
-contours provide the evolving cell concentration fields and the arrows
-provide the deformation direction of the ECM, induced by the cell
-traction. We observe that the cells migrate toward areas of higher ECM
-while proliferating. Note that the directionality of the cell traction field
-changes with the concentration, as noted by the sizes and directions
-of the arrows.
+haptotactic coefficient $h$ is 0.1~mm$^2$.day$^{-1}$.mm$^3$.kg$^{-1}$.
+Figures~\ref{tumour-haptotaxis-proliferation-0}--%
+\ref{tumour-haptotaxis-proliferation-10} show snapshots of the cells
+undergoing haptotaxis and proliferating during the course of the
+test. The colour contours provide the evolving cell concentration
+fields and the arrows provide the deformation direction of the ECM,
+induced by the cell traction. We observe that the cells migrate toward
+areas of higher ECM while proliferating. Note that the directionality
+of the cell traction field changes correspondingly with the
+concentration field, as noted by the lengths and directions of the
+arrows.
 
 \begin{figure}[!hptb]
 \centering
@@ -1093,8 +1096,9 @@ While the magnitudes for the cell diffusivity, $D^{\mathrm{cell}}$,
 and haptotactic coefficient, $h$, are arbitrarily chosen, following
 the experimental data cited in \citet{namyetal:04}, the value assumed
 for $h$ is an order of magnitude greater than that assumed for
-$D^{\mathrm{cell}}$, which will ensure that when combined, the
-dominant mechanism will carry most weight.
+$D^{\mathrm{cell}}$, which will ensure that when the two modes for
+mass transport are combined, haptotaxis will be the dominant
+mechanism.
 
 \subsection{Coupling the phenomena}
 \label{cacophonous-medley}
