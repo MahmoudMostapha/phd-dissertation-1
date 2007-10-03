@@ -772,6 +772,7 @@ Section~\ref{kinematics-of-growth} has been modified to,
      & \left(\frac{\rho_0^{\mathrm{c}}}
      {\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2} & 0 \\ 0 & 0
      & 1 \end{array} \right),
+\label{2d-isotropic}
 \end{equation}
 
 \noindent since we are working in two dimensions under a plain strain
@@ -1103,33 +1104,55 @@ mechanism.
 \subsection{Coupling the phenomena}
 \label{cacophonous-medley}
 
-\textbullet\ We are finally ready to solve the problem we described
-initially. The range of physics incorporated here include, diffusing,
-proliferating and haptotacting cells, growth induced by them and
-swelling, nutrient is a constant field, growth follows a simple rate
-law, soft contact mechanics introduced by the wall.
+With the individual phenomena explored, we are now ready to solve
+the coupled problem described initially. The range of physics
+incorporated into this problem include proliferating cells undergoing
+both diffusion and haptotaxis, a rate law for the production of
+additional ECM which scales linearly with the concentration of
+cells, the stress within the cells induced by their traction, the
+hyperelastic response of the ECM, isotropic kinematic swelling
+associated with the increase in tumour mass, and finally, this
+swelling constrained by the presence of the wall.
 
-\textbullet\ Clearly, regions with more cells grow faster, and the
-plots show the x-displacement as a measure of swelling. Also, the
-presence of the wall biases the growth toward the top and bottom as
-seen in experiment. Currently, all this arises out of a growth law
-that's independent of stress (isotropic swelling), but with careful
-experimental work its form can be fixed. Compare this to the case
-where the growth happened without a wall.
+Figures~\ref{tumour-growth-constrained-0}%
+--Figures~\ref{tumour-growth-constrained-5} show snapshots of the
+growing tumour constrained by the wall. The colour contours provide
+the x-displacement of the swelling tumour and arrows provide the
+direction of the velocity field. Observe that the regions that have a
+higher cell concentration due to haptotaxis (refer
+Figures~\ref{tumour-haptotaxis-proliferation-0}%
+--\ref{tumour-haptotaxis-proliferation-10}) tend to swell faster than
+regions with lower cell concentrations. Also observe that due to the
+presence of the wall, even as early as 2~days, the velocities are
+biased toward the vertical direction. Finally, upon comparing these
+constrained tumour growth snapshots with
+Figure~\ref{tumour-growth-no-wall-4}, which is a result of a similar
+calculation without the wall, it is clear that the presence of the
+compressive stress along a direction inhibits growth along that
+direction, which is what we were aiming to see.
 
-\begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-no-wall-4}
-\caption{An unconstrained growing tumour at $t=4$ months.}
-\label{tumour-growth-no-wall-4}
-\end{figure}
+\vspace{1 cm} % Hack
+
+It must be reiterated here that the results provided in this section
+are only to demonstrate that varying classes of physics can be
+incorporated into the existing mathematical and computational
+formulation. These results have been obtained using an isotropic
+growth law (\ref{2d-isotropic}), without requiring the
+stress-dependent time rate of the growth portion of the deformation
+gradient derived in Section~\ref{eu-stress-dependent-growth}. It is
+not yet clear whether the constraint from the mechanical loads just
+deform the tissue and distort their shape, or whether the cells have
+some ability to sense the local stress state and this affects
+directionality of further growth. More research into experimental
+literature is needed before a conclusive statement can be made.
+
+\vspace{1cm} %Hack
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-0.eps}
-\caption{A constrained growing tumour at $t=0$ months.}
+\caption{A constrained growing tumour at $t=0$ days.}
 \label{tumour-growth-constrained-0}
 \end{figure}
 
@@ -1137,7 +1160,7 @@ eulerian/cancer/growing-tumour-0.eps}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-1.eps}
-\caption{A constrained growing tumour at $t=1$ months.}
+\caption{A constrained growing tumour at $t=2$ days.}
 \label{tumour-growth-constrained-1}
 \end{figure}
 
@@ -1145,7 +1168,7 @@ eulerian/cancer/growing-tumour-1.eps}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-2.eps}
-\caption{A constrained growing tumour at $t=2$ months.}
+\caption{A constrained growing tumour at $t=4$ days.}
 \label{tumour-growth-constrained-2}
 \end{figure}
 
@@ -1153,7 +1176,7 @@ eulerian/cancer/growing-tumour-2.eps}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-3.eps}
-\caption{A constrained growing tumour at $t=3$ months.}
+\caption{A constrained growing tumour at $t=6$ days.}
 \label{tumour-growth-constrained-3}
 \end{figure}
 
@@ -1161,7 +1184,7 @@ eulerian/cancer/growing-tumour-3.eps}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-4.eps}
-\caption{A constrained growing tumour at $t=4$ months.}
+\caption{A constrained growing tumour at $t=8$ days.}
 \label{tumour-growth-constrained-4}
 \end{figure}
 
@@ -1169,35 +1192,17 @@ eulerian/cancer/growing-tumour-4.eps}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/growing-tumour-5.eps}
-\caption{A constrained growing tumour at $t=5$ months.}
+\caption{A constrained growing tumour at $t=10$ days.}
 \label{tumour-growth-constrained-5}
 \end{figure}
 
-% The move to the following perspective was motivated by the fact that
-% the earlier formulation, and corresponding numerical examples (cite
-% sections on role of mass balance in current conf., the deformation
-% gradient split for the fluid, and the numerical example involving
-% assumptions on deformation gradient of the fluid) involved
-% quantities that, while reasonable from a 
-% mathematical pint of view, did not correspond to physical quantities
-% of interest in terms of physiological bvps. Point out that it's been
-% 2--3 years of refining our understanding and trials with the
-% previous code that's led to this point?
-
-%% Perhaps a bit surprisingly the above body of literature, except for
-%% Ambrosi and Mollica (2002), has steered clear of the application to
-%% cancer, despite the obvious centrality of growth and resorption to the
-%% physical modelling of solid tumors. The preference has been for
-%% healthy and pathological growth of bones, and soft tissue. The
-%% literature on cancer modelling in mathematical biology has focused on
-%% time evolution of populations, while ignoring spatial variations (for
-%% example Kuznetsov et al., 1994; d'Onofrio, 2005). Recently, however,
-%% there has been some work on tumor modelling that has included spatial
-%% variations by accounting for mechanical effects, such as Jackson and
-%% Byrne (2002) and the more recent review on cancer dynamics by Byrne et
-%% al. (2006). These works include a multi-species formulation with
-%% reactions, mass transport and mechanics, and are therefore more
-%% aligned with Garikipati et al. (2004) and Sengers et al. (2004).
+\begin{figure}[!hptb]
+\centering
+\includegraphics[width=0.9\textwidth]{images/examples/%
+eulerian/cancer/growing-tumour-no-wall-4}
+\caption{An unconstrained growing tumour at $t=8$ days.}
+\label{tumour-growth-no-wall-4}
+\end{figure}
 
 %
 
