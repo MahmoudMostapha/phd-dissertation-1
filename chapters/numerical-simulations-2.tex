@@ -735,62 +735,72 @@ work.
 
 The computations presented in this section are motivated by and aim to
 replicate a fundamental experimental observation: Compressive solid
-stresses along a given direction restricts the in vitro
-growth of tumours along those directions \citep{jain1997}. The
-foundational examples discussed in
-Sections~\ref{tumour-isotropic-swelling}--\ref{cell-transport} focus 
-on different aspects of this confined tumour growth problem and a
-combination of all these phenomena are manifested in the final
-computation presented in Section~\ref{cacophonous-medley}.
+stress along a given direction restricts the in vitro growth of
+tumours along that direction \citep{jain1997}. The foundational
+examples discussed in Sections~\ref{tumour-isotropic-swelling}--%
+\ref{cell-transport} focus on different aspects of this confined
+tumour growth problem, and a combination of all these phenomena are
+manifested in the final computation presented in
+Section~\ref{cacophonous-medley}.
 
-The computational model used in this section is primarily comprised of
-the solid collagen making up the extra-cellular matrix (ECM) and
-motile tumour cells.\footnote{We have already studied the effects of
-  the fluid flow on the mechanics in some detail in the preceding
-  sections, and since it is reasonable to assume that motion
-  associated with growing tumours are relatively slow and do not
-  result in significant flow fields, the extra-cellular fluid phase
-  has been ignored in this section.} It is assumed that there is a
-sufficient amount of solute phases, such as nutrients and enzymes, to
-drive the biochemistry that allows the cells produce more ECM, and to
-proliferate. The model geometry, as visualised in
+The computational model used in this section is primarily a solid
+comprised of an extra-cellular matrix (ECM) and tumour cells capable
+of moving with respect to this matrix.\footnote{We have already
+  studied the effects of the fluid flow on the mechanics in some
+  detail in the preceding sections, and since it is reasonable to
+  assume that motion associated with growing tumours are relatively
+  slow and do not result in significant flow fields, the
+  extra-cellular fluid phase has been ignored in this section.} It is
+assumed that the solute phases, such as nutrients and enzymes, are
+present in sufficient amounts to drive the that allows the cells to
+proliferate and produce more ECM. The model geometry, as visualised in
 Figure~\ref{tumour-isotropic-swelling-0} is a semicircle, of radius
 1~cm initially.
 
 \subsection{Kinematic swelling concomitant with growth}
 \label{tumour-isotropic-swelling}
 
-Initially, the cells have no mechanics associated with themselves. The
-only equation is the mass balance for the ECM, with a source driven
-by current cell presence (everywhere), and the momentum balance for
-the ECM. Both of these are in the reference configuration. We now
-introduce the growth portion of the deformation gradient
+In this initial calculation, we focus on the kinematic swelling
+associated with an increase in the mass of the solid tumour. The
+isotropic swelling tensor introduced in
+Section~\ref{kinematics-of-growth} has been modified to,
 
 \begin{equation}
-\bF^{\mathrm{g}} = \left(
+\bF^{\mathrm{g}^{\mathrm{c}}} = \left(
 \begin{array}{ccc}
-\left(\frac{\rho_0^{\mathrm{c}}}{\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2} & 0 & 0 \\
-0 & \left(\frac{\rho_0^{\mathrm{c}}}{\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2} & 0 \\
-0 & 0 & 1 \end{array}
- \right)
+\left(\frac{\rho_0^{\mathrm{c}}}{\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2}
+& 0 & 0 \\ 0 &
+\left(\frac{\rho_0^{\mathrm{c}}}{\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}}\right)^{1/2}
+& 0 \\ 0 & 0 & 1 \end{array} \right),
 \end{equation}
 
-\noindent since we are working under a plain strain assumption.
+\noindent since we are working in two dimensions under a plain strain
+setting.
 
-The boundary conditions involve preventing horizontal movement of the
-vertical edge, and fixing the centre point of that edge. This is just
-to prevent RBM.
+This example solves the mass (\ref{localbalanceofmass}) and momentum
+balance (\ref{localbalanceofmomentum}) equations for the solid
+(comprised of both cells and matrix) in the reference
+configuration. The boundary conditions for the momentum balance
+equations prevent rigid body motion of the domain, and do not
+constrain the constrain its deformation in anyway. The mass balance
+equation is solved with uniform source term
+$\Pi^{\mathrm{c}}=0.001$~kg.m$^{-3}$/day. The initial solid
+concentration is $\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}=1~$kg.m$^{-3}$.
 
-$\rho_{0_{\mathrm{ini}}}=1$
-$R=0.001$ massunits/timeunits
-
-The ECM uses the Mooney-Rivlin Model with 0.37 and 0.11 MPa.
-
-As a result of this uniform cell concentration and production of the
-ECM, and the Fg above, the solid tends to swell. The plots show the
-radial displacements at two times, and the evolution of the
-area. Since there is no stress preventing the growth of the solid, it
-just happily swells outwards.
+As a result of this uniform mass source and increasing solid
+concentration, the domain begins to
+swell. Figures~\ref{tumour-isotropic-swelling-0} and
+\ref{tumour-isotropic-swelling-100} show the tumour at the
+initial time and after 100 days. The colour contours provide the
+radial displacement of the solid in mm, and the arrows provide the
+direction of the velocity. Since there are no constraints on the
+deformation, this swelling is
+isotropic. Figure~\ref{tumour-isotropic-area-evolution}, shows area of
+the domain increasing linearly in time over the duration of the
+computation. Note that the ratio of the final to initial areas
+172.788~mm$^2$/157.08~mm$^2$ is exactly the same as the ratio of final
+to initial concentrations 1.1~kg.m$^{-3}$/1~kg.m$^{-3}$, as one would
+expect.
 
 \begin{figure}[!hptb]
 \centering
@@ -816,28 +826,52 @@ eulerian/cancer/isotropic-swelling-area-evolution}
 \label{tumour-isotropic-area-evolution}
 \end{figure}
 
-\clearpage
-
-\subsection{Constrained by a wall}
+\subsection{A constraining wall and soft contact mechanics}
 \label{wall-constraint}
 
-\textbullet\ Now, we're interested in the case where there is a boundary condition
-arising from a wall or pressure of some sort, and since we're working
-with a dynamic calculation, arbitrary introduction of the wall at some
-time is numerically bad. So, we move to soft contact mechanics and
-have an exponential rule like so that kicks in gradually. The cells
-still don't do any mechanics, yet.
+We are interested in subjecting this solid tumour model to a
+compressive stress, and the way we go about imposing this is to
+introduce a rigid wall 10.5~mm to the right of the vertical edge
+of the domain, and allowing the swelling tumour to impinge upon
+it. Recall that the initial radius of the semicircular domain is
+10~mm, and thus giving it 0.5~mm to grow before it contacts the wall.
 
-\textbullet\ The plot shows the velocity of the growing tumour
-(arrows) and the compressive horizontal stress built up at a certain
-time. Notice that the velocity in those regions are zeroing out, as
-they should. The temporal variation at that end point is plotted separately.
+For this calculation, the solid is assumed to be hyperelastic with the
+Mooney-Rivlin strain energy function~(\ref{mooney-rivlin-model}) with
+constants $C_{10}=0.37$ and $C_{10}=0.11$ MPa. As in the previous
+calculation, the balance of mass and momentum for this growing solid
+are solved in the reference configuration. Since we are solving the
+momentum balance with dynamics, we cannot introduce the rigid wall
+instantaneously as this results in time-discontinuous solid velocity
+fields. We instead use the following ``soft'' contact mechanics model,
+
+\begin{equation}
+q = - A \exp (-B g),
+\end{equation}
+
+\noindent where $q$ is the horizontal force induced by the wall, $g$
+is the gap between the wall and the approaching tumour, and $A$ and
+$B$ are parameters associated with the contact model that control the
+magnitude of the force, and sharply the force rises as the tumour
+approaches the wall. This model ensures that the velocity
+fields on the impinging boundary of the tumour remain smooth in time.
+
+Starting with the same initial conditions as the previous test
+(Figure~\ref{tumour-isotropic-swelling-0}),
+Figure~\ref{tumour-constrained-swelling-120} depicts the compressive
+horizontal stress built up in the solid after 120~days due to the
+presence of the wall (not visible in the figure). Notice that the
+velocity vectors are much smaller in the constrained regions close to
+the wall. Figure~\ref{tumour-constrained-stress-evolution} shows the
+time evolution of the compressive horizontal stress at a point near
+the extreme right of the domain. The stress increases sharply as the
+point gets close to the wall, but remains smooth in time.
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/constrained-swelling-120}
-\caption{The growing tumour constrained by a wall at time $t=100$ days.}
+\caption{The growing tumour constrained by a wall at time $t=120$ days.}
 \label{tumour-constrained-swelling-120}
 \end{figure}
 
@@ -849,14 +883,13 @@ eulerian/cancer/constrained-stress-evolution}
 \label{tumour-constrained-stress-evolution}
 \end{figure}
 
+\clearpage
+
 \subsection{The mechanics of cells}
 \label{cell-roles}
 
-So far, we worked with no mechanics but there are two fundamental
-things cells do.
-
-\subsubsection{Inward tug}
-\label{inward-tug}
+Upto this point, we have been studying gross effects, treating the
+tumour as one homogeneous solid.
 
 \textbullet\ Cells pull inwards, following this law that says that an
 optimal cell-ECM concentration is best for maximum inward
@@ -989,7 +1022,7 @@ eulerian/cancer/haptotaxis-proliferating-cells-10}
 
 \clearpage
 
-\subsection{Combining everything}
+\subsection{Coupling the phenomena}
 \label{cacophonous-medley}
 
 \textbullet\ We are finally ready to solve the problem we described
