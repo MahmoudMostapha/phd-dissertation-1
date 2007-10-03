@@ -147,3 +147,126 @@
 %% would then be absent in the boundary value problems solved with
 %% such a formulation.
 
+
+%%  Appendix~\ref{additional-proofs} holds additional proofs
+%% which are fairly classical, but they are provided here to ensure that
+%% at least the analytic treatment in this document is fairly
+%% self-contained.Appendix~\ref{supplementary-considerations} contains some
+%% supplementary observations and thought experiments that arose during
+%% the course of the development and refinement of this theory. They are
+%% not all central to the main arguments, but I believe they are quite
+%% interesting.
+
+
+%% The principal notion to be borne in mind while developing a
+%% continuum formulation for growth is that one is presented with a
+%% system that is open with respect to mass. Scalar mass sources and
+%% sinks, and vectorial mass fluxes must be considered. A mass source
+%% was first introduced in the context of biological growth by
+%% \citet{CowinHegedus:76}. The mass flux is a more recent addition
+%% of \citet{EpsteinMaugin:2000}, who, however, did not elaborate on
+%% the specific nature of the transported species.
+%% \citet{KuhlSteinmann:02} also incorporated the mass flux and
+%% specified a Fickean diffusive constitutive law for it. In their
+%% paper the diffusing species is the material of the tissue itself.
+%% The approach to mass transport that is followed in our paper is
+%% outlined in the next two paragraphs.
+
+%% In order to be precise about the physiological relevance of our
+%% formulation, we have found it appropriate to adopt a different
+%% approach from the papers in the preceding paragraph in regard to
+%% mass transport. We do not consider mass transport of the material
+%% making up any tissue during growth. Instead, it is the nutrients,
+%% enzymes and amino acids necessary for growth of tissue, byproducts
+%% of metabolic reactions, and the tissue's fluid phase
+%% \citep{Swartzetal:99} that undergo diffusion\footnote{We use the
+%% terms ``mass transport'' and ``diffusion'' interchangeably.} in
+%% our treatment. There do exist certain physiological processes in
+%% which cells or the surrounding matrix migrate within a tissue. One
+%% such process is observed when leukocytes (white blood cells) such
+%% as neutrophils and monocytes are signalled to pass through a
+%% capillary wall and are induced, by specific chemical attractors,
+%% to migrate to a site of infection. This is the process of
+%% chemotaxis \citep{GuytonHall:1996,Vander:2003}. The migrant cells
+%% or matrix then participate in some form of cell proliferation or
+%% death. Fibroblasts also migrate within the extra cellular matrix
+%% during wound healing. A third example is the migration of stem
+%% cells to different locations during the embryonic development of
+%% an animal. These processes involve very \emph{short range}
+%% diffusion, and can be treated by the approach described in this
+%% paper. We have chosen to focus upon homeostasis, defined by
+%% \citet{Vander:2003} as ``\dots a state of reasonably stable
+%% balance betweoen the physiological
+%% variables\dots''\footnote{\citet{Vander:2003} go on to say: ``This
+%% simple definition cannot give a complete appreciation of what
+%% homeostasis truly entails, however. There probably is no such
+%% thing as a physiological variable that is constant over long
+%% periods of time. In fact, some variables undergo fairly dramatic
+%% swings about an average value during the course of a day, yet may
+%% still be considered `in balance'. That is because homeostasis is a
+%% \emph{dynamic process}, not a static one.''}. Since, to the best
+%% of our knowledge, processes of the type just described are not
+%% observed during homeostatic tissue growth, we will ignore
+%% transport of the solid phase of the tissue.
+
+%% The solid phase
+%% is an anisotropic composite that is inhomogeneous at microscopic
+%% and macroscopic scales. The fluid, being mostly water, may be
+%% modelled as incompressible, or compressible with a very large bulk
+%% modulus. This level of complexity will be maintained throughout
+%% our treatment. The use of mixture theory leads to difficulties
+%% associated with partitioning the boundary traction into portions
+%% corresponding to each species. \cite{RajagopalWineman:1990},
+%% suggested a resolution to this problem that holds in the case of
+%% saturated media---a condition that is applicable to soft
+%% biological tissue. An alternative is to apply the theory of porous
+%% media that grew out of the classical work of Fick and Darcy in the
+%% 1800s \citep{Terzaghi:1943,deBoer:2000}. In this approach fluxes
+%% are introduced for each species. Since a species that diffuses
+%% must do so within some medium, one may think of the various
+%% constituents diffusing through the solid phase\footnote{A more
+%% sophisticated, and physiologically-correct, description is that
+%% the interstitial fluid diffuses relative to the solid phase, while
+%% precursors and byproducts of reactants diffuse with respect to the
+%% fluid.}. This strategy has been adopted in the present work.
+
+
+%% (which
+
+
+%
+
+%% Though the formulation is applicable to a large class of open systems
+%% with multiple species potentially participating in reactions, here it is
+%% used to model and predict the response and evolution of one specific
+%% tissue of interest to us, our engineered tendon constructs. These are
+%% functionally immature tendons formed by the self assembly of tendon
+%% fibroblasts {\sl in vitro} \cite{Calve:04}. \mbox{Figure \ref{engconst}}
+%% shows a sample construct 15 days after it has been plated. During the
+%% course of development of this tissue, it undergoes numerous complex
+%% processes, but for the purposes of this growth model, we are focused
+%% on the evolution of concentrations of substances such as collagen (see
+%% \mbox{Figure \ref{collagenamt}}), as well as their dependence on
+%% mechanics. 
+
+%% There are compelling clinical reasons to study tendons. Tendons
+%% consist mostly of collagen and perhaps provide the simplest
+%% physiologically relevant setting to understand the chemical and
+%% mechanical factors affecting proper collagen deposition. Collagen is
+%% the most important structural component of soft biotissue. Errors in 
+%% collagen deposition cause important types of tissue dysfunction
+%% ranging from {\sl cardiomyopathy} (hypertrophy of collagen makes the
+%% heart too stiff to undergo proper volumetric change) to {\sl
+%%   hypertrophic scarring} in burns (where the morphology of collagen is
+%% whirled rather than aligned in overly stiff scars).
+
+%% Additionally, there are a large number of musculoskelital injuries
+%% each year which result in damage to soft tissues, including
+%% tendon. For tendons damaged beyond repair, replacement is
+%% necessary. This replacement must incorporate most native properties of
+%% tendon to restore function. However, such transplantation is limited
+%% by the availability of viable autograft, resulting in the use of
+%% synthetic materials which are unable to restore long term function due
+%% to incompatibility. Thus, a need exists for replacements which
+%% incorporate as many native properties as possible, necessitating a
+%% systematic study of engineered tendon.
