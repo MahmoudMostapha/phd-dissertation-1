@@ -39,13 +39,13 @@ concentration field of the fluid phase,\footnote{Recall from
   fluid-tissue interactions and the imposition of relevant boundary
   conditions are best understood and represented in the current
   configuration.} $\rho^{\mathrm{f}}$. The current concentration of
-the solute, $\rho^{\mathrm{s}}$, is determined from the stabilised
+the solute,~$\rho^{\mathrm{s}}$, is determined from the stabilised
 form of the mass balance equation provided in weak form in
 (\ref{stabilizedmassbal}). The mass balance for the solid phase is
-solved in the reference configuration
-(Equation~(\ref{localbalanceofmass}) for \mbox{$\iota = \mathrm{c}$})
-to obtain the concentration field, $\rho_{0}^{\mathrm{s}}$, since
-there are no boundary conditions associated with this differential
+solved in the reference configuration (Equation~(\ref{localbalance%
+  ofmass}) for \mbox{$\iota = \mathrm{c}$}) to obtain its reference
+concentration field,~$\rho_{0}^{\mathrm{c}}$, since there are no
+boundary conditions associated with this differential
 equation. Backward Euler is used as the time-stepping scheme for all
 mass balance equations.
 
@@ -94,9 +94,9 @@ on the engineering and characterisation of tendon-like constructs (see
 Figure~\ref{engconst}), is a cylinder 12 mm in length and 1 mm$^2$ in
 cross-sectional area. The corresponding finite element mesh using 3840
 hexahedral elements is shown in Figure~\ref{egmesh}. The constitutive
-relation for the solid collagen phase uses a strain energy arising
-from the eight-chain model incorporating worm-like chains, as
-discussed in Section~\ref{anisotropic-network-elasticity} . The
+relation for the solid collagen phase uses the strain energy function
+arising from the eight-chain model incorporating worm-like chains, as
+discussed in Section~\ref{anisotropic-network-elasticity}. The
 constitutive relation for the (ideal) fluid stress follows (\ref{Pf})
 with,
 
@@ -104,8 +104,7 @@ with,
   \centering
   \includegraphics[width=0.6\textwidth]{images/experiments/%
     one-construct}
-  \caption{Engineered tendon construct. See \citet{Calve:04} for
-    details.} 
+  \caption{Engineered tendon construct \citep{Calve:04}.}
   \label{engconst}
 \end{figure}
 
@@ -129,19 +128,18 @@ with,
 \noindent where $\kappa^\mathrm{f}$ is the bulk modulus of the fluid.
 
 The tissue is modelled as being fluid saturated in $\Omega_t$ at $t =
-0$, i.e. (\ref{saturation}$_1$) holds with
-$\rho^\mathrm{f}_{0_\mathrm{sat}} =
-\rho^\mathrm{f}_{0_\mathrm{ini}}$. However, the tissue is allowed to
-become unsaturated in $\Omega_t$ for $t > 0$ due to void
-formation. Then, the conditions set out in (\ref{cavitation})
-apply. The chemical potential is then given by
+0$~s, i.e. (\ref{saturation}$_1$) holds with $\rho^\mathrm{f} _
+{0_\mathrm{sat}} = \rho^\mathrm{f} _ {0_\mathrm{ini}}$. However, the
+tissue is allowed to become unsaturated in $\Omega_t$ for $t > 0$~s
+due to void formation. Then, the conditions set out in
+(\ref{cavitation}) apply. The chemical potential is then given by
 (\ref{fickeanmobility}). The numerical examples that follow discuss
 further specialisation of the constitutive relations to relevant
 cases.
 
 The initial and boundary conditions have been chosen in order to model
 a few common mechanical and chemical interventions on engineered
-tissue and the numerical values of parameters\footnote{The mobility
+tissue, and the numerical values of parameters\footnote{The mobility
   tensor reported in Table~\ref{parameters} is an order-of-magnitude
   estimate recalculated from \citet{Hanetal:2000} to correspond to the
   mobility used in this work. These authors reported a mean value of
@@ -182,13 +180,13 @@ This first example can be viewed as a model for localised, bolus
 delivery of regulatory chemicals to the tendon while accounting for
 mechanical (stress) effects. A single solute species\footnote{Here, we
   envision the solute to be a protein playing an essential role in
-  growth by catalysing biochemical reactions. An important
-  example of this is a family of proteins, TGF$\beta$, which is a
+  growth by catalysing biochemical reactions. An important example of
+  this is a family of proteins, TGF$\beta$, which is a
   multi-functional peptide that controls numerous functions of many
   cell types \citep{Alberts:02}.}, denoted by s, and a uniform
 distribution of fibroblasts that are characterised by their cell
-concentration, $\rho_{\mathrm{cell}}$, are considered. Both, Fickean
-diffusion of the solute, and stress gradient driven fluid flow are
+concentration, $\rho_{\mathrm{cell}}$, are considered. Both Fickean
+diffusion of the solute and stress gradient driven fluid flow are
 incorporated in this illustration. Michaelis-Menten enzyme kinetics
 (\ref{enzyme-kinetics-source}) is used to determine the rates of
 solute consumption and collagen production as a function of solute
@@ -213,11 +211,11 @@ height of the tendon---is 10\%. The applied strain in the radial
 direction decreases linearly with distance from the central plane, and
 vanishes at the top and bottom surfaces of the tendon.
 
-\begin{figure}[!hpt]
+\begin{figure}[!t]
   \centering
   \psfrag{M}{\hspace{-0.25cm}$\bN\cdot\bM^f$}
   \psfrag{P}{\hspace{0.15cm}$\bu$}
-  \includegraphics[width=5.0cm]{images/examples/%
+  \includegraphics[width=0.4\textwidth]{images/examples/%
     lagrangian/constriction/cylinder-in-bath}
   \caption{Constrictive load applied to tendon immersed in a bath.}
   \label{constrictload}
@@ -229,9 +227,9 @@ concentration in the bath is 500~kg.m$^{-3}$. In addition, a
 solute-rich bulb of radius 0.15~mm is introduced with its centre on
 the axis of the tendon and situated 3~mm below the upper circular face
 of the tendon. The initial solute concentration is 0.05~kg.m$^{-3}$ at
-all other points in the tendon, and increases linearly with decreasing
-radius in this bulb to 1~kg.m$^{-3}$ at its centre (see
-Figure~\ref{eg3ini}).
+all points in the tendon other than this solute-rich bulb, where the
+solute concentration increases linearly with decreasing radius to
+1~kg.m$^{-3}$ at its centre (see Figure~\ref{eg3ini}).
 
 \begin{figure}[!hpt]
   \centering
@@ -331,7 +329,7 @@ allowing us to use the deformation gradient $\bF$, suitably decomposed
 to account for change in species concentration, to model the fluid
 stress. This assumption, depicted in Figure~\ref{upper-bound-model},
 had important consequences for the developments in
-Chapter~\ref{lagrangian-perspective}.
+Chapter~\ref{lagrangian-perspective}.\\ %Hack
 
 Since the imposition of a common deformation gradient results in an
 upper bound for the effective stiffness of the tissue and magnitudes
@@ -339,7 +337,7 @@ of the fluxes established, we refer to it as the {\em upper bound
   model}. This assumption plays a fundamental role in determining the
 fluid flux driven by the fluid stress gradient.
 
-\begin{figure}[!hpt]
+\begin{figure}[!t]
   \centering
   \includegraphics[width=0.8\textwidth]{images/examples/%
     lagrangian/constriction/upper-bound-flux}
@@ -375,8 +373,8 @@ reported in Figure~\ref{eg2conc} are pulled-back from the current
 configuration. The current concentrations do not change for this
 boundary value problem.
 
-Solving a problem of this nature in the reference configuration using
-$\rho_0^\mathrm{f} = $ const. as the boundary condition to represent
+Solving a problem of this nature in the reference configuration, and
+setting $\rho_0^\mathrm{f}$ to a constant on the boundary to represent
 immersion of the tendon in a fluid bath yields non-physical results,
 such as an unbounded flow. This occurs since the imposed strain
 gradient causes a stress gradient in the fluid that does not
@@ -384,9 +382,6 @@ decay. The imposed boundary condition on $\rho_0^\mathrm{f}$ prevents
 a redistribution of concentration that would have provided an
 opposing, internal gradient of stress, which in turn would drive the
 flux to vanish.
-
-% Note: Perhaps the unbounded flow figures can be snuck in around
-% here.
 
 The tendon is held fixed in the radial direction after the
 constriction phase. The applied stress sets up a pressure wave in the
@@ -397,7 +392,7 @@ face with time, showing a decrease in height of the tendon after the
 constriction phase. The centre of the bottom face of the tendon is
 kept fixed.
 
-\begin{figure}[!hpt]
+\begin{figure}[!t]
   \centering
   \includegraphics[width=0.8\textwidth]{images/examples/%
     lagrangian/constriction/top-vertical-displacement}
@@ -571,18 +566,13 @@ in the weakly-coupled case ensures convergence in far fewer iterations
 than the strongly coupled case. Thus, the corresponding CPU times
 reported are also significantly lower for the weakly coupled case,
 which is is advantageous. In addition to being more physical, as
-argued at the beginning of Section \ref{swelling-1} immediately below,
-the lower bound, weakly-coupled case makes it feasible to drive
-problems to longer, physiologically-relevant time-scales through the
-use of larger time steps.
-
-\subsection{A swelling problem}
-\label{swelling-1}
-
-Motivated mainly by the recognition that the lower bound model for
-solid-fluid mechanical coupling ensures convergence to a
-self-consistent solution in just a few passes of the staggered
-solution scheme, it is used in subsequent examples in this chapter.
+argued below, the lower bound, weakly-coupled case makes it feasible
+to drive problems to longer, physiologically-relevant time-scales
+through the use of larger time steps. Motivated mainly by this
+recognition that the lower bound model for solid-fluid mechanical
+coupling ensures convergence to a self-consistent solution in just a
+few passes of the staggered solution scheme, it is used in the final
+example in this chapter.
 
 Note that the individual balance of linear momentum equations for the
 solid collagenous and fluid phases with the momentum transfer terms
@@ -598,18 +588,20 @@ deformation of the pore spaces in the upper bound model subjects the
 fluid to a stress state also determined by this deformation
 gradient. This approximation does not correspond to an underlying
 physical principle comparable to the satisfaction of individual
-balances of linear momentum for solid collagen and fluid, with
+balances of linear momentum for the solid collagen and fluid, with
 momentum transfers.
 
-In the following example, we study the mechanical effects of growth
-due to collagen production. In the interest of focusing on this issue,
-we assume that fibroblasts are available, and that the fluid phase
-bears the necessary nutrients for collagen production dissolved at a
+\subsection{A swelling problem}
+\label{swelling-1}
+
+In this final example, we study the mechanical effects of growth due
+to collagen production. In the interest of focusing on this issue, we
+assume that fibroblasts are available, and that the fluid phase bears
+the necessary nutrients for collagen production dissolved at a
 suitable, constant concentration. Collagen production is assumed to be
-governed by a first-order rate law, as discussed in
-Section~\ref{nature-of-sources} (\romannumeral 1). In this
-calculation, the reaction rate, $k^\mathrm{f}$, is 0.07
-$\mathrm{s}^{-1}$.
+governed by a first-order rate law, as discussed in Section~\ref{%
+  nature-of-sources}~(\romannumeral 1). In this calculation, the
+reaction rate, $k^\mathrm{f}$, is 0.07 $\mathrm{s}^{-1}$.
 
 \begin{figure}[!hpt]
   \centering
@@ -632,26 +624,25 @@ tendon in a nutrient-rich bath. The initial constant collagen
 concentration is 500~kg.m$^{-3}$ and the fluid concentration is
 400~kg.m$^{-3}$ at every point in the tendon. When this tendon is
 exposed to a bath where the fluid concentration is 410~kg.m$^{-3}$,
-i.e. $\rho^\mathrm{f}(\bx,t)=410~\mathrm{kg.m}^{-3} \forall \bx \in
-\partial\Omega_t$, nutrient-rich fluid is transported into the tissue,
-due to the pressure difference, induced by the concentration
-difference, between the fluid in the tendon and in the bath (fluid
-stress gradient-driven flux). Thereby, the nutrient concentration is
-elevated, leading to collagen production, fluid consumption and,
-eventually, growth due to additional collagen.
+i.e. $\rho^\mathrm{f}(\bx,t)=410~\mathrm{kg.m}^{-3}\ \forall\ \bx \in
+\partial\Omega_t$, nutrient-rich fluid is transported into the tissue
+due to the pressure difference induced by the concentration difference
+between the fluid in the tendon and in the bath. Thereby, the nutrient
+concentration is elevated, leading to collagen production, fluid
+consumption and, eventually, growth due to the addition of collagen.
 
 Figure~\ref{before_growth} shows the initial collagen concentration in
 the tendon. After it has been immersed in the nutrient-rich bath for
 1800~s, the tendon shows growth and the collagen concentration is
-higher as seen in Figure~\ref{after_growth}. On performing a uniaxial
+higher, as seen in Figure~\ref{after_growth}. On performing a uniaxial
 tension test on the tendon before and after growth, it is observed
 (Figure~\ref{stress_strain}) that the grown tissue is stiffer and
 stronger due to its higher collagen concentration. Qualitatively, this
 compares favourably with the experimental work of
 \citet{arrudaetal05}, where self-organised tendon constructs after
 growth induced by cyclic stretching are found to contain more collagen
-and become more stiff (see
-Figure~\ref{experiment-before-after-growth}).
+and become more stiff (see Figure~\ref{experiment-before-after%
+-growth}).
 
 \begin{figure}[!hpt]
   \centering
@@ -678,7 +669,7 @@ between 0 and 25 s following immersion in the fluid bath
 (Figure~\ref{volume_evolution}). This causes a small volume change of
 $\approx 1.6$\%. In this transport-dominated regime, the contribution
 to tendon growth from collagen production is small. However, the
-fluid-induced swelling saturates, and between 25 and 1800 s the
+fluid-induced swelling saturates, and between 25 and 1800 s, the
 reaction producing collagen dominates the growth process, producing a
 further $\approx 6.8$\% volume change. Noting that the range of
 collagen concentration in Figure~\ref{after_growth} is $585-626\;
