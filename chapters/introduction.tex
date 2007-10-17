@@ -8,7 +8,7 @@ assumptions underlying continuum thermodynamics under the condition
 that multiple interacting species occupy a region of Euclidean space
 simultaneously. The formal axiomatic treatment presented derives from
 these assumptions, and provides insight into the sequence of
-interaction between tissue mechanics, mass transport and biochemical
+interactions among tissue mechanics, mass transport and biochemical
 reactions. A computational formulation built upon the theory is used
 to solve a broad class of numerical examples demonstrating several
 biophysical aspects of tissue growth.
@@ -52,14 +52,14 @@ treatment here. (See Sections~\ref{balance-of-angular-momentum} and
 \ref{eu-balance-of-angular-momentum}.)
 
 \citet{HumphreyRajagopal:02} provided a mathematical treatment of
-\emph{adaptation} in a tissue, which includes growth and remodelling
-in the sense of this work. They introduced the notion of evolving
-natural configurations to model the state of material deposited at
-different instants in time. The treatment of the growth part of the
-deformation gradient in this work (Section~\ref{kinematics-of-growth})
-bears some resemblance to this idea. This concept also forms the basis
-for an active active field of study within the literature
-\citep{Skalak:81, SkalakHoger:96, Klischetal:2001, TaberHumphrey:2001,
+\emph{adaptation} in tissues, which includes growth and remodelling in
+the sense of this work. They introduced the notion of evolving natural
+configurations to model the state of material deposited at different
+instants in time. The treatment of the growth part of the deformation
+gradient in this work (Section~\ref{kinematics-of-growth}) bears some
+resemblance to this idea. This concept also forms the basis for an
+active field of study within the literature \citep{Skalak:81,
+  SkalakHoger:96, Klischetal:2001, TaberHumphrey:2001,
   LubardaHoger:02, AmbrosiMollica:2002} focusing on the kinematic
 aspects of biological growth.
 
@@ -88,7 +88,8 @@ work ensure that the Clausius-Duhem inequality is satisfied {\em a
   priori}, are adequately general to handle a fairly large class of
 physics, and most significantly, have been implemented in a coupled
 formulation retaining much of their rich detail, as evidenced by the
-computational examples in Chapter~\ref{numerical-simulations-2}.
+computational examples presented in Chapter~\ref{numerical%
+  -simulations-2}.
 
 \section{An overview}
 \label{overview}
@@ -156,9 +157,9 @@ laws of fluid mechanics.
 In this approach, the balance equations are derived in the current
 configuration of the tissue in terms of spatial variables enabling a
 straightforward application of physically-relevant boundary
-conditions, but more importantly, the governing equations for the
+conditions; but more importantly, the governing equations for the
 fluid phase are recast in terms of primitive variables that are more
-natural to fluid mechanics: fluid velocity and pressure. Another
+natural to fluid mechanics: the fluid velocity and pressure. Another
 significant aspect of this work is that, upon revisiting the
 Clausius-Duhem inequality in terms of spatial variables, appropriate
 constitutive choices are made to ensure that the inequality is
