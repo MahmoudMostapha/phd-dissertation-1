@@ -32,7 +32,7 @@ The mathematical formulation developed in Chapter~\ref{eulerian%
   {http://www.comsol.com/}} a computational environment for solving
 coupled systems of partial differential equations. For simplicity, the
 numerical implementation is in two spatial dimensions assuming a state
-of plain strain, and it uses triangular elements of order 2 (quadratic
+of plane strain, and it uses triangular elements of order 2 (quadratic
 elements) to approximate the displacement field of the solid phase,
 and triangular elements of order 1 (linear elements) to approximate
 all other field variables, including the fluid velocity and
@@ -114,9 +114,9 @@ approximated by:\footnote{The saturation condition, as stated in
 
 \noindent In this computational implementation, the fluid
 pressure,~$p^{\mathrm{f}}$, is not constitutively specified in terms
-of the current concentration of the fluid, and instead serves as an
-indeterminate Lagrange multiplier to impose the saturation
-constraint~(\ref{eu-saturationconstraint}).
+of the current concentration of the fluid, and instead serves as a
+Lagrange multiplier to impose the saturation constraint~(\ref{%
+  eu-saturationconstraint}).
 
 For simplicity, in the calculations that follow, the strain energy
 function used for the elastic portion of the response of the solid
@@ -129,7 +129,7 @@ C_{ij} (I_{1}-3)^{i} (I_{2}-3)^{j}
 \end{equation}
 
 \noindent (where $I_{1}$ and $I_{2}$ are the first and second
-principal invariants of the elastic right Cauchy-Greent tensor,
+principal invariants of the elastic right Cauchy-Green tensor,
 $\bC^{\mathrm{e}}$), suitably decomposed into volumetric and isochoric
 parts. A mixed displacement-pressure \citep{ZienkTay:89} formulation
 is used to treat the near-incompressibility of the solid phase. Also
@@ -145,7 +145,8 @@ models that include only two non-reacting phases: a solid and a
 fluid. In these calculations, the tissue is assumed to be $1$~mm thick
 and the material model for the solid phase uses the Mooney-Rivlin
 strain energy function~(\ref{mooney-rivlin-model}) with just one term
-having the material constant \mbox{$C_{10} = 0.8$~MPa.}
+(i.e., it is neo-Hookean) having the material constant \mbox{$C_{10} =
+  0.8$~MPa.}
 
 \subsection{An inflating balloon}
 \label{balloon}
@@ -491,9 +492,9 @@ $D$.
 \label{stress-relaxation}
 
 In these tests, the boundary conditions correspond to gripping the
-tissue at its longitudinal ends, and loading the tissue at a constant
-strain rate to a specific strain and holding it fixed at that strain
-for the remainder of the test. For the solid phase, this translates to
+tissue at its longitudinal ends, loading it at a constant strain rate
+to a specific strain, and holding the tissue fixed at that strain for
+the remainder of the test. For the solid phase, this translates to
 holding one of the longitudinal edges fixed while subjecting the other
 to the suitable displacement load. The lateral edges of the solid
 remain traction free. For the fluid, there is no flow relative to the
@@ -546,7 +547,7 @@ at which point the tissue is held fixed. Figure~\ref{visco-stress%
 there are two noticeable differences in the results from the
 poroelastic calculation performed at the same strain rate
 (Figure~\ref{poro-stress-relax-0p02}).  Firstly, stemming from the
-initially high relative velocity between the phases, the poroelastic
+initially-high relative velocity between the phases, the poroelastic
 curve starts with a higher stiffness than the viscoelastic case. And
 secondly, the quasistatic nature of the poroelastic calculation
 results in a sharper, more rapidly-decaying peak in stress.
@@ -586,10 +587,10 @@ results in a sharper, more rapidly-decaying peak in stress.
 The examples in this section study the hysteresis in the stress-strain
 response when the model is subjected to a complete load-unload
 cycle. As before, for the solid phase, the boundary conditions specify
-that one of longitudinal edges of the tissue is held fixed, while
-subjecting the other to the suitable displacement load. The lateral
-edges of the solid remain traction free. For the fluid, there is no
-flow relative to the solid at the longitudinal edges, i.e.,
+that one of the longitudinal edges of the tissue is held fixed, while
+subjecting the other to the suitable displacement condition. The
+lateral edges of the solid remain traction free. For the fluid, there
+is no flow relative to the solid at the longitudinal edges, i.e.,
 $\bv^{\mathrm{f}} = \bv^{\mathrm{c}}$. The lateral edges expose the
 fluid to the bath, and therefore the fluid pressure is equated to that
 of the bath, 0~MPa, along those edges.
@@ -622,12 +623,13 @@ strain rate (Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}),%
   that takes the shape of a cosine curve. This displacement condition
   reaches the same maximum strain and unloads to no strain at the same
   times as the triangular load, but maintains the necessary smoothness
-  in the velocity fields to allow for dynamic calculations.} it is
+  in the velocity fields to allow for the dynamic calculations.} it is
 clear once more that the quasistatic calculation lacks the
 characteristic oscillations arising from pressure wave propagation in
 the fluid observed in the dynamic calculation. It is also interesting
-to note that beyond a certain strain, the solid is stiff enough to
-overcome the oscillatory effects arising from the fluid flow.
+to note that beyond a certain strain ($\sim$0.06), the solid is stiff
+enough to overcome the oscillatory effects arising from the fluid
+flow.
 
 When this average strain rate is decreased to $\bar{\dot{\epsilon}} =
 0.001$ Hz, (1/10$^\mathrm{th}$ the rate of the preceding calculation),
@@ -639,30 +641,28 @@ equilibrium. In an analogous comparison, when the average strain rate
 is maintained at $\bar{\dot{\epsilon}} = 0.01$ Hz, but the magnitude
 of the frictional coefficient tensor is increased by a factor of 10 to
 $D=10.37$ MPa.s.mm$^{-2}$, it is observed that the dynamic effects of
-the fluid flow are much more prominent (as observed in
-Figure~\ref{medium-hysteresis-dynamic-0p01-d10p37}). This is because
-the comparable strain rates ensure similar relative velocities between
-the phases (in the calculations corresponding to
-Figures~\ref{medium-hysteresis-dynamic-0p01-d1p037} and
-\ref{medium-hysteresis-dynamic-0p01-d10p37}), but the frictional
-interaction between the fluid and solid phases has now scaled by this
-factor of 10.
+the fluid flow are much more prominent (as observed in Figure~\ref%
+{medium-hysteresis-dynamic-0p01-d10p37}). This is because the
+comparable strain rates ensure similar relative velocities between the
+phases (in the calculations corresponding to Figures~\ref{medium%
+  -hysteresis-dynamic-0p01-d1p037} and \ref{medium-hysteresis-dynamic%
+  -0p01-d10p37}), but the frictional interaction between the fluid and
+solid phases has now increased by an order of magnitude.
 
 The results presented in this section demonstrate aspects of the
 experimentally observed mechanical response of ligaments seen in
 Figure~\ref{explanted-ligament}. Finally, the biphasic poroelastic
-results presented in this section are compared to the response of the
-purely linear viscoelastic model introduced in the preceding
-section. This model was loaded at a strain rate of
-$\dot{\epsilon}=0.01$ Hz for 8.5~s to a total strain of 0.085, and
-then subsequently unloaded at the same rate back to 0 strain in
-another 8.5~s. The resulting stress-strain curve is shown in
-Figure~\ref{medium-hysteresis-visco-0p01-t0p3}. Upon comparing it with
-Figure~\ref{medium-hysteresis-dynamic-0p01-d1p037}, we find as we did
-before that, stemming from initial frictional interaction between the
-phases, the poroelastic case starts out stiffer, and the viscoelastic
-model fails to capture any of the dynamic effects arising from the
-fluid flow.
+results presented thus far are compared to the response of the purely
+linear viscoelastic model introduced in the preceding section. This
+model was loaded at a strain rate of $\dot{\epsilon}=0.01$ Hz for
+8.5~s to a total strain of 0.085, and then subsequently unloaded at
+the same rate back to 0 strain in another 8.5~s. The resulting
+stress-strain curve is shown in Figure~\ref{medium-hysteresis-visco%
+  -0p01-t0p3}. Upon comparing it with Figure~\ref{medium-hysteresis%
+  -dynamic-0p01-d1p037}, we find as we did before, that, stemming from
+the initial frictional interaction between the phases, the poroelastic
+case starts out stiffer, and the viscoelastic model fails to capture
+any of the dynamic effects arising from the fluid flow.
 
 \begin{figure}[!hptb]
 \centering
@@ -748,12 +748,12 @@ comprised of an extra-cellular matrix (ECM) and tumour cells capable
 of moving with respect to this matrix.\footnote{We have already
   studied the effects of the extra-cellular fluid flow on the
   mechanics in some detail in the preceding sections. Since we are
-  focusing on other phenomena in this section, we have chosen to
-  ignore the fluid here.} It is assumed that the solute
-phases, such as the nutrients and enzymes, are present in sufficient
-amounts to drive the biochemistry that allows the cells to proliferate
-and produce more ECM. The model geometry, as visualised in
-Figure~\ref{tumour-isotropic-swelling-0}, is a semicircle and has a
+  currently focusing on other phenomena, we have chosen to ignore the
+  fluid here.} In order to simplify the scenario, it is assumed that
+the solute phases, such as the nutrients and enzymes, are present in
+sufficient amounts to drive the biochemistry that allows the cells to
+proliferate and produce more ECM. The model geometry, as visualised in
+Figure~\ref{tumour-isotropic-swelling-0}, is semicircular and has a
 radius of 10~mm initially.
 
 \subsection{Kinematic swelling concomitant with growth}
@@ -761,8 +761,8 @@ radius of 10~mm initially.
 
 In this initial calculation, we focus on the kinematic swelling
 associated with an increase in the mass of the solid tumour. The
-isotropic swelling tensor introduced in
-Section~\ref{kinematics-of-growth} has been modified to,
+isotropic swelling tensor introduced in Section~\ref{kinematics%
+  -of-growth} has been modified to,
 
 \begin{equation}
 \bF^{\mathrm{g}^{\mathrm{c}}} = \left(
@@ -775,7 +775,7 @@ Section~\ref{kinematics-of-growth} has been modified to,
 \label{2d-isotropic}
 \end{equation}
 
-\noindent since we are working in two dimensions under a plain strain
+\noindent since we are working in two dimensions under a plane strain
 setting.
 
 This example solves the mass (\ref{localbalanceofmass}) and momentum
@@ -783,25 +783,23 @@ balance (\ref{localbalanceofmomentum}) equations for the solid
 (comprised at this point of both cells and the matrix) in the
 reference configuration. The boundary conditions for the momentum
 balance equations only prevent rigid body motion of the domain, and do
-not constrain the constrain its deformation in anyway. The mass
-balance equation is solved with a uniform source term
-$\Pi^{\mathrm{c}}=0.001$~kg.m$^{-3}$/day. The initial solid
-concentration is $\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}=1~$kg.m$^{-3}$.
+not constrain its deformation in any way. The mass balance equation is
+solved with a uniform source term \mbox{$\Pi^{\mathrm{c}}=0.001$%
+  ~kg.m$^{-3}$/day}. The initial solid concentration is
+$\rho_{0_{\mathrm{ini}}}^{\mathrm{c}}=1~$kg.m$^{-3}$.
 
 As a result of this uniform mass source, and the increasing solid
-concentration, the domain begins to
-swell. Figures~\ref{tumour-isotropic-swelling-0} and
-\ref{tumour-isotropic-swelling-100} show the tumour
-initially, and after 100 days. The colour contours provide the
-radial displacement of the solid in mm, and the arrows provide the
+concentration, the domain begins to swell. Figures~\ref{tumour%
+  -isotropic-swelling-0} and \ref{tumour-isotropic-swelling-100} show
+the tumour initially, and after 100 days. The colour contours provide
+the radial displacement of the solid in mm, and the arrows provide the
 direction of its velocity. Since there are no constraints on the
-deformation, this swelling is
-isotropic. Figure~\ref{tumour-isotropic-area-evolution}, shows the area of
-the domain increasing linearly in time over the duration of the
-computation. Note that the ratio of the final to initial areas
-172.788~mm$^2$/157.08~mm$^2$ is exactly the same as the ratio of final
-to initial concentrations 1.1~kg.m$^{-3}$/1~kg.m$^{-3}$, as one would
-expect.
+deformation, this swelling is isotropic. Figure~\ref{tumour%
+  -isotropic-area-evolution}, shows the area of the domain increasing
+linearly in time over the duration of the computation. Note that the
+ratio of the final to initial areas 172.788~mm$^2$/157.08~mm$^2$ is
+exactly the same as the ratio of the final to initial concentrations
+1.1~kg.m$^{-3}$/1~kg.m$^{-3}$, as one would expect.
 
 \begin{figure}[!hptb]
 \centering
@@ -831,9 +829,9 @@ eulerian/cancer/isotropic-swelling-area-evolution}
 \label{wall-constraint}
 
 We are interested in subjecting this solid tumour model to a
-compressive stress, and the way we go about imposing this is to
-introduce a rigid wall 10.5~mm to the right of the vertical edge
-of the domain, and allowing the swelling tumour to impinge upon
+compressive stress, and the way we impose this condition is to
+introduce a rigid wall 10.5~mm to the right of the vertical edge of
+the domain, and allowing the swelling tumour to impinge upon
 it. Recall that the initial radius of the semicircular domain is
 10~mm, thus giving it 0.5~mm to grow before it contacts the wall.
 
@@ -843,7 +841,7 @@ constants $C_{10}=0.37$ and $C_{10}=0.11$ MPa. As in the previous
 calculation, the balance of mass and momentum for this growing solid
 are solved in the reference configuration. Since we are solving the
 momentum balance with dynamics, we cannot introduce the rigid wall
-instantaneously as this results in time-discontinuous solid velocity
+instantaneously, as this results in time-discontinuous solid velocity
 fields. We instead use the following ``soft'' contact mechanics model,
 
 \begin{equation}
@@ -854,16 +852,17 @@ q = - A \exp (-B g),
 wall, $g$ is the gap between the wall and the approaching tumour, and
 $A$ and $B$ are parameters associated with the contact model that
 control the magnitude of the force, and how sharply the force rises as
-the tumour approaches the wall. This model ensures that the velocity
-fields on the impinging boundary of the tumour remain smooth in time.
+the tumour approaches the wall, respectively. This model ensures that
+the velocity fields on the impinging boundary of the tumour remain
+smooth in time.
 
 Starting with the same initial conditions as the previous test
 (Figure~\ref{tumour-isotropic-swelling-0}),
 Figure~\ref{tumour-constrained-swelling-120} depicts the compressive
-horizontal stress built up in the solid after 120~days due to the
+horizontal stress built-up in the solid after 120~days due to the
 presence of the wall (not visible in the figure). Notice that the
 velocity vectors are much smaller in the constrained
-direction. Figure~\ref{tumour-constrained-stress-evolution} shows the 
+direction. Figure~\ref{tumour-constrained-stress-evolution} shows the
 time evolution of the compressive horizontal stress at a point near
 the extreme right of the domain. The stress increases sharply as the
 point gets close to the wall, but remains smooth in time.
@@ -886,7 +885,7 @@ eulerian/cancer/constrained-stress-evolution}
 
 \clearpage
 
-\subsection{The mechanics of cells}
+\subsection{The mechanics of the cells}
 \label{cell-roles}
 
 In order to observe just the gross kinematic swelling associated with
@@ -896,7 +895,7 @@ the ECM. In this section, we turn off the growth process, and begin to
 differentiate between the species by decomposing the total solid
 stress into two parts: a ``passive'' stress associated with the
 hyperelastic response of the ECM, and an ``active'' stress, associated
-with the cell traction forces on the surrounding medium:
+with the cellular traction forces on the surrounding medium:
 
 \begin{equation}
 \Bsigma^{\mathrm{c}} =
@@ -956,7 +955,7 @@ eulerian/cancer/heterogeneous-inward-tug}
 
 \clearpage
 
-\subsection{Transport of the cells}
+\subsection{The transport of the cells}
 \label{cell-transport}
 
 In the calculations presented in the preceding section, the cell
@@ -979,23 +978,23 @@ mass flux:
 \noindent where $h$ is the haptotactic coefficient and
 $D^{\mathrm{cell}}$ is the diffusivity of the cells in the matrix. In
 this section, we are primarily interested in observing the
-proliferation and transport of the cells, and so we will not associate
-any kinematics with the changing concentration of cells.
+proliferation and transport of the cells, and so we do not associate
+any kinematics with the changing cell concentration.
 
 In the first set of results, we look at cell proliferation and
 diffusion, and observe the effect that this has on the traction that
 they apply on their ECM neighbourhoods. Starting with a cell-rich
-circle of radius 5~mm at the centre of the domain (having a uniform cell
-concentration of 6.266~kg.m$^{-3}$), and a smaller cell concentration
-(3.778~kg.m$^{-3}$) everywhere else; and using a uniform cell source
-$\pi^{\mathrm{cell}}=0.001$~kg.m$^{-3}$/day and a diffusion
-coefficient of $D^{\mathrm{cell}}=0.01$~mm$^2$/day,
-Figures~\ref{tumour-diffusion-proliferation-0}--Figure~%
-\ref{tumour-diffusion-proliferation-100} show the snapshots of the
-diffusing and proliferating cells during the course of the test. The colour
-contours provide the evolving cell concentration fields and the arrows
-provide the deformation direction of the ECM, induced by the cell
-traction.
+circle of radius 5~mm at the centre of the domain (having a uniform
+cell concentration of 6.266~kg.m$^{-3}$), and a smaller cell
+concentration (3.778~kg.m$^{-3}$) at other points on the domain; and
+using a uniform cell source \mbox{$\pi^{\mathrm{cell}}=0.001$~kg.m%
+  $^{-3}$/day} and a diffusion coefficient of \mbox{%
+  $D^{\mathrm{cell}}=0.01$~mm$^2$/day,} Figures~\ref{tumour%
+  -diffusion-proliferation-0}--\ref{tumour-diffusion-proliferation-100}
+show the snapshots of the diffusing and proliferating cells during the
+course of the test. The colour contours provide the evolving cell
+concentration fields (in~kg.m$^{-3}$) and the arrows provide the
+deformation direction of the ECM induced by the cell traction.
 
 \clearpage
 
@@ -1035,9 +1034,9 @@ eulerian/cancer/diffusing-proliferating-cells-100}
 
 In the second set of results, we look at cell proliferation and
 haptotaxis, and observe the effect that this has on the traction that
-they apply on their ECM neighbourhoods. We start this test with the
-same initial conditions for the cells as the previous calculation (a
-cell rich bulb at the centre of the domain), but in order to induce
+the cells apply on their ECM neighbourhoods. We start this test with
+the same initial conditions for the cells as the previous calculation
+(a cell-rich bulb at the centre of the domain), but in order to induce
 haptotaxis, we begin with the heterogenous ECM concentration (varying
 between 0.5~kg.m$^{-3}$ and 1.5~kg.m$^{-3}$), seen in
 Figure~\ref{heterogeneous-ecm-concentration}. In these tests, the
@@ -1046,18 +1045,19 @@ Figures~\ref{tumour-haptotaxis-proliferation-0}--%
 \ref{tumour-haptotaxis-proliferation-10} show snapshots of the cells
 undergoing haptotaxis and proliferating during the course of the
 test. The colour contours provide the evolving cell concentration
-fields and the arrows provide the deformation direction of the ECM,
-induced by the cell traction. We observe that the cells migrate toward
-areas of higher ECM while proliferating. Note that the directionality
-of the cell traction field changes correspondingly with the
-concentration field, as noted by the lengths and directions of the
-arrows.
+fields (in~kg.m$^{-3}$) and the arrows provide the deformation
+direction of the ECM, induced by the cell traction. We observe that
+the cells migrate toward areas of higher ECM while proliferating. Note
+that the directionality of the cell traction field changes
+correspondingly with the concentration field, as noted by the lengths
+and directions of the arrows.
 
 \begin{figure}[!hptb]
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/heterogeneous-ecm-concentration}
-\caption{Heterogeneous extra-cellular matrix concentration.}
+\caption{Heterogeneous extra-cellular matrix concentration
+  (kg.m$^{-3}$).}
 \label{heterogeneous-ecm-concentration}
 \end{figure}
 
@@ -1065,7 +1065,8 @@ eulerian/cancer/heterogeneous-ecm-concentration}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-0}
-\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=0$ days.}
+\caption{Proliferating cells undergoing haptotaxis at time $t=0$
+  days.}
 \label{tumour-haptotaxis-proliferation-0}
 \end{figure}
 
@@ -1073,7 +1074,8 @@ eulerian/cancer/haptotaxis-proliferating-cells-0}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-3p3}
-\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=33$ days.}
+\caption{Proliferating cells undergoing haptotaxis at time $t=33$
+  days.} 
 \label{tumour-haptotaxis-proliferation-3p3}
 \end{figure}
 
@@ -1081,7 +1083,8 @@ eulerian/cancer/haptotaxis-proliferating-cells-3p3}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-6p7}
-\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=67$ days.}
+\caption{Proliferating cells undergoing haptotaxis at time $t=67$
+  days.}
 \label{tumour-haptotaxis-proliferation-6p7}
 \end{figure}
 
@@ -1089,17 +1092,17 @@ eulerian/cancer/haptotaxis-proliferating-cells-6p7}
 \centering
 \includegraphics[width=0.9\textwidth]{images/examples/%
 eulerian/cancer/haptotaxis-proliferating-cells-10}
-\caption{Proliferating cells undergoing diffusion and haptotaxis at time $t=100$ days.}
+\caption{Proliferating cells undergoing haptotaxis at time $t=100$
+  days.}
 \label{tumour-haptotaxis-proliferation-10}
 \end{figure}
 
 While the magnitudes for the cell diffusivity, $D^{\mathrm{cell}}$,
 and haptotactic coefficient, $h$, are arbitrarily chosen, following
-the experimental data cited in \citet{namyetal:04}, the value assumed
-for $h$ is an order of magnitude greater than that assumed for
-$D^{\mathrm{cell}}$, which will ensure that when the two modes for
-mass transport are combined, haptotaxis will be the dominant
-mechanism.
+the experimental data cited in \citet{namyetal:04}, the numerical
+value assumed for $h$ is an order of magnitude greater than that
+assumed for $D^{\mathrm{cell}}$, which ensures that when the two modes
+for mass transport are combined, haptotaxis is the dominant mechanism.
 
 \subsection{Coupling the phenomena}
 \label{cacophonous-medley}
@@ -1112,20 +1115,19 @@ additional ECM which scales linearly with the concentration of
 cells, the stress within the cells induced by their traction, the
 hyperelastic response of the ECM, isotropic kinematic swelling
 associated with the increase in tumour mass, and finally, this
-swelling constrained by the presence of the wall.
+swelling constrained by the presence of a wall.
 
-Figures~\ref{tumour-growth-constrained-0}%
---Figures~\ref{tumour-growth-constrained-5} show snapshots of the
-growing tumour constrained by the wall. The colour contours provide
-the x-displacement of the swelling tumour and arrows provide the
-direction of the velocity field. Observe that the regions that have a
-higher cell concentration due to haptotaxis (refer
-Figures~\ref{tumour-haptotaxis-proliferation-0}%
---\ref{tumour-haptotaxis-proliferation-10}) tend to swell faster than
-regions with lower cell concentrations. Also observe that due to the
-presence of the wall, even as early as 2~days, the velocities are
-biased toward the vertical direction. Finally, upon comparing these
-constrained tumour growth snapshots with
+Figures~\ref{tumour-growth-constrained-0}--\ref{tumour-growth%
+  -constrained-5} show snapshots of the growing tumour constrained by
+the wall. The colour contours provide the x-displacement of the
+swelling tumour and the arrows provide the direction of the velocity
+field. Observe that regions having a higher cell concentration due to
+haptotaxis (refer Figures~\ref{tumour-haptotaxis%
+  -proliferation-0}--\ref{tumour-haptotaxis-proliferation-10}) tend to
+swell faster than regions with lower cell concentrations. Also observe
+that due to the presence of the wall, even as early as 20~days, the
+velocities are biased toward the vertical direction. Finally, upon
+comparing these constrained tumour growth snapshots with
 Figure~\ref{tumour-growth-no-wall-4}, which is a result of a similar
 calculation without the wall, it is clear that the presence of the
 compressive stress along a direction inhibits growth along that
@@ -1141,7 +1143,7 @@ growth law (\ref{2d-isotropic}), without requiring the
 stress-dependent time rate of the growth portion of the deformation
 gradient derived in Section~\ref{eu-stress-dependent-growth}. It is
 not yet clear whether the constraint from the mechanical loads just
-deform the tissue and distort their shape, or whether the cells have
+deforms the tissue and distorts its shape, or whether the cells have
 some ability to sense the local stress state and this affects
 directionality of further growth. More research into experimental
 literature is needed before a conclusive statement can be made.
