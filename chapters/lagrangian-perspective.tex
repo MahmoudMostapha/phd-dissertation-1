@@ -14,7 +14,7 @@ axioms. Section~\ref{kinematics-of-growth} presents the kinematics
 associated with finite deformation growth. A fundamental axiom of
 Thermodynamics, the entropy inequality, and the restrictions it places
 on functional forms of constitutive relationships is the subject of
-Section~\ref{entropy-inequality}. The Chapter concludes with key
+Section~\ref{entropy-inequality}. The chapter concludes with key
 algorithmic considerations (Section~\ref{algorithmic-considerations})
 which play an important role in the computational formulation
 underlying the numerical experiments presented in
@@ -51,8 +51,7 @@ $\Bvarphi$.
   \psfrag{I}{$\bn\cdot\bm^\iota$}
   \includegraphics[width=0.8\textwidth]{images/elucidation/%
     continuum-potato-mass}
-  \caption{The tissue as a continuous medium with growing and
-    diffusing species.}
+  \caption{The tissue idealised as a continuous medium.}
   \label{continuum-potato-mass}
 \end{figure}
 
@@ -133,11 +132,10 @@ in the reference configuration,
 
 \noindent Here, $\mathrm{DIV[\bullet]}$ is the divergence operator in
 the reference configuration. The functional forms of $\Pi^\iota$ are
-abstractions of the underlying biochemistry, physiologically relevant
-examples of which are discussed in
-Section~\ref{nature-of-sources}. The fluxes, $\bM^\iota$, are
-determined from the thermodynamically-motivated constitutive relations
-described in
+abstractions of the underlying biochemistry; physiologically relevant
+examples of which are discussed in Section~\ref{nature-of%
+  -sources}. The fluxes, $\bM^\iota$, are determined from the
+thermodynamically-motivated constitutive relations described in
 Section~\ref{fluid-flux-constitutive-relationships}. Recall that, in
 particular, $\bM^{c} = \bzero$.
 
@@ -210,28 +208,28 @@ this coupling, the balance of linear momentum should be solved to
 determine the local state of strain and stress.
 
 Recall that the deformation of the tissue is characterised by the map
-$\Bvarphi(\bX,t)$. Recalling that we are working under the assumption
-that the solid collagen fibrils and fibroblasts do not undergo mass
-transport, the material velocity of this species, $\bV = \partial
-\Bvarphi / \partial t$, is used as the primitive variable for
-mechanics. Each remaining species can undergo mass transport relative
-to the solid collagen. For this purpose, it is useful to define the
-material velocity of a species $\iota$ \emph{relative to the solid
-  phase} as: $\bV^\iota = (1/\rho_0^\iota)\bF\bM^\iota$. Thus, the
-total material velocity of a species~$\iota$ is $\bV+\bV^\iota$.
+$\Bvarphi(\bX,t)$. Since we are working under the assumption that the
+solid collagen fibrils and fibroblasts do not undergo mass transport,
+the material velocity of this species, $\bV = \partial \Bvarphi /
+\partial t$, is used as the primitive variable for mechanics. Each
+remaining species can undergo mass transport relative to the solid
+collagen. For this purpose, it is useful to define the material
+velocity of a species $\iota$ \emph{relative to the solid phase} as:
+$\bV^\iota = (1/\rho_0^\iota)\bF\bM^\iota$. Thus, the total material
+velocity of a species~$\iota$ is $\bV+\bV^\iota$.
 
 The tissue is subjected to a surface traction, $\bT$, and a body force
-per unit mass, $\bg$. We define the partial first Piola-Kirchhoff
+per unit mass,~$\bg$. We define the partial first Piola-Kirchhoff
 stress tensor corresponding to species~$\iota$ as the portion of the
-total stress borne by the species. Denoting this quantity by
-$\bP^\iota$, the natural boundary condition then implies that $\bT =
-\sum_{\iota}\bP^\iota\bN$ on $\partial\Omega_0$. Thus, $\bP^\iota\bN$
-is the corresponding partial traction, as depicted in
+total stress borne by the species. Denoting this quantity
+by~$\bP^\iota$, the natural boundary condition then implies that $\bT
+= \sum_{\iota}\bP^\iota\bN$ on $\partial\Omega_0$. Thus,
+$\bP^\iota\bN$ is the corresponding partial traction, as depicted in
 Figure~\ref{continuum-potato-momentum}.
 
 Recognising that the concentrations of solutes are low, and
 consequently that they do not bear appreciable stress, the partial
-stresses and momentum balance equation are defined only for the solid
+stresses and momentum balance equations are defined only for the solid
 collagen and fluid phases. Written in integral form, the balance of
 momentum of species~$\iota$ over $\Omega_0$ is,
 
@@ -261,18 +259,19 @@ Writing $(\bV+\bV^\iota) \bM^\iota\cdot\bN$ as
 $((\bV+\bV^\iota)\otimes\bM^\iota)\bN$, and using Gauss' Divergence
 Theorem (Appendix~\ref{gauss-divergence}), one obtains:
 
-\begin{eqnarray}
+\begin{equation*}
+\begin{split}
 \int\limits_{\Omega_0} \left(\frac{\partial\rho_0^\iota}{\partial
   t}\left(\bV+\bV^\iota\right) + \rho_0^\iota\frac{\partial}{\partial
-  t}\left(\bV+\bV^\iota\right)\right) \mathrm{d}V =
+  t}\left(\bV+\bV^\iota\right)\right) \mathrm{d}V = & \phantom{+}
 \int\limits_{\Omega_0}\rho^\iota_0\left(\bg+\bq^\iota\right)
-\mathrm{d}V \qquad&
-&\nonumber\\ +\int\limits_{\Omega_0}\left(\Pi^\iota\left(\bV+\bV^\iota\right)
-+ \mathrm{DIV}[\bP^\iota]\right) \mathrm{d}V& & \nonumber\\ -
+\mathrm{d}V \qquad \\ &
++\int\limits_{\Omega_0}\left(\Pi^\iota\left(\bV+\bV^\iota\right) +
+\mathrm{DIV}[\bP^\iota]\right) \mathrm{d}V \\ & -
 \int\limits_{\Omega_0}\mathrm{DIV}
 \left[\left(\bV+\bV^\iota\right]\otimes\bM^\iota\right)\mathrm{d}V .
-\nonumber & &
-\end{eqnarray}
+\end{split}
+\end{equation*}
 
 \noindent Applying the product rule to the last term and using the
 mass balance equation (\ref{localbalanceofmass}) gives
@@ -520,14 +519,14 @@ and energy transfer as:
     change of energy}} = \underbrace{\int\limits_{\Omega_0}
   \left(\rho_0^\iota\bg \cdot\left(\bV+\bV^\iota\right) + \rho_0^\iota
   r^\iota \right)\mathrm{d}V}_{\text{Work done by body forces and heat
-    supplied}}\qquad& &\nonumber\\ +\underbrace{\int\limits_{\Omega_0}
+    supplied}}& &\nonumber\\ +\underbrace{\int\limits_{\Omega_0}
   \rho_0^\iota\bq^\iota\cdot(\bV + \bV^\iota) \mathrm{d}V}_{\text{Work
     done by interaction forces}}& &\nonumber\\ +
 \underbrace{\int\limits_{\Omega_0} \left(\Pi^\iota\left(e^\iota +
   \frac{1}{2}\Vert\bV+\bV^\iota\Vert^2\right) +
-  \rho^\iota_0\tilde{e}^\iota\right)\mathrm{d}V}_{\text{Energy being
-    created and supplied through species interactions}} & & \nonumber
-\\ + \underbrace{\int\limits_{\partial \Omega_0}
+  \rho^\iota_0\tilde{e}^\iota\right)\mathrm{d}V}_{\text{Energy from
+    species creation and interaction}} & & \nonumber \\ +
+\underbrace{\int\limits_{\partial \Omega_0}
   \left(\left(\bV+\bV^\iota\right)\cdot\bP^\iota -
   \bM^\iota\left(e^\iota +\frac{1}{2} \Vert\bV+\bV^\iota\Vert^2\right)
   - \bQ^\iota\right)\cdot\bN\mathrm{d}A}_{\text{Work done by applied
@@ -584,7 +583,7 @@ leading to the Clausius-Duhem form of the dissipation inequality
 (Section~\ref{entropy-inequality}).
 
 Analogous to the results obtained in Sections~\ref{balance-of-mass}
-and \ref{balance-of-linear-momentum} the inter-species energy
+and \ref{balance-of-linear-momentum}, the inter-species energy
 transfers, $\tilde{e}^{\iota}$, are related to interaction forces,
 $\bq^{\iota}$, and mass sources, $\Pi^{\iota}$. To arrive at this
 relation, we first obtain the balance of mass of the entire system by
@@ -605,7 +604,7 @@ summing Equation~(\ref{globalbalanceofenergy}) over all species:
 & \\ +\sum\limits_{\iota}\int\limits_{\partial
   \Omega_0}\left(\left(\bV+\bV^\iota\right)\cdot\bP^\iota -
 \bM^\iota\left(e^\iota +\frac{1}{2} \Vert\bV+\bV^\iota\Vert^2\right) -
-\bQ^\iota\right)\cdot\bN\mathrm{d}A.\quad& & \nonumber
+\bQ^\iota\right)\cdot\bN\mathrm{d}A.& & \nonumber
 \end{eqnarray}
 
 Then, expressing the rate of change of energy of the system
@@ -666,8 +665,7 @@ formulation with mixture theory.
   \psfrag{N}{$\Bvarphi$}
   \includegraphics[width=0.8\textwidth]{images/elucidation/%
     kinematics}
-  \caption{The kinematics of growth, which holds for $\iota =
-    \mathrm{c,f}$.} 
+  \caption{The kinematics of growth.}
   \label{continuum-potato-growth-kinematics}
 \end{figure}
 
@@ -1004,7 +1002,7 @@ we prescribe the following constitutive relations which close the
 system of differential equations governing our tissue:
 
 \begin{equation}
-\bP^\iota\bF^{\mathrm{g}^\iota\mathrm{T}} = \rho_0^\iota
+\bP^\iota\bF^{\mathrm{g}^{\iota^\mathrm{T}}} = \rho_0^\iota
 \frac{\partial e^\iota}{\partial\bF^{\mathrm{e}^\iota}},
 \label{constitutive-relation-hyperelasticity}
 \end{equation}
@@ -1061,11 +1059,10 @@ ${\bK}^\iota$, and the negative of the temperature gradient
 field. This relationship is identical to the Fourier Law of heat
 conduction.
 
-With these constitutive relations
-(\ref{constitutive-relation-hyperelasticity}%
---\ref{constitutive-relation-heat-conduction}) ensuring that certain
-terms of the dissipation inequality vanish,
-\ref{reducedentropyinequality-1} is further reduced to
+With these constitutive relations (\ref{constitutive-relation%
+-hyperelasticity}--\ref{constitutive-relation-heat-conduction})
+ensuring that certain terms of the dissipation inequality vanish,
+(\ref{reducedentropyinequality-1}) is further reduced to
 
 \begin{equation}
 \begin{split}
@@ -1098,22 +1095,20 @@ $\Pi^{\iota}$, are thermodynamically valid).
 When the dissipation inequality is revisited while deriving the growth
 formulation from an Eulerian perspective in a later chapter
 (Section~\ref{eu-entropy-inequality}), additional constitutive
-relations will be introduced which ensure more terms in the
+relations will be introduced which ensure that all terms in the
 dissipation, $\sD$, are satisfied a~priori. But now, we will take a
 detailed look at the specific forms of the constitutive relations used
-in the computations presented in
-Chapter~\ref{numerical-simulations-1}. In particular,
-Section~\ref{anisotropic-network-elasticity} discusses the strain
-energy density function for collagen derived from an anisotropic
-network model based on entropic elasticity,
+in the computations presented in Chapter~\ref{numerical-simulations%
+  -1}. In particular, Section~\ref{anisotropic-network-elasticity}
+discusses the strain energy density function for collagen derived from
+an anisotropic network model based on entropic elasticity,
 Section~\ref{ideal-incompressible-fluid} describes the pressure
-response of an ideal, nearly-incompressible fluid,
-Section~\ref{fluid-flux-constitutive-relationships} details the
-constitutive relationship for the fluid flux,
-Section~\ref{solute-transport}, in a similar manner, discusses solute
-transport, and finally, Section~\ref{nature-of-sources} provides some
-examples and physiological motivation for different kinds of collagen
-sources.
+response of an ideal, nearly-incompressible fluid, Section~\ref%
+{fluid-flux-constitutive-relationships} details the constitutive
+relationship for the fluid flux, Section~\ref{solute-transport}, in a
+similar manner, discusses solute transport, and finally,
+Section~\ref{nature-of-sources} provides some examples and
+physiological motivation for different kinds of collagen sources.
 
 \subsection{An anisotropic network model}
 \label{anisotropic-network-elasticity}
@@ -1121,16 +1116,17 @@ sources.
 From Equation~(\ref{constitutive-relation-hyperelasticity}), the
 partial first Piola-Kirchhoff stress of collagen, modelled as a
 hyperelastic material, is $\bP^{\,\mathrm{c}} = \rho_0^\mathrm{c}
-\partial e^\mathrm{c}/ \partial\bF^{\mathrm{e}^\mathrm{c}}$. Recall
-from Section~\ref{kinematics-of-growth} that
-$\bF^{\mathrm{e}^\mathrm{c}} = \bF\bF^{\mathrm{g}^{\mathrm{c}^{-1}}}$
-is the elastic part, and $\bF^{\mathrm{g}^\mathrm{c}}$ is the growth
-part, respectively, of the deformation gradient of collagen. Following
-Equation (\ref{isotropicgrowth}), if we were considering
+\frac{\partial e^\mathrm{c}}{\partial\bF^{\mathrm{e}^\mathrm{c}}}
+\bF^{\mathrm{g}^{\mathrm{c}^\mathrm{-T}}} $. Recall from
+Section~\ref{kinematics-of-growth} that \mbox{$\bF^{\mathrm{e}%
+    ^\mathrm{c}} = \bF\bF^{\mathrm{g}^{\mathrm{c}^{-1}}}$} is the
+elastic part, and $\bF^{\mathrm{g}^\mathrm{c}}$ is the growth part,
+respectively, of the deformation gradient of collagen. Along the lines
+of Equation (\ref{isotropicgrowth}), if we were considering
 unidirectional growth of collagen along a unit vector $\be$, we would
-have $\bF^{\mathrm{g}^\mathrm{c}} = \frac{\rho^\mathrm{c}_{0}}
-{\rho^\mathrm{c}_{0_{\mathrm{ini}}}} \be \otimes \be$, with
-$\rho^\mathrm{c}_{0_{\mathrm{ini}}}$ denoting the initial
+have \mbox{$\bF^{\mathrm{g}^\mathrm{c}} = \frac{\rho^\mathrm{c}_{0}}
+  {\rho^\mathrm{c}_{0_{\mathrm{ini}}}} \be \otimes \be$, with
+  $\rho^\mathrm{c}_{0_{\mathrm{ini}}}$} denoting the initial
 concentration of collagen at the point.
 
 The mechanical response of tendons in tension is determined primarily
@@ -1147,16 +1143,15 @@ length, $A$. The latter is a measure of its stiffness and given by $A
 = \chi/k\theta$, where $\chi$ is the bending rigidity, $k$ is
 Boltzmann's constant and $\theta$ is the temperature. See
 \citet{LandLif} for a general formulation of statistical mechanics
-models of long chain molecules.
-
-Fitting the WLC response function derived by \citet{MarkoSiggia:95} to
-the collagen {\em fibril} data of \citet{Grahametal:2004} results in
-values of $A = 6$ nm and $L = 3480$ nm. This is to be compared with
-$A=14.5$ nm and $L=309$ nm, reported by \citet{Sunetal:2002}, for a
-{\em single} collagen molecule. Taken together, these results
-demonstrate that the WLC analysis correctly predicts a collagen fibril
-to be longer and slightly more compliant than its constituent molecule
-due to compliant intermolecular cross-links in fibrils.
+models of long chain molecules. Fitting the WLC response function
+derived by \citet{MarkoSiggia:95} to the collagen {\em fibril} data of
+\citet{Grahametal:2004} results in values of $A = 6$ nm and $L = 3480$
+nm. This is to be compared with $A=14.5$ nm and $L=309$ nm, reported
+by \citet{Sunetal:2002}, for a {\em single} collagen molecule. Taken
+together, these results demonstrate that the WLC analysis correctly
+predicts a collagen fibril to be longer and more compliant than its
+constituent molecule due to compliant intermolecular cross-links in
+fibrils.
 
 To model a collagen network structure, the WLC model has been embedded
 as a single constituent chain of an eight-chain model
@@ -1186,10 +1181,6 @@ density, $\hat{e}^\mathrm{c}$:\footnote{Under the isothermal
 \end{split}
 \end{equation}
 
-Here, $N$ is the density of chains, and $a,b$ and $c$ are lengths of
-the unit cell sides aligned with the principal stretch directions. The
-material model is isotropic only if $a=b=c$.
-
 \begin{figure}
   \centering \psfrag{r}{$r$} \psfrag{A}{$A$} \psfrag{a}{$a$}
   \psfrag{b}{$b$} \psfrag{c}{$c$} \psfrag{n}{$\bN_1$}
@@ -1200,18 +1191,20 @@ material model is isotropic only if $a=b=c$.
   \label{eight-chain-model}
 \end{figure}
 
-The elastic stretches along the unit cell axes are, respectively,
-denoted by $\lambda_1^{\mathrm{e}}, \lambda_2^{\mathrm{e}}$ and
-$\lambda_3^{\mathrm{e}}$, and $\bC^{\mathrm{e}^{\mathrm{c}}} =
-\bF^{\mathrm{e}^{\mathrm{c}^{\mathrm{T}}}}
-\bF^{\mathrm{e}^{\mathrm{c}}}$ is the elastic right Cauchy-Green
-tensor of collagen. The factors $\gamma$ and $\beta$ control the bulk
-compressibility of the model. The end to end chain length is given by
-$r = \frac{1}{2}\sqrt{a^2\lambda_1^{\mathrm{e}^2} +
-  b^2\lambda_2^{\mathrm{e}^2}+c^2\lambda_3^{\mathrm{e}^2}}$, where
-$\lambda^\mathrm{e}_I =
-\sqrt{\bN_I\cdot\bC^{\mathrm{e}^{\mathrm{c}}}\bN_I}$, and $\bN_I,\,I =
-1,2,3$ are the unit vectors along the three unit cell axes,
+Here, $N$ is the density of chains, and $a,b$ and $c$ are lengths of
+the unit cell sides aligned with the principal stretch directions. The
+material model is isotropic only if $a=b=c$. The elastic stretches
+along the unit cell axes are denoted by $\lambda_1^{\mathrm{e}},
+\lambda_2^{\mathrm{e}}$ and $\lambda_3^{\mathrm{e}}$, respectively,
+and $\bC^{\mathrm{e}^{\mathrm{c}}} = \bF^{\mathrm{e} ^
+  {\mathrm{c}^{\mathrm{T}}}} \bF^{\mathrm{e} ^ {\mathrm{c}}}$ is the
+elastic right Cauchy-Green tensor of collagen. The factors $\gamma$
+and $\beta$ control the bulk compressibility of the model. The end to
+end chain length is given by $r = \frac{1}{2} \sqrt{a^2
+  \lambda_1^{\mathrm{e}^2} + b^2\lambda_2^{\mathrm{e}^2} +
+  c^2\lambda_3^{\mathrm{e}^2}}$, where $\lambda^\mathrm{e}_I =
+\sqrt{\bN_I\cdot\bC ^ {\mathrm{e}^{\mathrm{c}}}\bN_I}$, and $\bN_I,\,I
+= 1,2,3$ are the unit vectors along the three unit cell axes,
 respectively. Since the quantities $L$, $A$ and $r$ occur only as the
 ratios $L/A$ and $r/L$ in this model~(\ref{eight-chain-model}),
 Table~\ref{parameters} lists the lengths $L,\ A,\ a,\ b,\ c$ used in
@@ -1221,7 +1214,7 @@ the computations in a non-dimensionalised manner.
 \label{ideal-incompressible-fluid}
 
 In this work, the fluid phase is treated as nearly incompressible and
-ideal, i.e., inviscid. The partial Cauchy stress in the fluid is
+ideal, i.e., inviscid. The partial Cauchy stress in the fluid is:
 
 \begin{equation}
 \Bsigma^\mathrm{f} = \mathrm{det}(\bF^{\mathrm{e}^\mathrm{f}})^{-1}
@@ -1263,24 +1256,25 @@ the cavitation (void forming) tensor, $\bF^{\mathrm{v}}$, defined by
 \end{equation}
 
 We restrict the formulation to include only saturated current
-configurations at $t = 0$. Following Section
-\ref{saturation-and-tissue-swelling} we have $\tilde{v}^\mathrm{f} +
+configurations at the initial time. Following Section
+\ref{saturation-and-tissue-swelling}, we have $\tilde{v}^\mathrm{f} +
 \tilde{v}^\mathrm{c} = 1$ at $t = 0$, the saturation condition in
-$\Omega_t$ when solutes are at low concentrations. At times $t > 0$
+$\Omega_t$ when solutes are at low concentrations. At later times,
 Equation (\ref{saturation}) holds for
-$\bF^{\mathrm{g}^\mathrm{f}}$. If
-$\mathrm{det}(\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}) \le 1$ we set
-$\bF^{\mathrm{e}^\mathrm{f}} = \bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}$
-and $\bF^{\mathrm{v}} = {\bf 1}$ for no cavitation. Otherwise, since
+$\bF^{\mathrm{g}^\mathrm{f}}$. If $\mathrm{det}(\bF(\bF ^
+{\mathrm{g}^\mathrm{f}})^{-1}) \le 1$ we set $\bF^{\mathrm{e} ^
+  \mathrm{f}} = \bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}$ and
+$\bF^{\mathrm{v}} = {\bf 1}$ for no cavitation. Otherwise, since
 $\mathrm{det}(\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1}) > 1$, we specify
-$\bF^{\mathrm{e}^\mathrm{f}} =
-\mathrm{det}(\bF(\bF^{\mathrm{g}^\mathrm{f}})^{-1})^{-1/3}\bF
-(\bF^{\mathrm{g}^\mathrm{f}})^{-1}$ thus restricting
-$\bF^{\mathrm{e}^\mathrm{f}}$ to be unimodular and allow cavitation by
-writing $\bF^{\mathrm{v}} =
-\bF(\bF^{\mathrm{e}^\mathrm{f}}\bF^{\mathrm{g}^\mathrm{f}})^{-1}$.
+$\bF^{\mathrm{e}^\mathrm{f}} = \mathrm{det}(\bF(\bF^{\mathrm{g} ^
+  \mathrm{f}})^{-1})^{-1/3}\bF (\bF^{\mathrm{g}^\mathrm{f}})^{-1}$,
+thus restricting $\bF^{\mathrm{e}^\mathrm{f}}$ to be unimodular and
+allow cavitation by writing $\bF^{\mathrm{v}} =
+\bF(\bF^{\mathrm{e}^\mathrm{f}} \bF^{\mathrm{g}^\mathrm{f}}) ^
+   {-1}$.\\ % Hack
 
-These conditional relations are summarised as
+
+These conditional relations are summarised as:
 
 \begin{equation}
 \bF^{\mathrm{e}^\mathrm{f}} = \left\{ \begin{array}{ll}
@@ -1305,10 +1299,10 @@ $\bV^\iota$. Rewriting this instead as an explicit one for
 $\rho^\iota_0\bV^\iota$ we have,
 
 \begin{eqnarray}
-\rho^\iota_0\bV^\iota =& &\left(\bone +
+\rho^\iota_0\bV^\iota & = &\left(\bone +
 \frac{\tilde{\bD}^\iota\mathrm{GRAD}\left[\bV\right]\bF^{-1}}
      {\rho^\iota_0}\right)^{-1}
-     \frac{\tilde{\bD}^\iota}{\rho^\iota_0}\nonumber\\ & &\cdot\left(
+     \frac{\tilde{\bD}^\iota}{\rho^\iota_0}\nonumber\\ & &\left(
      \ \rho_0^\iota\bg + \mathrm{DIV}\left[\bP^\iota\right] -
      \rho^\iota_0\bF^{-\mathrm{T}}\left(\mathrm{GRAD}
      \left[e^\iota\right] -
@@ -1321,15 +1315,15 @@ written as a product of a mobility tensor and a thermodynamic driving
 force,
 
 \begin{eqnarray}
-\bM^\iota & &=\underbrace{\bF^{-1}\left(\bone +
+\bM^\iota & = &\underbrace{\bF^{-1}\left(\bone +
   \frac{\tilde{\bD}^\iota\mathrm{GRAD}\left[\bV\right]
     \bF^{-1}}{\rho^\iota_0}\right)^{-1}
   \frac{\tilde{\bD}^\iota}{\rho^\iota_0}\bF^{-\mathrm{T}}}_{\bD^\iota}
-\nonumber\\ &\cdot&\underbrace{\left(\rho_0^\iota\bF^\mathrm{T}\bg +
+\nonumber\\ &&\underbrace{\left(\ \rho_0^\iota\bF^\mathrm{T}\bg +
   \bF^\mathrm{T}\mathrm{DIV}\left[\bP^\iota\right] -
   \rho^\iota_0\left(\mathrm{GRAD}\left[e^\iota\right] -
-  \theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)\right)}
-_{\sF^\iota} 
+  \theta\ \mathrm{GRAD}\left[\eta^\iota\right]\right)\ \right)}
+_{\sF^\iota}.
 \label{constitutive-relation-flux-3}
 \end{eqnarray}
 
@@ -1414,8 +1408,8 @@ Helmholtz free energy.
 As depicted in Figure~\ref{fickean-diffusion}, only when pores are
 unsaturated are there multiple configurations available to the fluid
 molecules at a fixed fluid concentration.  This leads to a non-zero
-mixing entropy. In contrast, if saturated, there is a single available
-configuration (degeneracy), resulting in zero mixing
+mixing entropy. In contrast, if saturated, there is only a single
+available configuration (degeneracy), resulting in zero mixing
 entropy. Consequently, Fickean diffusion, which arises from the
 gradient of mixing entropy can exist only in the unsaturated
 case. However, even a saturated pore structure can demonstrate
@@ -1425,15 +1419,13 @@ The fluid stress depends on fluid concentration (see Equation
 concentration gradient-driven flux.
 
 The saturation dependence of Fickean diffusion is modelled by using
-the measure of saturation introduced in
-Section~\ref{saturation-and-tissue-swelling}. We rewrite the free
-energy potential as:
+the measure of saturation introduced in Section~\ref{saturation%
+  -and-tissue-swelling}. We rewrite the free energy potential as:
 
 \begin{eqnarray}
-\psi^\mathrm{f} &=&  
-e^\mathrm{f} - \theta\eta^\mathrm{f},\ \mathrm{and}\nonumber\\
-\eta^\mathrm{f} &\to& 0, \quad \mbox{as}\ \, \tilde{v}^\mathrm{f} +
-\tilde{v}^\mathrm{c} \to 1.
+\psi^\mathrm{f} &=& e^\mathrm{f} -
+\theta\eta^\mathrm{f},\ \mathrm{and}\nonumber\\ \eta^\mathrm{f} &\to&
+0,\ \mathrm{as}\ \, \tilde{v}^\mathrm{f} + \tilde{v}^\mathrm{c} \to 1.
 \label{fickeanmobility}
 \end{eqnarray}
 
@@ -1448,23 +1440,22 @@ The dissolved solute species, denoted by s, undergo long range
 transport primarily by being advected by the fluid. In addition to
 this, they undergo diffusive transport relative to the fluid. This
 motivates an additional velocity split of the form
-\mbox{$\bV^s=\widetilde{\bV^\mathrm{s}}+\bV^\mathrm{f}$}, where
-$\widetilde{\bV^\mathrm{s}}$ denotes the velocity of the solute
+\mbox{$\bV^\mathrm{s} = \widetilde{\bV^\mathrm{s}}+\bV^\mathrm{f}$},
+where $\widetilde{\bV^\mathrm{s}}$ denotes the velocity of the solute
 relative to the fluid. The constitutive relation for the corresponding
-flux, denoted by $\widetilde{\bM^s}$, has the following form, similar
-to Equation (\ref {fluidflux}) defined for the fluid flux.
+flux, denoted by $\widetilde{\bM^\mathrm{s}}$, has the following form,
+similar to Equation (\ref {fluidflux}) defined for the fluid flux.
 
 \begin{equation}
 \widetilde{\bM^\mathrm{s}} = \bD^\mathrm{s}\left( -
-\rho^\mathrm{s}_0\ \mathrm{GRAD}\left[e^\mathrm{s} -
-  \theta\eta^\mathrm{s}\right]\right),
+\rho^\mathrm{s}_0\ \mathrm{GRAD}\left[\psi^\mathrm{s}\right]\right),
 \label{soluteflux}
 \end{equation}
 
 \noindent where $\bD^\mathrm{s}$ is the positive semi-definite
 mobility of the solute {\em relative to the fluid}, and again,
 isothermal conditions are assumed to approximate the physiological
-ones. Following Section \ref{balance-of-linear-momentum} there are no
+ones. Following Section~\ref{balance-of-linear-momentum}, there are no
 stress-dependent contributions to $\widetilde{\bM^\mathrm{s}}$.
 
 \subsection{Nature of the sources}
@@ -1482,8 +1473,8 @@ additionally involve intimate coupling between mass transfer,
 biochemistry and mechanics.
 
 An example of this chemo-mechanical coupling is seen in
-Figure~(\ref{implantation-strengthening}) (from the experimental work
-of \citet{calveetal:07}), where the implantation of tendon-like
+Figure~\ref{implantation-strengthening} (from the experimental work of
+\citet{calveetal:07}), where the implantation of tendon-like
 engineered collagenous constructs into live rats, and their
 conditioning in vivo (denoted by the blue curve) leads to significant
 increases in the collagen strength and stiffness (when compared to the
@@ -1509,8 +1500,9 @@ simplest possible choices for the collagen source, and assumes that
 the production of collagen is governed by a first-order rate
 law. Newly-produced collagen has proteoglycan molecules bound to it,
 and they in turn bind water. This effect is modelled by associating a
-loss of nutrient-bearing free fluid with collagen production. A fluid
-sink $\Pi^\mathrm{f}$ is introduced following first order kinetics,
+loss of nutrient-bearing free fluid along with collagen production. A
+fluid sink $\Pi^\mathrm{f}$ is introduced following first order
+kinetics,
 
 \begin{equation}
 \Pi^\mathrm{f} = -k^\mathrm{f}(\rho_0^\mathrm{f} -
@@ -1519,9 +1511,10 @@ sink $\Pi^\mathrm{f}$ is introduced following first order kinetics,
 \end{equation}
 
 \noindent and the collagen source is mathematically equivalent to the
-fluid sink: $\Pi^\mathrm{c} = -\Pi^\mathrm{f}$. When
-$\rho_{0}^\mathrm{f} > \rho_{0_\mathrm{ini}}^\mathrm{f}$, a certain
-reference value of the fluid concentration, collagen is produced.
+fluid sink: $\Pi^\mathrm{c} = -\Pi^\mathrm{f}$. For this functional
+form, when $\rho_{0}^\mathrm{f} > \rho_{0_\mathrm{ini}}^\mathrm{f}$, a
+certain reference value of the fluid concentration, collagen is
+produced.
 
 (\romannumeral 2) {\em Michaelis-Menten} enzyme kinetics (see, for
 e.g., \cite{Sengersetal:2004}), which involves a two-step reaction, 
@@ -1575,12 +1568,13 @@ written for collagen, this source term has the form
 \label{strain-energy-based-source}
 \end{equation}
 
-\noindent where $e^{\mathrm{c}}$ is the mass-specific strain energy
-function of collagen, and $e^{\mathrm{c}}_*$ is a reference value of
-this strain energy density. Equation
-(\ref{strain-energy-based-source}) models collagen production when the
-strain energy density (weighted by a concentration ratio) at a point
-exceeds this reference value, and models annihilation otherwise.
+\noindent where $m$ is a non-negative exponent, $e^{\mathrm{c}}$ is
+the mass-specific strain energy function of collagen, and
+$e^{\mathrm{c}}_*$ is a reference value of this strain energy
+density. Equation (\ref{strain-energy-based-source}) models collagen
+production when the strain energy density (weighted by a concentration
+ratio) at a point exceeds this reference value, and models
+annihilation otherwise.
 
 \section{Algorithmic considerations}
 \label{algorithmic-considerations}
@@ -1594,14 +1588,12 @@ examples of Chapter~\ref{numerical-simulations-1}.
   configuration}
 \label{role-of-current-mass-balance}
 
-% Note: Is a nicer entrance needed here?
-
-Before proceeding, we first introduce the central kinematic assumption
-underlying the formulation: We assume that the pore structure deforms
-with the collagenous phase. Therefore, the deformation gradient,
-$\bF$, is common to c and the fluid-filled pore spaces. Furthermore,
-in what follows, we will treat the fluid as ideal and
-nearly-incompressible, i.e. as elastic (Section
+Before proceeding, let us first consider the central kinematic
+assumption underlying the formulation: We assume that the pore
+structure deforms with the collagenous phase. Therefore, the
+deformation gradient, $\bF$, is common to c and the fluid-filled pore
+spaces. Furthermore, in what follows, we will treat the fluid as ideal
+and nearly-incompressible, i.e. as elastic (Section
 \ref{ideal-incompressible-fluid}). This combination of kinematic and
 constitutive assumptions to be elaborated upon, implies that the
 stress in the fluid phase is determined by the elastic part of $\bF$
@@ -1675,9 +1667,9 @@ position of the solid collagenous skeleton is held fixed.
 
 Upon incorporation of the additional velocity split,
 $\bv^\mathrm{s}=\widetilde{\bv^\mathrm{s}}+\bv^f$, described in
-Section~\ref{solute-transport}, the resulting mass transport equation
-in the current configuration (\ref{current-mass-balance}) for the
-solute species is
+Section~\ref{solute-transport}, the resulting mass transport
+equation~(\ref{current-mass-balance}) in the current configuration for
+the solute species is:
 
 \begin{equation}
 \frac{\mathrm{d}\rho^\mathrm{s}}{\mathrm{d}t} = \pi^\mathrm{s}-
@@ -1692,16 +1684,16 @@ oscillations emerge in numerical solutions of this equation
 \citep{Brooks:82,Paper6}. Figure~\ref{unstable-solution} demonstrates
 this oscillation for a simple advection-diffusion problem at a large
 {\em P\'eclet number}, which is a measure of the relative magnitude of
-advection to diffusion. However, the form in which the equation is
-obtained is not in standard advection-diffusion form, and therefore,
-it is not amenable to the application of standard stabilisation
-techniques \citep{Paper6}. In part, this is because although the
-(near) incompressibility of the fluid phase is embedded in the balance
-of linear momentum via the fluid stress, it has not yet been
-explicitly incorporated into the transport equations. This section
-proceeds to impose the fluid incompressibility condition and deduces
-implications for the solute mass transport equation, including a
-crucial simplification allowing for its straightforward numerical
+advection to diffusion. However, Equation~(\ref{massbalcurrsol}) is
+not in standard advection-diffusion form, and is thus not amenable to
+the application of standard stabilisation techniques
+\citep{Paper6}. In part, this is because although the (near)
+incompressibility of the fluid phase is embedded in the balance of
+linear momentum via the fluid stress, it has not yet been explicitly
+incorporated into the transport equations. This section proceeds to
+impose the fluid incompressibility condition and deduces implications
+for the solute mass transport equation, including a crucial
+simplification allowing for its straightforward numerical
 stabilisation.
 
 \begin{figure}
@@ -1732,8 +1724,8 @@ first denote by $\rho_{0_{\mathrm{ini}}}^{f}$ the {\sl initial} value
 of the fluid reference concentration. Recall that the fluid
 concentration with respect to the reference configuration evolves in
 time; $\rho^\mathrm{f}_0 = \rho^\mathrm{f}_0(\bX,t)$. Therefore we can
-precisely, and non-trivially, define
-$\rho_{0_{\mathrm{ini}}}^{\mathrm{f}}(\bX)$   
+precisely, and non-trivially, define $\rho_{0_{\mathrm{ini}}} ^
+{\mathrm{f}}(\bX)$:
 
 \begin{equation}
 \begin{split}
@@ -1757,7 +1749,7 @@ argument, consider, momentarily, a \emph{compressible} fluid. If the
 current concentration, $\rho^\mathrm{f}$, changes due to elastic
 deformation of the fluid and by transport, then
 $\rho_{\mathrm{ini}}^{\mathrm{f}}$ as defined is not a
-physically-realized fluid concentration. It bears a purely
+physically-realised fluid concentration. It bears a purely
 mathematical relation to the current concentration, $\rho^\mathrm{f}$,
 since the latter quantity represents the effect of deformation of a
 tissue point as well as change in mass due to transport at that
@@ -1788,16 +1780,16 @@ space and time. This allows us to write,
 \right)\Big\vert_{\bX} = 0,
 \end{equation}
 
-\noindent which is the hidden implication of our assumption of a
+\noindent which is a hidden implication of our assumption of a
 homogeneous deformation, i.e., $\bF$ is the deformation gradient of
 solid collagen and the pore spaces.  This leads to $\frac{\mathrm{d}
-  \rho^f} {\mathrm{d} 
-  t}=0$.\footnote{Which results in a very large pressure gradient
-  driven flux due to incompressibility. } We
+  \rho^f} {\mathrm{d} t}=0$.\footnote{Which results in a very large
+  pressure gradient driven flux due to incompressibility. } We
 therefore proceed to treat our fluid mass transport at steady
 state. Rewriting the flux $\bm^{\mathrm{f}}$ from \mbox{Equation
-(\ref{fluidtransporteqn})} as the product $\rho^{\mathrm{f}}
+  (\ref{fluidtransporteqn})} as the product $\rho^{\mathrm{f}}
 \bv^{\mathrm{f}}$ and using the result derived above,
+
 \begin{equation}
 \begin{split}
 0 &= \left. \frac{\partial \rho^f}{\partial t} \right|_{\bX}\\ &=
@@ -1807,7 +1799,8 @@ state. Rewriting the flux $\bm^{\mathrm{f}}$ from \mbox{Equation
 \label{incomprimpl}
 \end{equation}
 
-Returning to (\ref{massbalcurrsol}) with this result,
+Returning to the solute mass transport relation~(\ref{massbalcurrsol})
+with this result,
 
 \begin{equation}
 \begin{split}
@@ -1822,9 +1815,9 @@ Returning to (\ref{massbalcurrsol}) with this result,
 \end{split}
 \end{equation}
 
-Thus, using the incompressibility condition (\ref{incomprimpl}), we
-get the simplified form of the balance of mass for an arbitrary solute
-species, s,
+\noindent Thus, using the incompressibility condition
+(\ref{incomprimpl}), we get the simplified form of the balance of mass
+for an arbitrary solute species,~s,
 
 \begin{equation}
 \frac{\mathrm{d}\rho^\mathrm{s}}{\mathrm{d}t}=\pi^\mathrm{s} -
