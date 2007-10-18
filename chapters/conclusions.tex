@@ -5,8 +5,8 @@ This dissertation presented a number of significant enhancements to
 our original growth formulation presented in \citet{growthpaper}.
 With the reformulation of the theory in an Eulerian setting in
 Chapter~\ref{eulerian-perspective}, the governing equations for the
-fluid phase are now recast in terms of the fluid velocity and
-pressure; primitive variables that are natural to fluid
+fluid phase are now recast in terms of the fluid concentration,
+velocity and pressure; primitive variables that are natural to fluid
 mechanics. This, along with the revised computational formulation that
 solves the momentum balance equations for each species separately,
 retaining all aspects of the coupling between the equations, has
@@ -16,22 +16,22 @@ computational examples presented in this dissertation focused mostly
 on the interaction between elastic phases, it has proven
 straightforward to extend it to more involved cases, such as studying
 the flow of a viscous fluid through a porous, hyperelastic
-solid. Thus, it potentially provides a means to systematically explore
-the various sources for rate-dependent behaviour of soft tissues: the
-viscoelastic deformation of the collagen network, the viscosity of the
-extra-cellular fluid, frictional effects arising from stress-driven
-fluid flow through the network, as well as suitable combinations of
-these effects.
+solid. Thus, the computational formulation potentially provides a
+means to systematically explore the various sources of rate-dependent
+behaviour in soft tissues: the viscoelastic deformation of the
+collagen network, the viscosity of the extra-cellular fluid,
+frictional effects arising from stress-driven fluid flow through the
+network, as well as suitable combinations of these effects.
 
 Carefully revisiting the assumptions underlying the behaviour of
-mixtures, and taking a close look anew at the Dissipation-Inequality
-in an attempt at constitutive specification to satisfy it a priori
+mixtures, and taking a close look anew at the Dissipation-Inequality,
+in an attempt at constitutive specification to satisfy it a priori,
 brought to light some new, key, constitutive relations. This is
 another significant aspect of this work.
 
 One key relationship was for the mass interconversion terms that
 suggested that it is the energetic difference between the reactants
-and products of a chemical reaction that drive the reaction forward; a
+and the products of a chemical reaction that drive the reaction forward; a
 well-established concept in chemistry. This broad guideline allows for
 the specification of a very general class of source terms representing
 varying kinds of biochemistry, yet retaining consistency with the
@@ -39,14 +39,14 @@ thermodynamics.
 
 Perhaps the most exciting result that arose from this analysis of the
 implications of the Dissipation-Inequality was the dissipation-driven
-growth tensor presented in
-Section~\ref{eu-stress-dependent-growth}. Experimental work on wound
-healing in ligaments \citep{Provenzanoetal:2003} and stress-based
-inhibition of tumours \citep{jain1997} seems to suggest that the
-processes of growth are dependent upon the local stress field in a
+growth tensor presented in Section~\ref{eu-stress-dependent%
+  -growth}. Experimental work on wound healing in ligaments
+\citep{Provenzanoetal:2003} and stress-based inhibition of tumour
+growth \citep{jain1997} seems to suggest that the processes underlying
+biological growth are dependent upon the local stress field in a
 related manner. However, a direct correlation with experiment, if
-found, will be a manifestation in Biology a phenomena that is common
-in Materials Physics.
+found, will be a manifestation in Biology of a phenomenon that is
+common in Materials Physics.
 
 %
 

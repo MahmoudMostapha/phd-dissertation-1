@@ -16,8 +16,6 @@ SOURCES = Makefile thesis.tex thesis.bib thesis.bst *.sty \
 	  auxiliary/*.tex chapters/*.tex \
           images/*/*.eps images/*/*/*.eps images/*/*/*/*.eps
 
-OTHER   = manifest/*
-
 # Subtle changes to the command-line flags below can have significant
 # impact on the quality of generated documents. Comment-out the ps2pdf
 # flags below if on Mac OS X.
@@ -64,7 +62,6 @@ clean:
 	(cd auxiliary; make clean)
 	(cd chapters; make clean)
 	(cd images; make clean)
-	(cd manifest; make clean)
 
 pristine: clean
 	@echo "Removing older output files:"
