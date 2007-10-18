@@ -835,6 +835,22 @@ ensures that the following portion of the Clausius-Duhem inequality
 \noindent is satisfied since the heat conduction law (\ref{eu-heat%
   -conduction}) is valid for all species in the mixture.
 
+In fact, the constitutive form~(\ref{eu-heat-conduction}) specified
+above was motivated directly by virtue of it being sufficient to
+ensure that the corresponding portion of the Clausius-Duhem inequality
+had the appropriate sign. Another approach that can be followed to
+arrive at Duhamel's law (and, similarly, the constitutive relations
+that follow) is to first define a general set of independent variables
+upon which the various field variables can depend (such as in
+\citet{ateshian07}). One then proceeds to consider a scenario where
+the functional forms of some of the terms in the dissipation
+inequality are fixed, and examine the implications of entropy
+production on the remaining terms, assuming they can be varied
+independently.
+
+In practice, the two approaches outlined above are equivalent, and the
+former is employed in the following treatment.
+
 While Duhamel's law (\ref{eu-heat-conduction}) is indeed useful in a
 general setting, our primary interest lies in specialising concepts
 from classical thermodynamics to biological systems, where the
@@ -1003,11 +1019,11 @@ remaining terms in the inequality above:
 \label{eu-reduced-dissipation-solid}
 \end{equation}
 
-Noting that the numerical examples presented in
-Chapter~\ref{numerical-simulations-2} solve the momentum balance
-equation (\ref{localbalanceofmomentum}) for the solid phase in the
-reference configuration,\footnote{It is instructive to note here that
-  since $\Omega_{t}$ is constructed to coincide with the current
+Looking ahead to the numerical examples presented in Chapter~\ref{%
+  numerical-simulations-2}, and noting that they solve the momentum
+balance equation (\ref{localbalanceofmomentum}) for the solid phase in
+the reference configuration,\footnote{It is instructive to note here
+  that since $\Omega_{t}$ is constructed to coincide with the current
   position of the solid component of the tissue (see
   Section~\ref{eu-balance-laws}), we are aware of the deformation
   gradient $\bF^{\mathrm{c}}=\bF=\frac{\partial \Bvarphi_{t}}{\partial
@@ -1036,8 +1052,8 @@ provides the material time derivative of $\psi^{\mathrm{c}}$, we have,
 
 \noindent Introducing the elasto-growth kinematic split
 $\bF=\bF^{\mathrm{e}}\bF^{\mathrm{g}}$ discussed in Section%
-~\ref{kinematics-of-growth} and applying the properties of the
-contraction operation, the above inequality reads,
+~\ref{kinematics-of-growth} for the solid phase, c, and applying the
+properties of the contraction operation, the above inequality reads,
 
 \begin{equation*}
 \rho_{0}^{\mathrm{c}} \dot{\psi^{\mathrm{c}}} - \bP^{\mathrm{c}}
