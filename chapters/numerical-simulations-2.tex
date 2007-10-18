@@ -161,6 +161,12 @@ of 0.5. At the initial time, the solid displacement and velocity
 fields, and the fluid velocity and pressure fields are each 0 in their
 respective units at all points in the domain.
 
+In this example, the frictional coefficient tensor, $\bD^{\mathrm{fc}}
+= 1\mathrm{e}^{-5} \ \bone$~MPa.s.mm$^{-2}$, is assumed to have a
+relatively small magnitude because we are currently more interested in
+observing the swelling of the domain due to fluid influx rather than
+the frictional interaction between the phases.
+
 The boundary conditions for this problem correspond to holding the
 bottom edge of the tissue fixed to prevent rigid body motion, and
 forcing inflow of the fluid at this bottom edge while disallowing
@@ -193,11 +199,24 @@ particular:
     stresses on the boundary that causes the domain to swell.}
 \end{itemize}
 
-In this example, the frictional coefficient tensor, $\bD^{\mathrm{fc}}
-= 1\mathrm{e}^{-5} \ \bone$~MPa.s.mm$^{-2}$, is assumed to have a
-relatively small magnitude because we are currently more interested in
-observing the swelling of the domain due to fluid influx rather than
-the frictional interaction between the phases.
+The above boundary condition---relating the stresses in the solid and
+fluid phases at the free surfaces of the tissue---is a statement that
+supplements the condition that there is the no relative velocity
+between the phases along these surfaces. Providing just the velocity
+condition is insufficient, as the set of solid displacement fields
+which can satisfy the no relative velocity condition is infinite.
+
+While the use of this stress-equilibration condition is common in the
+ALE literature for interactions between a fluid and a rigid body (see,
+for e.g., \citet{nomurahughes1992} and \citet{sarrateetal2001}), I am
+not aware of its use in the context of biomechanics. The use of
+biphasic models in biomechanics literature tends to focus on cases
+where the mechanics of the problem is driven by displacement (or
+stress) boundary conditions imposed on the solid phase of the tissue
+(such as \citet{spilkersuh1990} and \citet{Disilvestroetal:2001}).
+Unlike the current example, where the mechanics of the problem is
+driven by an inflow of fluid, these cases do not require additional
+boundary conditions such as the one above.
 
 Figures~\ref{swelling-balloon-image-0p0}--\ref{swelling-balloon%
   -image-3p0} show snapshots of the swelling domain during the course
@@ -211,6 +230,8 @@ the domain to swell as seen in the figures.  Because the computation
 was run with dynamics, there is initially a small oscillation in the
 fluid and solid velocity fields due to wave propagation in the fluid
 (not apparent in the plots) which fade in the first 0.4~s.
+
+\clearpage
 
 \begin{figure}[!hptb]
   \centering
