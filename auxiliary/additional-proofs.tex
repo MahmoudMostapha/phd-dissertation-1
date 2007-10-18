@@ -1,7 +1,7 @@
-\chapter{Review of mathematical results}
+\chapter{A review of mathematical results}
 \label{additional-proofs}
 
-The following sections catalog some classical mathematical results
+The following sections catalogue some classical mathematical results
 that have been frequently called-upon during the course of the
 development of the theoretical formulation in
 Chapters~\ref{lagrangian-perspective} and
@@ -15,44 +15,50 @@ Chapters~\ref{lagrangian-perspective} and
 \section{Gauss-Greens' divergence theorem}
 \label{gauss-divergence}
 
-Let $\Omega\subset \R^n$ be a bounded open set with $C^1$ boundary,
+Let $\Omega\subset \R^n$ be a bounded open set with a $C^1$ boundary,
 let $\Bnu_\Omega\colon \partial \Omega\to \R^n$ be the exterior unit
-normal vector to $\Omega$ in the point $x$ and let $\bv\colon
+normal vector to $\Omega$ at a point $x$ and let $\bv\colon
 \overline{\Omega}\to \R^n$ be a vector function in
-$C^0(\overline\Omega,\R^n)\cap C^1(\Omega,\R^n)$. Then
+$C^0(\overline\Omega,\R^n)\cap C^1(\Omega,\R^n)$. Then,
+
 \[
 \int_\Omega \mathrm{div} \bv(x)\, dx =\int_{\partial \Omega} \langle
 \bv(x),\Bnu_\Omega(x)\rangle \, d\sigma(x).
 \]
 
-Here, the operator $\mathrm{div} \bv$ is the
-divergence of the vector field $\bv$, which is sometimes written as
-$\nabla \cdot \bv$.  In the right-hand side we have a surface integral,
-$d\sigma$ is the corresponding area measure on $\partial \Omega$.  The
-scalar product in the second integral is sometimes written as $\bv_n(x)$
-and represents the \emph{normal component} of $\bv$ with respect to
-$\partial \Omega$; hence the whole integral represents the \emph{flux}
-of the vector field $\bv$ through $\partial \Omega$.
+Here, the operator $\mathrm{div} \bv$ is the divergence of the vector
+field $\bv$, and is denoted as $\mathrm{DIV} \left(\bv\right)$ and
+$\mathrm{div} \left(\bv\right)$ in the reference and current
+configurations, respectively, in the main body of this
+dissertation. The term $d\sigma$ in the surface integral on the right
+hand-side is the area measure corresponding to $\partial \Omega$. In
+the main body of this dissertaton, the scalar product in the second
+integral is written as $\bv \cdot \bN$ and $\bv \cdot \bn$ when
+working with quantities in the reference and current configurations,
+respectively, and represents the \emph{normal component} of $\bv$ with
+respect to $\partial \Omega$; hence the whole integral represents the
+\emph{flux} of the vector $\bv$ through $\partial \Omega$.
 
 The theorem as stated for the vector function $\bv$ can be extended to
-the forms below:
+the following forms which prove useful in the development of the
+theory:
 
 \begin{equation*}
-\int_\Omega \mathrm{grad} \bv(x)\, dx =\int_{\partial \Omega} 
+\int_\Omega \mathrm{grad} \bv(x)\, dx =\int_{\partial \Omega}
 \bv(x)\otimes \Bnu_\Omega(x) \, d\sigma(x),\ \phantom{\mathrm{and}}
 \end{equation*}
 
 \begin{equation*}
-\int_\Omega \mathrm{curl} \bv(x)\, dx =\int_{\partial \Omega} 
+\int_\Omega \mathrm{curl} \bv(x)\, dx =\int_{\partial \Omega}
 \bv(x)\times \Bnu_\Omega(x) \, d\sigma(x),\ \mathrm{and}
 \end{equation*}
 
 \begin{equation*}
-\int_\Omega \mathrm{div} \bT(x)\, dx =\int_{\partial \Omega} 
+\int_\Omega \mathrm{div} \bT(x)\, dx =\int_{\partial \Omega}
 \bT(x)\ \Bnu_\Omega(x) \, d\sigma(x),
 \end{equation*}
 
-\noindent where  $\bT\colon\R^n \to \R^n$ is a tensor function.
+\noindent where $\bT\colon\R^n \to \R^n$ is a tensor function.
 
 \section{Reynolds' transport theorem}
 \label{reynolds-transport}
@@ -75,10 +81,12 @@ defined over the fluid flow according to the following definition.
 \begin{align}
 \Psi(\mathbf{x},t):=
 \int_{\mathfrak{v}}\psi(\mathbf{x},t)\rho(\mathbf{x},t)dv,
+\label{extensive-property}
 \end{align}
 where $\psi(\mathbf{x},t)$ is the respective {\em intensive tensor
   property}.
 \end{definition*}
+
 \paragraph{Theorem's hypothesis}
 The kinematics of the continuum can be described by a diffeomorphism
 $\chi$ which, at any given instant $t\in [0,\infty)\subset\mathbb{R}$,
@@ -96,8 +104,8 @@ J=\bigg\vert\frac{\partial{x}_i}{\partial{X}_j}\bigg\vert\equiv
 \big\vert{F_{ij}}\big\vert\neq{0}, \qquad
 F_{ij}:=\frac{\partial{x}_i}{\partial{X}_j},
 \end{align*}
-$J$ being the Jacobian of transformation and $F_{ij}$ the Cartesian
-components of the so-called {\em strain gradient tensor} $\mathbf{F}$.
+$J$ being the Jacobian of transformation ($dv=JdV$) and $F_{ij}$ the Cartesian
+components of the {\em deformation gradient tensor} $\mathbf{F}$.
 
 \noindent {\bf Theorem$\quad$} The material rate of an extensive tensor property
 associate to a continuum body $\mathscr{B}$ is equal to the local rate
@@ -106,7 +114,9 @@ the respective intensive property across its control surface
 $\partial\mathfrak{v}$.
 
 \begin{proof}
-By taking on Eq.(1) the material time derivative,
+By taking on Equation~(\ref{extensive-property}) the material time
+derivative, 
+
 \begin{align*}
 \frac{D\Psi}{Dt}=\dot{\Psi}=\dot{\overline{\int_{\mathfrak{v}}\psi\rho\;dv}}=
 \dot{\overline{\int_{\mathscr{V}}\psi\rho{J}dV}}=
@@ -131,16 +141,13 @@ By taking on Eq.(1) the material time derivative,
 \end{align*}
 since $\partial_t(dv)=0$ ($\mathbf{x}$ fixed) on the first integral
 and by applying the Gauss-Green's divergence theorem on the second
-integral at the left-hand side. Finally, by substituting Eq.(1) on the
-first integral at the right-hand side, we obtain
+integral at the left-hand side. Finally, by substituting
+Equation~(\ref{extensive-property}) on the first integral at the
+right-hand side, we obtain
+
 \begin{align}
 \dot{\Psi}=\frac{\partial\Psi}{\partial{t}}+
 \int_{\partial\mathfrak{v}}\psi\rho\,\mathbf{v}\!\cdot\!\mathbf{n}\,da,
 \end{align}
 endorsing the theorem statement.
 \end{proof}
-
-%% \todo{Prove the divergnce theorem.}
-
-%% \todo{Make this notationally consistent with the rest of the
-%%   document. Transport theorem is a generalisation of Liebniz rule.}
