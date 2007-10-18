@@ -60,3 +60,52 @@
 %% 2D -- We're performing calculations on samples of large
 %% thickness, and we're looking at some central plane, where, because of
 %% symmetry, things do not flow in the out-of-plane direction.
+
+
+%% Assuming that the Helmholtz free energy of the solutes depend only on
+%% their current concentrations, i.e, $\psi^{\mathrm{s}} =
+%% \frac{1}{\tilde{\rho^{\mathrm{s}}}} \hat{\psi^{\mathrm{s}}}
+%% (\rho^{\mathrm{s}})$, where $\tilde{\rho^{\mathrm{s}}}$ is the
+%% intrinsic density of an arbitrary solute, the above inequality
+%% becomes,
+
+%% \begin{equation*}
+%% \sum \left( \frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
+%% \frac{\partial \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
+%% \dot{\rho^{\mathrm{s}}}+
+%% \frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}} \frac{\partial
+%%   \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
+%% \mathrm{grad}\left(\rho^{\mathrm{s}}\right) \cdot\bv^{\mathrm{s}}
+%% \right)
+%% \leq 0,
+%% \end{equation*}
+
+%% \noindent which, on application of the solute balance of mass
+%% (\ref{eu-localbalanceofmass}), reduces to:
+
+%% \begin{equation*}
+%% \frac{\rho^{\mathrm{s}}}{\tilde{\rho^{\mathrm{s}}}}
+%% \frac{\partial \hat{\psi^{\mathrm{s}}}}{\partial \rho^{\mathrm{s}}}
+%% \left(\pi^{\mathrm{s}}- \rho^{\mathrm{s}} \mathrm{div}\left(\bv^{\mathrm{s}}
+%% \right)\right) 
+%% \leq 0.
+%% \end{equation*}
+
+%% \noindent A sufficient condition to satisfy the above inequality is:
+%% $\mathrm{div}\left(\bv^{\mathrm{s}} \right) = \pi^{\mathrm{s}}/
+%% \rho^{\mathrm{s}}$, which states that an increase in solute mass
+%% brought about by the source term at a point causes an outflow of
+%% solute (corresponding to the positive sign on the divergence of its
+%% velocity field) at that point. From this, the following simple form
+%% for the solute velocity can be constructed:
+
+%% \begin{equation}
+%% \bv^{\mathrm{s}}(\bx,t) = \frac{1}{3}
+%% \frac{\pi^{\mathrm{s}}(\bx,t)}{\rho^{\mathrm{s}}(\bx,t)} \bx.
+%% \end{equation}
+
+%% Thus, we have shown that with the specification of this final
+%% constitutive relationship, along with all others deduced in
+%% Sections~\ref{eu-duhamel-law}--\ref{eu-interaction-forces}, the
+%% Clausius-Duhem form (\ref{eu-clausiusduhemform}) is satisfied a
+%% priori.
