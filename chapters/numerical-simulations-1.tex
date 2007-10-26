@@ -45,35 +45,34 @@ form of the mass balance equation provided in weak form in
 solved in the reference configuration (Equation~(\ref{localbalance%
   ofmass}) for \mbox{$\iota = \mathrm{c}$}) to obtain its reference
 concentration field,~$\rho_{0}^{\mathrm{c}}$, since there are no
-boundary conditions associated with this differential
-equation. Backward Euler is used as the time-stepping scheme for all
-mass balance equations.
+boundary conditions associated with this differential equation.
+Backward Euler is used as the time-stepping scheme for all mass
+balance equations.
 
 In the implementation presented in this chapter, the tissue is viewed
 as a single entity when imposing the balance of momentum; and a
 summation of Equation~(\ref{localbalanceofmomentum}) over
-$\iota=\mathrm{c,f}$ is solved using the relation
-(\ref{momentumsummationresult}) for the common displacement
-\mbox{field, $\bu$,} of the tissue and the fluid-filled
-pores.\footnote{The consequences of this simplification are explored
-  in Section~\ref{constriction-1}.} Non-linear projection methods
-\citep{simotaylorpister:85} based on hexahedral elements are used to
-treat the near-incompressibility imposed by the fluid, and mixed
-methods, as described in \cite{Garikipatiox2:01}, are used for stress
-(and strain) gradient driven fluxes. Since the time scale for mass
-transport is much larger than that for mechanics, and since we are not
-focusing on inertial effects for the growth problems presented in this
-chapter, the momentum equation is solved as a quasi-static
-problem.\footnote{The numerical experiments presented in
-  Section~\ref{biphasic-examples-2} contrast the results obtained from
-  quasi-static and dynamic calculations.}
+$\iota=\mathrm{c,f}$ is solved using the relation (\ref{momentum%
+  summationresult}) for the common displacement \mbox{field, $\bu$,}
+of the tissue and the fluid-filled pores.\footnote{The consequences of
+  this simplification are explored in Section~\ref{constriction-1}.}
+Non-linear projection methods \citep{simotaylorpister:85} based on
+hexahedral elements are used to treat the near-incompressibility
+imposed by the fluid, and mixed methods, as described in
+\cite{Garikipatiox2:01}, are used for stress (and strain) gradient
+driven fluxes. Since the time scale for mass transport is much larger
+than that for mechanics, and since we are not focusing on inertial
+effects for the growth problems presented in this chapter, the
+momentum equation is solved as a quasi-static problem.\footnote{The
+  numerical experiments presented in Section~\ref{biphasic-examples-2}
+  contrast the results obtained from quasi-static and dynamic
+  calculations.}
 
 The coupling between mass transport and mechanics is achieved by an
-iterative operator-splitting algorithm
-\citep{Armero-poroplasticity:99, Garikipatietal:01}. Illustratively,
-in the simplest case of a biphasic problem involving no
-interconversion between species, this algorithm, in explicit terms,
-reads:
+iterative operator-splitting algorithm \citep{Armero-poroplasticity%
+  :99, Garikipatietal:01}. Illustratively, in the simplest case of a
+biphasic problem involving no interconversion between species, this
+algorithm, in explicit terms, reads:
 
 \begin{itemize}
 \item[] {\tt At each time step, repeat:}
@@ -119,10 +118,9 @@ with,
 \end{figure}
 
 \begin{equation}
- h(\rho^\mathrm{f}) =
-\frac{1}{2}\kappa^\mathrm{f}\left(
-\frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}}
-- 1\right)^2,
+  h(\rho^\mathrm{f}) = \frac{1}{2}\kappa^\mathrm{f}\left(
+  \frac{\rho_{0_\mathrm{ini}}^\mathrm{f}}{\rho^\mathrm{f}} -
+  1\right)^2,
 \end{equation}
 
 \noindent where $\kappa^\mathrm{f}$ is the bulk modulus of the fluid.
@@ -131,9 +129,9 @@ The tissue is modelled as being fluid saturated in $\Omega_t$ at $t =
 0$~s, i.e. (\ref{saturation}$_1$) holds with $\rho^\mathrm{f} _
 {0_\mathrm{sat}} = \rho^\mathrm{f} _ {0_\mathrm{ini}}$. However, the
 tissue is allowed to become unsaturated in $\Omega_t$ for $t > 0$~s
-due to void formation. Then, the conditions set out in
-(\ref{cavitation}) apply. The chemical potential is then given by
-(\ref{fickeanmobility}). The numerical examples that follow discuss
+due to void formation. Then, the conditions set out in (\ref{cavi%
+  tation}) apply. The chemical potential is then given by (\ref{%
+  fickeanmobility}). The numerical examples that follow discuss
 further specialisation of the constitutive relations to relevant
 cases.
 
@@ -163,10 +161,10 @@ density ($N$) & $7\times 10^{21}$ & $\mathrm{m}^{-3}$\\ Temperature
 ($\theta$) & $310.6$ & K\\ Persistence length ($A$) & $2.10$ &
 --\\ Fully-stretched length ($L$) & $2.125$ & --\\ Unit cell axes
 ($a,\;b,\;c$) & $1.95,\;1.95,\;2.43$ & --\\ Bulk compressibility
-factors ($\gamma,\;\beta$) & $1000,\; 4.5$ & KPa, --\\ Fluid bulk modulus
-($\kappa^f$) & $1$ & GPa\\ Fluid mobility tensor ($D^\mathrm{f}_{ij} =
-D^\mathrm{f}\delta_{ij}$) & $1\times 10^{-14}$ &s\\ Fibroblast
-concentration ($\rho_{\mathrm{cell}}$) & 0.2 &
+factors ($\gamma,\;\beta$) & $1000,\; 4.5$ & KPa, --\\ Fluid bulk
+modulus ($\kappa^f$) & $1$ & GPa\\ Fluid mobility tensor
+($D^\mathrm{f}_{ij} = D^\mathrm{f}\delta_{ij}$) & $1\times 10^{-14}$
+&s\\ Fibroblast concentration ($\rho_{\mathrm{cell}}$) & 0.2 &
 kg.m$^{-3}$\\ Max. reaction rate ($k_{\mathrm{max}} = 5$) & 5 &
 s$^{-1}$\\ Max. solute concentration ($\rho^{\mathrm{s}}_m$) & 0.2 &
 kg.m$^{-3}$\\ Solute diffusivity ($\bD^\mathrm{s}$) & $1\times
@@ -192,7 +190,8 @@ incorporated in this illustration. Michaelis-Menten enzyme kinetics
 solute consumption and collagen production as a function of solute
 concentration. This nonlinear relationship for our choice of
 parameters is visualised in Figure~\ref{eg3menten}. Here, the fluid
-phase does not take part in reactions, and hence $\Pi^\mathrm{f}=0$.
+phase does not take part in reactions, and hence $\pi^\mathrm{f}=0$~%
+kg.m$^{-3}$.s$^{-1}$.
 
 \begin{figure}[!hpt]
   \centering
@@ -288,14 +287,14 @@ Table~\ref{parameters}.
 \label{constriction-1}
 
 In this example, the tendon immersed in a bath is subjected to the
-same constrictive radial load as in
-Section~\ref{enzyme-kinetics-example}. Since that example demonstrated
-an insignificant amount of local collagen production over this time
-scale, we work with a simplified problem by setting the collagen
-source term $\Pi^\mathrm{c} = 0$. The total duration of the simulation
-is 10~s, and the radial strain is applied as a displacement boundary
-condition, increasing linearly from no strain initially to the maximum
-strain at time $t = 1~\mathrm{s}$. Again, both the initial collagen
+same constrictive radial load as in Section~\ref{enzyme-kinetics%
+  -example}. Since that example demonstrated an insignificant amount
+of local collagen production over the time scale of the test, we work
+with a simplified problem by setting the collagen source term
+$\Pi^\mathrm{c} = 0$. The total duration of the simulation is 10~s,
+and the radial strain is applied as a displacement boundary condition,
+increasing linearly from no strain initially to the maximum strain at
+time $t = 1~\mathrm{s}$. Again, both the initial collagen
 concentration and the initial fluid concentration are 500~kg.m$^{-3}$
 at every point in the tendon. This tendon is exposed to a bath where
 the fluid concentration is 500~kg.m$^{-3}$.
@@ -416,12 +415,12 @@ p^{\mathrm{f}} = \frac{1}{3} \mathrm{tr}[\Bsigma^{c}],
 \end{equation}
 
 \noindent where $p^{\mathrm{f}}$ is the fluid pressure in the current
-configuration, $\mbox{tr[\textbullet]}$ is the trace operator,
-and $\Bsigma^{c}=\frac{1}{\mathrm{J^{c}}} \bP^{\mathrm{c}}
-\bF^{\mathrm{c}^{\mathrm{T}}}$ is the Cauchy stress of the solid. The
-Cauchy stress of an ideal fluid can be defined from its current
-pressure as \mbox{$\Bsigma^{f}= p^{\mathrm{f}}\ \bone$.} This
-assumption is depicted in Figure~\ref{lower-bound-model}.
+configuration, $\mbox{tr[\textbullet]}$ is the trace operator, and
+$\Bsigma^{c}=\frac{1}{\mathrm{J^{c}}} \bP^{\mathrm{c}} \bF^{\mathrm{c}
+  ^ {\mathrm{T}}}$ is the Cauchy stress of the solid. The Cauchy
+stress of an ideal fluid can be defined from its current pressure as
+\mbox{$\Bsigma^{f}= p^{\mathrm{f}}\ \bone$.} This assumption is
+depicted in Figure~\ref{lower-bound-model}.
 
 \begin{figure}[ht]
   \centering
@@ -475,52 +474,52 @@ transport.
 \begin{table}
 \begin{center}
 \begin{tabular}{|r|c|c|c|c|}
-  \hline
-  Pass & \multicolumn{2}{c|}{Strongly coupled} &
-         \multicolumn{2}{c|}{Weakly coupled}\\
-  \cline{2-5} & Residual & CPU (s) & Residual & CPU (s)\\
-  \hline\hline 
-1     & $ 2.138\times 10^{-02}$ &   29.16   & $6.761 \times 10^{-04}$  &    28.5 \\
-      & $ 3.093\times 10^{-04}$ &   55.85   & $1.075 \times 10^{-04}$  &    55.1 \\
-      & $ 2.443\times 10^{-06}$ &   82.37   & $4.984 \times 10^{-06}$  &    81.8 \\
-      & $ 2.456\times 10^{-08}$ &  109.61   & $1.698 \times 10^{-08}$  &   107.9 \\
-      & $ 4.697\times 10^{-14}$ &  135.83   & $3.401 \times 10^{-13}$  &   134.1 \\
-      & $ 1.750\times 10^{-16}$ &  163.18   & $1.1523\times 10^{-17}$  &   161.1 \\
-\hline                                    
-2     & $ 5.308\times 10^{-06}$ &  166.79   & $5.971 \times 10^{-08}$  &  192.5  \\
-      & $ 4.038\times 10^{-10}$ &  193.36   & $4.285 \times 10^{-11}$  &  218.6  \\
-      & $ 1.440\times 10^{-14}$ &  220.45   & $2.673 \times 10^{-15}$  &  246.1  \\
-      & $ 4.221\times 10^{-17}$ &  247.04   & $                    $   &  \\
-\hline                                    
-3     & $ 5.186\times 10^{-06}$ &  250.62   & $2.194 \times 10^{-09}$  &  277.3  \\
-      & $ 3.852\times 10^{-10}$ &  277.44   & $2.196 \times 10^{-13}$  &  304.2   \\
-      & $ 1.369\times 10^{-14}$ &  304.16   & $1.096 \times 10^{-17}$  &  331.6   \\
-      & $ 4.120\times 10^{-17}$ &  331.47   & $                    $   &  \\
-\hline                                    
-4     & $ 5.065\times 10^{-06}$ &  335.16   & $8.160 \times 10^{-11}$  &  363.2 \\ 
-      & $ 3.674\times 10^{-10}$ &  362.24   & $7.923 \times 10^{-15}$  &  390.2 \\
-      & $ 1.300\times 10^{-14}$ &  388.79   & $                    $   &  \\
-      & $ 4.021\times 10^{-17}$ &  416.08   & $                    $   &  \\
-\hline                                    
-5     & $ 4.948\times 10^{-06}$ &  419.59   & $3.078 \times 10^{-12}$  &  421.4 \\
-      & $ 3.503\times 10^{-10}$ &  446.24   & $3.042 \times 10^{-16}$  &  448.6 \\
-      & $ 1.236\times 10^{-14}$ &  473.20   & $                    $   &  \\
-      & $ 3.924\times 10^{-17}$ &  500.85   & $                    $   &  \\
-\hline                                    
-6     & $ 4.832\times 10^{-06}$ &  504.65   & $1.179 \times 10^{-13}$  &  479.9 \\
-      & $ 3.340\times 10^{-10}$ &  531.28   & $1.291 \times 10^{-17}$  &  507.0 \\
-      & $ 1.174\times 10^{-14}$ &  558.17   & $                    $   &  \\
-      & $ 3.829\times 10^{-17}$ &  585.27   & $                    $   &  \\
-\hline                                    
-7     & $ 4.720\times 10^{-06}$ &  589.01   & $4.592 \times 10^{-15}$  &  537.8 \\
-      & $ 3.184\times 10^{-10}$ &  616.24   & $5.152 \times 10^{-18}$  &  564.6 \\
-      & $ 1.116\times 10^{-14}$ &  643.29   & $                    $   &  \\
-      & $ 3.737\times 10^{-17}$ &  670.83   & $                    $   &  \\
-\hline                                    
-8     & $ 4.609\times 10^{-06}$ &  674.46   & $1.816 \times 10^{-16}$  &  595.5  \\
-      & $ 3.034\times 10^{-10}$ &  701.74   & $5.040 \times 10^{-18}$  &  622.3  \\
-      & $ 1.060\times 10^{-14}$ &  727.74   & $                    $   &  \\
-      & $ 3.646\times 10^{-17}$ &  755.58   & $                    $   &  \\
+\hline
+Pass & \multicolumn{2}{c|}{Strongly coupled} &
+       \multicolumn{2}{c|}{Weakly coupled}\\
+\cline{2-5} & Residual & CPU (s) & Residual & CPU (s)\\
+\hline\hline 1
+&$ 2.138\times10^{-02}$&  29.16 &$6.761\times10^{-04}$&   28.5 \\
+&$ 3.093\times10^{-04}$&  55.85 &$1.075\times10^{-04}$&   55.1 \\
+&$ 2.443\times10^{-06}$&  82.37 &$4.984\times10^{-06}$&   81.8 \\
+&$ 2.456\times10^{-08}$& 109.61 &$1.698\times10^{-08}$&  107.9 \\
+&$ 4.697\times10^{-14}$& 135.83 &$3.401\times10^{-13}$&  134.1 \\
+&$ 1.750\times10^{-16}$& 163.18 &$1.152\times10^{-17}$&  161.1 \\
+\hline 2
+&$ 5.308\times10^{-06}$& 166.79  &$5.971\times10^{-08}$& 192.5 \\
+&$ 4.038\times10^{-10}$& 193.36  &$4.285\times10^{-11}$& 218.6 \\
+&$ 1.440\times10^{-14}$& 220.45  &$2.673\times10^{-15}$& 246.1 \\
+&$ 4.221\times10^{-17}$& 247.04  &$                   $&      \\
+\hline 3
+&$5.186\times10^{-06}$& 250.62  &$2.194\times10^{-09}$& 277.3 \\
+&$3.852\times10^{-10}$& 277.44  &$2.196\times10^{-13}$& 304.2 \\
+&$1.369\times10^{-14}$& 304.16  &$1.096\times10^{-17}$& 331.6 \\
+&$4.120\times10^{-17}$& 331.47  &$                   $&       \\
+\hline 4
+&$5.065\times10^{-06}$& 335.16  &$8.160\times10^{-11}$& 363.2 \\ 
+&$3.674\times10^{-10}$& 362.24  &$7.923\times10^{-15}$& 390.2 \\
+&$1.300\times10^{-14}$& 388.79  &$                   $&       \\
+&$4.021\times10^{-17}$& 416.08  &$                   $&       \\
+\hline 5
+&$4.948\times10^{-06}$& 419.59  &$3.078\times10^{-12}$& 421.4 \\
+&$3.503\times10^{-10}$& 446.24  &$3.042\times10^{-16}$& 448.6 \\
+&$1.236\times10^{-14}$& 473.20  &$                   $&       \\
+&$3.924\times10^{-17}$& 500.85  &$                   $&       \\
+\hline 6
+&$4.832\times10^{-06}$& 504.65  &$1.179 \times10^{-13}$& 479.9 \\
+&$3.340\times10^{-10}$& 531.28  &$1.291 \times10^{-17}$& 507.0 \\
+&$1.174\times10^{-14}$& 558.17  &$                   $&       \\
+&$3.829\times10^{-17}$& 585.27  &$                   $&       \\
+\hline 7
+&$4.720\times10^{-06}$& 589.01  &$4.592 \times10^{-15}$& 537.8 \\
+&$3.184\times10^{-10}$& 616.24  &$5.152 \times10^{-18}$& 564.6 \\
+&$1.116\times10^{-14}$& 643.29  &$                   $&       \\
+&$3.737\times10^{-17}$& 670.83  &$                   $&       \\
+\hline 8                                   
+&$4.609\times10^{-06}$& 674.46  &$1.816\times10^{-16}$& 595.5 \\
+&$3.034\times10^{-10}$& 701.74  &$5.040\times10^{-18}$& 622.3 \\
+&$1.060\times10^{-14}$& 727.74  &$                   $&       \\
+&$3.646\times10^{-17}$& 755.58  &$                   $&       \\
 \hline
 \end{tabular}
 \caption{Mechanics equation residual norms.}
@@ -541,39 +540,37 @@ that the lower bound case exhibits significantly weaker coupling than
 the upper bound case. In the latter, variation in the common
 deformation gradient, $\delta \bF$, causes an instantaneous variation
 in \mbox{$\delta p^{\mathrm{f}} \approx O(\kappa^{\mathrm{f}} \delta
-  \bF:\bF^{-\mathrm{T}})$} and in \mbox{$\frac{1}{3}
-  \delta\mathrm{tr}[\Bsigma^{c}] \approx O(\kappa^{\mathrm{c}}
-  \delta \bF:\bF^{-\mathrm{T}})$}, where $\kappa^{\mathrm{c}}$ is the
-bulk modulus of the solid. The ratio $\frac{\delta
-  p^{\mathrm{f}}}{\frac{1}{3} \delta
-  \mathrm{tr}[\Bsigma^{c}]}$ is therefore \mbox{$\approx
-  O(\kappa^{\mathrm{f}}/\kappa^{\mathrm{c}}) \gg 1$}.
+\bF:\bF^{-\mathrm{T}})$} and in \mbox{$\frac{1}{3} \delta\mathrm{tr}
+  [\Bsigma^{c}] \approx O(\kappa^{\mathrm{c}} \delta \bF:\bF ^
+  {-\mathrm{T}})$}, where $\kappa^{\mathrm{c}}$ is the bulk modulus of
+the solid. The ratio $\frac{\delta p^{\mathrm{f}}}{\frac{1}{3} \delta
+  \mathrm{tr}[\Bsigma^{c}]}$ is therefore \mbox{$\approx O(\kappa ^
+  {\mathrm{f}}/\kappa^{\mathrm{c}}) \gg 1$}.
 
 The strength of coupling between the equations plays a principal role
 in the rate of convergence of the solution, as observed in
 Table~\ref{resnorms}, where the residual norms of the equilibrium
-equation (and corresponding CPU times in seconds for an
-\mbox{Intel\textregistered\ Xeon} 3.4 GHz machine) are reported for
-the first 8 iterations of each of the two cases. Recall that the
-staggered scheme involves solution of the mechanics equation keeping
-the concentrations fixed, and the mass transport equation keeping the
-displacements fixed, in turn, until the solution converges. The table
-does not report the value of the residual norms arising from the
-solution of the mass transport equation for the fluid, which occurs
-after each reported solve of the of the mechanics equation. Although
-the initial mechanics residual norms in successive passes are
-decreasing linearly in both cases, the rapid decrease in this quantity
-in the weakly-coupled case ensures convergence in far fewer iterations
-than the strongly coupled case. Thus, the corresponding CPU times
-reported are also significantly lower for the weakly coupled case,
-which is is advantageous. In addition to being more physical, as
-argued below, the lower bound, weakly-coupled case makes it feasible
-to drive problems to longer, physiologically-relevant time-scales
-through the use of larger time steps. Motivated mainly by this
-recognition that the lower bound model for solid-fluid mechanical
-coupling ensures convergence to a self-consistent solution in just a
-few passes of the staggered solution scheme, it is used in the final
-example in this chapter.
+equation (and corresponding CPU times in seconds for an \mbox{Intel%
+  \textregistered\ Xeon} 3.4 GHz machine) are reported for the first 8
+iterations of each of the two cases. Recall that the staggered scheme
+involves solution of the mechanics equation keeping the concentrations
+fixed, and the mass transport equation keeping the displacements
+fixed, in turn, until the solution converges. The table does not
+report the value of the residual norms arising from the solution of
+the mass transport equation for the fluid, which occurs after each
+reported solve of the of the mechanics equation. Although the initial
+mechanics residual norms in successive passes are decreasing linearly
+in both cases, the rapid decrease in this quantity in the
+weakly-coupled case ensures convergence in far fewer iterations than
+the strongly coupled case. Thus, the corresponding CPU times reported
+are also significantly lower for the weakly coupled case, which is is
+advantageous. In addition to being more physical, as argued below, the
+lower bound, weakly-coupled case makes it feasible to drive problems
+to longer, physiologically-relevant time-scales through the use of
+larger time steps. Motivated mainly by this recognition that the lower
+bound model for solid-fluid mechanical coupling ensures convergence to
+a self-consistent solution in just a few passes of the staggered
+solution scheme, it is used in the final example in this chapter.
 
 Note that the individual balance of linear momentum equations for the
 solid collagenous and fluid phases with the momentum transfer terms
@@ -639,11 +636,10 @@ higher, as seen in Figure~\ref{after_growth}. On performing a uniaxial
 tension test on the tendon before and after growth, it is observed
 (Figure~\ref{stress_strain}) that the grown tissue is stiffer and
 stronger due to its higher collagen concentration. Qualitatively, this
-compares favourably with the experimental work of
-\citet{arrudaetal05}, where self-organised tendon constructs after
-growth induced by cyclic stretching are found to contain more collagen
-and become more stiff (see Figure~\ref{experiment-before-after%
--growth}).
+compares favourably with the experimental work of \citet{arrudaetal%
+  05}, where self-organised tendon constructs after growth induced by
+cyclic stretching are found to contain more collagen and become more
+stiff (see Figure~\ref{experiment-before-after-growth}).
 
 \begin{figure}[!hpt]
   \centering
@@ -661,8 +657,9 @@ and become more stiff (see Figure~\ref{experiment-before-after%
       \citep{arrudaetal05}.}
     \label{experiment-before-after-growth}
   \end{center}
-  {The stress (MPa) vs strain response of self-organised tendon
-    constructs before and after growth induced by cyclic stretching.}
+      {The stress (MPa) vs strain response of self-organised tendon
+        constructs before and after growth induced by cyclic
+        stretching.}
 \end{figure}
 
 There is a rapid, fluid transport-dominated swelling of the tendon

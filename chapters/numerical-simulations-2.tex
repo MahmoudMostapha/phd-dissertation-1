@@ -54,27 +54,26 @@ In the numerical implementation presented in Chapter~\ref{numerical%
 imposed by treating the tissue as a whole and solving a summation of
 Equation~(\ref{localbalanceofmomentum}) over all species. This
 simplification necessitated additional assumptions on the underlying
-micro-mechanics, and these were discussed in
-Section~\ref{constriction-1}. In contrast, the implementation used in
-this chapter solves the {\em detailed} momentum balance equations;
-enforcing the balance of momentum for each species separately. The
-coupling between the mechanics equations of the individual species is
-introduced by specifying momentum transfer terms, $\bq^{\iota}$,
-arising from frictional interaction as discussed in
+micro-mechanics, and these were discussed in Section~\ref{constrict%
+  ion-1}. In contrast, the implementation used in this chapter solves
+the {\em detailed} momentum balance equations; enforcing the balance
+of momentum for each species separately. The coupling between the
+mechanics equations of the individual species is introduced by
+specifying momentum transfer terms, $\bq^{\iota}$, arising from
+frictional interaction as discussed in
 Section~\ref{eu-interaction-forces}.
 
-The balance of mass~(\ref{localbalanceofmass}) and
-momentum~(\ref{localbalanceofmomentum}) equations for the solid
-collagen are solved in the reference configuration of the tissue,
-$\Omega_{0}$, and the balance of mass~(\ref{eu-localbalanceofmass})
-and momentum~(\ref{eu-localbalanceofmomentum}) equations for the fluid
+The balance of mass~(\ref{localbalanceofmass}) and momentum~(\ref%
+{localbalanceofmomentum}) equations for the solid collagen are solved
+in the reference configuration of the tissue, $\Omega_{0}$, and the
+balance of mass~(\ref{eu-localbalanceofmass}) and
+momentum~(\ref{eu-localbalanceofmomentum}) equations for the fluid
 phase are solved in the current configuration, $\Omega_{t}$. Recall
 that this choice is justified because we know the reference
 configuration of the solid phase of the tissue. These equations, along
 with the saturation constraint discussed below, are solved
-simultaneously for the for the solid
-concentration,~$\rho_{0}^{\mathrm{c}}$, and
-displacement,~$\bu^{\mathrm{c}}$; and the fluid
+simultaneously for the for the solid concentration,~$\rho_{0} ^
+{\mathrm{c}}$, and displacement,~$\bu^{\mathrm{c}}$; and the fluid
 concentration,~$\rho^{\mathrm{f}}$, velocity,~$\bv^{\mathrm{f}}$, and
 pressure,~$p^{\mathrm{f}}$. Variable-order backward difference
 formulae \citep{leveque2007} are used for forwarding the equations
@@ -83,10 +82,10 @@ through time.
 In the interest of generality, the formulation and corresponding
 implementation presented in Chapters~\ref{lagrangian-perspective} and
 \ref{numerical-simulations-1} allowed for the possibility of
-cavitation in tissues under certain ex~vivo/in~vitro
-conditions. However, since it is well established that under normal
-physiological conditions soft tissues are fully saturated by the
-fluid, this condition will be imposed in the following calculations.
+cavitation in tissues under certain ex~vivo/in~vitro conditions.
+However, since it is well established that under normal physiological
+conditions soft tissues are fully saturated by the fluid, this
+condition will be imposed in the following calculations.
 
 The concentration of each species~$\iota$ can be expressed as the
 product of two non-negative scalar fields: $\rho^\iota = \phi^\iota
@@ -351,8 +350,8 @@ at the centre of the top edge for the duration of the test in both
 these cases, it is observed that the dynamic case decays gradually and
 has oscillations (Figure~\ref{velocity-evolution-dynamic}) while the
 quasistatic case reaches a higher magnitude, and decays nearly
-instantaneously without manifesting oscillations
-(Figure~\ref{velocity-evolution-quasistatic}).
+instantaneously without manifesting oscillations (Figure~\ref%
+{velocity-evolution-quasistatic}).
 
 \begin{figure}[!hptb]
   \centering
@@ -518,12 +517,12 @@ the remainder of the test. For the solid phase, this translates to
 holding one of the longitudinal edges fixed while subjecting the other
 to the suitable displacement load. The lateral edges of the solid
 remain traction free. For the fluid, there is no flow relative to the
-solid at the longitudinal edges, i.e., $\bv^{\mathrm{f}} =
-\bv^{\mathrm{c}}$. Since we are simulating the tissue being held by
-grips at the longitudinal edges, this boundary condition ensures that
-there is no outflow or inflow along those edges. The lateral edges
-expose the fluid to the bath, and therefore the fluid pressure is
-equated to that of the bath, 0~MPa, along those edges.
+solid at the longitudinal edges, i.e., $\bv^{\mathrm{f}} = \bv ^
+{\mathrm{c}}$. Since we are simulating the tissue being held by grips
+at the longitudinal edges, this boundary condition ensures that there
+is no outflow or inflow along those edges. The lateral edges expose
+the fluid to the bath, and therefore the fluid pressure is equated to
+that of the bath, 0~MPa, along those edges.
 
 Figure~\ref{poro-stress-relax-0p01} shows the stress relaxation in a
 quasistatic calculation\footnote{Since the displacement condition
@@ -545,10 +544,10 @@ In order to study the effects of the load rate on the mechanical
 response, the next test doubles the strain rate to $\dot{\epsilon} =
 0.02$ Hz. The tissue is subjected to the same maximum strain of 0.085,
 now in 4.25~s, and is held fixed for the remainder of the test. The
-stress relaxation resulting from this test is shown in
-Figure~\ref{poro-stress-relax-0p02}. The initial peak stress is now
-increased; an observation which is in agreement with classical results
-in viscoelasticity theory. This is because the increased strain rate
+stress relaxation resulting from this test is shown in Figure~\ref{%
+  poro-stress-relax-0p02}. The initial peak stress is now increased;
+an observation which is in agreement with classical results in
+viscoelasticity theory. This is because the increased strain rate
 results in an increased relative velocity between the phases
 initially, which correspondingly increases the frictional interaction
 between the phases.
@@ -654,14 +653,14 @@ flow.
 When this average strain rate is decreased to $\bar{\dot{\epsilon}} =
 0.001$ Hz, (1/10$^\mathrm{th}$ the rate of the preceding calculation),
 the relative velocity between the phases correspondingly decreases,
-resulting in reduced dissipation and area of the hysteresis loop
-(see Figure~\ref{medium-hysteresis-dynamic-0p001-d1p037}). In other
-words, this slower process proceeds closer to thermodynamic
-equilibrium. In an analogous comparison, when the average strain rate
-is maintained at $\bar{\dot{\epsilon}} = 0.01$ Hz, but the magnitude
-of the frictional coefficient tensor is increased by a factor of 10 to
-$D=10.37$ MPa.s.mm$^{-2}$, it is observed that the dynamic effects of
-the fluid flow are much more prominent (as observed in Figure~\ref%
+resulting in reduced dissipation and area of the hysteresis loop (see
+Figure~\ref{medium-hysteresis-dynamic-0p001-d1p037}). In other words,
+this slower process proceeds closer to thermodynamic equilibrium. In
+an analogous comparison, when the average strain rate is maintained at
+$\bar{\dot{\epsilon}} = 0.01$ Hz, but the magnitude of the frictional
+coefficient tensor is increased by a factor of 10 to $D=10.37$
+MPa.s.mm$^{-2}$, it is observed that the dynamic effects of the fluid
+flow are much more prominent (as observed in Figure~\ref%
 {medium-hysteresis-dynamic-0p01-d10p37}). This is because the
 comparable strain rates ensure similar relative velocities between the
 phases (in the calculations corresponding to Figures~\ref{medium%
@@ -685,48 +684,53 @@ case starts out stiffer, and the viscoelastic model fails to capture
 any of the dynamic effects arising from the fluid flow.
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/medium-hysteresis-static-0p01-d1p037}
-\caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.01$ Hz, $D=1.037$
-  MPa.s.mm$^{-2}$.}
-\label{medium-hysteresis-static-0p01-d1p037}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/poro-elastic/medium-hysteresis-static%
+    -0p01-d1p037}
+  \caption{Quasistatic poroelastic model, $\dot{\epsilon}=0.01$ Hz,
+    $D=1.037$ MPa.s.mm$^{-2}$.}
+  \label{medium-hysteresis-static-0p01-d1p037}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d1p037}
-\caption{Dynamic poroelastic model, $\bar{\dot{\epsilon}}=0.01$ Hz,
-  $D=1.037$ MPa.s.mm$^{-2}$.}
-\label{medium-hysteresis-dynamic-0p01-d1p037}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic%
+    -0p01-d1p037}
+  \caption{Dynamic poroelastic model, $\bar{\dot{\epsilon}}=0.01$ Hz,
+    $D=1.037$ MPa.s.mm$^{-2}$.}
+  \label{medium-hysteresis-dynamic-0p01-d1p037}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p001-d1p037}
-\caption{Dynamic poroelastic model, $\bar{\dot{\epsilon}}=0.001$ Hz,
-  $D=1.037$ MPa.s.mm$^{-2}$.}
-\label{medium-hysteresis-dynamic-0p001-d1p037}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic%
+    -0p001-d1p037}
+  \caption{Dynamic poroelastic model, $\bar{\dot{\epsilon}}=0.001$ Hz,
+    $D=1.037$ MPa.s.mm$^{-2}$.}
+  \label{medium-hysteresis-dynamic-0p001-d1p037}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic-0p01-d10p37}
-\caption{Dynamic poroelastic model, $\bar{\dot{\epsilon}}=0.01$ Hz,
-  $D=10.37$ MPa.s.mm$^{-2}$.}
-\label{medium-hysteresis-dynamic-0p01-d10p37}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/poro-elastic/medium-hysteresis-dynamic%
+    -0p01-d10p37}
+  \caption{Dynamic poroelastic model, $\bar{\dot{\epsilon}}=0.01$ Hz,
+    $D=10.37$ MPa.s.mm$^{-2}$.}
+  \label{medium-hysteresis-dynamic-0p01-d10p37}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/pulling/plots/visco-elastic/medium-hysteresis-visco-0p01-t0p3}
-\caption{Dynamic viscoelastic model, $\dot{\epsilon}=0.01$ Hz,
-  $\tau=0.3$ s.}
-\label{medium-hysteresis-visco-0p01-t0p3}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/pulling/plots/visco-elastic/medium-hysteresis-visco%
+    -0p01-t0p3}
+  \caption{Dynamic viscoelastic model, $\dot{\epsilon}=0.01$ Hz,
+    $\tau=0.3$ s.}
+  \label{medium-hysteresis-visco-0p01-t0p3}
 \end{figure}
 
 \section{Mechanics and the growing tumour}
@@ -745,12 +749,12 @@ mechanical environment on its growth.
 Similar to the approach followed in Section~\ref{simple-physics}, the
 computations presented below serve only to demonstrate aspects of the
 coupled physics underlying the problem, and the actual constitutive
-modelling choices (and corresponding numerical parameters) chosen are
-not intended for direct comparison with experiment. Incorporating more
-realistic modelling choices (such as the use of more sophisticated
-biochemistry involving additional species \citep{tjacks2000}), and the
-ascertainment of corresponding parameters, is a direction for future
-work.
+modelling choices made (and the corresponding numerical parameters
+used) are not intended for direct comparison with experiment.
+Incorporating more realistic modelling choices (such as the use of
+more sophisticated biochemistry involving additional species
+\citep{tjacks2000}), and the ascertainment of corresponding
+parameters, is a direction for future work.
 
 The computations presented in this section are motivated by and aim to
 replicate a fundamental experimental observation: Compressive solid
@@ -821,27 +825,27 @@ exactly the same as the ratio of the final to initial concentrations
 1.1~kg.m$^{-3}$/1~kg.m$^{-3}$, as one would expect.
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/isotropic-swelling-0}
-\caption{A semicircular tumour at time $t=0$ days.}
-\label{tumour-isotropic-swelling-0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/isotropic-swelling-0}
+  \caption{A semicircular tumour at time $t=0$ days.}
+  \label{tumour-isotropic-swelling-0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/isotropic-swelling-100}
-\caption{A semicircular tumour at time $t=100$ days.}
-\label{tumour-isotropic-swelling-100}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/isotropic-swelling-100}
+  \caption{A semicircular tumour at time $t=100$ days.}
+  \label{tumour-isotropic-swelling-100}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/cancer/isotropic-swelling-area-evolution}
-\caption{The area of the tumour evolving over 100 days.}
-\label{tumour-isotropic-area-evolution}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/cancer/isotropic-swelling-area-evolution}
+  \caption{The area of the tumour evolving over 100 days.}
+  \label{tumour-isotropic-area-evolution}
 \end{figure}
 
 \subsection{A constraining wall and soft contact mechanics}
@@ -876,30 +880,32 @@ the velocity fields on the impinging boundary of the tumour remain
 smooth in time.
 
 Starting with the same initial conditions as the previous test
-(Figure~\ref{tumour-isotropic-swelling-0}),
-Figure~\ref{tumour-constrained-swelling-120} depicts the compressive
-horizontal stress built-up in the solid after 120~days due to the
-presence of the wall (not visible in the figure). Notice that the
-velocity vectors are much smaller in the constrained
-direction. Figure~\ref{tumour-constrained-stress-evolution} shows the
-time evolution of the compressive horizontal stress at a point near
-the extreme right of the domain. The stress increases sharply as the
-point gets close to the wall, but remains smooth in time.
+(Figure~\ref{tumour-isotropic-swelling-0}), Figure~\ref{tumour%
+  -constrained-swelling-120} depicts the compressive horizontal stress
+built-up in the solid after 120~days due to the presence of the wall
+(not visible in the figure). Notice that the velocity vectors are much
+smaller in the constrained direction. Figure~\ref{tumour-constrain%
+  ed-stress-evolution} shows the time evolution of the compressive
+horizontal stress at a point near the extreme right of the domain. The
+stress increases sharply as the point gets close to the wall, but
+remains smooth in time.
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/constrained-swelling-120}
-\caption{The growing tumour constrained by a wall at time $t=120$ days.}
-\label{tumour-constrained-swelling-120}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/constrained-swelling-120}
+  \caption{The growing tumour constrained by a wall at time $t=120$
+    days.}
+  \label{tumour-constrained-swelling-120}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
-eulerian/cancer/constrained-stress-evolution}
-\caption{The horizontal stress in the tumour evolving over 120 days.}
-\label{tumour-constrained-stress-evolution}
+  \centering
+  \includegraphics[width=0.6\textwidth,angle=270]{images/examples/%
+    eulerian/cancer/constrained-stress-evolution}
+  \caption{The horizontal stress in the tumour evolving over 120
+    days.} 
+  \label{tumour-constrained-stress-evolution}
 \end{figure}
 
 \clearpage
@@ -919,11 +925,10 @@ with the cellular traction forces on the surrounding medium:
 \begin{equation}
 \Bsigma^{\mathrm{c}} =
 \underbrace{\frac{1}{J}\ \frac{\rho_{0}^{\mathrm{c}}}
-  {\tilde{\rho_{0}^{\mathrm{c}}}}\    
-\frac{\partial \hat{\psi^{\mathrm{c}}}}{\partial
-  \bF}  \bF^{\mathrm{T}} }_{\text{Passive}}
-+ \underbrace{\tau\ \rho^{\mathrm{c}} \rho^{\mathrm{cell}}
-(N - \rho^{\mathrm{cell}})\ \bone.
+  {\tilde{\rho_{0}^{\mathrm{c}}}}\ \frac{\partial
+    \hat{\psi^{\mathrm{c}}}}{\partial \bF} \bF^{\mathrm{T}}
+}_{\text{Passive}} + \underbrace{\tau\ \rho^{\mathrm{c}}
+  \rho^{\mathrm{cell}} (N - \rho^{\mathrm{cell}})\ \bone.
 }_{\text{Active}}
 \label{activepassivesplit}
 \end{equation}
@@ -955,21 +960,21 @@ regions of higher cell concentrations pull their surrounding ECM
 neighbourhoods in greater.
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/homogeneous-inward-tug}
-\caption{Homogeneous inward pull due to a uniform distribution of
-  cells.}
-\label{tumour-homogeneous-inward-tug}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/homogeneous-inward-tug}
+  \caption{Homogeneous inward pull due to a uniform distribution of
+    cells.}
+  \label{tumour-homogeneous-inward-tug}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/heterogeneous-inward-tug}
-\caption{Heterogeneous traction due to a non-uniform distribution of
-  cells.}
-\label{tumour-heterogeneous-inward-tug}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/heterogeneous-inward-tug}
+  \caption{Heterogeneous traction due to a non-uniform distribution of
+    cells.}
+  \label{tumour-heterogeneous-inward-tug}
 \end{figure}
 
 \clearpage
@@ -982,16 +987,16 @@ concentrations were fixed spatially and temporally. In this section,
 we allow for the cells to proliferate and move via diffusion and
 haptotaxis (again, following the work of \citet{namyetal:04}). We
 solve the mass transport equation (\ref{eu-localbalanceofmass}) for
-the cells to determine their current concentration
-fields. In order to account for the aforementioned modes of mass
-transport, we specify the following constitutive form for the cell
-mass flux:
+the cells to determine their current concentration fields. In order to
+account for the aforementioned modes of mass transport, we specify the
+following constitutive form for the cell mass flux:
 
 \begin{equation}
-\rho^{\mathrm{cell}}\ \bv^{\mathrm{cell}} = \underbrace{h\ \rho^{\mathrm{cell}}\
-\mathrm{grad}\left(\rho^{\mathrm{c}}\right)}_{\text{Haptotactic flux}}
--\underbrace{D^{\mathrm{cell}}\ \mathrm{grad}\left(\rho^{\mathrm{cell}}\right)
-}_{\text{Cell diffusion}},
+\rho^{\mathrm{cell}}\ \bv^{\mathrm{cell}} =
+\underbrace{h\ \rho^{\mathrm{cell}}\ \mathrm{grad}
+  \left(\rho^{\mathrm{c}}\right)}_{\text{Haptotactic flux}}
+-\underbrace{D^{\mathrm{cell}}\ \mathrm{grad}
+  \left(\rho^{\mathrm{cell}}\right) }_{\text{Cell diffusion}},
 \end{equation}
 
 \noindent where $h$ is the haptotactic coefficient and
@@ -1018,35 +1023,35 @@ deformation direction of the ECM induced by the cell traction.
 \clearpage
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/diffusing-proliferating-cells-0}
-\caption{The cells diffusing and proliferating at time $t=0$ days.}
-\label{tumour-diffusion-proliferation-0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/diffusing-proliferating-cells-0}
+  \caption{The cells diffusing and proliferating at time $t=0$ days.}
+  \label{tumour-diffusion-proliferation-0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/diffusing-proliferating-cells-33}
-\caption{The cells diffusing and proliferating at time $t=33$ days.}
-\label{tumour-diffusion-proliferation-33}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/diffusing-proliferating-cells-33}
+  \caption{The cells diffusing and proliferating at time $t=33$ days.}
+  \label{tumour-diffusion-proliferation-33}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/diffusing-proliferating-cells-67}
-\caption{The cells diffusing and proliferating at time $t=67$ days.}
-\label{tumour-diffusion-proliferation-67}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/diffusing-proliferating-cells-67}
+  \caption{The cells diffusing and proliferating at time $t=67$ days.}
+  \label{tumour-diffusion-proliferation-67}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/diffusing-proliferating-cells-100}
-\caption{The cells diffusing and proliferating at time $t=100$ days.}
-\label{tumour-diffusion-proliferation-100}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/diffusing-proliferating-cells-100}
+  \caption{The cells diffusing and proliferating at time $t=100$ days.}
+  \label{tumour-diffusion-proliferation-100}
 \end{figure}
 
 \clearpage
@@ -1057,63 +1062,63 @@ the cells apply on their ECM neighbourhoods. We start this test with
 the same initial conditions for the cells as the previous calculation
 (a cell-rich bulb at the centre of the domain), but in order to induce
 haptotaxis, we begin with the heterogenous ECM concentration (varying
-between 0.5~kg.m$^{-3}$ and 1.5~kg.m$^{-3}$), seen in
-Figure~\ref{heterogeneous-ecm-concentration}. In these tests, the
-haptotactic coefficient $h$ is 0.1~mm$^2$.day$^{-1}$.mm$^3$.kg$^{-1}$.
-Figures~\ref{tumour-haptotaxis-proliferation-0}--%
-\ref{tumour-haptotaxis-proliferation-10} show snapshots of the cells
-undergoing haptotaxis and proliferating during the course of the
-test. The colour contours provide the evolving cell concentration
-fields (in~kg.m$^{-3}$) and the arrows provide the deformation
-direction of the ECM, induced by the cell traction. We observe that
-the cells migrate toward areas of higher ECM while proliferating. Note
-that the directionality of the cell traction field changes
-correspondingly with the concentration field, as noted by the lengths
-and directions of the arrows.
+between 0.5~kg.m$^{-3}$ and 1.5~kg.m$^{-3}$), seen in Figure~\ref{%
+  heterogeneous-ecm-concentration}. In these tests, the haptotactic
+coefficient $h$ is 0.1~mm$^2$.day$^{-1}$.mm$^3$.kg$^{-1}$.
+Figures~\ref{tumour-haptotaxis-proliferation-0}--\ref{tumour-hapto%
+  taxis-proliferation-10} show snapshots of the cells undergoing
+haptotaxis and proliferating during the course of the test. The colour
+contours provide the evolving cell concentration fields
+(in~kg.m$^{-3}$) and the arrows provide the deformation direction of
+the ECM, induced by the cell traction. We observe that the cells
+migrate toward areas of higher ECM while proliferating. Note that the
+directionality of the cell traction field changes correspondingly with
+the concentration field, as noted by the lengths and directions of the
+arrows.
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/heterogeneous-ecm-concentration}
-\caption{Heterogeneous extra-cellular matrix concentration
-  (kg.m$^{-3}$).}
-\label{heterogeneous-ecm-concentration}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/heterogeneous-ecm-concentration}
+  \caption{Heterogeneous extra-cellular matrix concentration
+    (kg.m$^{-3}$).}
+  \label{heterogeneous-ecm-concentration}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/haptotaxis-proliferating-cells-0}
-\caption{Proliferating cells undergoing haptotaxis at time $t=0$
-  days.}
-\label{tumour-haptotaxis-proliferation-0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/haptotaxis-proliferating-cells-0}
+  \caption{Proliferating cells undergoing haptotaxis at time $t=0$
+    days.}
+  \label{tumour-haptotaxis-proliferation-0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/haptotaxis-proliferating-cells-3p3}
-\caption{Proliferating cells undergoing haptotaxis at time $t=33$
-  days.} 
-\label{tumour-haptotaxis-proliferation-3p3}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/haptotaxis-proliferating-cells-3p3}
+  \caption{Proliferating cells undergoing haptotaxis at time $t=33$
+    days.} 
+  \label{tumour-haptotaxis-proliferation-3p3}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/haptotaxis-proliferating-cells-6p7}
-\caption{Proliferating cells undergoing haptotaxis at time $t=67$
-  days.}
-\label{tumour-haptotaxis-proliferation-6p7}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/haptotaxis-proliferating-cells-6p7}
+  \caption{Proliferating cells undergoing haptotaxis at time $t=67$
+    days.}
+  \label{tumour-haptotaxis-proliferation-6p7}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/haptotaxis-proliferating-cells-10}
-\caption{Proliferating cells undergoing haptotaxis at time $t=100$
-  days.}
-\label{tumour-haptotaxis-proliferation-10}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/haptotaxis-proliferating-cells-10}
+  \caption{Proliferating cells undergoing haptotaxis at time $t=100$
+    days.}
+  \label{tumour-haptotaxis-proliferation-10}
 \end{figure}
 
 While the magnitudes for the cell diffusivity, $D^{\mathrm{cell}}$,
@@ -1126,15 +1131,15 @@ for mass transport are combined, haptotaxis is the dominant mechanism.
 \subsection{Coupling the phenomena}
 \label{cacophonous-medley}
 
-With the individual phenomena explored, we are now ready to solve
-the coupled problem described initially. The range of physics
-incorporated into this problem include proliferating cells undergoing
-both diffusion and haptotaxis, a rate law for the production of
-additional ECM which scales linearly with the concentration of
-cells, the stress within the cells induced by their traction, the
-hyperelastic response of the ECM, isotropic kinematic swelling
-associated with the increase in tumour mass, and finally, this
-swelling constrained by the presence of a wall.
+With the individual phenomena explored, we are now ready to solve the
+coupled problem described initially. The range of physics incorporated
+into this problem include proliferating cells undergoing both
+diffusion and haptotaxis, a rate law for the production of additional
+ECM which scales linearly with the concentration of cells, the stress
+within the cells induced by their traction, the hyperelastic response
+of the ECM, isotropic kinematic swelling associated with the increase
+in tumour mass, and finally, this swelling constrained by the presence
+of a wall.
 
 Figures~\ref{tumour-growth-constrained-0}--\ref{tumour-growth%
   -constrained-5} show snapshots of the growing tumour constrained by
@@ -1170,59 +1175,59 @@ literature is needed before a conclusive statement can be made.
 \vspace{1cm} %Hack
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-0.eps}
-\caption{A constrained growing tumour at $t=0$ days.}
-\label{tumour-growth-constrained-0}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-0.eps}
+  \caption{A constrained growing tumour at $t=0$ days.}
+  \label{tumour-growth-constrained-0}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-1.eps}
-\caption{A constrained growing tumour at $t=20$ days.}
-\label{tumour-growth-constrained-1}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-1.eps}
+  \caption{A constrained growing tumour at $t=20$ days.}
+  \label{tumour-growth-constrained-1}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-2.eps}
-\caption{A constrained growing tumour at $t=40$ days.}
-\label{tumour-growth-constrained-2}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-2.eps}
+  \caption{A constrained growing tumour at $t=40$ days.}
+  \label{tumour-growth-constrained-2}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-3.eps}
-\caption{A constrained growing tumour at $t=60$ days.}
-\label{tumour-growth-constrained-3}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-3.eps}
+  \caption{A constrained growing tumour at $t=60$ days.}
+  \label{tumour-growth-constrained-3}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-4.eps}
-\caption{A constrained growing tumour at $t=80$ days.}
-\label{tumour-growth-constrained-4}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-4.eps}
+  \caption{A constrained growing tumour at $t=80$ days.}
+  \label{tumour-growth-constrained-4}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-5.eps}
-\caption{A constrained growing tumour at $t=100$ days.}
-\label{tumour-growth-constrained-5}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-5.eps}
+  \caption{A constrained growing tumour at $t=100$ days.}
+  \label{tumour-growth-constrained-5}
 \end{figure}
 
 \begin{figure}[!hptb]
-\centering
-\includegraphics[width=0.9\textwidth]{images/examples/%
-eulerian/cancer/growing-tumour-no-wall-4}
-\caption{An unconstrained growing tumour at $t=80$ days.}
-\label{tumour-growth-no-wall-4}
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/examples/%
+    eulerian/cancer/growing-tumour-no-wall-4}
+  \caption{An unconstrained growing tumour at $t=80$ days.}
+  \label{tumour-growth-no-wall-4}
 \end{figure}
 
 %
