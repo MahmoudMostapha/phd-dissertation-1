@@ -14,7 +14,7 @@ to then modify it to write your own dissertation):
 - Fetch a copy of this repository from GitHub.
 - Make sure you have a *reasonable* LaTeX stack installed on your
   machine.
-- Run `make`
+- Run `make` in the folder you fetched the repository to.
 
 (c) Harish Narayanan, 2007
 
