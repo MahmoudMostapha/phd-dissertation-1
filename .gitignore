@@ -1,5 +1,5 @@
-syntax: glob
 *~
+\#*#
 *.aux
 *.bbl
 *.blg
@@ -15,6 +15,3 @@ syntax: glob
 *.tmp
 *.toc
 .DS_Store
-
-syntax: regexp
-.*\#.*\#$
